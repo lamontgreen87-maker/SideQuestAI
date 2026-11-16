@@ -772,18 +772,102 @@ def export_site(output_dir: Path = SITE_DIR, bot: Any = None) -> Dict[str, Any]:
     }
 
 
+def _merge_remote_feed(bot: Any) -> int:
+    """Pull origin/main feed and merge any unseen article IDs into local ScienceBot DB."""
+    repo_root = BASE_DIR.parent
+    git_bin = shutil.which("git")
+    if not git_bin:
+        return 0
+    try:
+        subprocess.run(
+            [git_bin, "-C", str(repo_root), "fetch", "origin", "main"],
+            capture_output=True,
+            text=True,
+            timeout=25,
+        )
+        show = subprocess.run(
+            [git_bin, "-C", str(repo_root), "show", "origin/main:hive_mind/memory/science_feed.json"],
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+        if show.returncode != 0 or not show.stdout.strip():
+            return 0
+        remote_data = json.loads(show.stdout)
+        remote_feed = remote_data.get("feed", []) if isinstance(remote_data, dict) else []
+        local_ids = {a.get("id") for a in bot.feed}
+        added = 0
+        for item in remote_feed:
+            if isinstance(item, dict) and item.get("id") and item["id"] not in local_ids:
+                bot._upsert_article_db(item)
+                added += 1
+        if added:
+            bot.feed = bot._load_articles_from_db()
+            bot._save_state()
+        return added
+    except Exception:
+        return 0
+
+
+def _push_git_sync() -> bool:
+    """Commit and push merged science_feed.json + site/ to origin/main (best-effort)."""
+    repo_root = BASE_DIR.parent
+    git_bin = shutil.which("git")
+    if not git_bin:
+        return False
+    try:
+        subprocess.run(
+            [git_bin, "-C", str(repo_root), "add", "hive_mind/memory/science_feed.json", "hive_mind/site/"],
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+        diff = subprocess.run(
+            [git_bin, "-C", str(repo_root), "diff", "--cached", "--quiet"],
+            timeout=10,
+        )
+        if diff.returncode != 0:
+            subprocess.run(
+                [git_bin, "-C", str(repo_root), "commit", "-m", "Auto-sync ScienceBot articles"],
+                capture_output=True,
+                text=True,
+                timeout=20,
+            )
+        subprocess.run(
+            [git_bin, "-C", str(repo_root), "pull", "--no-rebase", "-X", "ours", "origin", "main"],
+            capture_output=True,
+            text=True,
+            timeout=25,
+        )
+        push = subprocess.run(
+            [git_bin, "-C", str(repo_root), "push", "origin", "main"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        return push.returncode == 0
+    except Exception:
+        return False
+
+
 def deploy_site(
     output_dir: Path = SITE_DIR,
     bot: Any = None,
     project_name: str = "sidequestai",
     branch: str = "main",
 ) -> Dict[str, Any]:
-    """Export static site and publish to Cloudflare Pages via wrangler."""
+    """Merge remote GitHub feed, export static site, push Git sync, and deploy to Cloudflare Pages."""
     with _DEPLOY_LOCK:
+        if bot is None:
+            bot = ScienceBot()
+        merged = _merge_remote_feed(bot)
+        bot._save_state()
         summary = export_site(output_dir=output_dir, bot=bot)
+        git_synced = _push_git_sync()
+
         npx_bin = shutil.which("npx")
         if not npx_bin:
-            return {**summary, "deployed": False, "error": "npx not found on PATH"}
+            return {**summary, "merged_from_remote": merged, "git_synced": git_synced, "deployed": False, "error": "npx not found on PATH"}
         cmd = [
             npx_bin,
             "wrangler",
@@ -803,6 +887,8 @@ def deploy_site(
         )
         return {
             **summary,
+            "merged_from_remote": merged,
+            "git_synced": git_synced,
             "deployed": proc.returncode == 0,
             "returncode": proc.returncode,
             "stdout": proc.stdout[-600:] if proc.stdout else "",
