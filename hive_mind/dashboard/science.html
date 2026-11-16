@@ -366,6 +366,7 @@
       <button id="runNowBtn" class="primary">Run Now</button>
       <button id="toggleBtn">Pause Bot</button>
       <button id="notifyBtn">Alerts: Off</button>
+      <button id="omnibusBtn" type="button" style="border-color: rgba(250, 204, 21, 0.5); color: #fde047;">Email Workup Omnibus</button>
     </div>
     <div class="config-row">
       <label class="time" for="providerSelect">AI Service:</label>
@@ -485,6 +486,26 @@
 
   <div class="feed-title" id="feedHeader">Live Science Updates</div>
   <div id="feedContainer"></div>
+
+  <div id="omnibusModal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.82);z-index:1000;align-items:center;justify-content:center;padding:16px;">
+    <div style="background:#0f172a;border:1px solid var(--border);border-radius:14px;max-width:860px;width:100%;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border);gap:10px;flex-wrap:wrap;">
+        <div>
+          <strong style="font-size:16px;color:#fde047;">Email Workup Omnibus</strong>
+          <div id="omnibusSummary" class="time">0 drafts</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <select id="omnibusHours" style="padding:5px 8px;border-radius:6px;">
+            <option value="24" selected>Last 24 hours</option>
+            <option value="72">Last 72 hours</option>
+            <option value="0">All ★ Empirical Leads</option>
+          </select>
+          <button id="closeOmnibusBtn" type="button" class="btn-secondary">Close</button>
+        </div>
+      </div>
+      <div id="omnibusBody" style="padding:14px 16px;overflow-y:auto;"></div>
+    </div>
+  </div>
 
   <script>
     let currentStatus = null;
@@ -937,6 +958,7 @@
                 ${isDataFirst(item) ? `<span class="badge" style="background:rgba(167,139,250,0.22);color:#c4b5fd;">Data-First (.hdf5)</span>` : ""}
                 ${isRealData(item) ? `<span class="badge" style="background:rgba(14,165,233,0.22);color:#38bdf8;">Real Data (GWTC/EHT)</span>` : ""}
                 ${item.is_unique ? `<span class="badge" style="background:rgba(250,204,21,0.18);color:#fde047;">${isDataFirst(item) ? "★ Novel Strain Lead" : "★ Empirical Lead"} (${escapeHtml(item.novelty_score || 0)}%)</span>` : (item.novelty_score ? `<span class="badge" style="background:rgba(148,163,184,0.16);color:#cbd5e1;">${escapeHtml(item.novelty_score)}% score</span>` : "")}
+                ${item.is_unique ? `<button type="button" class="btn-secondary" onclick="openSingleDraft('${escapeHtml(item.id)}')" style="padding:2px 8px;font-size:11px;border-color:rgba(250,204,21,0.45);color:#fde047;">Draft Email to Author</button>` : ""}
               </div>
               <span class="time">${escapeHtml(dt)}</span>
             </div>
@@ -1144,6 +1166,83 @@
 
     loadInitial().then(() => { refreshIndex(); connectStream(); renderMath(document.body); });
     window.addEventListener("load", () => renderMath(document.body));
+
+    const omnibusModal = document.getElementById("omnibusModal");
+    const omnibusBody = document.getElementById("omnibusBody");
+    const omnibusHours = document.getElementById("omnibusHours");
+    const omnibusSummary = document.getElementById("omnibusSummary");
+    const REVIEWED_KEY = "sidequestai_reviewed_drafts";
+    const getReviewed = () => {
+      try { return new Set(JSON.parse(localStorage.getItem(REVIEWED_KEY) || "[]")); } catch (_) { return new Set(); }
+    };
+    const toggleReviewed = (id, btn) => {
+      const s = getReviewed();
+      if (s.has(id)) s.delete(id); else s.add(id);
+      localStorage.setItem(REVIEWED_KEY, JSON.stringify([...s]));
+      if (btn) btn.textContent = s.has(id) ? "Reviewed ✓" : "Mark Reviewed";
+    };
+
+    function renderOmnibusDrafts(drafts, label) {
+      const reviewed = getReviewed();
+      omnibusSummary.textContent = `${drafts.length} draft(s) — ${label}`;
+      if (!drafts.length) {
+        omnibusBody.innerHTML = `<div class="empty">No ★ Empirical Leads found in this window. Try switching to 72 hours or All Leads.</div>`;
+        return;
+      }
+      omnibusBody.innerHTML = drafts.map((d, idx) => {
+        const rev = reviewed.has(d.id);
+        const authorLine = d.primary_author
+          ? `${escapeHtml(d.primary_author)}${d.primary_affiliation ? ` (${escapeHtml(d.primary_affiliation)})` : ""}`
+          : "Author lookup unavailable";
+        const mailHref = `mailto:${encodeURIComponent(d.primary_email || "")}?subject=${encodeURIComponent(d.subject || "")}&body=${encodeURIComponent(d.body || "")}`;
+        return `
+          <div style="border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:12px;background:rgba(15,23,42,0.75);opacity:${rev ? "0.65" : "1"};">
+            <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center;">
+              <strong style="color:#fde047;">#${idx + 1} · ${escapeHtml(d.title)}</strong>
+              <span class="time">${escapeHtml(String(d.created_at || "").slice(0, 16).replace("T", " "))} · ${escapeHtml(d.novelty_score || 0)}% score</span>
+            </div>
+            <div class="time" style="margin:4px 0 8px;">
+              <strong>Author:</strong> ${authorLine}
+              ${d.primary_email ? ` · <strong>Email:</strong> ${escapeHtml(d.primary_email)}` : ""}
+              ${d.source_url ? ` · <a href="${escapeHtml(d.source_url)}" target="_blank" rel="noopener" style="color:#38bdf8;">arXiv</a>` : ""}
+              ${d.inspire_url ? ` · <a href="${escapeHtml(d.inspire_url)}" target="_blank" rel="noopener" style="color:#38bdf8;">INSPIRE-HEP</a>` : ""}
+            </div>
+            <input id="draft-subj-${escapeHtml(d.id)}" type="text" value="${escapeHtml(d.subject)}" style="width:100%;margin-bottom:6px;padding:6px 8px;border-radius:6px;border:1px solid var(--border);background:#0b1120;color:var(--text);font-size:12px;" />
+            <textarea id="draft-body-${escapeHtml(d.id)}" rows="7" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);background:#0b1120;color:var(--text);font-size:12px;font-family:monospace;">${escapeHtml(d.body)}</textarea>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+              <a class="primary" href="${mailHref}" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:12px;display:inline-block;">Open in Email</a>
+              <button type="button" class="btn-secondary" onclick="navigator.clipboard.writeText(document.getElementById('draft-subj-${escapeHtml(d.id)}').value + '\\n\\n' + document.getElementById('draft-body-${escapeHtml(d.id)}').value); this.textContent='Copied!'; setTimeout(() => this.textContent='Copy Draft', 1500);" style="font-size:12px;">Copy Draft</button>
+              <button type="button" class="btn-secondary" onclick="toggleReviewed('${escapeHtml(d.id)}', this)" style="font-size:12px;">${rev ? "Reviewed ✓" : "Mark Reviewed"}</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    async function openOmnibus() {
+      omnibusModal.style.display = "flex";
+      omnibusBody.innerHTML = `<div class="time">Loading drafts and looking up INSPIRE-HEP authors...</div>`;
+      const hrs = Number(omnibusHours.value || 24);
+      const res = await fetch(`/api/science/author-omnibus?hours=${hrs}`);
+      const data = await res.json();
+      renderOmnibusDrafts(data.drafts || [], hrs > 0 ? `last ${hrs}h` : "all leads");
+    }
+
+    window.openSingleDraft = async (id) => {
+      omnibusModal.style.display = "flex";
+      omnibusBody.innerHTML = `<div class="time">Looking up author on INSPIRE-HEP...</div>`;
+      const res = await fetch(`/api/science/author-draft/${encodeURIComponent(id)}`);
+      const d = await res.json();
+      if (d.error) {
+        omnibusBody.innerHTML = `<div class="empty">${escapeHtml(d.error)}</div>`;
+        return;
+      }
+      renderOmnibusDrafts([d], "single article");
+    };
+
+    document.getElementById("omnibusBtn").onclick = openOmnibus;
+    omnibusHours.onchange = openOmnibus;
+    document.getElementById("closeOmnibusBtn").onclick = () => { omnibusModal.style.display = "none"; };
   </script>
 </body>
 </html>

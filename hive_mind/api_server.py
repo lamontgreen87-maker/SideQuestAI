@@ -254,6 +254,23 @@ async def update_science_config(req: ScienceConfigRequest):
     return {"status": status}
 
 
+@app.get("/api/science/author-draft/{article_id}")
+async def get_author_draft(article_id: str):
+    from author_outreach import build_author_draft
+    article = next((a for a in science_bot.feed if str(a.get("id")) == article_id), None)
+    if not article:
+        return JSONResponse({"error": "Article not found"}, status_code=404)
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, build_author_draft, article)
+
+
+@app.get("/api/science/author-omnibus")
+async def get_author_omnibus(hours: int = 24):
+    from author_outreach import build_author_omnibus
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, build_author_omnibus, list(science_bot.feed), hours)
+
+
 @app.get("/api/science/stream")
 async def stream_science_updates(request: Request):
     queue = science_bot.subscribe()
