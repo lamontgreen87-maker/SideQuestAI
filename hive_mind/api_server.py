@@ -195,6 +195,9 @@ class ScienceConfigRequest(BaseModel):
     provider: Optional[str] = None
     workers_per_run: Optional[int] = None
     research_phase: Optional[str] = None
+    schedule_enabled: Optional[bool] = None
+    schedule_start: Optional[str] = None
+    schedule_end: Optional[str] = None
 
 
 @app.on_event("startup")
@@ -244,6 +247,9 @@ async def update_science_config(req: ScienceConfigRequest):
         provider=req.provider,
         workers_per_run=req.workers_per_run,
         research_phase=req.research_phase,
+        schedule_enabled=req.schedule_enabled,
+        schedule_start=req.schedule_start,
+        schedule_end=req.schedule_end,
     )
     return {"status": status}
 

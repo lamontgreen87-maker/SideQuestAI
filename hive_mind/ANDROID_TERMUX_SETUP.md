@@ -1,20 +1,20 @@
-# Running Hive Science Bot on Android (Termux)
+# Running SideQuestAI ScienceBot on Android (Termux — No APK Needed)
 
 ## 1. Install Termux
 Install **Termux** from **F-Droid** or GitHub (avoid the outdated Play Store version).
 
-## 2. Install Python & Dependencies
+## 2. Clone & Run One-Step Phone Setup
 ```bash
-pkg update && pkg upgrade -y
-pkg install -y python git
-pip install fastapi uvicorn requests pydantic
+pkg install -y git
+git clone https://github.com/lamontgreen87-maker/SideQuestAI.git
+cd SideQuestAI/hive_mind
+chmod +x phone_setup.sh
+./phone_setup.sh
 ```
 
-## 3. Configure Your Free Groq API Key
-1. Create a free API key at <https://console.groq.com/keys>.
-2. In `hive_mind/`, copy `.env.example` to `.env` and paste your key:
+## 3. Add Your Free Groq API Key
+Edit `.env`:
 ```bash
-cp .env.example .env
 nano .env
 ```
 Set:
@@ -22,16 +22,21 @@ Set:
 BRAIN_PROVIDER=groq
 BRAIN_API_KEY=gsk_...
 BRAIN_MODEL=llama-3.3-70b-versatile
+SCIENCE_RESEARCH_PHASE=frontier
 SCIENCE_INTERVAL_MINUTES=30
+SCIENCE_SCHEDULE_ENABLED=1
+SCIENCE_SCHEDULE_START=22:00
+SCIENCE_SCHEDULE_END=07:00
 ```
 
-## 4. Start the Bot
+*(Optional — auto-publish to `sidequestai.org` from your phone: run `npx wrangler login` once in Termux.)*
+
+## 4. Start the Phone Bot
 ```bash
-chmod +x start_phone_bot.sh
 ./start_phone_bot.sh
 ```
-Open your phone's web browser (Chrome/Firefox) to:
-**`http://127.0.0.1:8000/science`**
+Open your phone's browser to: **`http://127.0.0.1:8000/science`**
 
-> **Tip:** In Android Settings -> Apps -> Termux -> Battery, set battery usage to **Unrestricted** so Android doesn't pause the bot in the background.
+You can also toggle and adjust the **Alarm Window** (`22:00 – 07:00`, or any hours you want) live in the `/science` dashboard so it only runs during your set hours and sleeps the rest of the day.
 
+> **Tip:** In Android **Settings → Apps → Termux → Battery**, set battery usage to **Unrestricted** so Android doesn't pause it in the background.

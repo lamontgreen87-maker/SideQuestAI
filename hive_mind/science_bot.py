@@ -37,6 +37,7 @@ BASE_DIR = Path(__file__).resolve().parent
 FEED_FILE = BASE_DIR / "memory" / "science_feed.json"
 DB_FILE = BASE_DIR / "memory" / "science.db"
 GWTC_CATALOG_FILE = BASE_DIR / "memory" / "gwtc_catalog.json"
+GWOSC_STRAIN_MANIFEST = BASE_DIR / "memory" / "gwosc_strain" / "manifest.json"
 MAX_FEED_ITEMS = 200
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
 
@@ -171,6 +172,8 @@ def _run_experiment_code(code: str, timeout_s: int = 25) -> Dict[str, Any]:
         env["PYTHONIOENCODING"] = "utf-8"
         if GWTC_CATALOG_FILE.exists():
             env["GWTC_CATALOG_PATH"] = str(GWTC_CATALOG_FILE)
+        if GWOSC_STRAIN_MANIFEST.exists():
+            env["GWOSC_STRAIN_MANIFEST"] = str(GWOSC_STRAIN_MANIFEST)
         proc = subprocess.run(
             [sys.executable, "-I", "-X", "utf8", tmp_path],
             capture_output=True,
@@ -239,6 +242,9 @@ class ScienceBot:
         self.inter_call_delay_s: float = float(os.getenv("SCIENCE_DRONE_DELAY_S", "4.0"))
         default_workers = "3" if os.getenv("BRAIN_PROVIDER", "").lower() == "runpod_serverless" else "1"
         self.workers_per_run: int = max(1, min(5, int(os.getenv("SCIENCE_WORKERS_PER_RUN", default_workers))))
+        self.schedule_enabled: bool = os.getenv("SCIENCE_SCHEDULE_ENABLED", "0") == "1"
+        self.schedule_start: str = os.getenv("SCIENCE_SCHEDULE_START", "22:00")
+        self.schedule_end: str = os.getenv("SCIENCE_SCHEDULE_END", "07:00")
 
         self.running: bool = False
         self.current_stage: str = "Initializing..."
@@ -292,6 +298,8 @@ class ScienceBot:
                 conn.execute("ALTER TABLE articles ADD COLUMN is_unique INTEGER DEFAULT 0")
             if "novelty_score" not in cols:
                 conn.execute("ALTER TABLE articles ADD COLUMN novelty_score INTEGER DEFAULT 0")
+            if "data_first" not in cols:
+                conn.execute("ALTER TABLE articles ADD COLUMN data_first INTEGER DEFAULT 0")
             conn.commit()
 
     def _count_rejected_db(self) -> int:
@@ -307,9 +315,9 @@ class ScienceBot:
                     id, created_at, title, domain, insight, hypothesis, mini_experiment,
                     experiment_code, experiment_output, experiment_passed,
                     open_question, critic_takeaway, confidence, verified, published,
-                    is_unique, novelty_score,
+                    is_unique, novelty_score, data_first,
                     scout_angle, source_title, source_url, wiki_title, wiki_extract, wiki_url
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     entry.get("id", ""),
@@ -329,6 +337,7 @@ class ScienceBot:
                     1 if entry.get("published", True) else 0,
                     1 if entry.get("is_unique") else 0,
                     int(entry.get("novelty_score", 0) or 0),
+                    1 if entry.get("data_first") else 0,
                     entry.get("scout_angle", ""),
                     entry.get("source_title", ""),
                     entry.get("source_url", ""),
@@ -365,6 +374,7 @@ class ScienceBot:
         return ""
 
     def _score_uniqueness(self, entry: Dict[str, Any], prior_items: List[Dict[str, Any]]) -> tuple[int, bool, str]:
+        """Score real-world scientific uniqueness (no hype for pure toy models or routine repeats)."""
         tokens = self._novelty_tokens(entry)
         if not tokens:
             return 0, False, ""
@@ -385,10 +395,41 @@ class ScienceBot:
             if sim > max_sim:
                 max_sim = sim
                 closest_title = str(other.get("title") or "")
-        novelty_score = max(0, min(100, round((1.0 - max_sim) * 100)))
-        if fam_seen:
-            novelty_score = min(novelty_score, 55)
-        is_unique = bool(entry.get("verified")) and novelty_score >= 80 and not fam_seen
+
+        local_novelty = max(0, min(100, round((1.0 - max_sim) * 100)))
+        if fam_seen or (fam and fam.startswith("textbook_")):
+            local_novelty = min(local_novelty, 55)
+
+        code_blob = str(entry.get("experiment_code") or "").lower()
+        out_blob = str(entry.get("experiment_output") or "").lower()
+        text_blob = f"{entry.get('title', '')} {entry.get('insight', '')} {entry.get('hypothesis', '')}".lower()
+        full_blob = f"{code_blob} {out_blob} {text_blob}"
+
+        uses_raw_strain = any(k in code_blob for k in ("h5py", "gwosc_strain_manifest", "gwosc_strain", ".hdf5"))
+        uses_real_catalog = any(k in full_blob for k in ("gwtc_catalog", "gwtc", "eht_targets", "ligo/virgo/kagra", "279", "282"))
+        uses_real_data = uses_raw_strain or uses_real_catalog
+
+        has_falsification_or_anomaly = any(
+            k in f"{out_blob} {text_blob}"
+            for k in ("falsif", "violat", "discrepanc", "tension", "anomal", "ruling out", "ruled out", "fail", "reject")
+        )
+
+        # Cap scores honestly: pure synthetic runs or routine "PASS" checks are not real-world breakthroughs.
+        novelty_score = local_novelty
+        if not uses_real_data:
+            novelty_score = min(novelty_score, 50)
+        elif not uses_raw_strain and not has_falsification_or_anomaly:
+            novelty_score = min(novelty_score, 70)
+
+        is_unique = (
+            bool(entry.get("verified"))
+            and bool(entry.get("experiment_passed", True))
+            and uses_real_data
+            and (uses_raw_strain or has_falsification_or_anomaly)
+            and not fam_seen
+            and not (fam and fam.startswith("textbook_"))
+            and novelty_score >= 75
+        )
         return novelty_score, is_unique, closest_title
 
     def _load_articles_from_db(self) -> List[Dict[str, Any]]:
@@ -405,6 +446,7 @@ class ScienceBot:
             d["verified"] = bool(d.get("verified"))
             d["published"] = bool(d.get("published", 1))
             d["is_unique"] = bool(d.get("is_unique", 0))
+            d["data_first"] = bool(d.get("data_first", 0))
             d["novelty_score"] = int(d.get("novelty_score", 0) or 0)
             items.append(d)
         # Score novelty_score/is_unique chronologically with tightened concept-family rules
@@ -430,6 +472,7 @@ class ScienceBot:
             d["verified"] = bool(d.get("verified"))
             d["published"] = bool(d.get("published", 1))
             d["is_unique"] = bool(d.get("is_unique", 0))
+            d["data_first"] = bool(d.get("data_first", 0))
             d["novelty_score"] = int(d.get("novelty_score", 0) or 0)
             items.append(d)
         # Score novelty_score/is_unique chronologically with tightened concept-family rules
@@ -457,6 +500,12 @@ class ScienceBot:
                     self.total_runs = int(cfg.get("total_runs", 0))
                     if cfg.get("workers_per_run") is not None:
                         self.workers_per_run = max(1, min(5, int(cfg["workers_per_run"])))
+                    if cfg.get("schedule_enabled") is not None:
+                        self.schedule_enabled = bool(cfg.get("schedule_enabled"))
+                    if cfg.get("schedule_start"):
+                        self.schedule_start = str(cfg["schedule_start"])
+                    if cfg.get("schedule_end"):
+                        self.schedule_end = str(cfg["schedule_end"])
                     if cfg.get("provider"):
                         set_active_provider(str(cfg["provider"]))
                     for old_item in data.get("feed", []):
@@ -482,6 +531,9 @@ class ScienceBot:
                     "arxiv_grounding": self.arxiv_grounding,
                     "total_runs": self.total_runs,
                     "workers_per_run": self.workers_per_run,
+                    "schedule_enabled": self.schedule_enabled,
+                    "schedule_start": self.schedule_start,
+                    "schedule_end": self.schedule_end,
                     "provider": get_active_provider_info()["provider"],
                 },
                 "feed": self.feed[:MAX_FEED_ITEMS],
@@ -526,6 +578,10 @@ class ScienceBot:
             "unique_count": len(unique_items),
             "latest_unique": latest_unique,
             "strict_publish": self.strict_publish,
+            "schedule_enabled": self.schedule_enabled,
+            "schedule_start": self.schedule_start,
+            "schedule_end": self.schedule_end,
+            "within_schedule": self._within_schedule(),
             "rejected_count": self._count_rejected_db(),
             "seconds_until_next": seconds_until_next,
             "last_error": self.last_error,
@@ -655,6 +711,32 @@ class ScienceBot:
         self.current_run_details["events"] = events[-25:]
         self._emit("status", self.get_status())
 
+    @staticmethod
+    def _parse_hhmm(val: str) -> Optional[int]:
+        try:
+            parts = str(val).strip().split(":")
+            if len(parts) != 2:
+                return None
+            h, m = int(parts[0]), int(parts[1])
+            if 0 <= h <= 23 and 0 <= m <= 59:
+                return h * 60 + m
+        except (ValueError, TypeError):
+            pass
+        return None
+
+    def _within_schedule(self) -> bool:
+        if not self.schedule_enabled:
+            return True
+        start_m = self._parse_hhmm(self.schedule_start)
+        end_m = self._parse_hhmm(self.schedule_end)
+        if start_m is None or end_m is None or start_m == end_m:
+            return True
+        now = datetime.now()
+        cur_m = now.hour * 60 + now.minute
+        if start_m < end_m:
+            return start_m <= cur_m < end_m
+        return cur_m >= start_m or cur_m < end_m
+
     def update_config(
         self,
         enabled: Optional[bool] = None,
@@ -665,6 +747,9 @@ class ScienceBot:
         provider: Optional[str] = None,
         workers_per_run: Optional[int] = None,
         research_phase: Optional[str] = None,
+        schedule_enabled: Optional[bool] = None,
+        schedule_start: Optional[str] = None,
+        schedule_end: Optional[str] = None,
     ) -> Dict[str, Any]:
         if enabled is not None:
             self.enabled = bool(enabled)
@@ -699,6 +784,12 @@ class ScienceBot:
             if self._prefetch_task and not self._prefetch_task.done():
                 self._prefetch_task.cancel()
                 self._prefetch_task = None
+        if schedule_enabled is not None:
+            self.schedule_enabled = bool(schedule_enabled)
+        if schedule_start and self._parse_hhmm(schedule_start) is not None:
+            self.schedule_start = schedule_start.strip()
+        if schedule_end and self._parse_hhmm(schedule_end) is not None:
+            self.schedule_end = schedule_end.strip()
         self._save_state()
         self._emit("status", self.get_status())
         self._wake_event.set()
@@ -779,7 +870,27 @@ class ScienceBot:
             )
         return prior_digest, len(evidence_runs)
 
-    def _scout_phase_instruction(self) -> str:
+    def _is_data_first_run(self, run_idx: int) -> bool:
+        return (
+            self.research_phase == "frontier"
+            and GWOSC_STRAIN_MANIFEST.exists()
+            and (run_idx % 3 == 0)
+        )
+
+    def _data_first_instruction(self) -> str:
+        return (
+            "DATA-FIRST RAW STRAIN MODE (NO ARXIV PAPER): Do NOT summarize or check a paper. "
+            "Start directly from the real 4096 Hz 32s LIGO `.hdf5` strain files (`GW170817`, `GW190521`, H1 & L1) "
+            "at `os.environ['GWOSC_STRAIN_MANIFEST']`. Pick ONE concrete raw-strain test NOT in recent topics "
+            "(e.g., post-merger echo search at Δt∈[0.05,0.5]s, ringdown QNM frequency/damping fit vs GR Kerr prediction, "
+            "H1–L1 coherence/phase-dispersion residual, or high-frequency >300 Hz spectral excess). "
+            "REQUIRED NULL CONTROL: Compare the on-source H1–L1 statistic around `ev['gps']` against >=20 off-source "
+            "time-shifted background trials (sliding H1 vs L1 by >=0.2 s across the 32s segment) and print an empirical p-value."
+        )
+
+    def _scout_phase_instruction(self, data_first: bool = False) -> str:
+        if data_first:
+            return self._data_first_instruction()
         if self.research_phase == "frontier":
             return (
                 "FRONTIER MODE (PAPER-GROUNDED, NO PURE SPECULATION): Strictly FORBIDDEN to re-verify textbook Kerr/Schwarzschild "
@@ -807,14 +918,15 @@ class ScienceBot:
         else:
             domain, arxiv_query = SCIENCE_DOMAINS[run_idx % len(SCIENCE_DOMAINS)]
 
+        data_first = self._is_data_first_run(run_idx)
         paper = None
-        if self.arxiv_grounding:
+        if self.arxiv_grounding and not data_first:
             papers = await loop.run_in_executor(None, _fetch_arxiv_papers, arxiv_query, 4)
             fresh = [p for p in papers if p.get("url") not in recent_urls]
             paper = fresh[0] if fresh else (papers[0] if papers else None)
 
         wiki_query = self.topic_focus or (paper["title"] if paper else domain)
-        wiki = await loop.run_in_executor(None, _fetch_wikipedia_summary, wiki_query)
+        wiki = None if data_first else await loop.run_in_executor(None, _fetch_wikipedia_summary, wiki_query)
         wiki_ctx = f"\nWikipedia Reference ({wiki['title']}):\n{wiki['extract']}\n" if wiki else ""
         prior_digest, rej_count = self._build_prior_digest(domain)
         paper_ctx = (
@@ -827,8 +939,8 @@ class ScienceBot:
             f"Domain: {domain}\n"
             f"Recent topics (DO NOT repeat or re-test these same identities): {json.dumps(recent_titles)}"
             f"{paper_ctx}\n"
-            f"{self._scout_phase_instruction()}\n"
-            "Available tools in the Python sandbox: `numpy`, `scipy`, and a real 282-event LIGO/Virgo/KAGRA GWTC + EHT JSON catalog at `os.environ['GWTC_CATALOG_PATH']`. "
+            f"{self._scout_phase_instruction(data_first=data_first)}\n"
+            "Available tools in the Python sandbox: `numpy`, `scipy`, `h5py`, `emcee`, a real 282-event LIGO/Virgo/KAGRA GWTC + EHT JSON catalog at `os.environ['GWTC_CATALOG_PATH']`, and real 4096 Hz 32s LIGO `.hdf5` detector strain files (`GW170817`, `GW190521` H1/L1) indexed at `os.environ['GWOSC_STRAIN_MANIFEST']`. "
             "Propose ONE genuinely NEW, dimensionally consistent, testable Black Hole Physics hypothesis "
             "(distinct from the recent topics above) and an exact self-contained Python numerical check "
             "(using SI or geometric units) that directly tests it (against real GWTC/EHT data when relevant). Reply in 2-4 concise sentences."
@@ -881,8 +993,13 @@ class ScienceBot:
 
             try:
                 loop = asyncio.get_event_loop()
+                data_first = self._is_data_first_run(self.total_runs)
                 paper = None
-                if self.arxiv_grounding:
+                wiki = None
+                if data_first:
+                    self._set_stage(f"Data-First Mode: scanning raw GWOSC .hdf5 strain + H1/L1 time-slides...")
+                    self._log_run_step("Data-First Mode active: hunting raw GW170817 / GW190521 H1+L1 .hdf5 strain with >=20 off-source time-slide null trials")
+                elif self.arxiv_grounding:
                     self._set_stage(f"Fetching latest arXiv papers in {domain}...")
                     papers = await loop.run_in_executor(None, _fetch_arxiv_papers, arxiv_query, 4)
                     fresh = [p for p in papers if p.get("url") not in recent_urls]
@@ -894,15 +1011,16 @@ class ScienceBot:
                             arxiv_url=paper["url"],
                         )
 
-                self._set_stage(f"Fetching Wikipedia context for {domain}...")
-                wiki_query = self.topic_focus or (paper["title"] if paper else domain)
-                wiki = await loop.run_in_executor(None, _fetch_wikipedia_summary, wiki_query)
-                if wiki:
-                    self._log_run_step(
-                        f"Wikipedia context loaded: {wiki['title']}",
-                        wiki_title=wiki["title"],
-                        wiki_url=wiki["url"],
-                    )
+                if not data_first:
+                    self._set_stage(f"Fetching Wikipedia context for {domain}...")
+                    wiki_query = self.topic_focus or (paper["title"] if paper else domain)
+                    wiki = await loop.run_in_executor(None, _fetch_wikipedia_summary, wiki_query)
+                    if wiki:
+                        self._log_run_step(
+                            f"Wikipedia context loaded: {wiki['title']}",
+                            wiki_title=wiki["title"],
+                            wiki_url=wiki["url"],
+                        )
 
                 wiki_ctx = (
                     f"\nWikipedia Reference ({wiki['title']}):\n{wiki['extract']}\n"
@@ -920,11 +1038,11 @@ class ScienceBot:
                 ) + wiki_ctx + prior_digest
 
                 exp_schema_note = (
-                    '- "experiment_code": a self-contained Python 3 script (`math`, `cmath`, `random`, `statistics`, `numpy`, `scipy`, `json`, `os`) '
+                    '- "experiment_code": a self-contained Python 3 script (`math`, `cmath`, `random`, `statistics`, `numpy`, `scipy`, `h5py`, `emcee`, `json`, `os`) '
                     "that runs a quantitative Black Hole Physics check using real constants "
                     "(G=6.67430e-11, c=2.99792458e8, hbar=1.054571817e-34, k_B=1.380649e-23, M_sun=1.98847e30). "
                     "When testing gravitational-wave mergers, ringdowns, radiated mass/energy, spins, or shadows, you may load the real LIGO/Virgo/KAGRA GWTC + EHT catalog from "
-                    "`json.load(open(os.environ['GWTC_CATALOG_PATH']))` (`events`: 282 mergers with `event`, `mass_1_source`, `mass_2_source`, `final_mass_source`, `chi_eff`, `luminosity_distance`, `redshift`, `network_matched_filter_snr`; `eht_targets`: `M87*`, `SgrA*`). "
+                    "`json.load(open(os.environ['GWTC_CATALOG_PATH']))` (`events`: 282 mergers with `event`, `mass_1_source`, `mass_2_source`, `final_mass_source`, `chi_eff`, `luminosity_distance`, `redshift`, `network_matched_filter_snr`; `eht_targets`: `M87*`, `SgrA*`), AND real LIGO `.hdf5` strain via `json.load(open(os.environ['GWOSC_STRAIN_MANIFEST']))` (`events[name]['gps']`, `events[name]['detectors'][det]['file']`, `t0_gps`, `sample_rate_hz`, HDF5 dataset `h5py.File(path,'r')['strain']['Strain'][:]`). You may also use `scipy.signal`, `h5py`, and `emcee`. "
                     "Always filter out `None` values when reading catalog fields. "
                     "It MUST compute real numerical values, assert physical consistency, and print clear metrics plus PASS or FAIL."
                 )
@@ -1016,8 +1134,8 @@ class ScienceBot:
                             f"Domain: {domain}\n"
                             f"Recent topics (DO NOT repeat or re-test these same identities): {json.dumps(recent_titles)}"
                             f"{paper_ctx}\n"
-                            f"{self._scout_phase_instruction()}\n"
-                            "Available tools in the Python sandbox: `numpy`, `scipy`, and a real 282-event LIGO/Virgo/KAGRA GWTC + EHT JSON catalog at `os.environ['GWTC_CATALOG_PATH']`. "
+                            f"{self._scout_phase_instruction(data_first=data_first)}\n"
+                            "Available tools in the Python sandbox: `numpy`, `scipy`, `h5py`, `emcee`, a real 282-event LIGO/Virgo/KAGRA GWTC + EHT JSON catalog at `os.environ['GWTC_CATALOG_PATH']`, and real 4096 Hz 32s LIGO `.hdf5` detector strain files (`GW170817`, `GW190521` H1/L1) indexed at `os.environ['GWOSC_STRAIN_MANIFEST']`. "
                             "Propose ONE genuinely NEW, dimensionally consistent, testable Black Hole Physics hypothesis "
                             "(distinct from the recent topics above) and an exact self-contained Python numerical check "
                             "(using SI or geometric units) that directly tests it (against real GWTC/EHT data when relevant). Reply in 2-4 concise sentences."
@@ -1179,6 +1297,7 @@ class ScienceBot:
                     "confidence": confidence,
                     "verified": verified,
                     "published": published,
+                    "data_first": bool(data_first),
                     "scout_angle": scout_angle[:2000],
                     "source_title": paper["title"] if paper else "",
                     "source_url": paper["url"] if paper else "",
@@ -1192,8 +1311,9 @@ class ScienceBot:
                 entry["is_unique"] = is_unique
 
                 elapsed_s = round(time.time() - run_started, 1)
+                lead_tag = " · NOVEL STRAIN LEAD!" if (is_unique and data_first) else (" · EMPIRICAL LEAD!" if is_unique else "")
                 self._log_run_step(
-                    f"Judge verdict: {confidence} · {'Verified & Published' if published else 'Rejected'} · {novelty_score}% novel{' · UNIQUE DISCOVERY!' if is_unique else ''} ({elapsed_s}s)",
+                    f"Judge verdict: {confidence} · {'Verified & Published' if published else 'Rejected'} · {novelty_score}% real-world score{lead_tag} ({elapsed_s}s)",
                     elapsed_s=elapsed_s,
                     judge_verdict=f"{confidence} ({'Verified & Published' if published else 'Rejected'})",
                 )
@@ -1205,9 +1325,16 @@ class ScienceBot:
                 self._emit("run_complete", entry)
                 if published:
                     self._emit("update", entry)
-                    if is_unique:
+                    threading.Thread(
+                        target=self._publish_static_site,
+                        daemon=True,
+                    ).start()
+                    if is_unique and data_first:
                         self._emit("unique_discovery", {**entry, "closest_match_title": closest_title})
-                        self._set_stage(f"UNIQUE DISCOVERY ({novelty_score}% novel) published! Waiting for next cycle")
+                        self._set_stage(f"NOVEL STRAIN LEAD ({novelty_score}% score) published! Waiting for next cycle")
+                    elif is_unique:
+                        self._emit("unique_discovery", {**entry, "closest_match_title": closest_title})
+                        self._set_stage(f"EMPIRICAL LEAD ({novelty_score}% score) published! Waiting for next cycle")
                     else:
                         self._set_stage("Verified & published! Waiting for next cycle")
                 else:
@@ -1222,6 +1349,20 @@ class ScienceBot:
                 self.running = False
                 self.next_run_epoch = time.time() + self.interval_minutes * 60
                 self._emit("status", self.get_status())
+
+    def _publish_static_site(self) -> None:
+        """Export and deploy updated static wiki to Cloudflare Pages (sidequestai.org)."""
+        try:
+            if str(BASE_DIR) not in sys.path:
+                sys.path.insert(0, str(BASE_DIR))
+            from export_site import deploy_site
+            res = deploy_site(bot=self)
+            if res.get("deployed"):
+                print(f"[ScienceBot] sidequestai.org published ({res.get('article_count')} articles)", flush=True)
+            else:
+                print(f"[ScienceBot] site deploy skipped/failed: {res.get('error') or res.get('stderr', '')[:200]}", flush=True)
+        except Exception as e:
+            print(f"[ScienceBot] site deploy error: {e}", flush=True)
 
     async def run_loop(self) -> None:
         """Background scheduler loop that runs every interval_minutes when enabled."""
@@ -1252,7 +1393,10 @@ class ScienceBot:
                 pass
 
             if self.enabled and self.next_run_epoch and time.time() >= self.next_run_epoch:
-                if _has_any_api_key():
+                if not self._within_schedule():
+                    self.next_run_epoch = time.time() + 60.0
+                    self._set_stage(f"Alarm schedule sleeping (active {self.schedule_start}–{self.schedule_end})")
+                elif _has_any_api_key():
                     try:
                         await self.run_cycle()
                     except (Exception, asyncio.CancelledError) as e:
