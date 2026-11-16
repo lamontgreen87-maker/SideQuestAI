@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Key & Door Platformer</title>
+  <style>
+    :root {
+      --bg: #0e1220;
+      --panel: #151b2e;
+      --ink: #e6ecff;
+      --accent: #7bdff2;
+      --warn: #ff6b6b;
+      --good: #7bffb2;
+      --platform: #405088;
+      --player: #f1c40f;
+      --door: #caa472;
+      --key: #ffd166;
+    }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 700px at 70% -10%, #1b2140 0%, #0e1220 60%);
+      color: var(--ink);
+      font-family: "Trebuchet MS", Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .frame {
+      width: 980px;
+      max-width: 96vw;
+    }
+    .hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: var(--panel);
+      border: 1px solid #2a355a;
+      padding: 10px 14px;
+      border-radius: 10px 10px 0 0;
+      font-size: 14px;
+    }
+    .hud strong {
+      color: var(--accent);
+    }
+    #objective {
+      color: var(--good);
+    }
+    canvas {
+      display: block;
+      background: linear-gradient(180deg, #121833 0%, #0b0f1f 100%);
+      border: 1px solid #2a355a;
+      border-top: none;
+      width: 100%;
+      height: auto;
+    }
+    .footer {
+      background: var(--panel);
+      border: 1px solid #2a355a;
+      border-top: none;
+      padding: 10px 14px;
+      border-radius: 0 0 10px 10px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer span {
+      color: #b9c6ff;
+    }
+    .pill {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #2a355a;
+      background: #10162a;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="hud">
+      <div id="hud-left">Lives: <strong id="lives">3</strong> | Keys: <strong id="keys">0</strong></div>
+      <div id="hud-center">Level: <strong id="level">1</strong> / 5</div>
+      <div id="objective">Objective: Collect the key, then reach the door.</div>
+    </div>
+    <canvas id="game" width="960" height="540"></canvas>
+    <div class="footer">
+      <span>Controls: Arrow keys or A/D to move, Space or W to jump, R to restart level.</span>
+      <span class="pill">Offline Ready</span>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+
+    const hudLives = document.getElementById("lives");
+    const hudKeys = document.getElementById("keys");
+    const hudLevel = document.getElementById("level");
+
+    const GRAVITY = 0.6;
+    const MOVE_SPEED = 3.6;
+    const JUMP_FORCE = 11;
+    const MAX_FALL = 14;
+
+    const player = {
+      x: 0,
+      y: 0,
+      w: 28,
+      h: 36,
+      vx: 0,
+      vy: 0,
+      onGround: false
+    };
+
+    const keysDown = new Set();
+
+    const levels = [
+      {
+        spawn: { x: 60, y: 420 },
+        platforms: [
+          { x: 0, y: 500, w: 960, h: 40 },
+          { x: 120, y: 420, w: 140, h: 18 },
+          { x: 320, y: 360, w: 160, h: 18 },
+          { x: 560, y: 300, w: 140, h: 18 },
+          { x: 760, y: 240, w: 140, h: 18 }
+        ],
+        hazards: [
+          { x: 260, y: 484, w: 60, h: 16 },
+          { x: 470, y: 484, w: 60, h: 16 }
+        ],
+        key: { x: 780, y: 200, w: 20, h: 20 },
+        door: { x: 850, y: 180, w: 30, h: 60 }
+      },
+      {
+        spawn: { x: 60, y: 420 },
+        platforms: [
+          { x: 0, y: 500, w: 960, h: 40 },
+          { x: 140, y: 440, w: 120, h: 18 },
+          { x: 320, y: 400, w: 120, h: 18 },
+          { x: 500, y: 360, w: 120, h: 18 },
+          { x: 680, y: 320, w: 120, h: 18 },
+          { x: 840, y: 280, w: 100, h: 18 }
+        ],
+        hazards: [
+          { x: 240, y: 484, w: 90, h: 16 },
+          { x: 430, y: 484, w: 90, h: 16 },
+          { x: 620, y: 484, w: 90, h: 16 }
+        ],
+        key: { x: 860, y: 240, w: 20, h: 20 },
+        door: { x: 30, y: 440, w: 30, h: 60 }
+      },
+      {
+        spawn: { x: 60, y: 420 },
+        platforms: [
+          { x: 0, y: 500, w: 960, h: 40 },
+          { x: 140, y: 430, w: 120, h: 18 },
+          { x: 300, y: 380, w: 120, h: 18 },
+          { x: 460, y: 330, w: 120, h: 18 },
+          { x: 620, y: 280, w: 120, h: 18 },
+          { x: 780, y: 230, w: 120, h: 18 },
+          { x: 560, y: 180, w: 120, h: 18 }
+        ],
+        hazards: [
+          { x: 360, y: 484, w: 80, h: 16 },
+          { x: 540, y: 484, w: 80, h: 16 },
+          { x: 720, y: 484, w: 80, h: 16 }
+        ],
+        key: { x: 590, y: 140, w: 20, h: 20 },
+        door: { x: 840, y: 170, w: 30, h: 60 }
+      },
+      {
+        spawn: { x: 60, y: 420 },
+        platforms: [
+          { x: 0, y: 500, w: 960, h: 40 },
+          { x: 160, y: 450, w: 120, h: 18 },
+          { x: 320, y: 410, w: 120, h: 18 },
+          { x: 480, y: 370, w: 120, h: 18 },
+          { x: 640, y: 330, w: 120, h: 18 },
+          { x: 800, y: 290, w: 120, h: 18 },
+          { x: 640, y: 230, w: 120, h: 18 },
+          { x: 480, y: 190, w: 120, h: 18 }
+        ],
+        hazards: [
+          { x: 260, y: 484, w: 80, h: 16 },
+          { x: 420, y: 484, w: 80, h: 16 },
+          { x: 580, y: 484, w: 80, h: 16 },
+          { x: 740, y: 484, w: 80, h: 16 }
+        ],
+        key: { x: 510, y: 150, w: 20, h: 20 },
+        door: { x: 30, y: 440, w: 30, h: 60 }
+      },
+      {
+        spawn: { x: 60, y: 420 },
+        platforms: [
+          { x: 0, y: 500, w: 960, h: 40 },
+          { x: 140, y: 440, w: 140, h: 18 },
+          { x: 320, y: 400, w: 140, h: 18 },
+          { x: 500, y: 360, w: 140, h: 18 },
+          { x: 680, y: 320, w: 140, h: 18 },
+          { x: 860, y: 280, w: 80, h: 18 },
+          { x: 700, y: 220, w: 140, h: 18 },
+          { x: 520, y: 180, w: 140, h: 18 }
+        ],
+        hazards: [
+          { x: 220, y: 484, w: 120, h: 16 },
+          { x: 420, y: 484, w: 120, h: 16 },
+          { x: 620, y: 484, w: 120, h: 16 }
+        ],
+        key: { x: 540, y: 140, w: 20, h: 20 },
+        door: { x: 720, y: 160, w: 30, h: 60 }
+      }
+    ];
+
+    let levelIndex = 0;
+    let lives = 3;
+    let hasKey = false;
+    let gameOver = false;
+    let win = false;
+
+    function resetPlayer() {
+      const spawn = levels[levelIndex].spawn;
+      player.x = spawn.x;
+      player.y = spawn.y;
+      player.vx = 0;
+      player.vy = 0;
+      player.onGround = false;
+      hasKey = false;
+    }
+
+    function loadLevel(idx) {
+      levelIndex = idx;
+      resetPlayer();
+      hudLevel.textContent = String(levelIndex + 1);
+      hudKeys.textContent = hasKey ? "1" : "0";
+    }
+
+    function rectsOverlap(a, b) {
+      return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+    }
+
+    function applyPhysics() {
+      player.vy = Math.min(player.vy + GRAVITY, MAX_FALL);
+
+      // Horizontal move
+      player.x += player.vx;
+      for (const p of levels[levelIndex].platforms) {
+        if (rectsOverlap(player, p)) {
+          if (player.vx > 0) {
+            player.x = p.x - player.w;
+          } else if (player.vx < 0) {
+            player.x = p.x + p.w;
+          }
+          player.vx = 0;
+        }
+      }
+
+      // Vertical move
+      player.y += player.vy;
+      player.onGround = false;
+      for (const p of levels[levelIndex].platforms) {
+        if (rectsOverlap(player, p)) {
+          if (player.vy > 0) {
+            player.y = p.y - player.h;
+            player.vy = 0;
+            player.onGround = true;
+          } else if (player.vy < 0) {
+            player.y = p.y + p.h;
+            player.vy = 0;
+          }
+        }
+      }
+    }
+
+    function handleInput() {
+      let dir = 0;
+      if (keysDown.has("ArrowLeft") || keysDown.has("a")) dir -= 1;
+      if (keysDown.has("ArrowRight") || keysDown.has("d")) dir += 1;
+      player.vx = dir * MOVE_SPEED;
+
+      if ((keysDown.has(" ") || keysDown.has("w") || keysDown.has("ArrowUp")) && player.onGround) {
+        player.vy = -JUMP_FORCE;
+        player.onGround = false;
+      }
+    }
+
+    function loseLife() {
+      lives -= 1;
+      hudLives.textContent = String(lives);
+      if (lives <= 0) {
+        gameOver = true;
+      } else {
+        resetPlayer();
+      }
+    }
+
+    function update() {
+      if (gameOver || win) return;
+
+      handleInput();
+      applyPhysics();
+
+      // Keep player inside bounds horizontally
+      player.x = Math.max(0, Math.min(canvas.width - player.w, player.x));
+
+      if (player.y > canvas.height) {
+        loseLife();
+      }
+
+      const keyItem = levels[levelIndex].key;
+      if (!hasKey && rectsOverlap(player, keyItem)) {
+        hasKey = true;
+        hudKeys.textContent = "1";
+      }
+
+      for (const h of levels[levelIndex].hazards) {
+        if (rectsOverlap(player, h)) {
+          loseLife();
+          break;
+        }
+      }
+
+      const door = levels[levelIndex].door;
+      if (hasKey && rectsOverlap(player, door)) {
+        if (levelIndex < levels.length - 1) {
+          loadLevel(levelIndex + 1);
+        } else {
+          win = true;
+        }
+      }
+    }
+
+    function drawRect(rect, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+    }
+
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Platforms
+      for (const p of levels[levelIndex].platforms) {
+        drawRect(p, getComputedStyle(document.documentElement).getPropertyValue("--platform"));
+      }
+
+      // Hazards
+      for (const h of levels[levelIndex].hazards) {
+        drawRect(h, getComputedStyle(document.documentElement).getPropertyValue("--warn"));
+      }
+
+      // Key
+      if (!hasKey) {
+        drawRect(levels[levelIndex].key, getComputedStyle(document.documentElement).getPropertyValue("--key"));
+      }
+
+      // Door
+      const door = levels[levelIndex].door;
+      drawRect(door, hasKey ? getComputedStyle(document.documentElement).getPropertyValue("--good") : getComputedStyle(document.documentElement).getPropertyValue("--door"));
+
+      // Player
+      drawRect(player, getComputedStyle(document.documentElement).getPropertyValue("--player"));
+
+      // Messages
+      if (gameOver || win) {
+        ctx.fillStyle = "rgba(0,0,0,0.65)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = win ? "#7bffb2" : "#ff6b6b";
+        ctx.font = "36px Trebuchet MS";
+        ctx.textAlign = "center";
+        ctx.fillText(win ? "You cleared all 5 levels!" : "Game Over", canvas.width / 2, canvas.height / 2);
+        ctx.font = "18px Trebuchet MS";
+        ctx.fillStyle = "#e6ecff";
+        ctx.fillText("Press R to restart", canvas.width / 2, canvas.height / 2 + 36);
+      }
+    }
+
+    function loop() {
+      update();
+      render();
+      requestAnimationFrame(loop);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      keysDown.add(key);
+      if (key === "r") {
+        lives = 3;
+        hudLives.textContent = String(lives);
+        win = false;
+        gameOver = false;
+        loadLevel(0);
+      }
+    });
+
+    document.addEventListener("keyup", (e) => {
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      keysDown.delete(key);
+    });
+
+    loadLevel(0);
+    loop();
+  </script>
+</body>
+</html>

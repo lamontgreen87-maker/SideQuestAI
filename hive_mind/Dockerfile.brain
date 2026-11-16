@@ -1,0 +1,18 @@
+# HIVE MIND: BIG BRAIN (72B vLLM)
+# Use the official vLLM OpenAI-compatible server as the base
+FROM vllm/vllm-openai:latest
+
+# The model weights will be mounted from a RunPod Network Volume at /model
+# This ensures zero-download startup (Fast-Wake Ignition)
+ENV MODEL_PATH=/model/qwen2.5-72b-instruct
+
+# Default vLLM args for 72B on 2x A6000 or 1x H100
+# - gpu_memory_utilization: Leave some room for context
+# - tensor_parallel_size: Split across 2 GPUs (for A6000s)
+ENTRYPOINT ["python3", "-m", "vllm.entrypoints.openai.api_server"]
+CMD ["--model", "/model/qwen2.5-72b-instruct", "--tensor-parallel-size", "2", "--gpu-memory-utilization", "0.90", "--port", "8000"]
+
+# Metadata
+LABEL maintainer="Hive Mind Architect"
+LABEL version="2.0"
+LABEL description="Adversarial Shattering Engine // 72B Brain"

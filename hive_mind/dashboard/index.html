@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impossible Engine // Hive Mind AI</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=JetBrains+Mono:wght@300;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #05070a;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-amber: #ffaa00;
+            --neon-blue: #00d2ff;
+            --text-main: #e0e6ed;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255, 170, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 210, 255, 0.05) 0%, transparent 40%);
+        }
+
+        .cockpit {
+            width: 90vw;
+            height: 85vh;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .brand h1 {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: linear-gradient(90deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-amber);
+            letter-spacing: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1.5fr;
+            gap: 40px;
+            flex-grow: 1;
+            min-height: 0;
+        }
+
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .dial-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .dial-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .dial-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--neon-blue);
+        }
+
+        .main-input {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .shatter-box {
+            width: 100%;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--neon-amber);
+            border-radius: 12px;
+            padding: 30px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            resize: none;
+            outline: none;
+            box-shadow: 0 0 30px rgba(255, 170, 0, 0.1);
+        }
+
+        .shatter-box::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .shatter-btn {
+            padding: 20px 60px;
+            background: var(--neon-amber);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .shatter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 170, 0, 0.4);
+        }
+
+        .telemetry {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .telemetry h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .log-container {
+            flex-grow: 1;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #88c0d0;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+
+        .log-entry {
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: fadeInLog 0.5s forwards;
+        }
+
+        @keyframes fadeInLog {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .nexus-panel {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .nexus-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .worker-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            list-style: none;
+        }
+
+        .worker-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            border-left: 3px solid var(--neon-blue);
+        }
+
+        .worker-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+        }
+
+        .slot-container {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slot-bar {
+            height: 100%;
+            background: var(--neon-blue);
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .nexus-stat {
+            color: var(--neon-amber);
+            font-weight: 700;
+        }
+
+        .status-bar {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .status-active {
+            color: #a3be8c;
+        }
+
+        /* Synthesis Modal Styles */
+        #synthesis-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #synthesis-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .synthesis-card {
+            width: 700px;
+            max-height: 80vh;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
+            transform: scale(0.9);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #synthesis-modal.active .synthesis-card {
+            transform: scale(1);
+        }
+
+        .synthesis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .synthesis-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #00ff88;
+        }
+
+        .synthesis-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #ccc;
+            white-space: pre-wrap;
+            padding-right: 10px;
+        }
+
+        .synthesis-content::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .synthesis-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            margin-top: 30px;
+            background: transparent;
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            align-self: flex-end;
+        }
+
+        .close-btn:hover {
+            background: #00ff88;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cockpit">
+        <div class="container">
+            <!-- HEADER / BRANDING -->
+            <header style="margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h1
+                        style="font-size: 2.5rem; letter-spacing: -1px; background: linear-gradient(90deg, #fff, #888); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                        IMPOSSIBLE ENGINE <span
+                            style="font-size: 1rem; color: #00ff88; vertical-align: super; -webkit-text-fill-color: #00ff88; background-clip: initial;">PREMIUM
+                            v2</span></h1>
+                    <div style="text-align: right;">
+                        <div style="color: #666; font-size: 0.8rem; text-transform: uppercase;">Network Status</div>
+                        <div id="status-tag"
+                            style="color: #00ff88; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                            <div
+                                style="width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88;">
+                            </div>
+                            NEURAL LINK ACTIVE
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- COMMAND CENTER (Chat Input) -->
+            <div class="panel"
+                style="border: 1px solid rgba(255,255,255,0.1); padding: 5px; margin-bottom: 30px; border-radius: 12px; background: rgba(255,255,255,0.02);">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="mission-input"
+                        placeholder="What impossible goal shall the Hive shatter today?"
+                        style="flex-grow: 1; background: transparent; border: none; padding: 20px; color: white; font-size: 1.1rem; outline: none;">
+                    <button onclick="submitMission()"
+                        style="background: #00ff88; color: black; border: none; padding: 0 30px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; margin: 5px;">
+                        SHATTER
+                    </button>
+                </div>
+            </div>
+
+            <!-- GLOBAL STATS (The Economics) -->
+            <div class="stats-grid"
+                style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 30px;">
+                <div class="stat-card"
+                    style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                    <div class="stat-label"
+                        style="font-size: 0.6rem; color: #666; text-transform: uppercase; margin-bottom: 8px;">Total
+                        Payout Pool</div>
+                    <div class="stat-value" id="stat-payout"
+                        style="font-size: 1.2rem; font-weight: bold; color: #00ff88;">0.00</div>
+                    <div class="stat-unit" style="font-size: 0.5rem; color: #444;">CREDITS</div>
+                </div>
+                <div class="stat-card"
+                    style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                    <div style="font-size: 0.7rem; color: #444; text-transform: uppercase;">Current Phase</div>
+                    <div id="session-status" style="font-size: 1.1rem; font-weight: bold; color: #00ff88;">READY</div>
+                    <div id="session-details"
+                        style="font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Awaiting mission...
+                    </div>
+                </div>
+                <div class="stat-card"
+                    style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                    <div class="stat-label"
+                        style="font-size: 0.6rem; color: #666; text-transform: uppercase; margin-bottom: 8px;">Pending
+                        Escrow</div>
+                    <div class="stat-value" id="stat-escrow"
+                        style="font-size: 1.2rem; font-weight: bold; color: #ffaa00;">0.00</div>
+                    <div class="stat-unit" style="font-size: 0.5rem; color: #444;">AUDIT PENDING</div>
+                </div>
+                <div class="stat-card"
+                    style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                    <div class="stat-label"
+                        style="font-size: 0.6rem; color: #666; text-transform: uppercase; margin-bottom: 8px;">Avg
+                        Hourly Rate</div>
+                    <div class="stat-value" id="stat-avg-hourly"
+                        style="font-size: 1.2rem; font-weight: bold; color: #00d2ff;">0.00</div>
+                    <div class="stat-unit" style="font-size: 0.5rem; color: #444;">CREDITS / HR</div>
+                </div>
+                <div class="stat-card"
+                    style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                    <div class="stat-label"
+                        style="font-size: 0.6rem; color: #666; text-transform: uppercase; margin-bottom: 8px;">Global
+                        Throughput</div>
+                    <div class="stat-value" id="stat-slots-total"
+                        style="font-size: 1.2rem; font-weight: bold; color: #ffffff;">0/0</div>
+                    <div class="stat-unit" style="font-size: 0.5rem; color: #444;">ACTIVE SLOTS</div>
+                </div>
+                <div class="stat-card"
+                    style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                    <div class="stat-label"
+                        style="font-size: 0.6rem; color: #666; text-transform: uppercase; margin-bottom: 8px;">Neural
+                        Density</div>
+                    <div class="stat-value" id="stat-workers"
+                        style="font-size: 1.2rem; font-weight: bold; color: #ffffff;">0</div>
+                    <div class="stat-unit" style="font-size: 0.5rem; color: #444;">ACTIVE NODES</div>
+                </div>
+            </div>
+
+            <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 400px;">
+                <!-- Telemetry on the left -->
+                <div class="telemetry"
+                    style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; display: flex; flex-direction: column;">
+                    <h2
+                        style="font-size: 0.7rem; color: #666; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;">
+                        TELEMETRY LOG</h2>
+                    <div id="log-display" class="log-container"
+                        style="flex-grow: 1; overflow-y: auto; font-family: 'JetBrains Mono'; font-size: 0.8rem; color: #00ff88;">
+                        <div class="log-entry">[SYSTEM] Neural Link Established...</div>
+                    </div>
+                </div>
+
+                <!-- Workers on the right -->
+                <div class="nexus-panel"
+                    style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; display: flex; flex-direction: column;">
+                    <div class="nexus-title"
+                        style="font-size: 0.7rem; color: #666; margin-bottom: 15px; display: flex; justify-content: space-between;">
+                        <span>COMMUNITY NEXUS</span>
+                        <span id="hive-capacity" style="color: #00ff88;">0.00 CREDITS</span>
+                    </div>
+                    <ul id="worker-list" class="worker-list" style="flex-grow: 1; overflow-y: auto; list-style: none;">
+                        <!-- Workers injected here -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="status-bar"
+                style="margin-top: 30px; display: flex; justify-content: space-between; font-size: 0.7rem; color: #444; font-family: 'JetBrains Mono';">
+                <div>BRAIN STATUS: <span id="brain-status" style="color: #00ff88;">IDLE // READY</span></div>
+                <div>SESSION ID: <span id="session-id">----</span></div>
+            </div>
+        </div>
+        <div id="synthesis-modal">
+            <div class="synthesis-card">
+                <div class="synthesis-header">
+                    <span class="synthesis-title">MISSION DOSSIER // SYNTHESIS</span>
+                    <span style="font-size: 0.7rem; color: #666; letter-spacing: 2px;">CONFIDENTIAL // HIVE
+                        OVERMIND</span>
+                </div>
+                <div id="synthesis-report" class="synthesis-content">
+                    <!-- Report injected here -->
+                </div>
+                <button class="close-btn" onclick="closeSynthesis()">RETURN TO COMMAND</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const logDisplay = document.getElementById('log-display');
+        const sessionStatusEl = document.getElementById('brain-status');
+        const sessionIdEl = document.getElementById('session-id');
+
+        function addLog(message, updateLast = false) {
+            if (updateLast && logDisplay.lastElementChild) {
+                logDisplay.lastElementChild.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+                return;
+            }
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logDisplay.appendChild(entry);
+            setTimeout(() => { logDisplay.scrollTop = logDisplay.scrollHeight; }, 50);
+        }
+
+        async function submitMission() {
+            const input = document.getElementById('mission-input');
+            const goal = input.value;
+            if (!goal) return;
+
+            addLog(`MISSION DEPLOYED: ${goal.substring(0, 30)}...`);
+            input.style.opacity = "0.5";
+            input.disabled = true;
+
+            try {
+                const res = await fetch('/swarm/execute', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ goal: goal, phase: 1 })
+                });
+                const data = await res.json();
+                sessionIdEl.textContent = data.task_id;
+                addLog(`SWARM ACKNOWLEDGED. ID: ${data.task_id}`);
+                pollStatus(data.task_id);
+                input.value = "";
+            } catch (e) {
+                addLog(`ERROR: Connection failed.`);
+            } finally {
+                input.style.opacity = "1";
+                input.disabled = false;
+            }
+        }
+
+        async function updateNexus() {
+            try {
+                const response = await fetch('/worker/network');
+                const data = await response.json();
+
+                // Update Global Stats with safety checks
+                const statPayout = document.getElementById('stat-payout');
+                const statAvgHourly = document.getElementById('stat-avg-hourly');
+                const statSlotsTotal = document.getElementById('stat-slots-total');
+                const statWorkers = document.getElementById('stat-workers');
+                const hiveCapacity = document.getElementById('hive-capacity');
+
+                if (statPayout) statPayout.innerText = (data.total_payout_pool || 0).toLocaleString('en-US', { minimumFractionDigits: 2 });
+                if (statAvgHourly) statAvgHourly.innerText = (data.avg_hourly_net || 0).toFixed(2);
+                if (statSlotsTotal) statSlotsTotal.innerText = `${data.active_slots || 0} / ${data.total_slots || 0}`;
+                if (statWorkers) statWorkers.innerText = data.active_now || 0;
+                if (hiveCapacity) hiveCapacity.innerText = `${(data.total_payout_pool || 0).toFixed(2)} CREDITS`;
+
+                const list = document.getElementById('worker-list');
+                if (!list) return;
+                list.innerHTML = '';
+
+                if (!data.worker_details || data.worker_details.length === 0) {
+                    list.innerHTML = '<li style="text-align: center; color: #444; font-size: 0.7rem; margin-top: 20px;">[ NO NODES DETECTED ]</li>';
+                    return;
+                }
+
+                data.worker_details.forEach(w => {
+                    const li = document.createElement('li');
+                    li.className = 'worker-item';
+
+                    // Tier logic with better visibility
+                    const vram = w.vram_gb || 0;
+                    const tier = vram >= 24 ? 'ULTRA' : (vram >= 12 ? 'PRO' : 'BASE');
+                    const color = tier === 'ULTRA' ? '#ff3e3e' : (tier === 'PRO' ? '#00ff88' : '#ffaa00');
+                    li.style.borderLeft = `3px solid ${color}`;
+                    li.style.background = `rgba(255, 255, 255, 0.05)`;
+
+                    const hourlyRate = (w.hourly_rate || 0).toFixed(2);
+                    const slotsBusy = w.active_slots || 0;
+                    const slotsTotal = w.total_slots || 1;
+                    const loadPct = (slotsBusy / slotsTotal) * 100;
+
+                    li.innerHTML = `
+                        <div class="worker-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <span class="worker-name" style="font-weight: bold; color: #fff;">${w.name}</span>
+                            <span style="font-size: 0.7rem; color: ${color}; letter-spacing: 1px; font-weight: bold;">[${tier}]</span>
+                        </div>
+                        <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 8px; font-family: 'JetBrains Mono';">
+                            ${w.model_name} // $${hourlyRate}/hr 
+                        </div>
+                        <div class="progress-container" style="height: 4px; background: rgba(0,0,0,0.3); border-radius: 2px; overflow: hidden;">
+                            <div class="progress-bar" style="width: ${loadPct}%; height: 100%; background: ${color}; box-shadow: 0 0 10px ${color}; transition: width 0.3s ease;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 0.6rem; color: #555; text-transform: uppercase;">
+                            <span>Status: ${w.status}</span>
+                            <span>${w.frequency_rate || 0} rx/hr</span>
+                        </div>
+                    `;
+                    list.appendChild(li);
+                });
+
+                const pulse = document.getElementById('neural-pulse');
+                const pulseText = document.getElementById('neural-link-text');
+                if (pulse) {
+                    pulse.style.transform = "scale(1.5)";
+                    setTimeout(() => pulse.style.transform = "scale(1)", 200);
+                    pulse.style.background = "#00ff88";
+                    pulse.style.boxShadow = "0 0 10px #00ff88";
+                }
+                if (pulseText) {
+                    pulseText.textContent = "NEURAL LINK ACTIVE";
+                    pulseText.style.color = "#00ff88";
+                }
+            } catch (e) {
+                console.error("Nexus sync failed:", e);
+                const pulse = document.getElementById('neural-pulse');
+                const pulseText = document.getElementById('neural-link-text');
+                if (pulse) {
+                    pulse.style.background = "#ff3e3e";
+                    pulse.style.boxShadow = "0 0 10px #ff3e3e";
+                }
+                if (pulseText) {
+                    pulseText.textContent = "LINK DISCONNECTED";
+                    pulseText.style.color = "#ff3e3e";
+                }
+            }
+        }
+
+        let lastStatusMsg = "";
+
+        function showSynthesis(report) {
+            const modal = document.getElementById('synthesis-modal');
+            const reportEl = document.getElementById('synthesis-report');
+            reportEl.textContent = report;
+            modal.classList.add('active');
+        }
+
+        function closeSynthesis() {
+            document.getElementById('synthesis-modal').classList.remove('active');
+        }
+
+        async function pollStatus(taskId) {
+            const interval = setInterval(async () => {
+                try {
+                    const response = await fetch(`/swarm/status/${taskId}`);
+                    const data = await response.json();
+                    sessionStatusEl.textContent = data.status;
+                    const sessionDetailsEl = document.getElementById('session-details');
+                    if (sessionDetailsEl) {
+                        sessionDetailsEl.textContent = data.last_update || "Processing...";
+                    }
+
+                    if (data.status !== "COMPLETED" && data.result) {
+                        // Check if it's just a dot update
+                        const baseMsg = data.result.replace(/\.*/g, '');
+                        const lastBase = lastStatusMsg.replace(/\.*/g, '');
+
+                        if (baseMsg === lastBase) {
+                            addLog(`[${data.status}] ${data.result}`, true); // Update last line
+                        } else {
+                            addLog(`[${data.status}] ${data.result}`); // New log line
+                        }
+                        lastStatusMsg = data.result;
+                    }
+
+                    if (data.status === "COMPLETED") {
+                        addLog(`MISSION SUCCESS. Report generated.`);
+                        clearInterval(interval);
+                        if (data.result) {
+                            showSynthesis(data.result);
+                        }
+                    }
+                } catch (e) {
+                    clearInterval(interval);
+                }
+            }, 2000);
+        }
+
+        setInterval(updateNexus, 2000);
+        updateNexus();
+    </script>
+</body>
+
+</html>

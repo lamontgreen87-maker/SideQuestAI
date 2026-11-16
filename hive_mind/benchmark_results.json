@@ -1,0 +1,50 @@
+{
+  "Simple Shatter": {
+    "qwen2.5:3b": {
+      "success": true,
+      "output": "[\n  {\n    \"id\": \"A\",\n    \"task\": \"Research existing email verification protocols and standards.\",\n    \"type\": \"research\"\n  },\n  {\n    \"id\": \"B\",\n    \"task\": \"Design the database schema for storing user information including emails, authentication tokens, and audit logs.\",\n    \"type\": \"action\"\n  },\n  {\n    \"id\": \"C\",\n    \"task\": \"Develop the email sending functionality to send verification emails to users upon registration or password reset requests.\",\n    \"type\": \"action\"\n  }\n]",
+      "time_seconds": 31.13,
+      "tokens": 62,
+      "raw_response_size": 482
+    },
+    "qwen3:8b": {
+      "success": true,
+      "output": "",
+      "time_seconds": 753.41,
+      "tokens": 0,
+      "raw_response_size": 0
+    }
+  },
+  "Code Review (Critic Role)": {
+    "qwen2.5:3b": {
+      "success": true,
+      "output": "In the provided plan, there is a slight ambiguity in the task description for both \"Set up database\" and \"Build frontend\". Let's break it down:\n\n1. **Task A: Set Up Database**\n   - **Overly Broad/General**: The term \"set up database\" can be interpreted in many ways depending on specific requirements such as what kind of database (e.g., SQL vs NoSQL), its purpose, and the technology stack used.\n   \n2. **Task B: Build Frontend**\n   - **Overly Broad/General**: Similar to Task A, \"build frontend\" is quite vague. It could encompass tasks ranging from simple static HTML/CSS projects to complex web applications with UI frameworks like React or Angular.\n\nTo make these tasks more specific and actionable, you might consider refining them as follows:\n\n- For the database setup task: \"Design and set up a MySQL database for storing user data.\"\n- For the frontend building task: \"Develop a responsive single-page application using React.js.\"\n\nThis refinement would allow clearer understanding of what needs to be accomplished within each task.",
+      "time_seconds": 23.43,
+      "tokens": 164,
+      "raw_response_size": 1040
+    },
+    "qwen3:8b": {
+      "success": true,
+      "output": "",
+      "time_seconds": 104.96,
+      "tokens": 0,
+      "raw_response_size": 0
+    }
+  },
+  "Quick Research": {
+    "qwen2.5:3b": {
+      "success": true,
+      "output": "Implementing JSON Web Token (JWT) authentication involves several important considerations to ensure security and usability. Here are three key points to keep in mind:\n\n1. **Security of the Secret Key**: The primary mechanism for verifying the authenticity of a JWT is by using a secret key, often referred to as a signing key or HMAC key. This secret key must be kept securely and should never be exposed to unauthorized parties. If compromised, an attacker could potentially create a valid token. Implementing key rotation practices (e.g., changing the key periodically) can help mitigate risks from key compromise.\n\n2. **Token Expiration**: To prevent tokens from being used indefinitely, it's crucial to implement proper expiration times for JWTs. Tokens should be designed such that they expire after a certain period of time and are not automatically renewed by the client or server. This prevents unauthorized use over extended periods. Additionally, tokens can include an \"audience\" field to specify what resources they are valid for, which helps in limiting their scope.\n\n3. **Token Verification Process**: JWTs should be verified on each request to ensure that they haven't been tampered with or have not expired. This involves checking the token's signature and verifying its expiration time (if applicable). Additionally, it's important to validate the audience and any other claims specific to your application to prevent unauthorized access.\n\nImplementing these considerations can help in creating a robust JWT authentication system that enhances user security while maintaining efficiency and usability.",
+      "time_seconds": 25.53,
+      "tokens": 244,
+      "raw_response_size": 1618
+    },
+    "qwen3:8b": {
+      "success": true,
+      "output": "",
+      "time_seconds": 103.26,
+      "tokens": 0,
+      "raw_response_size": 0
+    }
+  }
+}

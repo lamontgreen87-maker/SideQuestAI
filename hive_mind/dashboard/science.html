@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#070b12" />
+  <title>Hive Science Bot</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #070b12;
+      --card: #0f1623;
+      --card-border: rgba(255, 255, 255, 0.09);
+      --accent: #38bdf8;
+      --accent-2: #a855f7;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 18px 20px 64px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+    .dot.running {
+      background: var(--amber);
+      box-shadow: 0 0 10px var(--amber);
+      animation: pulse 1.2s infinite;
+    }
+    .dot.error { background: var(--red); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.25); }
+    }
+    h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.2px; }
+    .pill {
+      font-size: 0.72rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      white-space: nowrap;
+    }
+    .status-box {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+    }
+    .stage-text { font-size: 1.12rem; font-weight: 700; color: #f8fafc; }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .alert-banner {
+      display: none;
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fecaca;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+    .controls {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+    button {
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      padding: 10px 8px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    button.primary {
+      background: linear-gradient(135deg, #0284c7, #7c3aed);
+      border-color: transparent;
+      color: #fff;
+    }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .config-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    select, input {
+      background: #090e17;
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      border-radius: 9px;
+      padding: 8px 10px;
+      font-size: 0.84rem;
+    }
+    input { flex: 1; min-width: 140px; }
+    .findings-box {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    .findings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .findings-header h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+    .findings-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+    .finding-row {
+      font-size: 0.94rem;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .finding-row strong { color: #f8fafc; font-size: 0.98rem; }
+    .finding-row a { color: var(--accent); text-decoration: none; font-size: 0.86rem; }
+    .wiki-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 11px;
+      background: rgba(56, 189, 248, 0.07);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+    }
+    .wiki-box-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .wiki-box-head span {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+    .wiki-box-head a {
+      font-size: 0.76rem;
+      color: #7dd3fc;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .wiki-box p { font-size: 0.82rem; color: #cbd5e1; }
+    .feed-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(168, 85, 247, 0.16);
+      color: #d8b4fe;
+    }
+    .badge.conf {
+      background: rgba(34, 197, 94, 0.14);
+      color: #86efac;
+    }
+    .time { font-size: 0.86rem; color: var(--muted); }
+    .card h2 { font-size: 1.32rem; margin-bottom: 12px; color: #f8fafc; }
+    .section-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-top: 13px;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+    .card p { font-size: 1.0rem; color: #cbd5e1; line-height: 1.65; }
+    .code-block {
+      background: #060a10;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: "JetBrains Mono", "Fira Code", Consolas, "Courier New", monospace;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      overflow-x: auto;
+      max-height: 440px;
+      overflow-y: auto;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+    }
+    .code-block.output { color: #a7f3d0; }
+    .code-wrap { position: relative; margin-top: 4px; }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      padding: 3px 9px;
+      font-size: 0.74rem;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.16);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+      z-index: 2;
+    }
+    .py-kw { color: #c084fc; font-weight: 600; }
+    .py-str { color: #86efac; }
+    .py-cmt { color: #64748b; font-style: italic; }
+    .py-num { color: #fbbf24; }
+    .py-fn { color: #38bdf8; }
+    .inline-code {
+      font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1px 5px;
+      border-radius: 5px;
+      color: #7dd3fc;
+    }
+    .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+    .run-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .run-panel {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .run-events {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+    details {
+      margin-top: 10px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 8px;
+    }
+    summary {
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 32px 16px;
+      background: var(--card);
+      border: 1px dashed var(--card-border);
+      border-radius: 14px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div id="statusDot" class="dot"></div>
+      <h1>Hive Science Bot</h1>
+    </div>
+    <span id="providerPill" class="pill">GROQ FREE</span>
+  </header>
+
+  <div id="alertBanner" class="alert-banner"></div>
+  <div id="uniqueBanner" class="alert-banner" style="background:rgba(34,197,94,0.16);border-color:rgba(34,197,94,0.5);color:#bbf7d0;"></div>
+
+  <div class="status-box">
+    <div id="stageText" class="stage-text">Connecting to Hive Mind...</div>
+    <div class="meta-row">
+      <span id="countdownText">Next run: --</span>
+      <span id="runsText">Updates: 0</span>
+      <span id="modelText">Model: --</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="btn-row">
+      <button id="runNowBtn" class="primary">Run Now</button>
+      <button id="toggleBtn">Pause Bot</button>
+      <button id="notifyBtn">Alerts: Off</button>
+    </div>
+    <div class="config-row">
+      <label class="time" for="providerSelect">AI Service:</label>
+      <select id="providerSelect" title="AI Service" style="border-color: rgba(56, 189, 248, 0.5);">
+        <option value="openrouter">OpenRouter (Free)</option>
+        <option value="runpod_serverless">RunPod Serverless</option>
+        <option value="gemini">Gemini</option>
+        <option value="groq">Groq (Free)</option>
+      </select>
+      <label class="time" for="intervalSelect">Schedule:</label>
+      <select id="intervalSelect" title="Run Interval">
+        <option value="0">Continuous (No Timer)</option>
+        <option value="1">Every 1 min</option>
+        <option value="5">Every 5 min</option>
+        <option value="15">Every 15 min</option>
+        <option value="30" selected>Every 30 min</option>
+        <option value="60">Every 1 hour</option>
+        <option value="180">Every 3 hours</option>
+      </select>
+      <label class="time" for="modeSelect">Mode:</label>
+      <select id="modeSelect" title="API Call Mode">
+        <option value="full" selected>Full Stack</option>
+        <option value="eco">Eco (2 calls)</option>
+      </select>
+      <label class="time" for="workersSelect">Workers:</label>
+      <select id="workersSelect" title="Parallel Workers per Run">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="5">5</option>
+      </select>
+      <label class="time" for="phaseSelect">Focus:</label>
+      <select id="phaseSelect" title="Research Focus">
+        <option value="foundation" selected>Foundation (Baselines)</option>
+        <option value="frontier">Frontier (Unknown)</option>
+      </select>
+    </div>
+    <div class="config-row">
+      <input id="topicInput" type="text" placeholder="Topic focus (blank = rotating)" />
+      <button id="saveTopicBtn">Save Topic</button>
+    </div>
+  </div>
+
+  <section class="findings-box" id="liveRunBox" style="margin-bottom: 14px;">
+    <div class="findings-header">
+      <h3>Live Run Telemetry &amp; Trace</h3>
+      <span id="liveRunBadge" class="pill">Idle</span>
+    </div>
+    <div id="liveRunContent" class="time">Waiting for run telemetry...</div>
+  </section>
+
+  <section class="findings-box" id="recentRunsBox" style="margin-bottom: 14px;">
+    <div class="findings-header">
+      <h3>Recent Runs History (Verified &amp; Rejected)</h3>
+      <span id="recentRunsCount" class="pill">0 runs</span>
+    </div>
+    <div id="recentRunsList" class="findings-list" style="max-height: 520px;">
+      <div class="time">No runs recorded yet.</div>
+    </div>
+  </section>
+
+  <section class="findings-box" id="uniqueBox" style="border-color: rgba(34, 197, 94, 0.35);">
+    <div class="findings-header">
+      <h3 style="color: #4ade80;">Unique Verified Discoveries</h3>
+      <span id="uniqueCount" class="pill" style="background:rgba(34,197,94,0.16);color:#4ade80;border-color:rgba(34,197,94,0.35);">0 unique</span>
+    </div>
+    <div id="uniqueList" class="findings-list" style="max-height: 240px;">
+      <div class="time">Scanning for novel, non-duplicate verified discoveries...</div>
+    </div>
+  </section>
+
+  <section class="findings-box">
+    <div class="findings-header">
+      <h3>What ScienceBot Found So Far</h3>
+      <span id="findingsCount" class="pill">0 findings</span>
+    </div>
+    <div id="findingsList" class="findings-list">
+      <div class="time">Waiting for first discovery...</div>
+    </div>
+  </section>
+
+  <div class="controls" style="margin-bottom: 12px;">
+    <div class="feed-title" style="margin-bottom: 4px;">Lookup Bot Articles</div>
+    <div class="config-row" style="margin-bottom:8px;">
+      <label class="time" for="articleSelect">Article:</label>
+      <select id="articleSelect" style="flex:1; min-width:180px; border-color: rgba(56, 189, 248, 0.45);">
+        <option value="">All Articles (0)</option>
+      </select>
+    </div>
+    <div class="config-row">
+      <input id="searchInput" type="search" placeholder="Search title, hypothesis, Wikipedia..." />
+      <select id="domainFilter">
+        <option value="">All Domains</option>
+      </select>
+      <label class="time" style="display:flex;align-items:center;gap:4px;"><input id="verifiedOnly" type="checkbox" style="min-width:auto;" /> Verified Only</label>
+      <label class="time" style="display:flex;align-items:center;gap:4px;"><input id="uniqueOnly" type="checkbox" style="min-width:auto;" /> Unique Only</label>
+      <label class="time" style="display:flex;align-items:center;gap:4px;"><input id="realDataOnly" type="checkbox" style="min-width:auto;" /> Real Data (GWTC/EHT)</label>
+      <button id="clearSearchBtn">Clear</button>
+    </div>
+  </div>
+
+  <section class="findings-box" id="indexPanel">
+    <div class="findings-header">
+      <h3>Dictionary Index &amp; Wiki Pages</h3>
+      <span id="indexCount" class="pill">0 terms</span>
+    </div>
+    <div id="wikiChips" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px;"></div>
+    <div id="letterTabs" style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:8px;"></div>
+    <div id="termList" style="display:flex; flex-wrap:wrap; gap:6px; max-height:140px; overflow-y:auto;"></div>
+  </section>
+
+  <div class="feed-title" id="feedHeader">Live Science Updates</div>
+  <div id="feedContainer"></div>
+
+  <script>
+    let currentStatus = null;
+    let feedItems = [];
+    let recentRuns = [];
+    let notifyEnabled = false;
+    let countdownTimer = null;
+
+    const liveRunBadge = document.getElementById("liveRunBadge");
+    const liveRunContent = document.getElementById("liveRunContent");
+    const recentRunsCount = document.getElementById("recentRunsCount");
+    const recentRunsList = document.getElementById("recentRunsList");
+
+    const statusDot = document.getElementById("statusDot");
+    const providerPill = document.getElementById("providerPill");
+    const alertBanner = document.getElementById("alertBanner");
+    const stageText = document.getElementById("stageText");
+    const countdownText = document.getElementById("countdownText");
+    const runsText = document.getElementById("runsText");
+    const modelText = document.getElementById("modelText");
+    const runNowBtn = document.getElementById("runNowBtn");
+    const toggleBtn = document.getElementById("toggleBtn");
+    const notifyBtn = document.getElementById("notifyBtn");
+    const intervalSelect = document.getElementById("intervalSelect");
+    const modeSelect = document.getElementById("modeSelect");
+    const workersSelect = document.getElementById("workersSelect");
+    const phaseSelect = document.getElementById("phaseSelect");
+    const providerSelect = document.getElementById("providerSelect");
+    const topicInput = document.getElementById("topicInput");
+    const saveTopicBtn = document.getElementById("saveTopicBtn");
+    const feedContainer = document.getElementById("feedContainer");
+    const findingsCount = document.getElementById("findingsCount");
+    const findingsList = document.getElementById("findingsList");
+    const searchInput = document.getElementById("searchInput");
+    const domainFilter = document.getElementById("domainFilter");
+    const articleSelect = document.getElementById("articleSelect");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+    const verifiedOnly = document.getElementById("verifiedOnly");
+    const uniqueOnly = document.getElementById("uniqueOnly");
+    const realDataOnly = document.getElementById("realDataOnly");
+    const uniqueBanner = document.getElementById("uniqueBanner");
+    const uniqueCount = document.getElementById("uniqueCount");
+    const uniqueList = document.getElementById("uniqueList");
+    const feedHeader = document.getElementById("feedHeader");
+    const indexCount = document.getElementById("indexCount");
+    const wikiChips = document.getElementById("wikiChips");
+    const letterTabs = document.getElementById("letterTabs");
+    const termList = document.getElementById("termList");
+    let currentIndexData = null;
+    let selectedLetter = "ALL";
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function formatProse(str) {
+      let s = escapeHtml(str || "");
+      const mathTokens = [];
+      const stashMath = (m) => {
+        const idx = mathTokens.length;
+        mathTokens.push(m);
+        return `\u0000M${idx}\u0000`;
+      };
+      // Protect display and inline LaTeX before markdown/line-break transforms
+      s = s.replace(/\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$(?:\\.|[^$\n])+?\$/g, stashMath);
+      s = s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+      s = s.replace(/`([^`\n]+)`/g, '<code class="inline-code">$1</code>');
+      s = s.replace(/\n/g, "<br>");
+      return s.replace(/\u0000M(\d+)\u0000/g, (_, i) => mathTokens[Number(i)]);
+    }
+
+    function highlightPython(code) {
+      let s = escapeHtml(code || "");
+      // Protect strings and comments via placeholder tokens
+      const tokens = [];
+      const stash = (html) => {
+        const idx = tokens.length;
+        tokens.push(html);
+        return `\u0000PY${idx}\u0000`;
+      };
+      s = s.replace(/(#[^\n]*)/g, (m) => stash(`<span class="py-cmt">${m}</span>`));
+      s = s.replace(/(&quot;(?:\\.|[^&\n])*?&quot;|'(?:\\.|[^'\n])*?'|"(?:\\.|[^"\n])*?")/g, (m) => stash(`<span class="py-str">${m}</span>`));
+      s = s.replace(/\b(import|from|as|def|return|if|elif|else|for|while|in|not|and|or|assert|try|except|finally|with|class|pass|break|continue|lambda|True|False|None|raise)\b/g, '<span class="py-kw">$1</span>');
+      s = s.replace(/\b(print|range|len|abs|sum|min|max|round|float|int|str|enumerate|zip|math|cmath|statistics|random)\b/g, '<span class="py-fn">$1</span>');
+      s = s.replace(/\b(\d+(?:\.\d+)?(?:e[+-]?\d+)?)\b/gi, '<span class="py-num">$1</span>');
+      return s.replace(/\u0000PY(\d+)\u0000/g, (_, i) => tokens[Number(i)]);
+    }
+
+    function copyCodeBlock(btn) {
+      const pre = btn.parentElement.querySelector("pre");
+      if (!pre) return;
+      navigator.clipboard.writeText(pre.textContent || "").then(() => {
+        const old = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => { btn.textContent = old; }, 1200);
+      }).catch(() => {});
+    }
+
+    function renderCodeBlock(code, isOutput = false) {
+      const cls = isOutput ? "code-block output" : "code-block";
+      const body = isOutput ? escapeHtml(code || "") : highlightPython(code || "");
+      return `<div class="code-wrap"><button type="button" class="copy-btn" onclick="copyCodeBlock(this)">Copy</button><pre class="${cls}">${body}</pre></div>`;
+    }
+
+    function renderMath(el) {
+      if (!el || typeof window.renderMathInElement !== "function") return;
+      try {
+        window.renderMathInElement(el, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false }
+          ],
+          throwOnError: false,
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+        });
+      } catch (e) {}
+    }
+
+    function formatDuration(sec) {
+      if (sec === null || sec === undefined) return "Paused";
+      if (sec <= 0) return "Due now";
+      const h = Math.floor(sec / 3600);
+      const m = Math.floor((sec % 3600) / 60);
+      const s = sec % 60;
+      if (h > 0) return `${h}h ${m}m`;
+      if (m > 0) return `${m}m ${s}s`;
+      return `${s}s`;
+    }
+
+    function renderStatus(st) {
+      currentStatus = st;
+      stageText.textContent = st.current_stage || "Ready";
+      runsText.textContent = `Published: ${st.verified_count || 0} verified (${st.unique_count || 0} unique) · ${st.rejected_count || 0} rejected (${st.total_runs || 0} runs)`;
+      modelText.textContent = `Model: ${st.model || "--"}`;
+      const coolNote = (st.cooling_down && st.cooling_down.length) ? ` (cooling: ${st.cooling_down.join(",")})` : "";
+      providerPill.textContent = `${(st.provider || "custom").toUpperCase()} FREE${coolNote}`;
+
+      statusDot.className = "dot" + (st.running ? " running" : (st.last_error || !st.api_key_configured ? " error" : ""));
+      runNowBtn.disabled = !!st.running;
+      runNowBtn.textContent = st.running ? "Running..." : "Run Now";
+      toggleBtn.textContent = st.enabled ? "Pause Bot" : "Resume Bot";
+
+      if (st.mode) modeSelect.value = st.mode;
+      if (st.workers_per_run) workersSelect.value = String(st.workers_per_run);
+      if (st.research_phase) phaseSelect.value = st.research_phase;
+      if (st.available_providers && st.available_providers.length) {
+        const labels = {
+          hybrid: "Hybrid (Ollama + Groq)",
+          ollama: "Local Ollama (16GB GPU)",
+          openrouter: "OpenRouter (Free)",
+          runpod_serverless: "RunPod Serverless",
+          gemini: "Gemini",
+          groq: "Groq (Free)",
+          together: "Together",
+          deepinfra: "DeepInfra"
+        };
+        providerSelect.innerHTML = st.available_providers.map(p =>
+          `<option value="${escapeHtml(p)}">${escapeHtml(labels[p] || p)}</option>`
+        ).join("");
+      }
+      if (st.provider) providerSelect.value = st.provider;
+      if ([0, 1, 5, 15, 30, 60, 180].includes(st.interval_minutes)) {
+        intervalSelect.value = String(st.interval_minutes);
+      }
+      if (document.activeElement !== topicInput && st.topic_focus !== undefined) {
+        topicInput.value = st.topic_focus;
+      }
+
+      if (!st.api_key_configured) {
+        alertBanner.style.display = "block";
+        alertBanner.textContent = "Missing BRAIN_API_KEY in hive_mind/.env. Add BRAIN_PROVIDER=groq and BRAIN_API_KEY=your_key, then restart.";
+      } else if (st.last_error) {
+        alertBanner.style.display = "block";
+        alertBanner.textContent = "Last cycle error: " + st.last_error;
+      } else {
+        alertBanner.style.display = "none";
+      }
+
+      updateCountdownDisplay();
+      renderLiveRun(st);
+    }
+
+    function renderLiveRun(st) {
+      const r = st && st.current_run;
+      if (!r || !r.run_number) {
+        liveRunBadge.textContent = st && st.running ? "Starting..." : "Idle";
+        liveRunContent.innerHTML = `<div class="time">Waiting for run details...</div>`;
+        return;
+      }
+      liveRunBadge.textContent = st.running ? `Run #${r.run_number} · Active` : `Run #${r.run_number} · ${r.elapsed_s ? r.elapsed_s + "s" : "Done"}`;
+      const eventsHtml = (r.events || []).map(ev => `<li>• ${escapeHtml(ev)}</li>`).join("");
+      const expBadge = r.experiment_passed === true
+        ? `<span class="badge conf">Experiment PASSED</span>`
+        : (r.experiment_passed === false ? `<span class="badge" style="background:rgba(239,68,68,0.2);color:#fca5a5;">Experiment FAILED</span>` : "");
+
+      liveRunContent.innerHTML = `
+        <div class="meta-row" style="margin-top:0; margin-bottom:8px;">
+          <span><strong>Domain:</strong> ${escapeHtml(r.domain || "--")}</span>
+          <span><strong>Provider:</strong> ${escapeHtml(r.provider || "--")} (${escapeHtml(r.model || "--")})</span>
+          <span><strong>Workers:</strong> ${escapeHtml(r.workers_count || 1)} (${escapeHtml(r.mode || "full")})</span>
+          ${r.judge_verdict ? `<span><strong>Verdict:</strong> ${escapeHtml(r.judge_verdict)}</span>` : ""}
+          ${expBadge}
+        </div>
+        <div class="run-grid">
+          <div class="run-panel">
+            <div class="section-label" style="margin-top:0;">Step-by-Step Timeline</div>
+            <ul class="run-events">${eventsHtml || "<li>Starting...</li>"}</ul>
+            ${r.arxiv_title ? `<div class="section-label">arXiv Paper</div><p style="font-size:0.92rem;"><a href="${escapeHtml(r.arxiv_url)}" target="_blank" rel="noopener" style="color:var(--accent);">${escapeHtml(r.arxiv_title)} ↗</a></p>` : ""}
+            ${r.wiki_title ? `<div class="section-label">Wikipedia Context</div><p style="font-size:0.92rem;"><a href="${escapeHtml(r.wiki_url)}" target="_blank" rel="noopener" style="color:var(--accent);">${escapeHtml(r.wiki_title)} ↗</a></p>` : ""}
+          </div>
+          <div class="run-panel">
+            <div class="section-label" style="margin-top:0;">Local Hypothesis (Sci-Scout)</div>
+            <p style="font-size:0.98rem; color:#e2e8f0; line-height:1.65;">${formatProse(r.scout_hypothesis || "Generating hypothesis...")}</p>
+            ${(r.worker_titles && r.worker_titles.length) ? `<div class="section-label">Parallel Worker Drafts</div><p style="font-size:0.9rem; white-space:pre-wrap;">${escapeHtml(r.worker_titles.join("\n"))}</p>` : ""}
+          </div>
+        </div>
+        ${r.experiment_output ? `
+          <div class="section-label">Live Python Experiment Output</div>
+          ${renderCodeBlock(r.experiment_output, true)}
+        ` : ""}
+        ${r.critic_notes ? `
+          <details style="margin-top:10px;">
+            <summary style="font-size:0.92rem;">Parallel Critic Audits (${r.workers_count || 1} critics)</summary>
+            <div style="margin-top:8px; font-size:0.94rem; line-height:1.6; color:#cbd5e1;">${formatProse(r.critic_notes)}</div>
+          </details>
+        ` : ""}
+        ${r.experiment_code ? `
+          <details style="margin-top:8px;">
+            <summary style="font-size:0.92rem;">Live Python Experiment Code</summary>
+            ${renderCodeBlock(r.experiment_code, false)}
+          </details>
+        ` : ""}
+      `;
+      renderMath(liveRunContent);
+    }
+
+    function renderRecentRuns() {
+      recentRunsCount.textContent = `${recentRuns.length} recent`;
+      if (!recentRuns.length) {
+        recentRunsList.innerHTML = `<div class="time">No runs recorded yet.</div>`;
+        return;
+      }
+      recentRunsList.innerHTML = recentRuns.map((r, idx) => {
+        const dt = r.created_at ? new Date(r.created_at).toLocaleString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }) : "";
+        const statusBadge = r.verified
+          ? `<span class="badge conf">Verified &amp; Published</span>`
+          : `<span class="badge" style="background:rgba(239,68,68,0.2);color:#fca5a5;">Rejected (${escapeHtml(r.confidence || "Failed")})</span>`;
+        const expBadge = r.experiment_passed
+          ? `<span class="badge" style="background:rgba(56,189,248,0.18);color:#7dd3fc;">Python PASS</span>`
+          : `<span class="badge" style="background:rgba(245,158,11,0.18);color:#fcd34d;">Python FAIL</span>`;
+        return `
+          <details class="finding-row" ${idx === 0 ? "open" : ""}>
+            <summary style="font-size:0.96rem; color:#f8fafc; list-style:none; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <span><strong>${escapeHtml(r.title || r.domain)}</strong> <span class="time">· ${escapeHtml(r.domain)}</span></span>
+              <span class="badges">${statusBadge} ${expBadge} <span class="time">${escapeHtml(dt)}</span></span>
+            </summary>
+            <div style="margin-top:10px; padding-top:8px; border-top:1px solid var(--card-border);">
+              ${r.scout_angle ? `<div class="section-label">Local Hypothesis (Sci-Scout)</div><p style="font-size:0.96rem; line-height:1.65;">${formatProse(r.scout_angle)}</p>` : ""}
+              <div class="section-label">Hypothesis</div>
+              <p style="font-size:0.96rem; line-height:1.65;">${formatProse(r.hypothesis || "")}</p>
+              <div class="section-label">Core Insight</div>
+              <p style="font-size:0.96rem; line-height:1.65;">${formatProse(r.insight || "")}</p>
+              <div class="section-label">Mini-Experiment</div>
+              <p style="font-size:0.96rem; line-height:1.65;">${formatProse(r.mini_experiment || "")}</p>
+              ${r.experiment_output ? `<div class="section-label">Measured Python Output</div>${renderCodeBlock(r.experiment_output, true)}` : ""}
+              ${r.critic_takeaway ? `<div class="section-label">Critic Audit &amp; Judge Verdict</div><p style="font-size:0.96rem; line-height:1.65;">${formatProse(r.critic_takeaway)}</p>` : ""}
+              ${r.experiment_code ? `<details style="margin-top:8px;"><summary style="font-size:0.88rem;">Python Experiment Code</summary>${renderCodeBlock(r.experiment_code, false)}</details>` : ""}
+              <div class="meta-row" style="margin-top:8px;">
+                ${r.source_url ? `<a href="${escapeHtml(r.source_url)}" target="_blank" rel="noopener">arXiv: ${escapeHtml(r.source_title || "Paper")} ↗</a>` : ""}
+                ${r.wiki_url ? `<a href="${escapeHtml(r.wiki_url)}" target="_blank" rel="noopener">Wikipedia: ${escapeHtml(r.wiki_title || "Article")} ↗</a>` : ""}
+              </div>
+            </div>
+          </details>
+        `;
+      }).join("");
+      renderMath(recentRunsList);
+    }
+
+    function updateCountdownDisplay() {
+      if (!currentStatus) return;
+      if (currentStatus.running) {
+        countdownText.textContent = "Next run: Active now";
+        return;
+      }
+      countdownText.textContent = "Next run: " + formatDuration(currentStatus.seconds_until_next);
+    }
+
+    setInterval(() => {
+      if (currentStatus && currentStatus.enabled && !currentStatus.running && currentStatus.seconds_until_next > 0) {
+        currentStatus.seconds_until_next -= 1;
+        updateCountdownDisplay();
+      }
+    }, 1000);
+
+    function filterByTerm(term) {
+      searchInput.value = term;
+      domainFilter.value = "";
+      verifiedOnly.checked = false;
+      renderFeed();
+      feedHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderDictionaryIndex(idxData) {
+      currentIndexData = idxData;
+      if (!idxData) return;
+      indexCount.textContent = `${idxData.total_terms || 0} terms`;
+      const wikis = idxData.wiki_pages || [];
+      wikiChips.innerHTML = wikis.length
+        ? wikis.map(w => `<a href="${escapeHtml(w.url)}" target="_blank" rel="noopener" class="pill" style="text-decoration:none;">Wiki: ${escapeHtml(w.title)} (${w.articles.length}) ↗</a>`).join("")
+        : `<span class="time">No Wikipedia pages linked yet.</span>`;
+
+      const letters = Object.keys(idxData.by_letter || {}).sort();
+      letterTabs.innerHTML = [`ALL`, ...letters].map(l => {
+        const active = selectedLetter === l ? "background:rgba(56,189,248,0.28); color:#fff;" : "";
+        return `<button style="padding:3px 7px; font-size:0.72rem; ${active}" onclick="selectIndexLetter('${l}')">${l}</button>`;
+      }).join("");
+
+      const terms = selectedLetter === "ALL"
+        ? (idxData.top_terms || [])
+        : ((idxData.by_letter && idxData.by_letter[selectedLetter]) || []);
+      termList.innerHTML = terms.length
+        ? terms.map(t => `<button style="padding:4px 8px; font-size:0.75rem;" onclick="filterByTerm('${escapeHtml(t.term)}')">${escapeHtml(t.term)} <span class="time">(${t.count})</span></button>`).join("")
+        : `<span class="time">No indexed terms yet.</span>`;
+    }
+
+    function selectIndexLetter(letter) {
+      selectedLetter = letter;
+      renderDictionaryIndex(currentIndexData);
+    }
+
+    async function refreshIndex() {
+      try {
+        const res = await fetch("/api/science/index");
+        const data = await res.json();
+        renderDictionaryIndex(data);
+      } catch (e) {}
+    }
+
+    function updateArticleSelect() {
+      const prev = articleSelect.value;
+      articleSelect.innerHTML = `<option value="">All Articles (${feedItems.length})</option>` +
+        feedItems.map((item, idx) =>
+          `<option value="${escapeHtml(item.id)}">#${feedItems.length - idx} — ${escapeHtml(item.title)} (${escapeHtml(item.domain)})</option>`
+        ).join("");
+      if (feedItems.some(i => i.id === prev)) articleSelect.value = prev;
+    }
+
+    function updateDomainFilter(domains) {
+      const prev = domainFilter.value;
+      domainFilter.innerHTML = `<option value="">All Domains</option>` +
+        Array.from(domains).sort().map(d => `<option value="${escapeHtml(d)}">${escapeHtml(d)}</option>`).join("");
+      if (Array.from(domains).includes(prev)) domainFilter.value = prev;
+    }
+
+    function jumpToArticle(id) {
+      searchInput.value = "";
+      domainFilter.value = "";
+      articleSelect.value = id;
+      renderFeed();
+      const el = document.getElementById("card-" + id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderUniqueDiscoveries() {
+      const uniqueItems = feedItems.filter(i => i.is_unique);
+      uniqueCount.textContent = `${uniqueItems.length} unique`;
+      if (!uniqueItems.length) {
+        uniqueList.innerHTML = `<div class="time">No unique discoveries flagged yet.</div>`;
+        return;
+      }
+      uniqueList.innerHTML = uniqueItems.map(item => `
+        <div class="finding-row" style="cursor:pointer; border-color:rgba(34,197,94,0.28);" onclick="jumpToArticle('${escapeHtml(item.id)}')">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
+            <strong>${escapeHtml(item.title)}</strong>
+            <span class="badge conf">${escapeHtml(item.novelty_score || 0)}% Novel · ${escapeHtml(item.domain)}</span>
+          </div>
+          <div class="time" style="margin-top:3px;">${escapeHtml((item.hypothesis || item.insight || "").slice(0, 150))}</div>
+        </div>
+      `).join("");
+    }
+
+    function renderFindingsSoFar() {
+      renderUniqueDiscoveries();
+      const domains = new Set(feedItems.map(i => i.domain).filter(Boolean));
+      updateDomainFilter(domains);
+      updateArticleSelect();
+      findingsCount.textContent = `${feedItems.length} finding${feedItems.length === 1 ? "" : "s"} · ${domains.size} domain${domains.size === 1 ? "" : "s"}`;
+      if (!feedItems.length) {
+        findingsList.innerHTML = `<div class="time">No discoveries yet. Tap <strong>Run Now</strong> to start.</div>`;
+        return;
+      }
+      findingsList.innerHTML = feedItems.map((item, idx) => `
+        <div class="finding-row" style="cursor:pointer" onclick="jumpToArticle('${escapeHtml(item.id)}')">
+          <div><strong>#${feedItems.length - idx} ${escapeHtml(item.title)}</strong> <span class="time">(${escapeHtml(item.domain)})</span></div>
+          <div class="time" style="margin-top:2px;">${escapeHtml((item.hypothesis || item.insight || "").slice(0, 140))}</div>
+          ${item.wiki_url ? `<a href="${escapeHtml(item.wiki_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Wikipedia: ${escapeHtml(item.wiki_title || "Article")} ↗</a>` : ""}
+        </div>
+      `).join("");
+    }
+
+    function renderFeed() {
+      renderFindingsSoFar();
+      const selId = (articleSelect.value || "").trim();
+      const q = (searchInput.value || "").trim().toLowerCase();
+      const d = (domainFilter.value || "").trim().toLowerCase();
+      const vOnly = verifiedOnly.checked;
+      const uOnly = uniqueOnly.checked;
+      const rOnly = realDataOnly.checked;
+      const isRealData = (item) => (item.experiment_code || "").includes("GWTC_CATALOG_PATH") || (item.title || "").includes("GWTC") || (item.title || "").includes("EHT");
+      const filtered = feedItems.filter(item => {
+        if (selId && item.id !== selId) return false;
+        if (d && (item.domain || "").toLowerCase() !== d) return false;
+        if (vOnly && !item.verified) return false;
+        if (uOnly && !item.is_unique) return false;
+        if (rOnly && !isRealData(item)) return false;
+        if (!q) return true;
+        const hay = [item.id, item.title, item.domain, item.insight, item.hypothesis, item.mini_experiment, item.wiki_title, item.source_title].join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+      feedHeader.textContent = (selId || q || d || vOnly) ? `Showing ${filtered.length} of ${feedItems.length} Articles` : `Live Science Updates (${feedItems.length})`;
+      if (!filtered.length) {
+        feedContainer.innerHTML = `<div class="empty">${feedItems.length ? "No articles match your lookup filter." : "No science updates yet. Tap <strong>Run Now</strong> or wait for the scheduled free cycle."}</div>`;
+        return;
+      }
+      feedContainer.innerHTML = filtered.map(item => {
+        const dt = item.created_at ? new Date(item.created_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "";
+        return `
+          <article class="card" id="card-${escapeHtml(item.id)}">
+            <div class="card-top">
+              <div class="badges">
+                <span class="badge">${escapeHtml(item.domain)}</span>
+                <span class="badge conf">${escapeHtml(item.confidence || "Exploratory")}</span>
+                ${item.verified ? `<span class="badge" style="background:rgba(34,197,94,0.22);color:#4ade80;">Verified Empirical</span>` : (item.experiment_passed ? `<span class="badge" style="background:rgba(56,189,248,0.18);color:#7dd3fc;">Experiment Passed</span>` : "")}
+                ${isRealData(item) ? `<span class="badge" style="background:rgba(14,165,233,0.22);color:#38bdf8;">Real Data (GWTC/EHT)</span>` : ""}
+                ${item.is_unique ? `<span class="badge" style="background:rgba(250,204,21,0.18);color:#fde047;">★ Unique (${escapeHtml(item.novelty_score || 0)}% Novel)</span>` : (item.novelty_score ? `<span class="badge" style="background:rgba(148,163,184,0.16);color:#cbd5e1;">${escapeHtml(item.novelty_score)}% Novel</span>` : "")}
+              </div>
+              <span class="time">${escapeHtml(dt)}</span>
+            </div>
+            <h2>${escapeHtml(item.title)}</h2>
+            ${item.scout_angle ? `<div class="section-label">Local Hypothesis (Sci-Scout)</div><p>${formatProse(item.scout_angle)}</p>` : ""}
+            <div class="section-label">Core Insight</div>
+            <p>${formatProse(item.insight)}</p>
+            <div class="section-label">Testable Hypothesis</div>
+            <p>${formatProse(item.hypothesis)}</p>
+            <div class="section-label">Mini-Experiment</div>
+            <p>${formatProse(item.mini_experiment)}</p>
+            ${item.experiment_output ? `
+              <div class="section-label">Measured Experiment Output</div>
+              ${renderCodeBlock(item.experiment_output, true)}
+            ` : ""}
+            ${item.critic_takeaway ? `
+              <div class="section-label">Critic Audit &amp; Judge Verdict</div>
+              <p>${formatProse(item.critic_takeaway)}</p>
+            ` : ""}
+            ${item.open_question ? `
+              <div class="section-label">Open Question</div>
+              <p>${formatProse(item.open_question)}</p>
+            ` : ""}
+            ${item.wiki_url ? `
+              <div class="wiki-box">
+                <div class="wiki-box-head">
+                  <span>Wikipedia · ${escapeHtml(item.wiki_title || item.domain)}</span>
+                  <a href="${escapeHtml(item.wiki_url)}" target="_blank" rel="noopener">Read on Wikipedia ↗</a>
+                </div>
+                <p style="font-size:0.94rem;">${escapeHtml(item.wiki_extract || "")}</p>
+              </div>
+            ` : ""}
+            <details open>
+              <summary style="font-size:0.92rem;">Python Experiment Code &amp; arXiv Source</summary>
+              ${item.experiment_code ? `<div class="section-label">Python Experiment Code</div>${renderCodeBlock(item.experiment_code, false)}` : ""}
+              ${item.source_url ? `<div class="section-label">arXiv Source</div><p><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noopener" style="color:var(--accent)">${escapeHtml(item.source_title || item.source_url)} ↗</a></p>` : ""}
+            </details>
+          </article>
+        `;
+      }).join("");
+      renderMath(feedContainer);
+    }
+
+    async function loadInitial() {
+      const res = await fetch("/api/science/feed");
+      const data = await res.json();
+      feedItems = data.feed || [];
+      recentRuns = data.recent_runs || [];
+      renderStatus(data.status);
+      renderRecentRuns();
+      renderFeed();
+    }
+
+    function connectStream() {
+      const es = new EventSource("/api/science/stream");
+      es.onmessage = (ev) => {
+        try {
+          const msg = JSON.parse(ev.data);
+          if (msg.type === "status") {
+            renderStatus(msg.data);
+          } else if (msg.type === "run_complete") {
+            recentRuns = [msg.data, ...recentRuns.filter(i => i.id !== msg.data.id)].slice(0, 25);
+            renderRecentRuns();
+          } else if (msg.type === "unique_discovery") {
+            uniqueBanner.style.display = "block";
+            uniqueBanner.innerHTML = `<strong>★ NEW UNIQUE DISCOVERY (${escapeHtml(msg.data.novelty_score || 0)}% novel):</strong> ${escapeHtml(msg.data.title)} — <a href="#card-${escapeHtml(msg.data.id)}" style="color:#4ade80;text-decoration:underline;" onclick="jumpToArticle('${escapeHtml(msg.data.id)}'); return false;">Jump to article</a>`;
+            if (notifyEnabled && "Notification" in window && Notification.permission === "granted") {
+              new Notification(`Unique Discovery (${msg.data.novelty_score || 0}% novel): ${msg.data.title}`, { body: msg.data.insight });
+            }
+          } else if (msg.type === "update") {
+            feedItems = [msg.data, ...feedItems.filter(i => i.id !== msg.data.id)].slice(0, 100);
+            renderFeed();
+            refreshIndex();
+            if (notifyEnabled && "Notification" in window && Notification.permission === "granted") {
+              new Notification(`Science Update: ${msg.data.title}`, { body: msg.data.insight });
+            }
+          }
+        } catch (e) {}
+      };
+      es.onerror = () => {
+        es.close();
+        setTimeout(connectStream, 4000);
+      };
+    }
+
+    runNowBtn.onclick = async () => {
+      runNowBtn.disabled = true;
+      await fetch("/api/science/run-now", { method: "POST" });
+    };
+
+    toggleBtn.onclick = async () => {
+      if (!currentStatus) return;
+      const res = await fetch("/api/science/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ enabled: !currentStatus.enabled })
+      });
+      const data = await res.json();
+      renderStatus(data.status);
+    };
+
+    providerSelect.onchange = async () => {
+      const res = await fetch("/api/science/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ provider: providerSelect.value })
+      });
+      const data = await res.json();
+      renderStatus(data.status);
+    };
+
+    workersSelect.onchange = async () => {
+      const res = await fetch("/api/science/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ workers_per_run: Number(workersSelect.value) })
+      });
+      const data = await res.json();
+      renderStatus(data.status);
+    };
+
+    phaseSelect.onchange = async () => {
+      const res = await fetch("/api/science/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ research_phase: phaseSelect.value })
+      });
+      const data = await res.json();
+      renderStatus(data.status);
+    };
+
+    modeSelect.onchange = async () => {
+      const res = await fetch("/api/science/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: modeSelect.value })
+      });
+      const data = await res.json();
+      renderStatus(data.status);
+    };
+
+    intervalSelect.onchange = async () => {
+      const res = await fetch("/api/science/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ interval_minutes: Number(intervalSelect.value) })
+      });
+      const data = await res.json();
+      renderStatus(data.status);
+    };
+
+    saveTopicBtn.onclick = async () => {
+      const res = await fetch("/api/science/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ topic_focus: topicInput.value })
+      });
+      const data = await res.json();
+      renderStatus(data.status);
+    };
+
+    notifyBtn.onclick = async () => {
+      if (!("Notification" in window)) return;
+      if (Notification.permission !== "granted") {
+        const perm = await Notification.requestPermission();
+        if (perm !== "granted") return;
+      }
+      notifyEnabled = !notifyEnabled;
+      notifyBtn.textContent = notifyEnabled ? "Alerts: On" : "Alerts: Off";
+    };
+
+    articleSelect.onchange = renderFeed;
+    searchInput.oninput = renderFeed;
+    domainFilter.onchange = renderFeed;
+    verifiedOnly.onchange = renderFeed;
+    uniqueOnly.onchange = renderFeed;
+    realDataOnly.onchange = renderFeed;
+    clearSearchBtn.onclick = () => {
+      articleSelect.value = "";
+      searchInput.value = "";
+      domainFilter.value = "";
+      verifiedOnly.checked = false;
+      uniqueOnly.checked = false;
+      realDataOnly.checked = false;
+      renderFeed();
+    };
+
+    loadInitial().then(() => { refreshIndex(); connectStream(); renderMath(document.body); });
+    window.addEventListener("load", () => renderMath(document.body));
+  </script>
+</body>
+</html>
+

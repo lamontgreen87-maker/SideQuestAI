@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signal Thread - Modular P2P AI UI</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;700&display=swap");
+
+      :root {
+        --ink: #111217;
+        --paper: #f6f2ea;
+        --glow: #3ee6c5;
+        --amber: #f0a93d;
+        --sky: #3b7cff;
+        --clay: #de7b6a;
+        --muted: #8b8f9b;
+        --card: #ffffff;
+        --stroke: #d9d4c7;
+        --shadow: 0 24px 70px rgba(17, 18, 23, 0.18);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--ink);
+        background: radial-gradient(1100px 800px at 90% -10%, rgba(62, 230, 197, 0.25), transparent),
+          radial-gradient(900px 700px at -10% 10%, rgba(59, 124, 255, 0.22), transparent),
+          linear-gradient(140deg, #f7f4ee 0%, #efe6d8 55%, #f2eee6 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .shell {
+        max-width: 1200px;
+        margin: 32px auto 48px;
+        padding: 0 24px 48px;
+        width: 100%;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 20px;
+        border: 1px solid var(--stroke);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        background: conic-gradient(from 210deg, var(--glow), var(--sky), var(--amber), var(--glow));
+        display: grid;
+        place-items: center;
+        color: #0b0c10;
+        font-weight: 700;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      nav button {
+        border: 1px solid transparent;
+        background: transparent;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      nav button.active {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+
+      nav button:hover {
+        color: var(--ink);
+        border-color: var(--stroke);
+      }
+
+      .cta {
+        display: flex;
+        gap: 12px;
+      }
+
+      .cta button {
+        border-radius: 12px;
+        padding: 10px 16px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .cta .ghost {
+        background: transparent;
+        border: 1px solid var(--stroke);
+      }
+
+      .cta .primary {
+        background: var(--glow);
+        color: #0a0c10;
+        box-shadow: 0 12px 30px rgba(62, 230, 197, 0.35);
+      }
+
+      .pages {
+        margin-top: 28px;
+        display: grid;
+        gap: 24px;
+      }
+
+      .page {
+        display: none;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        animation: fadeUp 0.5s ease both;
+      }
+
+      .page.active {
+        display: grid;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: var(--radius);
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+
+      .hero {
+        grid-column: span 7;
+        display: grid;
+        gap: 18px;
+      }
+
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.5rem, 3.5vw, 3.6rem);
+        line-height: 1.05;
+        margin: 0;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--muted);
+      }
+
+      .hero .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(62, 230, 197, 0.2);
+        font-weight: 600;
+        font-size: 0.85rem;
+        width: fit-content;
+      }
+
+      .stats {
+        grid-column: span 5;
+        display: grid;
+        gap: 14px;
+      }
+
+      .stat {
+        display: grid;
+        gap: 6px;
+        padding: 18px;
+        background: #fefaf5;
+        border: 1px dashed var(--stroke);
+        border-radius: 16px;
+      }
+
+      .stat span {
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .stat small {
+        color: var(--muted);
+      }
+
+      .grid-3 {
+        grid-column: span 12;
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .pricing {
+        display: grid;
+        gap: 12px;
+      }
+
+      .pricing h3 {
+        margin: 0;
+      }
+
+      .pricing .price {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+        padding: 0;
+        list-style: none;
+        margin: 0;
+      }
+
+      .list li::before {
+        content: "•";
+        color: var(--amber);
+        margin-right: 8px;
+      }
+
+      .preview {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+
+      .preview-card {
+        padding: 18px;
+        border-radius: 16px;
+        background: #f5f7ff;
+        border: 1px solid #d8ddf8;
+        min-height: 160px;
+      }
+
+      .badge {
+        display: inline-flex;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(59, 124, 255, 0.15);
+        color: var(--sky);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .form-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      label {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--stroke);
+        font-family: inherit;
+        font-size: 1rem;
+        background: #fffefc;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .split {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .settings-group {
+        display: grid;
+        gap: 12px;
+      }
+
+      .toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--stroke);
+        background: #fdf7ee;
+      }
+
+      .toggle input {
+        width: auto;
+      }
+
+      .signin {
+        display: grid;
+        gap: 12px;
+      }
+
+      .footer {
+        margin-top: 42px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        animation: reveal 0.6s ease forwards;
+      }
+
+      .reveal:nth-child(2) {
+        animation-delay: 0.08s;
+      }
+
+      .reveal:nth-child(3) {
+        animation-delay: 0.16s;
+      }
+
+      .reveal:nth-child(4) {
+        animation-delay: 0.24s;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes reveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 860px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero,
+        .stats {
+          grid-column: span 12;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <div class="brand">
+          <div class="brand-mark">ST</div>
+          Signal Thread
+        </div>
+        <nav>
+          <button class="tab active" data-page="landing">Landing</button>
+          <button class="tab" data-page="pricing">Pricing</button>
+          <button class="tab" data-page="preview">Product</button>
+          <button class="tab" data-page="about">About</button>
+          <button class="tab" data-page="contact">Contact</button>
+          <button class="tab" data-page="settings">Settings</button>
+          <button class="tab" data-page="signin">Sign In</button>
+        </nav>
+        <div class="cta">
+          <button class="ghost">Docs</button>
+          <button class="primary">Deploy</button>
+        </div>
+      </header>
+
+      <main class="pages">
+        <section class="page active" id="landing">
+          <div class="card hero reveal">
+            <span class="pill">P2P AI Sharing Layer</span>
+            <h1>Build once. Broadcast anywhere. Your swarm on autopilot.</h1>
+            <p>
+              Signal Thread turns complex, multi-agent workflows into a single deployable
+              control room. Drop in your nodes, monitor consensus, and ship outputs with a
+              consistent format every time.
+            </p>
+            <div class="split">
+              <div class="stat">
+                <span>12ms</span>
+                <small>Consensus sync latency</small>
+              </div>
+              <div class="stat">
+                <span>4x</span>
+                <small>Higher shard throughput</small>
+              </div>
+              <div class="stat">
+                <span>99.98%</span>
+                <small>Agent uptime SLA</small>
+              </div>
+            </div>
+          </div>
+          <div class="card stats reveal">
+            <div class="stat">
+              <span>Live Pipelines</span>
+              <small>Track shatter, audit, and recombine in one view.</small>
+            </div>
+            <div class="stat">
+              <span>Format Lock</span>
+              <small>Single-file delivery with strict output guards.</small>
+            </div>
+            <div class="stat">
+              <span>Telemetry</span>
+              <small>Loop detection and shard lag alerts out of the box.</small>
+            </div>
+          </div>
+          <div class="grid-3">
+            <div class="card reveal">
+              <span class="badge">Signal</span>
+              <h3>Topology aware</h3>
+              <p>Surface bottlenecks before they break your worker mesh.</p>
+            </div>
+            <div class="card reveal">
+              <span class="badge">Thread</span>
+              <h3>Audit ready</h3>
+              <p>Critics run in parallel with shard output checks.</p>
+            </div>
+            <div class="card reveal">
+              <span class="badge">Control</span>
+              <h3>Single handoff</h3>
+              <p>Constrain outputs so downstream systems stay deterministic.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="pricing">
+          <div class="card hero reveal">
+            <h1>Pricing built for swarm scale</h1>
+            <p>Start small, upgrade only when your cluster grows past the edge.</p>
+          </div>
+          <div class="grid-3">
+            <div class="card pricing reveal">
+              <h3>Scout</h3>
+              <div class="price">$0</div>
+              <ul class="list">
+                <li>2 agents</li>
+                <li>Basic telemetry</li>
+                <li>Single-file output</li>
+              </ul>
+            </div>
+            <div class="card pricing reveal">
+              <h3>Operator</h3>
+              <div class="price">$49</div>
+              <ul class="list">
+                <li>12 agents</li>
+                <li>Audit loop controls</li>
+                <li>Multi-region relay</li>
+              </ul>
+            </div>
+            <div class="card pricing reveal">
+              <h3>Overmind</h3>
+              <div class="price">$199</div>
+              <ul class="list">
+                <li>Unlimited agents</li>
+                <li>Dedicated shard lanes</li>
+                <li>Custom output policies</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="preview">
+          <div class="card hero reveal">
+            <h1>Product preview</h1>
+            <p>Here is how the stack looks when it is running full tilt.</p>
+          </div>
+          <div class="preview">
+            <div class="preview-card reveal">
+              <span class="badge">Live</span>
+              <h3>Shard Flow</h3>
+              <p>Wave-based execution with tiered routing and retries.</p>
+            </div>
+            <div class="preview-card reveal">
+              <span class="badge">Audit</span>
+              <h3>Critic Board</h3>
+              <p>Every shard gets a quick pass/fail with evidence.</p>
+            </div>
+            <div class="preview-card reveal">
+              <span class="badge">Output</span>
+              <h3>Single-file Delivery</h3>
+              <p>Coerced output format for downstream compliance.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="about">
+          <div class="card hero reveal">
+            <h1>About us</h1>
+            <p>
+              We build orchestration layers that turn many small models into reliable
+              services. Our focus is consistency, auditability, and smooth handoffs.
+            </p>
+            <div class="split">
+              <div class="stat">
+                <span>2019</span>
+                <small>First swarm prototype shipped</small>
+              </div>
+              <div class="stat">
+                <span>41</span>
+                <small>Companies using the stack</small>
+              </div>
+            </div>
+          </div>
+          <div class="card stats reveal">
+            <h3>Values</h3>
+            <ul class="list">
+              <li>Make outputs deterministic</li>
+              <li>Track where the loop stalls</li>
+              <li>Ship reliable AI pipes</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="page" id="contact">
+          <div class="card hero reveal">
+            <h1>Contact</h1>
+            <p>Talk to a human or drop in a use case.</p>
+            <div class="split">
+              <div class="stat">
+                <span>support@signalthread.ai</span>
+                <small>Replies within 1 business day.</small>
+              </div>
+              <div class="stat">
+                <span>+1 (415) 555-0132</span>
+                <small>Mon-Fri, 9am-5pm PT.</small>
+              </div>
+            </div>
+          </div>
+          <div class="card form-grid reveal">
+            <div>
+              <label>Name</label>
+              <input type="text" placeholder="Your name" />
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" placeholder="you@company.com" />
+            </div>
+            <div>
+              <label>Message</label>
+              <textarea placeholder="Tell us what you want to build"></textarea>
+            </div>
+            <button class="primary">Send Message</button>
+          </div>
+        </section>
+
+        <section class="page" id="settings">
+          <div class="card hero reveal">
+            <h1>User settings</h1>
+            <p>Control outputs, audit strictness, and node preferences.</p>
+          </div>
+          <div class="card settings-group reveal">
+            <div class="toggle">
+              <div>
+                <strong>Single-file output</strong>
+                <div class="muted">Force app.py only</div>
+              </div>
+              <input type="checkbox" checked />
+            </div>
+            <div class="toggle">
+              <div>
+                <strong>Consistency critic</strong>
+                <div class="muted">Run on each shard</div>
+              </div>
+              <input type="checkbox" checked />
+            </div>
+            <div class="toggle">
+              <div>
+                <strong>Audit retry</strong>
+                <div class="muted">Auto-revise failed shards</div>
+              </div>
+              <input type="checkbox" />
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="signin">
+          <div class="card hero reveal">
+            <h1>Sign in</h1>
+            <p>Access your swarm console.</p>
+          </div>
+          <div class="card signin reveal">
+            <div>
+              <label>Email</label>
+              <input type="email" placeholder="you@signal.ai" />
+            </div>
+            <div>
+              <label>Password</label>
+              <input type="password" placeholder="••••••••" />
+            </div>
+            <button class="primary">Sign in</button>
+          </div>
+        </section>
+      </main>
+
+      <div class="footer">Signal Thread UI demo. Single-file mode.</div>
+    </div>
+
+    <script>
+      const tabs = document.querySelectorAll(".tab");
+      const pages = document.querySelectorAll(".page");
+
+      function showPage(id) {
+        pages.forEach((page) => {
+          page.classList.toggle("active", page.id === id);
+        });
+        tabs.forEach((tab) => {
+          tab.classList.toggle("active", tab.dataset.page === id);
+        });
+      }
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => showPage(tab.dataset.page));
+      });
+    </script>
+  </body>
+</html>

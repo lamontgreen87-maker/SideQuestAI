@@ -1,0 +1,848 @@
+[
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1769824375.81032
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770140721.7780416
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770140797.5998397
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770140798.7387922
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770141164.5315409
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770142277.3706563
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770142386.522781
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770142952.3681269
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770142952.3899646
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770143230.3511248
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770143434.0509224
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770143553.9336576
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770144056.1552174
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def read_health():\n    return {\"status\": \"healthy\"}\n```",
+    "timestamp": 1770144341.135363
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770144990.1136131
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```plaintext\nfastapi_app/\n\u251c\u2500\u2500 app.py\n\u2514\u2500\u2500 requirements.txt\n```",
+    "timestamp": 1770145558.0607781
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770146446.8613813
+  },
+  {
+    "id": "E",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```requirements.txt```\nfastapi\nuvicorn",
+    "timestamp": 1770146446.8766816
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770146446.8877158
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770146561.3191538
+  },
+  {
+    "id": "E",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770146561.3525608
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770146561.388406
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770146949.6347868
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770147008.032014
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "ERROR: Max recursion depth reached.",
+    "timestamp": 1770148294.448743
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "DELEGATE: Implement the `/health` route in `main.py` as per the SUGGESTION provided.",
+    "timestamp": 1770148346.7472103
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "DELEGATE: Create a new FastAPI project and implement the `/health` route in `main.py`. Use the following code:\n\n```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def read_health():\n    return {\"status\": \"healthy\"}\n```\n\nEnsure FastAPI is installed in your project environment.",
+    "timestamp": 1770149173.4966502
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def read_main():\n    return { \"status\": \"UP\" }\n\n# Ensure all necessary dependencies are installed:\n# $ pip install fastapi uvicorn\n```",
+    "timestamp": 1770149380.299161
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\n# LANGUAGE: Python\n\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def read_main():\n    return { \"status\": \"UP\" }\n\n# Ensure all necessary dependencies are installed:\n# $ pip install fastapi uvicorn\n\n# REQUIREMENTS.TXT CONTENTS\n```\n\n```txt\nfastapi\nuvicorn\n```",
+    "timestamp": 1770149646.8566666
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "DELEGATE: FILE: main.py\n```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/\")\nasync def read_root():\n    return {\"message\": \"Hello, World!\"}\n\n@app.get(\"/health\")\nasync def read_health():\n    return {\"status\": \"UP\"}\n```",
+    "timestamp": 1770149959.5528755
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "DELEGATE: \nFILE: app/main.py\n```python\nfrom fastapi import FastAPI\nfrom .api.endpoints.health import setup_health_routes\n\napp = FastAPI()\n\ndef init_api(app: FastAPI) -> None:\n    from ..main import app  # Importing app from the parent directory\n    setup_health_routes(app)\n\ninit_api(app)\n```\n\nFILE: app/api/endpoints/health.py\n```python\nfrom typing import Dict\n\ndef setup_health_routes(app: FastAPI) -> None:\n    @app.get(\"/health\")\n    async def health_check() -> Dict[str, str]:\n        return {\"status\": \"UP\"}\n```\n\nFILE: app/api/init_api.py\n```python\nfrom .health import setup_health_routes\n\ndef init_api(app: FastAPI) -> None:\n    \"\"\"\n    Setup all\n\n    Ensure the `app` instance is passed correctly and initialized in each file.\n    \"\"\"\n\n    # Call the router to set up routes\n    setup_health_routes(app)\n```\n\nFILE: app/routers/health.py (New File)\n```python\nfrom fastapi import APIRouter, Depends\nfrom app.api.endpoints.health import health_check\n\nrouter = APIRouter()\n\n@router.get(\"/health\")\nasync def health_check() -> Dict[str, str]:\n    return {\"status\": \"UP\"}\n```\n\nFILE: src/app/main.py\n```python\nfrom .routers.health import router as health_router\nfrom fastapi import FastAPI\nfrom starlette.middleware.cors import CORSMiddleware\n\napp = FastAPI()\norigins = [\"*\"]\n\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n\n# Register the router(s)\napp.include_router(health_router)\n```\n\nThese changes ensure proper initialization of `app` in each file, separation of concerns, and avoidance of circular imports.",
+    "timestamp": 1770150234.330658
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "DELEGATE: \nFILE: app/main.py\n```python\nfrom fastapi import FastAPI\n\ndef init_api(app: FastAPI) -> None:\n    from .api.endpoints.health import init_health_routes\n    init_health_routes(app)\n\napp = FastAPI()\n\ninit_api(app)\n```\n\nFILE: app/api/endpoints/health.py\n```python\nfrom fastapi import APIRouter\nfrom typing import Dict\n\nrouter = APIRouter()\n\n@router.get(\"/health\")\nasync def health_check() -> Dict[str, str]:\n    return {\"status\": \"UP\"}\n\ndef init_health_routes(app: FastAPI) -> None:\n    app.include_router(router)\n```\n\nFILE: app/api/init_api.py\n```python\nfrom .health import init_health_routes\n\ndef init_api(app: FastAPI) -> None:\n    \"\"\"\n    Setup all API routes and middleware for the application.\n\n    Ensure the `app` instance is passed in.\n    \"\"\"\n\n    init_health_routes(app)\n```\n\nCRITIC FEEDBACK:\n- EVIDENCE: src/app/main.py:L12; src/app/api/endpoints/health.py:L3\n- MISSING: Circular import issue fixed; Proper separation of concerns ensured with relative imports.",
+    "timestamp": 1770150869.9602623
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "# File: app.py\n```python\nfrom fastapi import FastAPI, HTTPException\nfrom uvicorn import run\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def health():\n    try:\n        # Add your health check logic here (e.g., database connection)\n        return {\"status\": \"UP\"}\n    except Exception as e:\n        raise HTTPException(status_code=503, detail=\"Service Unavailable\")\n\nif __name__ == \"__main__\":\n    run(app, host=\"0.0.0.0\", port=8000)\n```",
+    "timestamp": 1770151489.2098937
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\n# Language: Python\n\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\ndef health():\n    return {\"status\": \"healthy\"}\n```",
+    "timestamp": 1770159836.2112496
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\n# Language: Python\n\nfrom fastapi import FastAPI, HTTPException\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def health():\n    return {\"status\": \"UP\"}\n```",
+    "timestamp": 1770159836.2266893
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: app.py\n```python\n# Language: Python\n\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def health():\n    return {\"status\": \"healthy\"}\n```",
+    "timestamp": 1770160151.0589795
+  },
+  {
+    "id": "E",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: app.py\n\n```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def health():\n    return {\"status\": \"UP\"}\n```",
+    "timestamp": 1770160429.648576
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\n# Language: Python\n\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def read_health():\n    return {\"status\": \"healthy\"}\n```",
+    "timestamp": 1770160709.3010287
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "# Language: Python\n```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\ndef health():\n    return {\"status\": \"healthy\"}\n```",
+    "timestamp": 1770162375.2276366
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\n# Language: Python\n\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def health():\n    return {\"status\": \"UP\"}\n```",
+    "timestamp": 1770162524.745484
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\nasync def health():\n    return {\"status\": \"healthy\"}\n```",
+    "timestamp": 1770163003.0086124
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!-- Language: HTML -->\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Health Game</title>\n</head>\n<body>\n    <h1>Health Game</h1>\n    <p>Your health: <span id=\"health\">100%</span></p>\n    <button onclick=\"decreaseHealth()\">Decrease Health</button>\n\n    <script>\n        function decreaseHealth() {\n            var health = document.getElementById('health');\n            var currentHealth = parseInt(health.innerText);\n            if (currentHealth > 0) {\n                health.innerText = currentHealth - 1 + '%';\n            }\n        }\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770163003.0250516
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Pong Game</title>\n</head>\n<body>\n    <h1>Welcome to the Pong Game</h1>\n    <h2>Instructions: Use arrow keys to control the paddles and hit the ball over the opponent's net to score points. First to 5 points wins!</h2>\n    <div id=\"game-container\">\n        <canvas id=\"game-canvas\" width=\"800\" height=\"600\"></canvas>\n    </div>\n\n    <script>\n        // Your game logic and JavaScript code will go here\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770164908.5801923
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Health Game</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            background-color: #f4f4f9;\n            color: #333;\n            margin: 0;\n            padding: 0;\n        }\n        .game-container {\n            width: 80%;\n            margin: 50px auto;\n            background-color: #fff;\n            padding: 20px;\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n        }\n        .health-bar {\n            width: 100%;\n            height: 30px;\n            background-color: #ddd;\n            border-radius: 5px;\n            overflow: hidden;\n        }\n        .health-value {\n            height: 100%;\n            background-color: #ff6347;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"game-container\">\n        <div class=\"health-bar\">\n            <div class=\"health-value\" id=\"healthValue\">100%</div>\n        </div>\n    </div>\n\n    <script>\n        // Example JavaScript to update health bar\n        function setHealth(percentage) {\n            document.getElementById('healthValue').style.width = percentage + '%';\n            document.getElementById('healthValue').textContent = percentage + '%';\n        }\n\n        // Call the function with a new health value (e.g., 75%)\n        setHealth(75);\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770168158.9983728
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game Canvas</title>\n    <style>\n        canvas {\n            border: 1px solid black;\n        }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        function init() {\n            // Initialization code here\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(50, 50, 100, 100);\n        }\n\n        function gameLoop() {\n            // Game loop code here\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            // Add your game logic here\n        }\n\n        init();\n        setInterval(gameLoop, 16); // ~60 FPS\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770168748.9833052
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <style>\n        canvas {\n            border: 1px solid black;\n        }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <button id=\"restartButton\">Restart</button>\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        let playerX = 350;\n        let playerWidth = 100;\n        let ballX = 400, ballY = 300;\n        let ballRadius = 10;\n        let dx = 2, dy = -2;\n\n        function drawPlayer() {\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(playerX, canvas.height - playerWidth - 10, playerWidth, 10);\n        }\n\n        function drawBall() {\n            ctx.beginPath();\n            ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);\n            ctx.fillStyle = 'red';\n            ctx.fill();\n            ctx.closePath();\n        }\n\n        function drawScoreboard() {\n            ctx.font = \"16px Arial\";\n            ctx.fillStyle = \"#0095DD\";\n            ctx.fillText(\"Player X: 0\", 8, 20);\n            ctx.fillText(\"Player Y: 0\", canvas.width - 80, 20);\n        }\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            drawPlayer();\n            drawBall();\n            drawScoreboard();\n\n            if (ballX + dx > canvas.width-ballRadius || ballX + dx < ballRadius) {\n                dx = -dx;\n            }\n            if (ballY + dy > canvas.height-ballRadius || ballY + dy < ballRadius) {\n                dy = -dy;\n            }\n\n            ballX += dx;\n            ballY += dy;\n\n            requestAnimationFrame(draw);\n        }\n\n        document.addEventListener('keydown', (e) => {\n            if (e.key === 'ArrowLeft') {\n                playerX -= 20;\n            } else if (e.key === 'ArrowRight') {\n                playerX += 20;\n            }\n        });\n\n        document.getElementById('restartButton').addEventListener('click', () => {\n            ballX = 400;\n            ballY = 300;\n            dx = 2;\n            dy = -2;\n            playerX = 350;\n            draw();\n        });\n\n        draw();\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770169141.337389
+  },
+  {
+    "id": "E",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game</title>\n<script>\n// Game logic goes here\nlet score = 0;\nlet lives = 3;\n\nfunction checkWin() {\n    if (score >= 10) {\n        alert('You win!');\n        resetGame();\n    }\n}\n\nfunction checkLose() {\n    lives--;\n    if (lives <= 0) {\n        alert('You lose!');\n        resetGame();\n    }\n}\n\nfunction resetGame() {\n    score = 0;\n    lives = 3;\n}\n</script>\n</head>\n<body>\n<h1>Game</h1>\n<p>Score: <span id=\"score\">0</span></p>\n<p>Lives: <span id=\"lives\">3</span></p>\n<button onclick=\"checkWin()\">Add Score</button>\n<button onclick=\"checkLose()\">Lose Life</button>\n\n<script>\n// Update display\ndocument.getElementById('score').innerText = score;\ndocument.getElementById('lives').innerText = lives;\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770169730.7362123
+  },
+  {
+    "id": "F",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Browser Game</title>\n    <style>\n        #gameCanvas {\n            border: 1px solid black;\n        }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"600\" height=\"400\"></canvas>\n    <button onclick=\"restartGame()\">Restart Game</button>\n\n    <script>\n        let gameCanvas = document.getElementById('gameCanvas');\n        let ctx = gameCanvas.getContext('2d');\n\n        function drawGame() {\n            // Your game drawing logic here\n            ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(50, 50, 100, 100);\n        }\n\n        function restartGame() {\n            // Reset game state and redraw the canvas\n            drawGame();\n        }\n\n        // Initial game draw\n        drawGame();\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770170114.5510862
+  },
+  {
+    "id": "G",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "# Language: Python\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Health Check</title>\n<style>\nbody { font-family: Arial, sans-serif; }\n.container { width: 300px; margin: 50px auto; }\nh1 { text-align: center; color: #333; }\np { text-align: center; color: #666; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n<h1>Health Check</h1>\n<p id=\"status\">Checking...</p>\n</div>\n\n<script>\nasync function checkHealth() {\n  try {\n    const response = await fetch('/health');\n    if (response.ok) {\n      document.getElementById('status').innerText = 'Healthy';\n      document.getElementById('status').style.color = '#4caf50';\n    } else {\n      document.getElementById('status').innerText = 'Unhealthy';\n      document.getElementById('status').style.color = '#f44336';\n    }\n  } catch (error) {\n    console.error('Error:', error);\n    document.getElementById('status').innerText = 'Error';\n    document.getElementById('status').style.color = '#f44336';\n  }\n}\n\nwindow.onload = checkHealth;\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770170521.0442283
+  },
+  {
+    "id": "G",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Browser Game</title>\n<style>\nbody { font-family: Arial, sans-serif; }\n.container { width: 300px; margin: 50px auto; text-align: center; }\nh1 { color: #333; }\np { color: #666; }\ninput[type=\"text\"] { padding: 8px; margin-top: 20px; }\nbutton { padding: 10px 20px; margin-top: 10px; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n<h1>Simple Guessing Game</h1>\n<p>Guess a number between 1 and 10:</p>\n<input type=\"text\" id=\"guessInput\" placeholder=\"Enter your guess\">\n<button onclick=\"checkGuess()\">Submit Guess</button>\n<p id=\"result\"></p>\n</div>\n\n<script>\nconst secretNumber = Math.floor(Math.random() * 10) + 1;\n\nfunction checkGuess() {\n  const userGuess = parseInt(document.getElementById('guessInput').value);\n  const resultElement = document.getElementById('result');\n\n  if (userGuess === secretNumber) {\n    resultElement.innerText = 'Congratulations! You guessed it right!';\n    resultElement.style.color = '#4caf50';\n  } else if (userGuess < secretNumber) {\n    resultElement.innerText = 'Try higher!';\n    resultElement.style.color = '#f44336';\n  } else {\n    resultElement.innerText = 'Try lower!';\n    resultElement.style.color = '#f44336';\n  }\n}\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770171088.0214944
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <script>\n        # Language: Python\n    </script>\n</head>\n<body>\n    <div id=\"game-container\"></div>\n    <button onclick=\"movePlayer()\">Move Player</button>\n    <button onclick=\"showHealth()\">Show Health</button>\n    <script>\n        # Language: Python\n        function movePlayer() {\n            // Logic to move player in the game\n        }\n\n        function showHealth() {\n            // Function to display current health of the player\n        }\n    </script>\n</body>\n</html>\n```\nFILE: game.html",
+    "timestamp": 1770171813.915544
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <script>\n        # Language: Python\n    </script>\n</head>\n<body>\n    <div id=\"game-container\"></div>\n    <button onclick=\"movePlayer()\">Move Player</button>\n    <button onclick=\"showHealth()\">Show Health</button>\n    <script>\n        # Language: Python\n        function movePlayer() {\n            console.log(\"Moving player in the game...\");\n            // Logic to move player in the game\n        }\n\n        function showHealth() {\n            console.log(\"Showing health information...\");\n            // Function to display current health of the player\n        }\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770174333.267588
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Health Game</title>\n    <style>\n        /* CSS styles */\n    </style>\n</head>\n<body>\n    <h1>Health Game</h1>\n    <p><strong>In this game, you have to keep your health above 0.</strong></p>\n    <p>Your current health: <span id=\"health\">50</span></p>\n    <p><button onclick=\"restartGame()\">Restart Game</button></p>\n    <script>\n        // Language: Python\n        function restartGame() {\n            document.getElementById('health').innerText = Math.floor(Math.random() * 100);\n        }\n\n        let intervalId;\n        const MIN_HEALTH = 0;\n        const MAX_HEALTH = 100;\n\n        window.addEventListener('keydown', handleKeyPress);\n\n        function updateHealth(delta) {\n            document.getElementById('health').innerText = (document.getElementById('health').innerText as any).parseInt() + delta;\n        }\n\n        function handleKeyPress(event) {\n            if (event.key === 'ArrowUp') {\n                updateHealth(10);\n            } else if (event.key === 'ArrowDown') {\n                updateHealth(-10);\n            }\n        }\n\n        document.body.addEventListener('keydown', handleKeyPress);\n\n        let gameRunning = true;\n\n        function checkWinLose() {\n            if (!gameRunning) return;\n            if (MIN_HEALTH <= parseInt(document.getElementById('health').innerText)) {\n                alert(\"Game Over! You won with \" + document.getElementById('health').innerText + \" health.\");\n                gameRunning = false;\n            } else if (parseInt(document.getElementById('health').innerText) < MIN_HEALTH) {\n                alert(\"You have lost. Your final health was: \" + document.getElementById('health').innerText);\n                gameRunning = false;\n            }\n        }\n\n        function startGame() {\n            intervalId = setInterval(checkWinLose, 1000);\n        }\n\n        window.onload = startGame;\n\n        // Expose ONLY the /health route\n        const healthRoute = '/health';\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770174400.8572886
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game Area</title>\n</head>\n<body>\n<div id=\"game-area\"></div>\n\n<script>\n// Language: Python\nconsole.log(\"Health route is not implemented in this HTML file.\")\n</script>\n</body>\n</html>\n```\nFILE: game.html\n```html\n...\n```",
+    "timestamp": 1770174607.9075177
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game Area</title>\n</head>\n<body>\n<div id=\"game-area\"></div>\n\n<script>\n// Language: Python\n\nfunction healthRoute() {\n    console.log(\"Health route is not implemented in this HTML file.\");\n}\n\nhealthRoute();\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770176149.8462975
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game Area</title>\n</head>\n<body>\n<div id=\"game-area\"></div>\n\n<script>\n// Language: Python\n\nfunction healthRoute() {\n    console.log(\"Health route is not implemented in this HTML file.\");\n}\n\nhealthRoute();\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770176204.3486836
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```python\n# Language: Python\n\nfrom flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef get_health():\n    global player\n    return jsonify({'health': player['health']})\n\nif __name__ == '__main__':\n    player = {\n        'health': 100\n    }\n    app.run(debug=True)\n```",
+    "timestamp": 1770176258.9387946
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "# Language: Python\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <style>\n        #health-bar {\n            width: 200px;\n            height: 30px;\n            background-color: #ccc;\n            border: 1px solid black;\n        }\n        #health-fill {\n            height: 100%;\n            background-color: red;\n        }\n    </style>\n</head>\n<body>\n    <h1>Instructions</h1>\n    <p>Eat the food to increase health. Avoid enemies.</p>\n    <div id=\"health-bar\">\n        <div id=\"health-fill\" style=\"width: 100%;\"></div>\n    </div>\n\n    <script>\n        // JavaScript code for updating health bar can be added here\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770176458.9691849
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```python\n# Language: Python\n\nfrom flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef get_health():\n    global player\n    return jsonify({'health': player['health']})\n\nplayer = {\n    'health': 100\n}\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\nFix the function implementation for healthRoute() as per the audit feedback and included only the required /health route.",
+    "timestamp": 1770176459.2241433
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <style>\n        #health-bar {\n            width: 200px;\n            height: 30px;\n            background-color: #ccc;\n            border: 1px solid black;\n        }\n        #health-fill {\n            height: 100%;\n            background-color: red;\n        }\n    </style>\n</head>\n<body>\n    <h1>Instructions</h1>\n    <p>Eat the food to increase health. Avoid enemies.</p>\n    <div id=\"health-bar\">\n        <div id=\"health-fill\" style=\"width: 100%;\"></div>\n    </div>\n\n    <script>\n        // JavaScript code for updating health bar can be added here\n    </script>\n</body>\n</html>\n```\n# Language: Python",
+    "timestamp": 1770176665.9139915
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "# Language: Python\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <style>\n        #health-bar {\n            width: 200px;\n            height: 30px;\n            background-color: #ccc;\n            border: 1px solid black;\n        }\n        #health-fill {\n            height: 100%;\n            background-color: red;\n        }\n    </style>\n</head>\n<body>\n    <h1>Instructions</h1>\n    <p>Eat the food to increase health. Avoid enemies.</p>\n    <div id=\"health-bar\">\n        <div id=\"health-fill\" style=\"width: 0%;\"></div>\n    </div>\n\n    <script>\n        // JavaScript code for updating health bar can be added here\n    </script>\n</body>\n</html>\n```\n\n```python\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/health')\ndef get_health():\n    # Placeholder logic to return health data\n    health_data = {'percent': 50}\n    return jsonify(health_data)\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\nFILE: game.html",
+    "timestamp": 1770176666.219002
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Health Game</title>\n    <style>\n        #canvas {\n            border: 1px solid black;\n        }\n        #health-bar {\n            width: 200px;\n            height: 30px;\n            background-color: green;\n            text-align: center;\n            line-height: 30px;\n        }\n    </style>\n    <script>\n        document.addEventListener('DOMContentLoaded', function() {\n            const healthElement = document.getElementById('health');\n            let health = 100;\n\n            function updateHealth() {\n                healthElement.textContent = `Health: ${health}`;\n            }\n\n            // Simulate health decrease\n            setInterval(() => {\n                if (health > 0) {\n                    health--;\n                    updateHealth();\n                } else {\n                    alert('Game Over!');\n                }\n            }, 1000);\n        });\n    </script>\n</head>\n<body>\n    <h1>Health Game</h1>\n    <canvas id=\"canvas\" width=\"400\" height=\"300\"></canvas>\n    <div id=\"health-bar\">Health: 100</div>\n    <button onclick=\"resetGame()\">Reset Game</button>\n\n    <script>\n        function resetGame() {\n            health = 100;\n            document.getElementById('health-bar').textContent = 'Health: 100';\n        }\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770176881.0877771
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: hello.txt\n```\nHello\n```",
+    "timestamp": 1770178377.5077677
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Health Game</title>\n    <style>\n        #canvas {\n            border: 1px solid black;\n        }\n        #health-bar {\n            width: 200px;\n            height: 30px;\n            background-color: green;\n            text-align: center;\n            line-height: 30px;\n        }\n    </style>\n    <script>\n        document.addEventListener('DOMContentLoaded', function() {\n            const healthElement = document.getElementById('health');\n            let health = 100;\n\n            function updateHealth() {\n                healthElement.textContent = `Health: ${health}`;\n            }\n\n            setInterval(() => {\n                if (health > 0) {\n                    health -= Math.floor(Math.random() * 10);\n                    updateHealth();\n                }\n            }, 1000);\n\n            // Simulate user input to increase health\n            const increaseButton = document.getElementById('increase');\n            increaseButton.addEventListener('click', function() {\n                health += 20;\n                updateHealth();\n            });\n        });\n    </script>\n</head>\n<body>\n    <div id=\"health-bar\"></div>\n    <button id=\"increase\">Increase Health</button>\n\n    <canvas id=\"canvas\" width=\"500\" height=\"100\">\n        Your browser does not support the canvas element.\n    </canvas>\n</body>\n</html>\n```",
+    "timestamp": 1770178522.9101214
+  },
+  {
+    "id": "A1",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Interactive Game</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            text-align: center;\n            margin-top: 50px;\n        }\n        #game-container {\n            width: 300px;\n            margin: auto;\n        }\n        #health-bar {\n            width: 100%;\n            height: 20px;\n            background-color: red;\n            border: 1px solid black;\n        }\n        .controls button {\n            margin: 5px;\n        }\n    </style>\n</head>\n<body>\n    <div id=\"game-container\">\n        <h1>Interactive Game</h1>\n        <div id=\"health-bar\"></div>\n        <p>Health: <span id=\"health-value\">100</span></p>\n        <div class=\"controls\">\n            <button onclick=\"move('left')\">Left</button>\n            <button onclick=\"move('right')\">Right</button>\n            <button onclick=\"reset()\">Reset</button>\n        </div>\n    </div>\n\n    <script>\n        let health = 100;\n\n        function move(direction) {\n            if (direction === 'left') {\n                // Logic to decrease health\n                health -= 10;\n            } else if (direction === 'right') {\n                // Logic to increase health\n                health += 10;\n            }\n            updateHealthBar();\n            checkGameOver();\n        }\n\n        function reset() {\n            health = 100;\n            updateHealthBar();\n        }\n\n        function updateHealthBar() {\n            const healthBar = document.getElementById('health-bar');\n            const healthValue = document.getElementById('health-value');\n            healthBar.style.width = `${health}%`;\n            healthValue.textContent = health;\n        }\n\n        function checkGameOver() {\n            if (health <= 0) {\n                alert('Game Over!');\n                reset();\n            } else if (health >= 100) {\n                alert('You Win!');\n                reset();\n            }\n        }\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770178940.8523645
+  },
+  {
+    "id": "A2",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Health Adjustment</title>\n<script>\nfunction sendKey(direction) {\n    fetch(`/health`, {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },\n      body: `direction=${direction}`\n    })\n    .then(response => response.json())\n    .then(data => console.log(`Health updated to ${data.health}`))\n    .catch(error => console.error('Error:', error));\n}\n</script>\n</head>\n<body>\n\n<h1>Adjust Health with Arrow Keys</h1>\n\n<button onclick=\"sendKey('up')\">UP</button>\n<button onclick=\"sendKey('down')\">DOWN</button>\n\n</body>\n</html>\n```",
+    "timestamp": 1770180178.8835413
+  },
+  {
+    "id": "A3",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!-- FILE: game.html -->\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Health Game</title>\n</head>\n<body>\n    <h1>Health Game</h1>\n    <p>Your current health is: <span id=\"health\">100</span></p>\n    <button onclick=\"decreaseHealth()\">Decrease Health (Click me!)</button>\n    <script>\n        let health = 100;\n\n        function decreaseHealth() {\n            if (health > 0) {\n                health -= 10;\n                document.getElementById('health').innerText = health;\n                if (health <= 0) {\n                    alert('Game Over!');\n                    resetHealth();\n                }\n            } else {\n                alert('You are already out of health!');\n            }\n        }\n\n        function resetHealth() {\n            health = 100;\n            document.getElementById('health').innerText = health;\n        }\n\n        window.onload = function() {\n            // Expose /h\n        }\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770184013.4984882
+  },
+  {
+    "id": "A4",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <script>\n        function resetGame() {\n            location.reload();\n        }\n    </script>\n</head>\n<body>\n    <button onclick=\"resetGame()\">Reset Game</button>\n    <!-- Other game elements go here -->\n</body>\n</html>\n```",
+    "timestamp": 1770184013.9591625
+  },
+  {
+    "id": "A3",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "# FILE: game.py\n# Language: Python\n\nfrom flask import Flask, render_template_string, request\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return '''\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Health Game</title>\n    <style>\n        #instructions {\n            font-size: 24px;\n            color: green;\n        }\n        #health {\n            font-size: 36px;\n            color: red;\n        }\n    </style>\n</head>\n<body>\n    <h1>Health Game</h1>\n    <div id=\"instructions\">Use arrow keys to adjust health</div>\n    <p>Your current health is: <span id=\"health\" class=\"text-danger\">{{ health }}</span></p>\n    <button onclick=\"resetGame()\">Reset Game</button>\n    <script>\n        let health = {{ health }};\n\n        function decreaseHealth() {\n            if (health > 0) {\n                health -= 10;\n                document.getElementById('health').innerText = health;\n                updateStatus();\n            }\n        }\n\n        function increaseHealth() {\n            if (health < 200) {\n                health += 10;\n                document.getElementById('health').innerText = health;\n                updateStatus();\n            }\n        }\n\n        function updateStatus() {\n            if (health <= 0) {\n                alert('Game Over!');\n                resetHealth();\n            } else if (health >= 200) {\n                alert('You Win!');\n                resetHealth();\n            }\n        }\n\n        function resetHealth() {\n            health = 100;\n            document.getElementById('health').innerText = health;\n            updateStatus();\n        }\n\n        document.addEventListener('keydown', function(event) {\n            if (event.key === 'ArrowUp') {\n                increaseHealth();\n            } else if (event.key === 'ArrowDown') {\n                decreaseHealth();\n            }\n        });\n    </script>\n</body>\n</html>\n'''\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "timestamp": 1770184014.418619
+  },
+  {
+    "id": "A4",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <script>\n        function resetGame() {\n            location.reload();\n        }\n    </script>\n</head>\n<body>\n    <button onclick=\"resetGame()\">Reset Game</button>\n    <!-- Other game elements go here -->\n</body>\n</html>\n```",
+    "timestamp": 1770185401.5356927
+  },
+  {
+    "id": "A1",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <style>\n        body {\n            text-align: center;\n            font-family: Arial, sans-serif;\n        }\n        #controls {\n            margin-top: 20px;\n        }\n    </style>\n</head>\n<body>\n    <h1>Health: <span id=\"health\">100</span></h1>\n    <div id=\"controls\">\n        <button onclick=\"updateHealth(10)\">Attack</button>\n        <button onclick=\"resetGame()\">Reset</button>\n    </div>\n    <script>\n        const healthDisplay = document.getElementById('health');\n        let health = 100;\n\n        function updateHealth(amount) {\n            health += amount;\n            if (health < 0) {\n                health = 0;\n                loseCondition();\n            } else if (health > 150) {\n                health = 150;\n                winCondition();\n            }\n            healthDisplay.textContent = health;\n        }\n\n        function resetGame() {\n            health = 100;\n            healthDisplay.textContent = health;\n        }\n\n        function loseCondition() {\n            alert('You lost!');\n        }\n\n        function winCondition() {\n            alert('You won!');\n        }\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770185402.0762746
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game Canvas</title>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n</body>\n</html>\n```",
+    "timestamp": 1770220948.3076413
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game Canvas</title>\n    <script>\n        function initGame() {\n            const canvas = document.getElementById('gameCanvas');\n            const ctx = canvas.getContext('2d');\n\n            let health = 100;\n            let gameRunning = true;\n\n            function drawHealthBar() {\n                ctx.fillStyle = 'red';\n                ctx.fillRect(10, 10, health * 2, 20);\n                ctx.fillStyle = 'black';\n                ctx.font = '16px Arial';\n                ctx.fillText(`Health: ${health}`, 10, 30);\n            }\n\n            function update() {\n                if (gameRunning) {\n                    // Game logic here\n                    health -= 1; // Example decrement for demonstration\n\n                    if (health <= 0) {\n                        gameRunning = false;\n                        alert('Game Over!');\n                    } else {\n                        ctx.clearRect(0, 0, canvas.width, canvas.height);\n                        drawHealthBar();\n                        requestAnimationFrame(update);\n                    }\n                }\n            }\n\n            document.getElementById('resetButton').addEventListener('click', () => {\n                health = 100;\n                gameRunning = true;\n                update();\n            });\n\n            drawHealthBar();\n            requestAnimationFrame(update);\n        }\n\n        window.onload = initGame;\n    </script>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <button id=\"resetButton\">Reset Game</button>\n</body>\n</html>\n```",
+    "timestamp": 1770221666.076438
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game</title>\n<script>\nlet playerHealth = 100; // Initialize health to 100\n\nfunction updateHealth(healthChange) {\n    playerHealth += healthChange;\n}\n\ndocument.addEventListener('keydown', function(event) {\n    const keys = {37: 'left', 38: 'up', 39: 'right', 40: 'down'};\n    if (keys[event.keyCode]) {\n        console.log(`Player moved ${keys[event.keyCode]}`);\n        \n        if (keys[event.keyCode] === 'up') {\n            document.body.style.top = parseInt(document.body.style.top, 10) - 1 + 'px';\n            updateHealth(-1); // Decrease health by 1\n        } else if (keys[event.keyCode] === 'down') {\n            document.body.style.top = parseInt(document.body.style.top, 10) + 1 + 'px';\n            updateHealth(1); // Increase health by 1\n        }\n    }\n});\n\n</script>\n</head>\n<body>\n    <p>Player Health: ${playerHealth}</p>\n</body>\n</html>\n```",
+    "timestamp": 1770222069.6842835
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <style>\n        body {\n            height: 200px;\n            transition: transform 0.1s ease-in-out;\n        }\n        #player {\n            width: 50px;\n            height: 50px;\n            background-color: red;\n        }\n    </style>\n</head>\n<body>\n    <div id=\"player\" style=\"position: absolute; top: 0;\"></div>\n\n    <script>\n        let playerHealth = 100;\n\n        function updateHealth(healthChange) {\n            playerHealth += healthChange;\n            document.getElementById('player').innerHTML = `Health: ${playerHealth}`;\n        }\n\n        function handleInput(event) {\n            const keys = {37: 'left', 38: 'up', 39: 'right', 40: 'down'};\n            const direction = keys[event.keyCode];\n            \n            if (direction !== undefined && direction) {\n                console.log(`Player moved ${direction}`);\n                // You would add the logic to move the player here\n            }\n        }\n\n        document.addEventListener('keydown', handleInput);\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770222834.5743418
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game</title>\n    <style>\n        /* Add your CSS styles here */\n    </style>\n</head>\n<body>\n    <div id=\"game-container\">\n        <!-- Game elements will be added here -->\n    </div>\n    <script>\n        // Add your JavaScript code here\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770223692.9015071
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game</title>\n    <style>\n        #game-container {\n            width: 800px;\n            height: 600px;\n            border: 1px solid black;\n            position: relative;\n        }\n        .player, .enemy {\n            width: 50px;\n            height: 50px;\n            background-color: red;\n            position: absolute;\n        }\n        .health-bar {\n            width: 200px;\n            height: 20px;\n            background-color: green;\n            margin-top: 10px;\n        }\n    </style>\n</head>\n<body>\n    <div id=\"game-container\">\n        <div class=\"player\" id=\"player\"></div>\n        <div class=\"enemy\" id=\"enemy\"></div>\n        <div class=\"health-bar\" id=\"player-health\"></div>\n        <div class=\"health-bar\" id=\"enemy-health\"></div>\n    </div>\n    <script>\n        let playerHealth = 100;\n        let enemyHealth = 100;\n\n        function adjustHealth(player, amount) {\n            if (player === 'player') {\n                playerHealth += amount;\n                document.getElementById('player-health').style.width = `${playerHealth}%`;\n                if (playerHealth <= 0) {\n                    alert('Player loses!');\n                    location.reload();\n                }\n            } else {\n                enemyHealth += amount;\n                document.getElementById('enemy-health').style.width = `${enemyHealth}%`;\n                if (enemyHealth <= 0) {\n                    alert('Player wins!');\n                    location.reload();\n                }\n            }\n        }\n\n        // Example usage:\n        adjustHealth('player', -10);\n        adjustHealth('enemy', -20);\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770225303.9377797
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Health Decrement on Left Arrow Press</title>\n<script>\ndocument.addEventListener('keydown', function(event) {\n    if (event.key === 'ArrowLeft') {\n        // Assuming health is represented by a variable called 'health'\n        if (typeof health !== 'undefined' && health > 0) {\n            health--;\n            console.log('Health: ' + health);\n        }\n    }\n});\n</script>\n</head>\n<body>\n<script>\nlet health = 10; // Initial health value\nconsole.log('Initial Health: ' + health);\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770225844.4795945
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Health Increment</title>\n<script>\ndocument.addEventListener('DOMContentLoaded', function() {\n    document.getElementById('rightArrow').addEventListener('click', function() {\n        var health = parseInt(document.getElementById('health').innerText);\n        health++;\n        document.getElementById('health').innerText = health;\n    });\n});\n</script>\n</head>\n<body>\n\n<h1>Health: <span id=\"health\">0</span></h1>\n<button id=\"rightArrow\">\u2192</button>\n\n</body>\n</html>\n```",
+    "timestamp": 1770226088.2050087
+  },
+  {
+    "id": "E",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <script>\n        function resetGame() {\n            // Reset game logic here\n            alert(\"Game has been reset!\");\n        }\n    </script>\n</head>\n<body>\n    <button onclick=\"resetGame()\">Reset Game</button>\n</body>\n</html>\n```",
+    "timestamp": 1770226088.692832
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Health Decrement on Left Arrow Press</title>\n<script>\ndocument.addEventListener('keydown', function(event) {\n    if (event.key === 'ArrowLeft') {\n        // Assuming health is represented by a variable called 'health'\n        let health = 10; // Initial health value\n        if (typeof health !== 'undefined' && health > 0) {\n            health--;\n            console.log('Health: ' + health);\n        }\n    }\n});\n</script>\n</head>\n<body>\n<script>\nlet health = 10; // Initial health value\nconsole.log('Initial Health: ' + health);\nif (health <= 0) {\n    console.log(\"Game Over\");\n}\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770226089.205082
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Health Increment</title>\n<script>\ndocument.addEventListener('DOMContentLoaded', function() {\n    document.getElementById('rightArrow').addEventListener('click', function() {\n        var health = parseInt(document.getElementById('health').innerText);\n        health++;\n        document.getElementById('health').innerText = health;\n    });\n});\n</script>\n</head>\n<body>\n\n<h1>Health: <span id=\"health\">0</span></h1>\n<button id=\"rightArrow\">\u2192 Increase Health</button>\n<button id=\"resetHealth\">\u2190 Reset Health</button>\n\n</body>\n</html>\n```\n```",
+    "timestamp": 1770226518.6834674
+  },
+  {
+    "id": "E",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <script>\n        let gameActive = true;\n\n        function resetGame() {\n            if (confirm(\"Are you sure you want to reset the game?\")) {\n                gameActive = false;\n                alert(\"Game has been reset!\");\n            }\n        }\n\n        window.onload = () => {\n            if (!gameActive) {\n                resetGame();\n            }\n        };\n    </script>\n</head>\n<body>\n    <button onclick=\"resetGame()\">Reset Game</button>\n</body>\n</html>\n```\n```",
+    "timestamp": 1770226519.409737
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Basic Game Structure</title>\n<style>\n  body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n    background-color: #f0f0f0;\n  }\n  .game-container {\n    text-align: center;\n    background-color: #fff;\n    padding: 20px;\n    border-radius: 8px;\n    box-shadow: 0 4px 8px rgba(0,0,0,0.1);\n  }\n  h1 {\n    color: #333;\n  }\n  p {\n    color: #666;\n  }\n</style>\n</head>\n<body>\n<div class=\"game-container\">\n  <h1>Welcome to My Game</h1>\n  <p>This is the basic structure of a game page.</p>\n</div>\n</body>\n</html>\n```",
+    "timestamp": 1770226521.1134863
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Health Adjustment Game</title>\n<style>\n  #health {\n    font-size: 2em;\n    margin-top: 20px;\n  }\n</style>\n</head>\n<body>\n\n<div id=\"health\">100</div>\n\n<script>\nlet health = parseInt(document.getElementById('health').innerText);\ndocument.addEventListener('keydown', function(e) {\n  if (e.key === 'ArrowUp') {\n    health += 10;\n  } else if (e.key === 'ArrowDown') {\n    health -= 10;\n  }\n  document.getElementById('health').innerText = Math.max(0, health);\n});\n</script>\n\n</body>\n</html>\n```",
+    "timestamp": 1770227579.3706312
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770227841.2420294
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Simple Game</title>\n    <style>\n        #game-container {\n            position: relative;\n            width: 600px;\n            height: 400px;\n            border: 1px solid black;\n        }\n        .player, .enemy {\n            position: absolute;\n            width: 50px;\n            height: 50px;\n        }\n        .scoreboard {\n            margin-top: 10px;\n        }\n    </style>\n</head>\n<body>\n    <div id=\"game-container\">\n        <div class=\"player\" id=\"player\"></div>\n        <!-- Enemies will be dynamically added here -->\n    </div>\n    <div class=\"scoreboard\">Score: <span id=\"score\">0</span></div>\n\n    <script>\n        // Game logic will go here\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770228608.76524
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game</title>\n    <style>\n        canvas { display: block; margin: 0 auto; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\"></canvas>\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        let playerX = canvas.width / 2;\n        let playerY = canvas.height / 2;\n\n        const keysDown = {\n            ArrowUp: false,\n            ArrowDown: false,\n            ArrowLeft: false,\n            ArrowRight: false\n        };\n\n        function drawPlayer() {\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(playerX, playerY, 50, 50);\n        }\n\n        canvas.addEventListener('keydown', (event) => {\n            keysDown[event.key] = true;\n        });\n\n        canvas.addEventListener('keyup', (event) => {\n            keysDown[event.key] = false;\n        });\n\n        function movePlayer() {\n            if (keysDown.ArrowUp && playerY > 0) playerY -= 5;\n            if (keysDown.ArrowDown && playerY < canvas.height - 50) playerY += 5;\n            if (keysDown.ArrowLeft && playerX > 0) playerX -= 5;\n            if (keysDown.ArrowRight && playerX < canvas.width - 50) playerX += 5;\n\n            drawPlayer();\n        }\n\n        setInterval(movePlayer, 16); // Update rate for smooth movement\n\n    </script>\n</body>\n</html>\n```\nFILE: game.html\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game</title>\n    <style>\n        canvas { display: block; margin: 0 auto; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\"></canvas>\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        let playerX = canvas.width / 2;\n        let playerY = canvas.height / 2;\n\n        const keysDown = {\n            ArrowUp: false,\n            ArrowDown: false,\n            ArrowLeft: false,\n            ArrowRight: false\n        };\n\n        function drawPlayer() {\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(playerX, playerY, 50, 50);\n        }\n\n        canvas.addEventListener('keydown', (event) => {\n            keysDown[event.key] = true;\n        });\n\n        canvas.addEventListener('keyup', (event) => {\n            keysDown[event.key] = false;\n        });\n\n        function movePlayer() {\n            if (keysDown.ArrowUp && playerY > 0) playerY -= 5;\n            if (keysDown.ArrowDown && playerY < canvas.height - 50) playerY += 5;\n            if (keysDown.ArrowLeft && playerX > 0) playerX -= 5;\n            if (keysDown.ArrowRight && playerX < canvas.width - 50) playerX += 5;\n\n            drawPlayer();\n        }\n\n        setInterval(movePlayer, 16); // Update rate for smooth movement\n\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770229258.4415748
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game</title>\n<script>\nwindow.onload = function() {\n    var playerHealth = 100;\n    \n    document.querySelector('button').addEventListener('click', function() {\n        playerHealth -= 5;\n        \n        if (playerHealth <= 0) {\n            alert(\"You have died!\");\n        } else if (playerHealth > 100) {\n            playerHealth = 100;\n            alert(\"Maximum health reached.\");\n        }\n    });\n}\n</script>\n</head>\n<body>\n<button>Take Damage</button>\n</body>\n</html>\n```\nFILE: game.html",
+    "timestamp": 1770229259.3853164
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <script>\n        let health = 100;\n        let score = 0;\n\n        function resetGame() {\n            health = 100;\n            score = 0;\n            document.getElementById('health').innerText = 'Health: ' + health;\n            document.getElementById('score').innerText = 'Score: ' + score;\n        }\n    </script>\n</head>\n<body>\n    <h1>Game</h1>\n    <div id=\"health\">Health: 100</div>\n    <div id=\"score\">Score: 0</div>\n    <button onclick=\"resetGame()\">Reset Game</button>\n</body>\n</html>\n```",
+    "timestamp": 1770229261.0864308
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770229262.804047
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770229599.475863
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770229601.3154702
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770229605.3314655
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Simple Game</title>\n    <style>\n        #player-controls {\n            display: flex;\n            justify-content: center;\n        }\n        #health-bar, #score-display {\n            margin-top: 20px;\n        }\n    </style>\n</head>\n<body>\n    <div id=\"game-container\">\n        <div id=\"player-controls\">\n            <!-- Player controls will go here -->\n        </div>\n        <div id=\"health-bar\">\n            Health: <span id=\"current-health\">100</span>%\n        </div>\n        <div id=\"score-display\">\n            Score: <span id=\"current-score\">0</span>\n        </div>\n    </div>\n\n    <script>\n        // Game initialization and control logic will go here\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770229608.7969525
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Simple Game</title>\n<style>\n  canvas {\n    border: 1px solid black;\n  }\n</style>\n</head>\n<body>\n<canvas id=\"gameCanvas\" width=\"400\" height=\"400\"></canvas>\n<script>\n  const canvas = document.getElementById('gameCanvas');\n  const ctx = canvas.getContext('2d');\n\n  let health = 100;\n\n  function drawHealth() {\n    ctx.fillStyle = 'red';\n    ctx.fillRect(10, 10, health * 3.8, 20);\n  }\n\n  function update() {\n    ctx.clearRect(0, 0, canvas.width, canvas.height);\n    drawHealth();\n\n    document.addEventListener('keydown', (event) => {\n      if (event.key === 'ArrowLeft') {\n        health -= 10;\n      } else if (event.key === 'ArrowRight') {\n        health += 10;\n      }\n      if (health < 0) health = 0;\n      if (health > 100) health = 100;\n    });\n  }\n\n  setInterval(update, 16);\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770230579.763492
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n</head>\n<body>\n    <h1>Welcome to the Game</h1>\n    <p>Your objective is to reach the end of this game.</p>\n    \n    <!-- UI Element 1 -->\n    <label for=\"player-name\">Player Name:</label><br>\n    <input type=\"text\" id=\"player-name\" name=\"player-name\"><br>\n\n    <!-- UI Element 2 -->\n    <label for=\"score\">Score: <span id=\"score-value\">0</span></label><br>\n    \n    <button onclick=\"increaseScore()\">Click to Increase Score</button>\n\n    <script>\n        let score = 0;\n        function increaseScore() {\n            score++;\n            document.getElementById(\"score-value\").textContent = score;\n        }\n    </script>\n</body>\n</html>\n```\nFILE: game.html",
+    "timestamp": 1770230875.674551
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770230877.8318212
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770231018.6519973
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game</title>\n</head>\n<body>\n    <div id=\"game-container\">\n        <div id=\"scoreboard\">Score: 0</div>\n        <canvas id=\"game-canvas\"></canvas>\n        <button id=\"start-button\">Start Game</button>\n    </div>\n    <script src=\"game.js\"></script>\n</body>\n</html>\n```",
+    "timestamp": 1770231019.933683
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770231404.2743351
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game with Arrow Key Controls</title>\n    <style>\n        #gameCanvas {\n            border: 1px solid black;\n        }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        let x = canvas.width / 2;\n        let y = canvas.height - 30;\n        let dx = 2;\n        let dy = -2;\n        const ballRadius = 10;\n\n        function drawBall() {\n            ctx.beginPath();\n            ctx.arc(x, y, ballRadius, 0, Math.PI*2);\n            ctx.fillStyle = \"#0095DD\";\n            ctx.fill();\n            ctx.closePath();\n        }\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            drawBall();\n\n            if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {\n                dx = -dx;\n            }\n            if(y + dy < ballRadius) {\n                dy = -dy;\n            } else if(y + dy > canvas.height-ballRadius) {\n                ctx.clearRect(0, 0, canvas.width, canvas.height);\n                document.write(\"GAME OVER\");\n                clearInterval(interval); // Needed for Chrome to end game\n            }\n\n            x += dx;\n            y += dy;\n        }\n\n        setInterval(draw, 10);\n\n        window.addEventListener(\"keydown\", keyDownHandler, false);\n\n        function keyDownHandler(e) {\n            if(e.key == \"Right\" || e.key == \"ArrowRight\") {\n                rightPressed = true;\n            } else if(e.key == \"Left\" || e.key == \"ArrowLeft\") {\n                leftPressed = true;\n            }\n        }\n\n        window.addEventListener(\"keyup\", keyUpHandler, false);\n\n        function keyUpHandler(e) {\n            if(e.key == \"Right\" || e.key == \"ArrowRight\") {\n                rightPressed = false;\n            } else if(e.key == \"Left\" || e.key == \"ArrowLeft\") {\n                leftPressed = false;\n            }\n        }\n\n        let rightPressed = false;\n        let leftPressed = false;\n\n        function drawPaddle() {\n            ctx.beginPath();\n            ctx.rect(canvas.width/2 - 75, canvas.height-30, 150, 10);\n            ctx.fillStyle = \"#0095DD\";\n            ctx.fill();\n            ctx.closePath();\n        }\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            drawBall();\n            drawPaddle();\n\n            if(rightPressed && x < canvas.width-160) {\n                x += 7;\n            } else if(leftPressed && x > 10) {\n                x -= 7;\n            }\n\n            if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {\n                dx = -dx;\n            }\n            if(y + dy < ballRadius) {\n                dy = -dy;\n            } else if(y + dy > canvas.height-ballRadius) {\n                ctx.clearRect(0, 0, canvas.width, canvas.height);\n                document.write(\"GAME OVER\");\n                clearInterval(interval); // Needed for Chrome to end game\n            }\n\n            x += dx;\n            y += dy;\n\n        }\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770231535.4157703
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770231893.5563023
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game</title>\n</head>\n<body>\n    <div id=\"game-container\">\n        <!-- Game elements will be added here -->\n    </div>\n    <button id=\"reset-button\">Reset</button>\n\n    <script>\n        // JavaScript for game logic and controls\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770232031.5932586
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770236534.5081608
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770236667.0819075
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Arrow Key Health Control</title>\n<style>\n  body {\n    margin: 0;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n    background-color: #f0f0f0;\n  }\n  #healthBar {\n    width: 200px;\n    height: 30px;\n    background-color: green;\n  }\n</style>\n</head>\n<body>\n<div id=\"healthBar\"></div>\n<script>\n  let health = 100;\n\n  function updateHealth() {\n    document.getElementById('healthBar').style.width = `${health}px`;\n  }\n\n  document.addEventListener('keydown', (event) => {\n    if (event.key === 'ArrowLeft') {\n      health -= 5;\n    } else if (event.key === 'ArrowRight') {\n      health += 5;\n    }\n    health = Math.max(0, Math.min(100, health)); // Ensure health stays within 0-100\n    updateHealth();\n  });\n\n  updateHealth(); // Initialize health bar display\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770236790.429399
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Interactive Game</title>\n    <style>\n        /* Add your CSS styles here */\n    </style>\n</head>\n<body>\n    <h1>Welcome to the Interactive Game!</h1>\n    <p>Read the instructions carefully before playing.</p>\n\n    <!-- Inline Instructions for Players -->\n    <div id=\"instructions\">\n        <h2>Instructions:</h2>\n        <ol>\n            <li><strong>Objective:</strong> Complete the quest by finding the hidden treasure.</li>\n            <li><strong>Controls:</strong> Use the arrow keys to move your character.</li>\n            <li><strong>Interact:</strong> Press 'E' to interact with objects and characters.</li>\n            <li><strong>Tips:</strong> Watch for traps and use your inventory wisely.</li>\n        </ol>\n    </div>\n\n    <!-- Game Content -->\n    <div id=\"game-container\">\n        <!-- Your game content goes here -->\n    </div>\n\n    <script>\n        // Add your JavaScript code here\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770238985.6962433
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770238987.5110862
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n    <script>\n        let score = 0;\n        \n        function checkWinLose() {\n            if (score >= 10) {\n                alert(\"You Win!\");\n                reset();\n            } else if (score < -5) {\n                alert(\"You Lose!\");\n                reset();\n            }\n        }\n\n        function reset() {\n            score = 0;\n            document.getElementById('score').innerText = `Score: ${score}`;\n        }\n\n        function incrementScore() {\n            score++;\n            checkWinLose();\n        }\n\n        function decrementScore() {\n            score--;\n            checkWinLose();\n        }\n\n        window.onload = () => {\n            setInterval(incrementScore, 1000);\n            document.getElementById('increment').onclick = incrementScore;\n            document.getElementById('decrement').onclick = decrementScore;\n            document.getElementById('score').innerText = `Score: ${score}`;\n        };\n    </script>\n</head>\n<body>\n    <h1>Game</h1>\n    <p id=\"score\"></p>\n    <button id=\"increment\">Increment Score +1</button>\n    <button id=\"decrement\">Decrement Score -1</button>\n</body>\n</html>\n```\nFILE: game.html",
+    "timestamp": 1770239103.1363912
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770239338.3233051
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Simple Game</title>\n    <style>\n        body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f0f0; }\n        #gameCanvas { border: 1px solid black; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <script>\n        // Game initialization code will go here\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770239415.9833825
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Health Adjustment Game</title>\n<style>\n  #health {\n    font-size: 2em;\n    margin-top: 20px;\n  }\n</style>\n</head>\n<body>\n\n<div id=\"health\">100</div>\n\n<script>\n  let health = parseInt(document.getElementById('health').innerText);\n  document.addEventListener('keydown', (e) => {\n    if (e.key === 'ArrowUp') {\n      health += 10;\n    } else if (e.key === 'ArrowDown') {\n      health -= 10;\n    }\n    document.getElementById('health').innerText = Math.max(0, health);\n  });\n</script>\n\n</body>\n</html>\n```",
+    "timestamp": 1770243158.3856177
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game</title>\n<style>\n  .game-board {\n    display: grid;\n    grid-template-columns: repeat(3, 100px);\n    grid-gap: 5px;\n  }\n  .cell {\n    width: 100px;\n    height: 100px;\n    background-color: #f0f0f0;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 24px;\n    cursor: pointer;\n  }\n</style>\n<script>\n  const board = document.querySelector('.game-board');\n  let gameState = Array(9).fill(null);\n  let currentPlayer = 'X';\n\n  function renderBoard() {\n    board.innerHTML = '';\n    gameState.forEach((cell, index) => {\n      const div = document.createElement('div');\n      div.classList.add('cell');\n      div.textContent = cell || '';\n      div.addEventListener('click', () => handleCellClick(index));\n      board.appendChild(div);\n    });\n  }\n\n  function handleCellClick(index) {\n    if (gameState[index] || checkWinner()) return;\n    gameState[index] = currentPlayer;\n    renderBoard();\n    if (!checkWinner() && !gameState.includes(null)) alert('Draw!');\n    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';\n  }\n\n  function checkWinner() {\n    const winningCombinations = [\n      [0, 1, 2], [3, 4, 5], [6, 7, 8],\n      [0, 3, 6], [1, 4, 7], [2, 5, 8],\n      [0, 4, 8], [2, 4, 6]\n    ];\n    return winningCombinations.some(combination => {\n      return combination.every(index => gameState[index] === currentPlayer);\n    });\n  }\n\n  renderBoard();\n</script>\n</head>\n<body>\n<div class=\"game-board\"></div>\n</body>\n</html>\n```",
+    "timestamp": 1770243159.381941
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Game</title>\n</head>\n<body>\n    <h1>Welcome to Game</h1>\n    <button id=\"resetBtn\">Reset Game</button>\n\n    <script>\n        document.getElementById('resetBtn').addEventListener('click', function() {\n            alert(\"Game reset!\");\n            // Here could be code to actually reset the game state\n        });\n    </script>\n</body>\n</html>\n```\nFILE: game.html",
+    "timestamp": 1770243160.69712
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770243166.2521
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770243386.258289
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770243387.7896557
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770243405.990652
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770243409.4819496
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770243564.012303
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770243565.0345695
+  },
+  {
+    "id": "D",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "Error: Ollama API returned 404",
+    "timestamp": 1770243568.259803
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\ndef health_check():\n    return {\"status\": \"UP\"}\n```",
+    "timestamp": 1770243570.1273158
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\ndef health_check():\n    return {\"status\": \"UP\"}\n```",
+    "timestamp": 1770351071.5906093
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>HTML5 Canvas Platformer</title>\n<style>\n  canvas {\n    border: 1px solid black;\n  }\n</style>\n</head>\n<body>\n<canvas id=\"gameCanvas\"></canvas>\n\n<script>\n  const canvas = document.getElementById('gameCanvas');\n  const ctx = canvas.getContext('2d');\n  canvas.width = 800;\n  canvas.height = 600;\n\n  let player = {\n    x: 100,\n    y: 100,\n    width: 50,\n    height: 50,\n    velocityX: 0,\n    velocityY: 0,\n    gravity: 0.5\n  };\n\n  function gameLoop() {\n    update();\n    render();\n    requestAnimationFrame(gameLoop);\n  }\n\n  function update() {\n    // Handle input\n    if (/* left arrow key */) player.velocityX = -5;\n    else if (/* right arrow key */) player.velocityX = 5;\n    else player.velocityX = 0;\n\n    // Apply gravity\n    player.velocityY += player.gravity;\n\n    // Update player position\n    player.x += player.velocityX;\n    player.y += player.velocityY;\n\n    // Collision detection and response\n    if (player.y + player.height > canvas.height) {\n      player.y = canvas.height - player.height;\n      player.velocityY = 0;\n    }\n  }\n\n  function render() {\n    ctx.clearRect(0, 0, canvas.width, canvas.height);\n\n    // Draw player\n    ctx.fillStyle = 'blue';\n    ctx.fillRect(player.x, player.y, player.width, player.height);\n  }\n\n  document.addEventListener('keydown', function(event) {\n    if (event.key === 'ArrowLeft') player.velocityX = -5;\n    else if (event.key === 'ArrowRight') player.velocityX = 5;\n  });\n\n  document.addEventListener('keyup', function(event) {\n    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') player.velocityX = 0;\n  });\n\n  gameLoop();\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770351485.213139
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Game Canvas</title>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n</body>\n</html>\n```",
+    "timestamp": 1770353794.4786534
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "FILE: game.html\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Game Loop Example</title>\n<style>\n  canvas {\n    border: 1px solid black;\n  }\n</style>\n</head>\n<body>\n<canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n\n<script>\nconst canvas = document.getElementById('gameCanvas');\nconst ctx = canvas.getContext('2d');\n\nfunction gameLoop() {\n  // Clear the canvas\n  ctx.clearRect(0, 0, canvas.width, canvas.height);\n  \n  // Draw your game here\n  ctx.fillStyle = 'blue';\n  ctx.fillRect(50, 50, 100, 100);\n  \n  requestAnimationFrame(gameLoop);\n}\n\n// Start the game loop\ngameLoop();\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770354167.9995759
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Simple Game</title>\n    <style>\n        body { margin: 0; }\n        canvas { display: block; }\n        #hud { position: absolute; top: 10px; left: 10px; color: white; font-family: Arial, sans-serif; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <div id=\"hud\">Score: 0</div>\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        // Game variables\n        let x = 50, y = 50, dx = 2, dy = 2;\n        let score = 0;\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(x, y, 20, 20);\n\n            // Simple collision detection with the walls\n            if (x + dx > canvas.width - 20 || x + dx < 0) dx = -dx;\n            if (y + dy > canvas.height - 20 || y + dy < 0) dy = -dy;\n\n            // Update HUD\n            document.getElementById('hud').textContent = `Score: ${score}`;\n        }\n\n        function gameLoop() {\n            draw();\n            x += dx;\n            y += dy;\n            requestAnimationFrame(gameLoop);\n        }\n\n        gameLoop();\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770354168.700072
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Simple Game</title>\n    <style>\n        body { margin: 0; }\n        canvas { display: block; }\n        #hud { position: absolute; top: 10px; left: 10px; color: white; font-family: Arial, sans-serif; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <div id=\"hud\">Score: 0</div>\n\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        // Game variables\n        let x = 50, y = 50, dx = 2, dy = 2;\n        let score = 0;\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(x, y, 10, 10);\n\n            // HUD\n            ctx.fillStyle = 'white';\n            ctx.font = '20px Arial';\n            ctx.fillText('Score: ' + score, 10, 30);\n\n            requestAnimationFrame(draw);\n        }\n\n        function move() {\n            if (x + dx > canvas.width - 10 || x + dx < 0) {\n                dx = -dx;\n            }\n            if (y + dy > canvas.height - 10 || y + dy < 0) {\n                dy = -dy;\n            }\n\n            x += dx;\n            y += dy;\n\n            requestAnimationFrame(move);\n        }\n\n        document.addEventListener('keydown', function(event) {\n            if (event.key === 'ArrowUp') {\n                dy = -2;\n            } else if (event.key === 'ArrowDown') {\n                dy = 2;\n            } else if (event.key === 'ArrowLeft') {\n                dx = -2;\n            } else if (event.key === 'ArrowRight') {\n                dx = 2;\n            }\n        });\n\n        document.addEventListener('keyup', function(event) {\n            if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {\n                dy = 0;\n            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {\n                dx = 0;\n            }\n        });\n\n        draw();\n        move();\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770355375.69109
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Simple Game</title>\n    <style>\n        body { margin: 0; }\n        canvas { display: block; }\n        #hud { position: absolute; top: 10px; left: 10px; color: white; font-family: Arial, sans-serif; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <div id=\"hud\">Score: 0</div>\n\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        // Game variables\n        let x = 50, y = 50, dx = 2, dy = 2;\n        let score = 0;\n        let level = 1;\n        const levels = [\n            { width: 800, height: 600, collectibles: [{x: 200, y: 300}], hazards: [], exit: {x: 750, y: 550} },\n            // Add more levels as needed\n        ];\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            \n            // Draw player\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(x, y, 20, 20);\n\n            // Draw HUD\n            document.getElementById('hud').innerText = `Score: ${score} Level: ${level}`;\n\n            // Draw collectibles and hazards (simplified example)\n            levels[level - 1].collectibles.forEach(collectible => {\n                ctx.fillStyle = 'green';\n                ctx.fillRect(collectible.x, collectible.y, 20, 20);\n            });\n\n            levels[level - 1].hazards.forEach(hazard => {\n                ctx.fillStyle = 'red';\n                ctx.fillRect(hazard.x, hazard.y, 20, 20);\n            });\n\n            // Check for collisions (simplified example)\n            if (x > canvas.width - 20 || x < 0) dx = -dx;\n            if (y > canvas.height - 20 || y < 0) dy = -dy;\n\n            levels[level - 1].collectibles.forEach((collectible, index) => {\n                if (Math.abs(x - collectible.x) < 20 && Math.abs(y - collectible.y) < 20) {\n                    score++;\n                    levels[level - 1].collectibles.splice(index, 1);\n                }\n            });\n\n            // Check for exit\n            if (x > levels[level - 1].exit.x - 20 && x < levels[level - 1].exit.x + 20 &&\n                y > levels[level - 1].exit.y - 20 && y < levels[level - 1].exit.y + 20) {\n                level++;\n                if (level <= levels.length) {\n                    // Reset player position\n                    x = 50;\n                    y = 50;\n                } else {\n                    alert('You win!');\n                    document.location.reload();\n                }\n            }\n\n            requestAnimationFrame(draw);\n        }\n\n        function move(event) {\n            switch(event.key) {\n                case 'ArrowUp':\n                    dy = -2;\n                    dx = 0;\n                    break;\n                case 'ArrowDown':\n                    dy = 2;\n                    dx = 0;\n                    break;\n                case 'ArrowLeft':\n                    dx = -2;\n                    dy = 0;\n                    break;\n                case 'ArrowRight':\n                    dx = 2;\n                    dy = 0;\n                    break;\n            }\n        }\n\n        document.addEventListener('keydown', move);\n        draw();\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770355942.7803218
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game HUD</title>\n<style>\n#hud {\n    position: fixed;\n    top: 10px;\n    left: 10px;\n    background-color: rgba(255, 255, 255, 0.7);\n    padding: 10px;\n    border: 1px solid #000;\n}\n</style>\n</head>\n<body>\n\n<div id=\"hud\">\n    <span>Score: <span id=\"score\">0</span></span><br>\n    <span>Lives: <span id=\"lives\">3</span></span><br>\n    <span>Time: <span id=\"time\">00:00</span></span>\n</div>\n\n<script>\nfunction updateHUD(score, lives, time) {\n    document.getElementById('score').innerText = score;\n    document.getElementById('lives').innerText = lives;\n    document.getElementById('time').innerText = time;\n}\n\n// Example usage:\nupdateHUD(100, 2, '01:30');\n</script>\n\n</body>\n</html>\n```",
+    "timestamp": 1770356552.7241573
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Simple Exit Door Game</title>\n<script>\nfunction endGame() {\n    alert('Game Over!');\n    window.location.reload();\n}\n\n// Example game state data\nlet gameStateData = { playerHealth: 100, isExitDoorTriggered: false };\n\nfunction checkGameState() {\n    if (gameStateData.isExitDoorTriggered) {\n        endGame();\n    }\n}\n\nwindow.onload = function() {\n    document.getElementById('exit-door').onclick = function() {\n        gameStateData.isExitDoorTriggered = true;\n    };\n};\n\nsetInterval(checkGameState, 1000);\n</script>\n</head>\n<body>\n\n<button id=\"exit-door\">Exit Door</button>\n\n</body>\n</html>\n```",
+    "timestamp": 1770357083.5819068
+  },
+  {
+    "id": "C",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Simple Exit Door Game</title>\n<script>\nfunction endGame() {\n    alert('Game Over!');\n    window.location.reload();\n}\n\nlet gameStateData = { playerHealth: 100, isExitDoorTriggered: false };\n\nfunction checkGameState() {\n    if (gameStateData.isExitDoorTriggered) {\n        endGame();\n    }\n}\n\nwindow.onload = function() {\n    document.getElementById('exit-door').onclick = function() {\n        gameStateData.isExitDoorTriggered = true;\n        document.getElementById('exit-door').removeEventListener('click', this.onclick);\n    };\n};\n\nsetInterval(checkGameState, 1000);\n</script>\n</head>\n<body>\n\n<button id=\"exit-door\">Exit Door</button>\n\n</body>\n</html>\n```",
+    "timestamp": 1770357084.3625944
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Simple Game</title>\n    <style>\n        body { margin: 0; }\n        canvas { display: block; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        // Game variables\n        let x = 50, y = 50, dx = 2, dy = 2;\n        let score = 0;\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(x, y, 20, 20);\n\n            // Simple collision detection with the walls\n            if (x + dx > canvas.width - 20 || x + dx < 0) { dx = -dx; }\n            if (y + dy > canvas.height - 20 || y + dy < 0) { dy = -dy; }\n\n            // Update game variables\n            x += dx;\n            y += dy;\n\n            // Score system\n            ctx.fillStyle = 'black';\n            ctx.font = '16px Arial';\n            ctx.fillText('Score: ' + score, 8, 20);\n        }\n\n        setInterval(draw, 10);\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770357530.7958324
+  },
+  {
+    "id": "B",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "DELEGATED_COMPLETION:\n- PASS\n- ```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Game HUD</title>\n<style>\n#hud {\n    position: fixed;\n    top: 10px;\n    left: 10px;\n    background-color: rgba(255, 255, 255, 0.7);\n    padding: 10px;\n    border: 1px solid #000;\n}\n</style>\n</head>\n<body>\n\n<div id=\"hud\">\n    <span>Score: <span id=\"score\">0</span></span><br>\n    <span>Lives: <span id=\"lives\">3</span></span><br>\n    <span>Time: <span id=\"time\">00:00</span></span>\n</div>\n\n<script>\nfunction updateHUD(score, lives, time) {\n    document.getElementById('score').innerText = score;\n    document.getElementById('lives').innerText = lives;\n    document.getElementById('time').innerText = time;\n}\n\n// Example usage:\nupdateHUD(100, 2, '01:30');\n</script>\n\n</body>\n</html>\n```\n- PASS\n- PASS",
+    "timestamp": 1770357854.2254348
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Simple Game</title>\n    <style>\n        body { margin: 0; }\n        canvas { display: block; }\n        #hud { position: absolute; top: 10px; left: 10px; color: white; font-family: Arial, sans-serif; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <div id=\"hud\">\n        <p>Score: 0</p>\n    </div>\n\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        let x = 50, y = 50, dx = 10, dy = 10;\n        let score = 0;\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(x, y, 20, 20);\n\n            // Simple collision detection with the walls\n            if (x + dx > canvas.width - 20 || x + dx < 0) {\n                dx = -dx;\n            }\n            if (y + dy > canvas.height - 20 || y + dy < 0) {\n                dy = -dy;\n            }\n\n            x += dx;\n            y += dy;\n\n            // Update score display\n            const hud = document.getElementById('hud');\n            hud.innerHTML = `Score: ${score}`;\n\n            requestAnimationFrame(draw);\n        }\n\n        // Handle keyboard input for movement\n        document.addEventListener('keydown', (e) => {\n            if (e.key === 'ArrowRight') dx += 2;\n            if (e.key === 'ArrowLeft') dx -= 2;\n            if (e.key === 'ArrowUp') dy -= 2;\n            if (e.key === 'ArrowDown') dy += 2;\n        });\n\n        draw();\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770357855.0435152
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Simple Game</title>\n    <style>\n        body { margin: 0; }\n        canvas { display: block; }\n        #hud { position: absolute; top: 10px; left: 10px; color: white; font-family: Arial, sans-serif; }\n    </style>\n</head>\n<body>\n    <canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n    <div id=\"hud\">\n        <p>Score: 0</p>\n    </div>\n\n    <script>\n        const canvas = document.getElementById('gameCanvas');\n        const ctx = canvas.getContext('2d');\n\n        let x = 50, y = 50, dx = 10, dy = 10;\n        let score = 0;\n\n        function draw() {\n            ctx.clearRect(0, 0, canvas.width, canvas.height);\n            ctx.fillStyle = 'blue';\n            ctx.fillRect(x, y, 20, 20);\n\n            document.getElementById('hud').innerHTML = `Score: ${score}`;\n        }\n\n        function gameLoop() {\n            if (x + dx > canvas.width - 20 || x + dx < 0) dx = -dx;\n            if (y + dy > canvas.height - 20 || y + dy < 0) dy = -dy;\n\n            x += dx;\n            y += dy;\n\n            draw();\n\n            requestAnimationFrame(gameLoop);\n        }\n\n        gameLoop();\n    </script>\n</body>\n</html>\n```",
+    "timestamp": 1770358514.2775512
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "DELEGATED_COMPLETION:\n- PASS\n- FAIL: Missing levels, objectives, collectibles, hazards, and an exit door as per project memory.",
+    "timestamp": 1770358941.104021
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Canvas Platformer</title>\n    <style>\n        canvas {\n            border: 1px solid black;\n        }\n    </style>\n</head>\n<body>\n<canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n<script>\n    const canvas = document.getElementById('gameCanvas');\n    const ctx = canvas.getContext('2d');\n\n    let playerX = 100, playerY = 450;\n    let keyboard = { left: false, right: false, space: false };\n\n    function mainLoop() {\n        update();\n        render();\n        requestAnimationFrame(mainLoop);\n    }\n\n    function update() {\n        // Handle input\n        if (keyboard.left) playerX -= 5;\n        if (keyboard.right) playerX += 5;\n        if (playerY > 480 && keyboard.space) playerY -= 10;\n\n        // Gravity and collision detection\n        if (playerY < 480) {\n            playerY += 2;\n        }\n        if (playerY >= 480) {\n            playerY = 450;\n        }\n\n        // Draw ground\n        ctx.fillStyle = 'green';\n        ctx.fillRect(0, 480, canvas.width, 20);\n    }\n\n    function render() {\n        ctx.clearRect(0, 0, canvas.width, canvas.height);\n        // Draw player\n        ctx.fillStyle = 'blue';\n        ctx.fillRect(playerX, playerY, 50, 50);\n    }\n\n    document.addEventListener('keydown', (e) => {\n        if (e.key === 'ArrowLeft') keyboard.left = true;\n        if (e.key === 'ArrowRight') keyboard.right = true;\n        if (e.key === ' ') keyboard.space = true;\n    });\n\n    document.addEventListener('keyup', (e) => {\n        if (e.key === 'ArrowLeft') keyboard.left = false;\n        if (e.key === 'ArrowRight') keyboard.right = false;\n        if (e.key === ' ') keyboard.space = false;\n    });\n\n    mainLoop();\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770359044.6034012
+  },
+  {
+    "id": "A",
+    "task": "Unknown (ID lookup needed)",
+    "outcome": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Canvas Platformer</title>\n    <style>\n        canvas {\n            border: 1px solid black;\n        }\n    </style>\n</head>\n<body>\n<canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\n<script>\n    const canvas = document.getElementById('gameCanvas');\n    const ctx = canvas.getContext('2d');\n\n    let playerX = 100, playerY = 450;\n    let keyboard = { left: false, right: false, space: false };\n\n    function mainLoop() {\n        update();\n        render();\n        requestAnimationFrame(mainLoop);\n    }\n\n    function update() {\n        if (keyboard.left) playerX -= 5;\n        if (keyboard.right) playerX += 5;\n        if (playerY > 480 && keyboard.space) playerY -= 10;\n\n        // Simple platform\n        if (playerY < 490) playerY = 490;\n\n        // Add level boundaries\n        if (playerX < 0 || playerX > 780) {\n            alert('Game Over!');\n            window.location.reload();\n        }\n\n        // Collectibles and hazards\n        collectibles.forEach(collectible => {\n            if (playerX >= collectible.x - 10 && playerX <= collectible.x + 10 && playerY >= collectible.y - 10 && playerY <= collectible.y + 10) {\n                collectibles.splice(collectibles.indexOf(collectible), 1);\n                alert('Collectible Found!');\n            }\n        });\n    }\n\n    function render() {\n        ctx.clearRect(0, 0, canvas.width, canvas.height);\n\n        // Draw player\n        ctx.fillStyle = 'blue';\n        ctx.fillRect(playerX, playerY, 20, 20);\n\n        // Draw collectibles\n        collectibles.forEach(collectible => {\n            ctx.fillStyle = 'green';\n            ctx.fillRect(collectible.x, collectible.y, 10, 10);\n        });\n\n        // Simple platform\n        ctx.fillStyle = 'brown';\n        ctx.fillRect(50, 490, 700, 20);\n\n        // Exit door\n        ctx.fillStyle = 'red';\n        ctx.fillRect(350, 20, 100, 20);\n    }\n\n    document.addEventListener('keydown', function(e) {\n        if (e.key === 'ArrowLeft') keyboard.left = true;\n        else if (e.key === 'ArrowRight') keyboard.right = true;\n        else if (e.key === ' ') keyboard.space = true;\n    });\n\n    document.addEventListener('keyup', function(e) {\n        if (e.key === 'ArrowLeft') keyboard.left = false;\n        else if (e.key === 'ArrowRight') keyboard.right = false;\n        else if (e.key === ' ') keyboard.space = false;\n    });\n\n    // Initialize game loop\n    mainLoop();\n\n    const collectibles = [\n        { x: 200, y: 500 },\n        { x: 400, y: 300 },\n        // Add more as needed\n    ];\n</script>\n</body>\n</html>\n```",
+    "timestamp": 1770359515.809012
+  }
+]

@@ -1,0 +1,27 @@
+# Secrets & environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Databases & runtime logs
+*.db
+*.db-wal
+*.db-shm
+*.log
+*.err
+hive_mind/test_output.txt
+hive_mind/bench_outputs.jsonl
+hive_mind/bench_run_log.txt
+
+# Tooling / Node
+.wrangler/
+node_modules/
+.DS_Store
+Thumbs.db

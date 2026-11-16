@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impossible Swarm | Command Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Dashboard Header -->
+        <header class="panel">
+            <div class="logo">
+                IMPOSSIBLE ENGINE <span>v1.0.0</span>
+            </div>
+            <div class="header-status">
+                <span id="global-status">SYSTEM IDLE</span>
+            </div>
+        </header>
+
+        <!-- Left Sidebar: Task History -->
+        <aside class="sidebar panel">
+            <h3>Active Nodes</h3>
+            <div class="nav-item active">Central Overmind (72B)</div>
+            <div class="nav-item">Fractal Layer 1</div>
+            <div class="nav-item">Fractal Layer 2</div>
+            
+            <h3 style="margin-top: 40px;">Recent Goals</h3>
+            <div id="task-list">
+                <!-- Task items will appear here -->
+                <div class="nav-item">Analyze Bitcoin 24h</div>
+            </div>
+        </aside>
+
+        <!-- Main Viewport: Shatter Visualization -->
+        <main class="viewport panel">
+            <div class="shatter-viz" id="shatter-tree">
+                <!-- SVG Fractal tree will be injected here -->
+                <div style="color: rgba(255,255,255,0.2); font-size: 14px; text-align: center; margin-top: 200px;">
+                    ENTER GOAL TO INITIALIZE SHATTERING
+                </div>
+            </div>
+            
+            <div class="command-bar">
+                <input type="text" id="goal-input" placeholder="Give the engine an objective...">
+                <button id="execute-btn">SHATTER</button>
+            </div>
+        </main>
+
+        <!-- Right Panel: Consensus Feed -->
+        <aside class="panel">
+            <h3>Consensus Monitor</h3>
+            <div class="rebuttal-feed" id="log-feed">
+                <!-- Logs will be injected here -->
+                <div class="log-entry">Waiting for input...</div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
