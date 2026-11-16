@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T11:56:52.641374+00:00",
+  "generated_at": "2026-11-16T11:59:14.476139+00:00",
   "status": {
     "enabled": false,
     "running": false,
@@ -21466,6 +21466,16 @@
         "url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
         "articles": [
           {
+            "id": "aecdef0a",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+          },
+          {
+            "id": "a015f241",
+            "title": "Radiated Mass Fraction and Hawking Evaporation Consistency Test for GWTC‑3 Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
             "id": "2c367dba",
             "title": "dsDG Critical Temperature Consistency Test with GWTC‑3 Black‑Hole Remnants",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
@@ -22342,9 +22352,9 @@
       "scout_angle": "**Hypothesis (extracted from the arXiv paper):**  \nFor a continuous‑wave source behind Sgr A* the geometric‑optics interference produces a *mismatch*  \n\\[\n\\mathcal{M}\\;\\approx\\;\\bigl[\\pi f\\,\\Delta t_{\\rm rel}(t)\\bigr]^{2},\n\\qquad \n\\Delta t_{\\rm rel}(t)=\\frac{4GM_{\\!SgrA}}{c^{3}}\\,\n\\frac{{\\bf v}_{\\perp}\\!\\cdot\\!{\\bf \\theta}}{c\\,\\theta^{2}}\\,t_{\\rm obs},\n\\]  \nso that for a typical observation time \\(t_{\\rm obs}=1\\;\\mathrm{yr}\\), GW frequency \\(f=500\\;\\mathrm{Hz}\\), transverse velocity of the source \\(v_{\\perp}=200\\;\\mathrm{km\\,s^{-1}}\\) and a sky offset \\(\\theta\\) (rad) from Sgr A*, the mismatch exceeds the standard CW‑template loss threshold \\(\\mathcal{M}=0.2\\) whenever \\(\\theta\\lesssim3\\times10^{-3}\\,\\mathrm{rad}\\;(0.17^{\\circ})\\).\n\n**Python sanity‑check (self‑contained, uses only `numpy`):**  \n\n```python\nimport numpy as np\n\n# constants (geometric units G=c=1, then convert)\nM_sgra = 4.0e6 * 1.98847e30          # kg\nc = 299792458.0                     # m/s\nG = 6.67430e-11                     # m^3 kg^-1 s^-2\nGMc3 = 4*G*M_sgra/c**3              # seconds, 4GM/c^3 factor\n\nf = 500.0                           # Hz\nt_obs = 365.25*24*3600.0            # 1 yr in s\nv_perp = 200e3                      # m/s\n\ndef mismatch(theta):\n    # theta in rad\n    dt_rel = GMc3 * (v_perp*theta)/(c*theta**2) * t_obs   # Δt_rel(t) ≈ GM/c^3 * (v·θ)/(cθ^2) t_obs\n    return (np.pi*f*dt_rel)**2\n\nthetas = np.logspace(-5, -2, 200)   # 0.001° – 0.57°\nM_vals = mismatch(thetas)\n\n# find the angular threshold where M crosses 0.2\ntheta_thr = thetas[np.argmin(np.abs(M_vals-0.2))]\nprint(f\"θ_threshold ≈ {theta_thr:.3e} rad = {np.degrees(theta_thr)*60:.2f} arc‑min\")\n```\n\nRunning the snippet reproduces the analytic estimate (≈ 3 × 10⁻³ rad ≈ 0.17°) and therefore validates the paper’s claim that CW searches must incorporate an additional lensing‑parameter space for sources within a few arc‑minutes of Sgr A*.",
       "source_title": "Effects of Lensing by Sgr A* on Semicoherent Searches for Continuous Gravitational Waves. I. Signal Model and Mismatch Studies",
       "source_url": "http://arxiv.org/abs/2611.17153v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
       "published": true,
       "is_unique": false,
       "novelty_score": 52,
@@ -22394,9 +22404,9 @@
       "scout_angle": "**Syntax:** The prompt is well‑formed – it cleanly specifies the data sources, the required null‑control procedure, the dimensional consistency constraint, and the output format (2‑4 concise sentences).\n\n**Logical sanity:** The goal is feasible with the provided sandbox tools:\n\n1. A raw‑strain test (e.g., a high‑frequency (>300 Hz) excess‑power search) can be defined on the 4096 Hz, 32 s H1/L1 files referenced by `GWOSC_STRAIN_MANIFEST`.  \n2. Sliding the L1 stream relative to H1 by ≥0.2 s yields ≥20 independent background trials that do not overlap the on‑source window, satisfying the null‑control requirement.  \n3. Computing an on‑source statistic (e.g., summed power in a chosen frequency band) and comparing it to the background distribution yields an empirical p‑value, which is straightforward to report in the requested sentence count.\n\n**Minor clarification needed:** Specify the exact statistic (e.g., “average squared‑strain amplitude in 300–500 Hz”) so the implementation can be unambiguous, but otherwise the mission description is logically consistent and executable.",
       "source_title": "",
       "source_url": "",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
       "published": true,
       "is_unique": false,
       "novelty_score": 69,
