@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-16T23:02:47.394318+00:00",
+  "generated_at": "2026-11-23T02:26:08.506991+00:00",
   "status": {
-    "enabled": false,
+    "enabled": true,
     "running": false,
     "current_stage": "Initializing...",
     "interval_minutes": 0,
@@ -29,8 +29,8 @@
     "rejected_count": 1053,
     "seconds_until_next": null,
     "last_error": null,
-    "provider": "groq",
-    "model": "openai/gpt-oss-120b",
+    "provider": "ollama",
+    "model": "qwen3:8b-q4_K_M",
     "cooling_down": [],
     "available_providers": [
       "ollama",
@@ -25916,6 +25916,36 @@
         "url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
         "articles": [
           {
+            "id": "fba1d364",
+            "title": "Plebański–Demiański Radiated‑Energy–Spin Consistency Test for GWTC‑3 Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "a3eac603",
+            "title": "Axion–NED Induced QNM Frequency Shift Test on GWTC‑3 Remnants",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "6da53e7e",
+            "title": "Λ‑Induced Quasinormal‑Mode Shift Test for GWTC‑3 Remnants",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "a59bc907",
+            "title": "Hawking‑Temperature Consistency Check for GWTC‑3 Remnants in Deformed Sine‑Dilaton Gravity",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "20cadf4a",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+          },
+          {
+            "id": "a9b759aa",
+            "title": "Universal Planck‑Scale Curvature Corrections to GWTC‑3 Remnant OPE Coefficients",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
             "id": "aecdef0a",
             "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
             "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
@@ -26103,6 +26133,16 @@
         "url": "https://en.wikipedia.org/wiki/History_of_black_hole_physics",
         "articles": [
           {
+            "id": "e6a8d5f8",
+            "title": "Radiated Energy Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "5a448907",
+            "title": "Radiated Energy–Symmetry Bound for Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
             "id": "43e9dfd9",
             "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
             "domain": "Black Hole Physics"
@@ -26173,6 +26213,11 @@
         "title": "Gravitational-wave astronomy",
         "url": "https://en.wikipedia.org/wiki/Gravitational-wave_astronomy",
         "articles": [
+          {
+            "id": "7e65ee60",
+            "title": "Axion‑NED induced shift of the ℓ=2 fundamental QNM frequency in observed GW ringdowns",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "4b6e3ff3",
             "title": "Edge‑Case & Failure‑Mode Analysis of the Semicoherent Mismatch Formula for Lensed Continuous Gravitational Waves",
@@ -26485,6 +26530,22 @@
         ]
       },
       {
+        "title": "Quantum field theory in curved spacetime",
+        "url": "https://en.wikipedia.org/wiki/Quantum_field_theory_in_curved_spacetime",
+        "articles": [
+          {
+            "id": "376643d5",
+            "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
+            "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
+          },
+          {
+            "id": "6a25d1a3",
+            "title": "Curvature‑Induced OPE Coefficient Suppression in GWTC Black‑Hole Remnants",
+            "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
+          }
+        ]
+      },
+      {
         "title": "Neutron star",
         "url": "https://en.wikipedia.org/wiki/Neutron_star",
         "articles": [
@@ -26497,6 +26558,22 @@
             "id": "c718093f",
             "title": "Radiated Energy Fraction vs Symmetric Mass Ratio in GWTC Binary Black Hole Mergers",
             "domain": "Black Hole Physics"
+          }
+        ]
+      },
+      {
+        "title": "Quantitative analysis (finance)",
+        "url": "https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)",
+        "articles": [
+          {
+            "id": "9c2bb825",
+            "title": "Validation of the MIR Damping Timescale – Black Hole Mass Linear Scaling for M87*",
+            "domain": "Black Hole Physics / Quantitative Modeling"
+          },
+          {
+            "id": "54bb4dd3",
+            "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
+            "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
           }
         ]
       },
@@ -26611,17 +26688,6 @@
             "id": "e745ddce",
             "title": "Verification of Gauss‑Bonnet Holographic Viscosity Violation of the KSS Bound using Real GW Catalog Context",
             "domain": "Black Hole Physics / Holographic QCD"
-          }
-        ]
-      },
-      {
-        "title": "Quantitative analysis (finance)",
-        "url": "https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)",
-        "articles": [
-          {
-            "id": "54bb4dd3",
-            "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
-            "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
           }
         ]
       },
@@ -26882,9 +26948,9 @@
       "scout_angle": "**Hypothesis (from “Gravitational Corrections to OPE Coefficients”):** The leading curvature‑induced correction to a scalar‑field OPE coefficient in a vacuum black‑hole background is proportional to the dimensionless invariant  \n\\[\n\\epsilon \\;=\\;\\beta\\,\\Bigl(\\frac{\\ell_{\\!P}}{r_{\\!s}}\\Bigr)^{2},\n\\qquad r_{\\!s}= \\frac{2GM}{c^{2}},\n\\]  \nwith the paper reporting β≈1/6.  For astrophysical remnants the prediction is that ε ≪ 1, i.e. the correction is completely negligible compared with the flat‑space OPE value.\n\n**Python sanity‑check (self‑contained, 3 lines):**  \n\n```python\nimport json, numpy as np, os\ncat = json.load(open(os.environ['GWTC_CATALOG_PATH']))\nbeta = 1/6.0\neps = [beta*( (np.sqrt(6.67430e-11*1.616255e-35**2))/(2*6.67430e-11*ev['final_mass_source_frame']*1.98847e30/ (299792458**2)) )**2\n       for ev in cat['events'] if 'final_mass_source_frame' in ev]\nprint(\"max ε =\", max(eps), \"median ε =\", np.median(eps))\n```\n\nThe script reads the GWTC‑3 catalog, computes ε for every merger with a reported final mass, and prints the largest (and median) value; a successful sanity check is that the output shows ε ≲ 10⁻⁴⁰, confirming the paper’s curvature‑correction scaling is consistent with real black‑hole data.",
       "source_title": "Gravitational Corrections to OPE Coefficients",
       "source_url": "http://arxiv.org/abs/2611.18415v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Quantum field theory in curved spacetime",
+      "wiki_extract": "In theoretical physics, quantum field theory in curved spacetime (QFTCS) is an extension of quantum field theory from Minkowski spacetime to a general curved spacetime. This theory uses a semi-classical approach; it treats spacetime as a fixed, classical background, while giving a quantum-mechanical description of the matter and energy propagating through that spacetime. A general prediction of this theory is that particles can be created by time-dependent gravitational fields, or by time-independent gravitational fields that contain horizons. The most famous example of the latter is the pheno",
+      "wiki_url": "https://en.wikipedia.org/wiki/Quantum_field_theory_in_curved_spacetime",
       "published": true,
       "is_unique": false,
       "novelty_score": 69,
@@ -26934,9 +27000,9 @@
       "scout_angle": "**Hypothesis (directly from the WISE‑VAULT paper).**  \nThe paper finds a median maximum‑minimum W1‑band amplitude of the whole AGN sample  \n\\[\n\\langle\\Delta W1\\rangle_{\\rm obs}=0.13\\;{\\rm mag},\n\\]  \nand argues that the MIR variability is dominated by stochastic ∼10 % fluctuations of the mass‑accretion rate in a standard thin‑disk that reprocesses the UV/optical radiation at the dust sublimation radius.  For a power‑law disk spectrum \\(F_{\\nu}\\propto\\nu^{-\\alpha}\\) with the typical AGN index \\(\\alpha\\simeq1\\), the expected W1‑band magnitude change from a fractional accretion‑rate variation \\(f_{\\dot M}=0.10\\) is  \n\n\\[\n\\Delta W1_{\\rm pred}=2.5\\,f_{\\dot M}\\,(\\alpha+1)\\;\\approx\\;0.20\\;{\\rm mag}.\n\\]\n\nIf the thin‑disk reprocessing picture is correct, the observed median should lie within a factor‑two of this simple prediction.\n\n**Self‑contained Python check (SI/geom. units are not needed because magnitudes are dimensionless).**  \n\n```python\nimport numpy as np\n\n# Observed median from the WISE‑VAULT abstract (mag)\ndeltaW1_obs = 0.13  \n\n# Assumed fractional accretion‑rate fluctuation and spectral index\nf_Mdot = 0.10          # 10 % variations\nalpha   = 1.0          # typical AGN UV/optical slope (Fν ∝ ν⁻ᵅ)\n\n# Predicted W1 magnitude amplitude from thin‑disk reprocessing\ndeltaW1_pred = 2.5 * f_Mdot * (alpha + 1)   # 2.5 = -2.5 log10(e)\n\n# Test: does the observation lie within a factor‑two of the prediction?\nratio = deltaW1_obs / deltaW1_pred\npassed = 0.5 <= ratio <= 2.0\n\nprint(f\"ΔW1_pred = {deltaW1_pred:.3f} mag\")\nprint(f\"ΔW1_obs = {deltaW1_obs:.3f} mag\")\nprint(f\"Ratio (obs/pred) = {ratio:.3f}\")\nprint(f\"Test PASS? {passed}\")\n```\n\nRunning the snippet returns a ratio ≈ 0.65, so the observed median MIR variability amplitude is comfortably within a factor‑two of the thin‑disk reprocessing prediction, supporting the hypothesis.",
       "source_title": "WISE-VAULT: Decade-long Mid-Infrared Variability of WISE AGN",
       "source_url": "http://arxiv.org/abs/2611.17996v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "History of black hole physics",
+      "wiki_extract": "Black holes have primarily been subjects of research since the advent of general relativity in the early 1900s, although similar concepts were discussed before then. Several months after Albert Einstein first described general relativity in 1917, astrophysicist Karl Schwarzschild applied the model to stars and discovered a solution to the Einstein field equations containing singularities, which would later become known as the Schwarzschild solution. This solution was the foundation for Schwarzschild black holes: black holes with no spin or charge.",
+      "wiki_url": "https://en.wikipedia.org/wiki/History_of_black_hole_physics",
       "published": true,
       "is_unique": false,
       "novelty_score": 51,
@@ -27116,9 +27182,9 @@
       "scout_angle": "**Hypothesis (paper‑based):** Figure 3 of the arXiv paper shows that the real part of the fundamental ℓ=2 gravitational QNM of a static dyonic‑axion black hole is shifted from the Reissner–Nordström value by  \n\n\\[\n\\frac{\\Delta\\omega_R}{\\omega_R^{\\rm RN}}\\;\\simeq\\;\\kappa\\,(g_{a\\phi}\\,Q/M)^2,\\qquad\\kappa\\approx0.12,\n\\]\n\nso that for any realistic axion coupling \\(g_{a\\phi}\\le 2\\times10^{-2}\\) and charge‑to‑mass ratio \\(Q/M\\le0.3\\) the relative change should be ≲ 0.5 %.  \n\n**Python check (self‑contained):**  \n\n```python\nimport numpy as np\n\n# Reissner–Nordström fundamental (ℓ=2) QNM real part (geometric units)\ndef omega_R_RN(M, Q):\n    # Leaver‑fit from the paper: ω_R M ≈ 0.3737 – 0.0895 (Q/M)^2\n    return (0.3737 - 0.0895*(Q/M)**2)/M\n\nkappa = 0.12\ng_vals = np.linspace(0, 2e-2, 101)\nq_vals = np.linspace(0, 0.3, 101)\nM = 1.0  # set M=1 (geometric units)\n\nmax_shift = 0.0\nfor g in g_vals:\n    for q in q_vals:\n        omega_R = omega_R_RN(M, q*M) * (1 + kappa*(g*q)**2)\n        rel_shift = np.abs(omega_R - omega_R_RN(M, q*M))/omega_R_RN(M, q*M)\n        max_shift = max(max_shift, rel_shift)\n\nprint(f\"Maximum relative shift over allowed (g,Q/M): {max_shift:.3%}\")\n```\n\nRunning the script returns a maximum shift ≈ 0.4 %, confirming the paper’s scaling law and showing that the GW190521 ring‑down frequency (≈ 0.29 M⁻¹) lies well within the predicted GR‑only band for all admissible axion‑NED parameters.",
       "source_title": "Quasinormal modes of dyonic axion black holes with nonlinear electrodynamics",
       "source_url": "http://arxiv.org/abs/2611.18117v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational-wave astronomy",
+      "wiki_extract": "Gravitational-wave astronomy is a subfield of astronomy concerned with the detection and study of gravitational waves emitted by astrophysical sources.",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational-wave_astronomy",
       "published": true,
       "is_unique": false,
       "novelty_score": 70,
@@ -27142,9 +27208,9 @@
       "scout_angle": "The mission goal is syntactically well‑formed: it clearly specifies the domain, excludes previously used identities, anchors the hypothesis to a concrete claim from the cited arXiv paper, and demands a single, dimensionally consistent Python check using the provided data resources. Logically, the constraints are coherent—requiring a novel, quantitative test that does not revert to textbook Kerr/Schwarzschild relations and that can be implemented with the available GWTC/EHT catalogs and standard scientific libraries. All required elements (a quantitative claim, a self‑contained script, and a 2–4‑sentence response) are explicitly stated, making the request feasible and unambiguous. No contradictory or impossible requirements are present.",
       "source_title": "Separability of coupled gravitational perturbations in Plebański--Demiański spacetimes",
       "source_url": "http://arxiv.org/abs/2611.18200v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
       "published": true,
       "is_unique": true,
       "novelty_score": 75,
@@ -27298,9 +27364,9 @@
       "scout_angle": "The mission goal is syntactically well‑formed and logically consistent: it asks for a single, **new** black‑hole‑physics hypothesis that does not overlap any of the recent topics, requires a dimensionally‑correct formulation, and demands a self‑contained Python check using only the listed libraries and data sources. The specification correctly includes a **null‑control** (≥20 off‑source time‑shifted H1–L1 trials) and an empirical p‑value, and it respects the output constraint of 2–4 concise sentences. All required resources (GWOSC strain manifest, GWTC catalog, NumPy/SciPy/h5py, etc.) are available in the sandbox, so the task is feasible as written.",
       "source_title": "",
       "source_url": "",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "History of black hole physics",
+      "wiki_extract": "Black holes have primarily been subjects of research since the advent of general relativity in the early 1900s, although similar concepts were discussed before then. Several months after Albert Einstein first described general relativity in 1917, astrophysicist Karl Schwarzschild applied the model to stars and discovered a solution to the Einstein field equations containing singularities, which would later become known as the Schwarzschild solution. This solution was the foundation for Schwarzschild black holes: black holes with no spin or charge.",
+      "wiki_url": "https://en.wikipedia.org/wiki/History_of_black_hole_physics",
       "published": true,
       "is_unique": false,
       "novelty_score": 66,
@@ -27324,9 +27390,9 @@
       "scout_angle": "**Hypothesis:** The leading‑order gravitational correction to a scalar‑field OPE coefficient derived in “Gravitational Corrections to OPE Coefficients’’ is proportional to the dimensionless curvature factor \\((\\ell_{\\rm P}/R_{\\rm S})^{4}\\) (with \\(\\ell_{\\rm P}=G\\hbar/c^{3}\\) and \\(R_{\\rm S}=2GM/c^{2}\\)); therefore for every stellar‑mass binary‑black‑hole remnant in GWTC the fractional correction \\(\\Delta C/C\\) should be smaller than \\(10^{-6}\\).  \n\n**Test (self‑contained Python):** Load the GWTC catalog, extract the posterior median of the final remnant mass \\(M_{f}\\) (in solar masses), compute \\(R_{\\rm S}=2GM_{f}/c^{2}\\) and evaluate \\((\\ell_{\\rm P}/R_{\\rm S})^{4}\\) for each event, then report the maximum value and check that it satisfies \\(\\max(\\Delta C/C)<10^{-6}\\).  \n\n```python\nimport json, os, numpy as np, math\nG=6.67430e-11; c=2.99792458e8; hbar=1.054571817e-34\nℓP=math.sqrt(G*hbar/c**3)                     # Planck length (m)\nMsol=1.98847e30                               # solar mass (kg)\n\ncat_path=os.getenv('GWTC_CATALOG_PATH')\nwith open(cat_path) as f: data=json.load(f)\n\nmax_corr=0.0\nfor ev in data['events']:\n    if 'final_mass_source' not in ev: continue\n    # use median of posterior samples\n    Mf=np.median(ev['final_mass_source'])*Msol\n    Rs=2*G*Mf/c**2\n    corr=(ℓP/Rs)**4\n    max_corr=max(max_corr,corr)\n\nprint(f\"Maximum fractional OPE correction across GWTC: {max_corr:.2e}\")\nassert max_corr < 1e-6, \"Curvature‑induced OPE correction exceeds the 10⁻⁶ bound\"\n```  \n\n**Expected outcome:** The script prints a value ≲ 10⁻⁸, confirming that the curvature‑induced OPE coefficient correction is utterly negligible for all observed merger remnants, in agreement with the scaling law quoted in the arXiv paper.",
       "source_title": "Gravitational Corrections to OPE Coefficients",
       "source_url": "http://arxiv.org/abs/2611.18415v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Quantum field theory in curved spacetime",
+      "wiki_extract": "In theoretical physics, quantum field theory in curved spacetime (QFTCS) is an extension of quantum field theory from Minkowski spacetime to a general curved spacetime. This theory uses a semi-classical approach; it treats spacetime as a fixed, classical background, while giving a quantum-mechanical description of the matter and energy propagating through that spacetime. A general prediction of this theory is that particles can be created by time-dependent gravitational fields, or by time-independent gravitational fields that contain horizons. The most famous example of the latter is the pheno",
+      "wiki_url": "https://en.wikipedia.org/wiki/Quantum_field_theory_in_curved_spacetime",
       "published": true,
       "is_unique": false,
       "novelty_score": 69,
@@ -27402,9 +27468,9 @@
       "scout_angle": "**Hypothesis (from WISE‑VAULT 2026):** The exponential damping timescale of the mid‑infrared light‑curve autocorrelation obeys the linear scaling  \n\\[\n\\tau_{\\rm MIR}\\;\\simeq\\;0.12\\;{\\rm yr}\\;\\left(\\frac{M_{\\rm BH}}{10^{8}\\,M_\\odot}\\right) ,\n\\]  \n(Eq. 5 of the paper).  \n\n**Test on a real black‑hole:** Insert the EHT mass of M87* \\((M_{\\rm BH}=6.5\\times10^{9}\\,M_\\odot)\\) to obtain a predicted \\(\\tau_{\\rm pred}=0.12\\,{\\rm yr}\\times(6.5\\times10^{9}/10^{8})\\approx7.8\\) yr, and compare it with the observed MIR damping timescale reported for M87 in the WISE‑VAULT sample (\\(\\tau_{\\rm obs}=7.5\\) yr).  \n\n**Self‑contained Python check (SI‑consistent):**  \n\n```python\nimport numpy as np\n\n# constants\nM_sun = 1.98847e30          # kg\nyr   = 3.15576e7            # s\n\n# EHT mass of M87* (geometric units → kg)\nM_BH = 6.5e9 * M_sun\n\n# scaling from the paper (0.12 yr per 1e8 M⊙)\ntau_pred = 0.12 * yr * (M_BH / (1e8 * M_sun))          # seconds\ntau_obs  = 7.5 * yr                                     # seconds (paper value)\n\n# fractional deviation\nfrac_dev = np.abs(tau_pred - tau_obs) / tau_obs\n\nprint(f\"τ_pred = {tau_pred/yr:.2f} yr, τ_obs = {tau_obs/yr:.2f} yr, \"\n      f\"fractional deviation = {frac_dev:.3%}\")\n\n# assertion: agreement better than 5 %\nassert frac_dev < 0.05, \"Scaling fails for M87*\"\n```\n\nIf the script runs without raising the assertion, the linear \\(\\tau_{\\rm MIR}\\)–\\(M_{\\rm BH}\\) relation holds for the most massive black hole in the WISE‑VAULT sample.",
       "source_title": "WISE-VAULT: Decade-long Mid-Infrared Variability of WISE AGN",
       "source_url": "http://arxiv.org/abs/2611.17996v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Quantitative analysis (finance)",
+      "wiki_extract": "Quantitative analysis in finance refers to the application of mathematical and statistical methods to problems in financial markets and investment management. Professionals in this field are known as quantitative analysts or quants.",
+      "wiki_url": "https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)",
       "published": true,
       "is_unique": false,
       "novelty_score": 50,
@@ -27558,9 +27624,9 @@
       "scout_angle": "**Hypothesis:** The arXiv study reports that, to leading order in the axion coupling \\(g_{a}\\) and the nonlinear‑electrodynamics charge \\(Q_{a}\\), the fundamental \\(\\ell=m=2\\) gravitational QNM of a static dyonic black hole is shifted by  \n\\[\n\\frac{\\Delta\\omega}{\\omega_{\\rm Kerr}}\\;\\approx\\;\\frac{g_{a}^{2}\\,Q_{a}^{2}}{6\\,M^{2}} .\n\\]  \n\n**Test:** Assuming astrophysical black‑hole remnants satisfy \\(|Q_{a}|/M\\le 5\\times10^{-2}\\) and \\(g_{a}\\le10^{-2}\\), we can compute the maximal predicted fractional shift for every GWTC‑3 binary‑black‑hole merger and check that it is orders of magnitude smaller than the typical ring‑down measurement uncertainty (∼10 %).  \n\n**Self‑contained Python check (runs in the sandbox):**\n```python\nimport json, numpy as np, os, math\n\n# load GWTC‑3 catalog (only events with final mass & spin)\ncatalog_path = os.environ[\"GWTC_CATALOG_PATH\"]\nwith open(catalog_path) as f:\n    data = json.load(f)\n\n# Berti et al. (2006) fit for the dominant (2,2,0) Kerr QNM frequency (geometric units)\ndef omega_kerr(M, a):\n    # dimensionless spin χ = a/M, 0≤χ<1\n    chi = a / M\n    # Fit coefficients for the real part (frequency) from Berti et al.\n    f1, f2, f3 = 1.5251, -1.1568, 0.1292\n    # Fit coefficients for the imaginary part (damping) – not needed here\n    return (f1 + f2*(1-chi)**f3) / M   # ω = 2π f (geometric units, G=c=1)\n\n# upper‑bound parameters from the hypothesis\ng_a   = 1e-2\nQ_over_M_max = 5e-2\n\nshifts = []\nfor ev in data[\"events\"]:\n    # need source‑frame final mass (M_f) and final spin (a_f)\n    try:\n        M_f = ev[\"source_frame_final_mass\"]          # in solar masses\n        a_f = ev[\"source_frame_final_spin\"]          # dimensionless χ\n    except KeyError:\n        continue\n    # convert to geometric units (M⊙ → seconds: G M⊙/c³ ≈ 4.92549095e-6 s)\n    M_geom = M_f * 4.92549095e-6\n    ω_k = omega_kerr(M_geom, a_f * M_geom)          # a = χ M\n    # maximal fractional shift from the paper’s leading‑order formula\n    Δω_over_ω = (g_a**2 * (Q_over_M_ma",
       "source_title": "Quasinormal modes of dyonic axion black holes with nonlinear electrodynamics",
       "source_url": "http://arxiv.org/abs/2611.18117v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
       "published": true,
       "is_unique": false,
       "novelty_score": 70,
@@ -27584,9 +27650,9 @@
       "scout_angle": "**Hypothesis (from arXiv:2610.22274):** In a Plebański‑Demiański black‑hole the separability of the coupled gravitational‑electromagnetic perturbations forces the quasinormal‑mode frequency shift produced by a non‑zero cosmological constant to obey  \n\n\\[\n\\frac{\\Delta\\omega}{\\omega_{\\rm Kerr}}\\;=\\;-\\frac{\\Lambda\\,r_{+}^{2}}{3}\\,,\n\\]\n\nwhere \\(r_{+}=M\\bigl[1+\\sqrt{1-a^{2}/M^{2}}\\bigr]\\) is the outer horizon radius (geometric units).  \n\n**Python check:** Load the GWTC‑3 catalog, convert each event’s source‑frame final mass \\(M_f\\) and dimensionless spin \\(\\chi_f\\) to geometric units (using \\(G=c=1\\)), compute \\(r_{+}\\) and the fractional shift \\(|\\Delta\\omega/\\omega_{\\rm Kerr}|\\) with the observed Planck‑scale Λ = 1.1 × 10⁻⁵² m⁻², and verify that for every event the shift is < 10⁻¹⁸ (far below any detectable GW‑ringdown precision).  \n\nIf any event violates this bound, the separability‑induced Λ‑correction would be observable, falsifying the claim; otherwise the test confirms that astrophysical black‑hole ringdowns are effectively indistinguishable from the Kerr limit, as predicted.",
       "source_title": "Separability of coupled gravitational perturbations in Plebański--Demiański spacetimes",
       "source_url": "http://arxiv.org/abs/2611.18200v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
       "published": true,
       "is_unique": true,
       "novelty_score": 82,
@@ -27610,9 +27676,9 @@
       "scout_angle": "**Hypothesis (dsDG ↔ astrophysical BHs).** In the deformed sine‑dilaton model the deformation parameter λ sets a critical temperature \\(T_{0}= \\lambda/(2\\pi)\\) (Planck units). All astrophysical black holes that are well‑described by General Relativity must sit in the physical branch \\(T_{\\rm H}<T_{0}\\); otherwise the model predicts the unphysical fractional‑density phase reported in the paper.  \n\n**Python sanity‑check.** Load the GWTC‑3 catalog, compute the Hawking temperature of every binary‑black‑hole remnant in Planck units (\\(T_{\\rm H}=1/(8\\pi M_{\\rm fin})\\)), and verify that for a representative deformation λ=0.5 the ratio \\(R=T_{\\rm H}/T_{0}\\) is ≪ 1 for the entire sample:\n\n```python\nimport json, numpy as np, os\n\n# paths supplied by the sandbox\ncat_path = os.environ[\"GWTC_CATALOG_PATH\"]\nwith open(cat_path) as f:\n    catalog = json.load(f)\n\nlam = 0.5                     # chosen deformation parameter\nT0  = lam/(2*np.pi)           # critical temperature in Planck units\n\nratios = []\nfor ev in catalog[\"events\"]:\n    # use the median final mass (source‑frame) if available\n    mf = ev.get(\"final_mass_source\")\n    if mf is None: continue\n    # convert solar masses to Planck mass (M⊙ ≈ 9.136e37 in Planck units)\n    M_planck = mf * 9.136e37\n    TH = 1.0/(8*np.pi*M_planck)   # Hawking temperature (Planck units)\n    ratios.append(TH/T0)\n\nratios = np.array(ratios)\nprint(f\"max(T_H/T0) = {ratios.max():.3e},  mean = {ratios.mean():.3e}\")\nassert ratios.max() < 0.01, \"At least one GW event violates the physical branch condition\"\n```\n\nThe script should print a maximum ratio ≲ 10⁻⁴ (well below the 0.01 threshold), confirming that all observed GW remnants lie safely in the physical phase predicted by the deformed sine‑dilaton gravity model.",
       "source_title": "Phases of deformed sine dilaton gravity and JT limit",
       "source_url": "http://arxiv.org/abs/2611.17810v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
       "published": true,
       "is_unique": false,
       "novelty_score": 68,
@@ -27766,9 +27832,9 @@
       "scout_angle": "**Hypothesis (WISE‑VAULT → GR control).**  \nIf mid‑infrared variability in AGN is driven by reverberation of the dusty torus, the light‑crossing time of the dust‑sublimation radius  \n\\[\nR_{\\rm sub}=0.4\\;{\\rm pc}\\,\\Bigl(\\frac{L_{\\rm bol}}{10^{46}{\\rm erg\\,s^{-1}}}\\Bigr)^{1/2},\n\\qquad t_{\\rm sub}=R_{\\rm sub}/c,\n\\]  \nmust be shorter than the ∼10‑yr baseline over which the WISE‑VAULT survey measures the maximum–minimum amplitude ΔW1.  In other words, for every AGN in the catalog we expect \\(t_{\\rm sub}/{\\rm yr}\\le 10\\).\n\n**Self‑contained Python check (SI units, using the public WISE‑VAULT table).**  \n\n```python\nimport numpy as np, pandas as pd, astropy.units as u\nfrom astropy.cosmology import Planck15 as cosmo\n\n# ------------------------------------------------------------------\n# 1. Load the WISE‑VAULT AGN table (must contain columns:\n#    'redshift', 'W1_mag', 'Delta_W1' and optional 'W1_err').\n# ------------------------------------------------------------------\nagn = pd.read_csv('wise_vault_agn.csv')          # replace with actual path\n\n# 2. Convert W1 magnitude to νLν (luminosity density) at 3.4 µm.\n#    Zero‑point flux density for W1: 309.54 Jy (Vega).\nF0 = 309.54 * u.Jy\nnu = (c := 2.99792458e8 * u.m/u.s) / (3.4e-6 * u.m)   # frequency of W1 band\nFnu = F0 * 10**(-0.4 * agn['W1_mag'].values) * u.Jy\nDL = cosmo.luminosity_distance(agn['redshift'].values)   # Mpc\nL_nu = (4*np.pi*DL.to(u.m)**2 * Fnu).to(u.erg/u.s/u.Hz)   # νLν in erg s⁻¹\n\n# 3. Approximate bolometric luminosity (WISE‑VAULT uses L_bol ≃ 10 νLν).\nL_bol = 10 * L_nu * nu                                 # erg s⁻¹\n\n# 4. Dust‑sublimation radius and its light‑crossing time.\nR_sub = 0.4 * u.pc * np.sqrt(L_bol / (1e46 * u.erg/u.s))   # pc\nt_sub = (R_sub / c).to(u.yr)                               # years\n\n# 5. Test the hypothesis.\nbaseline = 10.0 * u.yr\nviolations = (t_sub > baseline).sum()\ntotal      = len(t_sub)\n\nprint(f\"AGN with t_sub > 10 yr: {violations}/{total} \"\n      f\"({violations/total:.2%})\")\n```\n\nThe s",
       "source_title": "WISE-VAULT: Decade-long Mid-Infrared Variability of WISE AGN",
       "source_url": "http://arxiv.org/abs/2611.17996v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
       "published": true,
       "is_unique": false,
       "novelty_score": 43,
@@ -27792,9 +27858,9 @@
       "scout_angle": "**Hypothesis (directly from the arXiv paper).** The leading‑order gravitational correction to any two‑point OPE coefficient in a vacuum spacetime is universal and scales as  \n\n\\[\nC(R)=C(0)\\Bigl[1+\\kappa\\,\\frac{\\ell_{\\!P}^{2}}{R_{\\!s}^{2}}+{\\cal O}\\!\\bigl((\\ell_{\\!P}/R_{\\!s})^{4}\\bigr)\\Bigr],\n\\]\n\nwhere \\(\\ell_{\\!P}=\\sqrt{\\hbar G/c^{3}}\\) is the Planck length, \\(R_{\\!s}=2GM/c^{2}\\) the Schwarzschild radius of the object, and \\(\\kappa={\\cal O}(1)\\) (the paper finds \\(\\kappa\\simeq0.9\\) for a minimally‑coupled scalar).  \n\n**Python check.** Load the GWTC‑3 catalog, read the source‑frame remnant mass \\(M_f\\) for each event, compute the dimensionless correction  \n\n\\[\n\\epsilon_f=\\frac{\\ell_{\\!P}^{2}}{R_{\\!s}^{2}}=\\frac{c^{4}\\,\\ell_{\\!P}^{2}}{4G^{2}M_f^{2}},\n\\]\n\nand verify that \\(\\epsilon_f<10^{-30}\\) for every event (the paper’s EFT validity criterion). The script prints the maximum \\(\\epsilon_f\\) and a PASS/FAIL flag.  \n\n```python\nimport json, os, numpy as np, math\n\n# constants in SI\nc = 299792458.0\nG = 6.67430e-11\nhbar = 1.054571817e-34\nlP = math.sqrt(hbar*G/c**3)          # Planck length\n\n# load GWTC‑3 catalog (JSON file path provided by env)\nwith open(os.environ[\"GWTC_CATALOG_PATH\"], \"r\") as f:\n    catalog = json.load(f)\n\neps = []\nfor ev in catalog[\"events\"]:\n    # final (remnant) mass in solar masses → kg\n    Mf_sun = ev.get(\"final_mass_source\") or ev.get(\"final_mass\")\n    if Mf_sun is None: continue\n    Mf = Mf_sun * 1.98847e30          # kg\n    eps_f = (c**4 * lP**2) / (4 * G**2 * Mf**2)\n    eps.append(eps_f)\n\neps = np.array(eps)\nmax_eps = eps.max()\nprint(f\"Maximum curvature‑correction factor ε = {max_eps:.2e}\")\nprint(\"PASS\" if max_eps < 1e-30 else \"FAIL\")\n```\n\nIf the output reads “PASS”, the universal \\(\\ell_{\\!P}^{2}/R_{\\!s}^{2}\\) correction predicted by the paper is indeed negligible for all observed binary‑black‑hole remnants, confirming the paper’s EFT scaling in an astrophysical setting.",
       "source_title": "Gravitational Corrections to OPE Coefficients",
       "source_url": "http://arxiv.org/abs/2611.18415v1",
-      "wiki_title": "",
-      "wiki_extract": "",
-      "wiki_url": "",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
       "published": true,
       "is_unique": false,
       "novelty_score": 70,
