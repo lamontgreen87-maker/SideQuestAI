@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T04:51:37.586825+00:00",
+  "generated_at": "2026-11-24T00:43:24.632790+00:00",
   "status": {
     "enabled": true,
     "running": false,
@@ -11,9 +11,12 @@
     "workers_per_run": 5,
     "calls_per_cycle": 12,
     "arxiv_grounding": true,
-    "total_runs": 1187,
-    "runs_per_hour": 0.0,
-    "verified_count": 168,
+    "total_runs": 1205,
+    "runs_per_hour": 36.0,
+    "verified_count": 169,
+    "training_examples": 169,
+    "training_goal": 1000,
+    "training_pct": 16.9,
     "unique_count": 25,
     "latest_unique": {
       "id": "9becef2c",
@@ -27,11 +30,11 @@
     "schedule_start": "22:00",
     "schedule_end": "07:00",
     "within_schedule": true,
-    "rejected_count": 1053,
+    "rejected_count": 1070,
     "seconds_until_next": null,
     "last_error": null,
-    "provider": "ollama",
-    "model": "qwen3:8b-q4_K_M",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
     "cooling_down": [],
     "available_providers": [
       "ollama",
@@ -45,13 +48,18 @@
     "current_run": {}
   },
   "index": {
-    "total_articles": 174,
-    "total_terms": 1365,
+    "total_articles": 175,
+    "total_terms": 1368,
     "top_terms": [
       {
         "term": "black",
-        "count": 131,
+        "count": 132,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "e7bc8512",
             "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
@@ -711,8 +719,13 @@
       },
       {
         "term": "hole",
-        "count": 117,
+        "count": 118,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "e7bc8512",
             "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
@@ -1798,8 +1811,13 @@
       },
       {
         "term": "test",
-        "count": 93,
+        "count": 94,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "83a3f423",
             "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -2269,8 +2287,13 @@
       },
       {
         "term": "consistency",
-        "count": 69,
+        "count": 70,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "83a3f423",
             "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -2620,8 +2643,13 @@
       },
       {
         "term": "gwtc",
-        "count": 61,
+        "count": 62,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "83a3f423",
             "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -2931,8 +2959,13 @@
       },
       {
         "term": "horizon",
-        "count": 61,
+        "count": 62,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "e7bc8512",
             "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
@@ -3242,8 +3275,13 @@
       },
       {
         "term": "binary",
-        "count": 54,
+        "count": 55,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "5e78ce00",
             "title": "Helium‑donor Roche‑lobe Consistency Test for a 3.5‑hr LMXB",
@@ -3518,8 +3556,13 @@
       },
       {
         "term": "check",
-        "count": 49,
+        "count": 50,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "83a3f423",
             "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -4266,8 +4309,13 @@
       },
       {
         "term": "mergers",
-        "count": 47,
+        "count": 48,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "8c49a97f",
             "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
@@ -4507,8 +4555,13 @@
       },
       {
         "term": "kerr",
-        "count": 44,
+        "count": 45,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "fa4e9001",
             "title": "Penrose Inequality Test for GWTC‑3 Binary Black Hole Mergers",
@@ -6144,6 +6197,192 @@
         ]
       },
       {
+        "term": "observed",
+        "count": 36,
+        "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "83a3f423",
+            "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
+            "domain": "Astrophysics – Binary Evolution / Compact Objects"
+          },
+          {
+            "id": "8c49a97f",
+            "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "376643d5",
+            "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
+            "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
+          },
+          {
+            "id": "9becef2c",
+            "title": "Hawking‑Temperature Coldness Test for GWTC‑3 Binary‑Black‑Hole Remnants",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "e6a8d5f8",
+            "title": "Radiated Energy Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "2b94610b",
+            "title": "Radiated Energy Fraction Consistency Test for GWTC Merger Catalog",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "c753d5d6",
+            "title": "Slim‑Disk Variability Scaling Test for Little Red Dots (LRDs)",
+            "domain": "Black Hole Physics – Accretion Disk Variability"
+          },
+          {
+            "id": "7e65ee60",
+            "title": "Axion‑NED induced shift of the ℓ=2 fundamental QNM frequency in observed GW ringdowns",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "dcabcaa2",
+            "title": "Shadow‑Distance Consistency Test for M87* under Non‑Parametric Dark‑Energy Reconstruction",
+            "domain": "Black Hole Physics / Cosmology"
+          },
+          {
+            "id": "b3e2e879",
+            "title": "Radiated Energy Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "07d95ecd",
+            "title": "Radiated Energy–Symmetry Bound Verification for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "9c2bb825",
+            "title": "Validation of the MIR Damping Timescale – Black Hole Mass Linear Scaling for M87*",
+            "domain": "Black Hole Physics / Quantitative Modeling"
+          },
+          {
+            "id": "76860891",
+            "title": "Slim‑Disk Variability Suppression Test for Little Red Dots",
+            "domain": "Black Hole Physics / Accretion Theory"
+          },
+          {
+            "id": "6856d3ce",
+            "title": "Upper‑bound test of the GW‑radial‑velocity phase‑modulation index for GWTC‑3 binary black‑hole mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "6da53e7e",
+            "title": "Λ‑Induced Quasinormal‑Mode Shift Test for GWTC‑3 Remnants",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "a59bc907",
+            "title": "Hawking‑Temperature Consistency Check for GWTC‑3 Remnants in Deformed Sine‑Dilaton Gravity",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "20cadf4a",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+          },
+          {
+            "id": "67364e4e",
+            "title": "Edge‑Case Variability Test for Super‑Eddington Slim‑Disk LRDs",
+            "domain": "Black Hole Physics / Accretion Disk Variability"
+          },
+          {
+            "id": "d0a8dfad",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC‑3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "2c367dba",
+            "title": "dsDG Critical Temperature Consistency Test with GWTC‑3 Black‑Hole Remnants",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "43e9dfd9",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "67349c42",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "e583a342",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "c0fabe5c",
+            "title": "dsDG entropy‑correction test on GWTC‑4 black‑hole remnants",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "f90c03ef",
+            "title": "Radiated Mass Fraction ≤ 10 % Test for GWTC Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "51a00bad",
+            "title": "Empirical Test of the 10 % Radiated‑Mass Limit for GWTC Binary‑Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "b2ba90c5",
+            "title": "AGN Soft‑Excess ↔ Optical Lag Test vs Thin‑Disk Light‑Travel Prediction",
+            "domain": "Black Hole Physics / AGN Accretion Disks"
+          },
+          {
+            "id": "8ec4e6f5",
+            "title": "Empirical Test of the 10% Radiated‑Energy Limit for Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "73b94379",
+            "title": "Brightness‑Temperature‑Limited Corona Causality Test for NGC 985",
+            "domain": "Black‑Hole Physics / AGN Variability"
+          },
+          {
+            "id": "f3ff024e",
+            "title": "Empirical Test of the Lense‑Thirring Blast‑Train Hypothesis for a Continuous‑Wave Source around Sgr A*",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "826eb560",
+            "title": "Causality Check for a ≤ 20 r₍g₎ Magnetised Corona in NGC 985",
+            "domain": "Black‑Hole Physics / AGN Variability"
+          },
+          {
+            "id": "ca61e1bd",
+            "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "67c25478",
+            "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "733a7d7b",
+            "title": "Horizon Linear Velocity Bound for Sub‑Extremal Kerr Black Holes",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "0c40fc36",
+            "title": "Empirical Verification of the Kerr J²/(M³ r₊) ≤ 1 Bound in SI Units",
+            "domain": "Black Hole Physics / General Relativity"
+          }
+        ]
+      },
+      {
         "term": "verification",
         "count": 36,
         "articles": [
@@ -6330,33 +6569,13 @@
         ]
       },
       {
-        "term": "observed",
+        "term": "area",
         "count": 35,
         "articles": [
           {
-            "id": "83a3f423",
-            "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
-            "domain": "Astrophysics – Binary Evolution / Compact Objects"
-          },
-          {
-            "id": "8c49a97f",
-            "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "376643d5",
-            "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
-            "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
-          },
-          {
-            "id": "9becef2c",
-            "title": "Hawking‑Temperature Coldness Test for GWTC‑3 Binary‑Black‑Hole Remnants",
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "e6a8d5f8",
-            "title": "Radiated Energy Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
-            "domain": "Black Hole Physics"
           },
           {
             "id": "2b94610b",
@@ -6364,19 +6583,190 @@
             "domain": "Black Hole Physics"
           },
           {
-            "id": "c753d5d6",
-            "title": "Slim‑Disk Variability Scaling Test for Little Red Dots (LRDs)",
-            "domain": "Black Hole Physics – Accretion Disk Variability"
+            "id": "1e539faa",
+            "title": "Roche‑Lobe Filling Test for the Helium‑Rich Donor in a 3.5‑hr LMXB and Consistency Check of the Black‑Hole Area Theorem",
+            "domain": "Astrophysics / Black Hole Physics"
           },
           {
-            "id": "7e65ee60",
-            "title": "Axion‑NED induced shift of the ℓ=2 fundamental QNM frequency in observed GW ringdowns",
+            "id": "4c3d442f",
+            "title": "Testing the 2 % Lensing‑Coupling Excess on the M87* Shadow and Consistency of GWTC Radiated Mass Fractions",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "a1274709",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "ca61e1bd",
+            "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "dcabcaa2",
-            "title": "Shadow‑Distance Consistency Test for M87* under Non‑Parametric Dark‑Energy Reconstruction",
-            "domain": "Black Hole Physics / Cosmology"
+            "id": "1edaef2e",
+            "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "460c5824",
+            "title": "Horizon‑Area Theorem Consistency Check for GWTC‑4.0 Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "67c25478",
+            "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "34ca9c78",
+            "title": "Horizon Area Theorem Test on LIGO/Virgo/KAGRA GWTC Mergers and EHT Shadow Consistency",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "97d2f81e",
+            "title": "Area-Theorem Consistency Check for a Binary Schwarzschild Black Hole Merger",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "54bb4dd3",
+            "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
+            "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
+          },
+          {
+            "id": "aca9e538",
+            "title": "Quadratic Scaling of PixVid Inference Time and Black‑Hole Horizon Area Analogy",
+            "domain": "Mathematical & Quantitative Modeling"
+          },
+          {
+            "id": "ef5085ed",
+            "title": "Mass‑independent ISCO–Hawking ratio and Schwarzschild thermodynamic consistency",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "06be01d1",
+            "title": "Quantitative Consistency Checks for Black‑Hole Physics and Lens‑Induced CW Modulation",
+            "domain": "Mathematical & Quantitative Modeling"
+          },
+          {
+            "id": "8599432b",
+            "title": "Verification of Kerr Horizon Area Sum and Hawking Temperature Consistency",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "eb2633dd",
+            "title": "Monte‑Carlo Verification of the Kerr Horizon Sum and Area‑Sum Identities",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "2f90a90c",
+            "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr‑Area‑Sum Identity",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "3add01f6",
+            "title": "Monte‑Carlo verification of the Kerr outer‑horizon area identity",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "9d05b696",
+            "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr Horizon‑Area Product Identity",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "89a925f8",
+            "title": "Irreducible Mass Consistency Check for Sub‑Extremal Kerr Black Holes (SI Units)",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "d9ea2826",
+            "title": "Empirical Verification of the Smarr Relation for Sub‑Extremal Kerr Black Holes in SI Units",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "5b96b97e",
+            "title": "Empirical Verification of the Kerr Horizon Area Product",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "cacbef4c",
+            "title": "Angular‑Momentum‑to‑Area Bound for Sub‑Extremal Kerr Black Holes",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "ce4cb704",
+            "title": "SI‑Unit Consistency Test for Kerr Horizon Area and Hawking Temperature",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "2d415bfa",
+            "title": "Empirical Verification of Mass‑Independent Kerr Horizon Area Product in SI Units",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "c0d9c1ff",
+            "title": "Thermodynamic Consistency of a Schwarzschild Black Hole in SI Units",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "5d514993",
+            "title": "Universal Constancy of Hawking Temperature–Mass Product and Black‑Hole Consistency Suite",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "fdda16fe",
+            "title": "Verification of the Kerr Irreducible‑Mass Identity with SI Constants",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "ea932602",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Horizon Geometry",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "4a892917",
+            "title": "Edge‑Case Consistency Check of Schwarzschild Black‑Hole Thermodynamics and Area Theorem",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "b6f20d5f",
+            "title": "Quantitative Consistency Checks for Schwarzschild Black Hole Thermodynamics and Merger Area Theorem",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "3c14eec4",
+            "title": "Quantitative Validation of Schwarzschild Horizon Area, Hawking Temperature, and the Area Theorem for Black Hole Mergers",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "9fa376e8",
+            "title": "Black Hole Information Paradox & Page Curve Brief #49",
+            "domain": "Black Hole Information Paradox & Page Curve"
+          },
+          {
+            "id": "d44868c9",
+            "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
+            "domain": "Theoretical Physics / Black Hole Thermodynamics"
+          }
+        ]
+      },
+      {
+        "term": "predicts",
+        "count": 35,
+        "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "8c49a97f",
+            "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "e6a8d5f8",
+            "title": "Radiated Energy Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics"
           },
           {
             "id": "b3e2e879",
@@ -6384,14 +6774,9 @@
             "domain": "Black Hole Physics"
           },
           {
-            "id": "07d95ecd",
-            "title": "Radiated Energy–Symmetry Bound Verification for GWTC Binary Black Hole Mergers",
+            "id": "c718093f",
+            "title": "Radiated Energy Fraction vs Symmetric Mass Ratio in GWTC Binary Black Hole Mergers",
             "domain": "Black Hole Physics"
-          },
-          {
-            "id": "9c2bb825",
-            "title": "Validation of the MIR Damping Timescale – Black Hole Mass Linear Scaling for M87*",
-            "domain": "Black Hole Physics / Quantitative Modeling"
           },
           {
             "id": "76860891",
@@ -6399,22 +6784,22 @@
             "domain": "Black Hole Physics / Accretion Theory"
           },
           {
-            "id": "6856d3ce",
-            "title": "Upper‑bound test of the GW‑radial‑velocity phase‑modulation index for GWTC‑3 binary black‑hole mergers",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
             "id": "6da53e7e",
             "title": "Λ‑Induced Quasinormal‑Mode Shift Test for GWTC‑3 Remnants",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "a59bc907",
-            "title": "Hawking‑Temperature Consistency Check for GWTC‑3 Remnants in Deformed Sine‑Dilaton Gravity",
+            "id": "d48ced0c",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
             "id": "20cadf4a",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+          },
+          {
+            "id": "aecdef0a",
             "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
             "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
           },
@@ -6424,24 +6809,44 @@
             "domain": "Black Hole Physics / Accretion Disk Variability"
           },
           {
+            "id": "84a43239",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC‑3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
             "id": "d0a8dfad",
             "title": "Radiated Mass Fraction Consistency Test for GWTC‑3 Binary Black Hole Mergers",
             "domain": "Black Hole Physics"
           },
           {
-            "id": "2c367dba",
-            "title": "dsDG Critical Temperature Consistency Test with GWTC‑3 Black‑Hole Remnants",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            "id": "532e9e3f",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics"
           },
           {
-            "id": "43e9dfd9",
+            "id": "8cabbfa9",
             "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
             "domain": "Black Hole Physics"
           },
           {
-            "id": "67349c42",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "Black Hole Physics"
+            "id": "619bc092",
+            "title": "Sign reversal of the R⁻⁵ scalar‑charge correction in the axial GW master potential",
+            "domain": "Black Hole Physics / Gravitational‑Wave Theory"
+          },
+          {
+            "id": "b7e4f00b",
+            "title": "Edge‑Case Test of Slim‑Disk Variability Timescales for Little Red Dots",
+            "domain": "Black Hole Physics / AGN Variability"
+          },
+          {
+            "id": "6119f0f3",
+            "title": "Sign Reversal of the R⁻⁵ Scalar‑Charge Correction in the Odd‑Parity GW Master Potential",
+            "domain": "Black Hole Physics / Gravitational‑Wave Theory"
+          },
+          {
+            "id": "756dfdab",
+            "title": "Verification of the analytic bound on lens‑induced GW polarisation rotation",
+            "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
           },
           {
             "id": "e583a342",
@@ -6449,8 +6854,13 @@
             "domain": "Black Hole Physics"
           },
           {
-            "id": "c0fabe5c",
-            "title": "dsDG entropy‑correction test on GWTC‑4 black‑hole remnants",
+            "id": "df1808c7",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "cf8eeba3",
+            "title": "Empirical Test of the 10 % Radiated‑Mass Limit for GWTC Binary Black‑Hole Mergers",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
@@ -6464,48 +6874,58 @@
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "b2ba90c5",
-            "title": "AGN Soft‑Excess ↔ Optical Lag Test vs Thin‑Disk Light‑Travel Prediction",
-            "domain": "Black Hole Physics / AGN Accretion Disks"
-          },
-          {
-            "id": "8ec4e6f5",
-            "title": "Empirical Test of the 10% Radiated‑Energy Limit for Binary Black‑Hole Mergers",
+            "id": "d8fb4906",
+            "title": "Quadratic Scaling Test of Semicoherent Mismatch for Lensed Continuous Gravitational Waves behind Sgr A*",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "73b94379",
-            "title": "Brightness‑Temperature‑Limited Corona Causality Test for NGC 985",
-            "domain": "Black‑Hole Physics / AGN Variability"
-          },
-          {
-            "id": "f3ff024e",
-            "title": "Empirical Test of the Lense‑Thirring Blast‑Train Hypothesis for a Continuous‑Wave Source around Sgr A*",
+            "id": "a049758b",
+            "title": "Empirical Falsification of Semicoherent Mismatch Scaling for Lensed Continuous Gravitational Waves behind Sgr A*",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "826eb560",
-            "title": "Causality Check for a ≤ 20 r₍g₎ Magnetised Corona in NGC 985",
-            "domain": "Black‑Hole Physics / AGN Variability"
+            "id": "1661c0bd",
+            "title": "Semicoherent Mismatch from Sgr A* Lensing of Continuous Gravitational Waves",
+            "domain": "Black Hole Physics / Gravitational-Wave Astronomy"
           },
           {
-            "id": "ca61e1bd",
-            "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
+            "id": "e745ddce",
+            "title": "Verification of Gauss‑Bonnet Holographic Viscosity Violation of the KSS Bound using Real GW Catalog Context",
+            "domain": "Black Hole Physics / Holographic QCD"
+          },
+          {
+            "id": "a5078f50",
+            "title": "Verification of Semicoherent Mismatch and Energy Consistency for Lensed Continuous Gravitational Waves",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "67c25478",
-            "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
+            "id": "a1949c2b",
+            "title": "Empirical Test of Lens‑Induced Phase Drift for Continuous Gravitational Waves behind Sgr A*",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "733a7d7b",
-            "title": "Horizon Linear Velocity Bound for Sub‑Extremal Kerr Black Holes",
-            "domain": "Black Hole Physics / General Relativity"
+            "id": "1b8fb614",
+            "title": "Lensing‑induced semicoherent mismatch scaling verification",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "0c40fc36",
-            "title": "Empirical Verification of the Kerr J²/(M³ r₊) ≤ 1 Bound in SI Units",
+            "id": "1edaef2e",
+            "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "ee8b1b28",
+            "title": "Testing the Token‑to‑Entropy Analogy for Schwarzschild Black Holes",
+            "domain": "Black Hole Physics / Machine‑Learning Analogy"
+          },
+          {
+            "id": "54bb4dd3",
+            "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
+            "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
+          },
+          {
+            "id": "3c14eec4",
+            "title": "Quantitative Validation of Schwarzschild Horizon Area, Hawking Temperature, and the Area Theorem for Black Hole Mergers",
             "domain": "Black Hole Physics / General Relativity"
           }
         ]
@@ -6868,182 +7288,6 @@
         ]
       },
       {
-        "term": "area",
-        "count": 34,
-        "articles": [
-          {
-            "id": "2b94610b",
-            "title": "Radiated Energy Fraction Consistency Test for GWTC Merger Catalog",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "1e539faa",
-            "title": "Roche‑Lobe Filling Test for the Helium‑Rich Donor in a 3.5‑hr LMXB and Consistency Check of the Black‑Hole Area Theorem",
-            "domain": "Astrophysics / Black Hole Physics"
-          },
-          {
-            "id": "4c3d442f",
-            "title": "Testing the 2 % Lensing‑Coupling Excess on the M87* Shadow and Consistency of GWTC Radiated Mass Fractions",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "a1274709",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black‑Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "ca61e1bd",
-            "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "1edaef2e",
-            "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "460c5824",
-            "title": "Horizon‑Area Theorem Consistency Check for GWTC‑4.0 Mergers",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "67c25478",
-            "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "34ca9c78",
-            "title": "Horizon Area Theorem Test on LIGO/Virgo/KAGRA GWTC Mergers and EHT Shadow Consistency",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "97d2f81e",
-            "title": "Area-Theorem Consistency Check for a Binary Schwarzschild Black Hole Merger",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "54bb4dd3",
-            "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
-            "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
-          },
-          {
-            "id": "aca9e538",
-            "title": "Quadratic Scaling of PixVid Inference Time and Black‑Hole Horizon Area Analogy",
-            "domain": "Mathematical & Quantitative Modeling"
-          },
-          {
-            "id": "ef5085ed",
-            "title": "Mass‑independent ISCO–Hawking ratio and Schwarzschild thermodynamic consistency",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "06be01d1",
-            "title": "Quantitative Consistency Checks for Black‑Hole Physics and Lens‑Induced CW Modulation",
-            "domain": "Mathematical & Quantitative Modeling"
-          },
-          {
-            "id": "8599432b",
-            "title": "Verification of Kerr Horizon Area Sum and Hawking Temperature Consistency",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "eb2633dd",
-            "title": "Monte‑Carlo Verification of the Kerr Horizon Sum and Area‑Sum Identities",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "2f90a90c",
-            "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr‑Area‑Sum Identity",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "3add01f6",
-            "title": "Monte‑Carlo verification of the Kerr outer‑horizon area identity",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "9d05b696",
-            "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr Horizon‑Area Product Identity",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "89a925f8",
-            "title": "Irreducible Mass Consistency Check for Sub‑Extremal Kerr Black Holes (SI Units)",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "d9ea2826",
-            "title": "Empirical Verification of the Smarr Relation for Sub‑Extremal Kerr Black Holes in SI Units",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "5b96b97e",
-            "title": "Empirical Verification of the Kerr Horizon Area Product",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "cacbef4c",
-            "title": "Angular‑Momentum‑to‑Area Bound for Sub‑Extremal Kerr Black Holes",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "ce4cb704",
-            "title": "SI‑Unit Consistency Test for Kerr Horizon Area and Hawking Temperature",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "2d415bfa",
-            "title": "Empirical Verification of Mass‑Independent Kerr Horizon Area Product in SI Units",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "c0d9c1ff",
-            "title": "Thermodynamic Consistency of a Schwarzschild Black Hole in SI Units",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "5d514993",
-            "title": "Universal Constancy of Hawking Temperature–Mass Product and Black‑Hole Consistency Suite",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "fdda16fe",
-            "title": "Verification of the Kerr Irreducible‑Mass Identity with SI Constants",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "ea932602",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Horizon Geometry",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "4a892917",
-            "title": "Edge‑Case Consistency Check of Schwarzschild Black‑Hole Thermodynamics and Area Theorem",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "b6f20d5f",
-            "title": "Quantitative Consistency Checks for Schwarzschild Black Hole Thermodynamics and Merger Area Theorem",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "3c14eec4",
-            "title": "Quantitative Validation of Schwarzschild Horizon Area, Hawking Temperature, and the Area Theorem for Black Hole Mergers",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "9fa376e8",
-            "title": "Black Hole Information Paradox & Page Curve Brief #49",
-            "domain": "Black Hole Information Paradox & Page Curve"
-          },
-          {
-            "id": "d44868c9",
-            "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
-            "domain": "Theoretical Physics / Black Hole Thermodynamics"
-          }
-        ]
-      },
-      {
         "term": "extremal",
         "count": 34,
         "articles": [
@@ -7220,182 +7464,6 @@
         ]
       },
       {
-        "term": "predicts",
-        "count": 34,
-        "articles": [
-          {
-            "id": "8c49a97f",
-            "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "e6a8d5f8",
-            "title": "Radiated Energy Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "b3e2e879",
-            "title": "Radiated Energy Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "c718093f",
-            "title": "Radiated Energy Fraction vs Symmetric Mass Ratio in GWTC Binary Black Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "76860891",
-            "title": "Slim‑Disk Variability Suppression Test for Little Red Dots",
-            "domain": "Black Hole Physics / Accretion Theory"
-          },
-          {
-            "id": "6da53e7e",
-            "title": "Λ‑Induced Quasinormal‑Mode Shift Test for GWTC‑3 Remnants",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "d48ced0c",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "20cadf4a",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
-            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
-          },
-          {
-            "id": "aecdef0a",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
-            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
-          },
-          {
-            "id": "67364e4e",
-            "title": "Edge‑Case Variability Test for Super‑Eddington Slim‑Disk LRDs",
-            "domain": "Black Hole Physics / Accretion Disk Variability"
-          },
-          {
-            "id": "84a43239",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC‑3 Binary Black Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "d0a8dfad",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC‑3 Binary Black Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "532e9e3f",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "8cabbfa9",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "619bc092",
-            "title": "Sign reversal of the R⁻⁵ scalar‑charge correction in the axial GW master potential",
-            "domain": "Black Hole Physics / Gravitational‑Wave Theory"
-          },
-          {
-            "id": "b7e4f00b",
-            "title": "Edge‑Case Test of Slim‑Disk Variability Timescales for Little Red Dots",
-            "domain": "Black Hole Physics / AGN Variability"
-          },
-          {
-            "id": "6119f0f3",
-            "title": "Sign Reversal of the R⁻⁵ Scalar‑Charge Correction in the Odd‑Parity GW Master Potential",
-            "domain": "Black Hole Physics / Gravitational‑Wave Theory"
-          },
-          {
-            "id": "756dfdab",
-            "title": "Verification of the analytic bound on lens‑induced GW polarisation rotation",
-            "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
-          },
-          {
-            "id": "e583a342",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "df1808c7",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "cf8eeba3",
-            "title": "Empirical Test of the 10 % Radiated‑Mass Limit for GWTC Binary Black‑Hole Mergers",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "f90c03ef",
-            "title": "Radiated Mass Fraction ≤ 10 % Test for GWTC Binary Black‑Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "51a00bad",
-            "title": "Empirical Test of the 10 % Radiated‑Mass Limit for GWTC Binary‑Black‑Hole Mergers",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "d8fb4906",
-            "title": "Quadratic Scaling Test of Semicoherent Mismatch for Lensed Continuous Gravitational Waves behind Sgr A*",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "a049758b",
-            "title": "Empirical Falsification of Semicoherent Mismatch Scaling for Lensed Continuous Gravitational Waves behind Sgr A*",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "1661c0bd",
-            "title": "Semicoherent Mismatch from Sgr A* Lensing of Continuous Gravitational Waves",
-            "domain": "Black Hole Physics / Gravitational-Wave Astronomy"
-          },
-          {
-            "id": "e745ddce",
-            "title": "Verification of Gauss‑Bonnet Holographic Viscosity Violation of the KSS Bound using Real GW Catalog Context",
-            "domain": "Black Hole Physics / Holographic QCD"
-          },
-          {
-            "id": "a5078f50",
-            "title": "Verification of Semicoherent Mismatch and Energy Consistency for Lensed Continuous Gravitational Waves",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "a1949c2b",
-            "title": "Empirical Test of Lens‑Induced Phase Drift for Continuous Gravitational Waves behind Sgr A*",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "1b8fb614",
-            "title": "Lensing‑induced semicoherent mismatch scaling verification",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "1edaef2e",
-            "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "ee8b1b28",
-            "title": "Testing the Token‑to‑Entropy Analogy for Schwarzschild Black Holes",
-            "domain": "Black Hole Physics / Machine‑Learning Analogy"
-          },
-          {
-            "id": "54bb4dd3",
-            "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
-            "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
-          },
-          {
-            "id": "3c14eec4",
-            "title": "Quantitative Validation of Schwarzschild Horizon Area, Hawking Temperature, and the Area Theorem for Black Hole Mergers",
-            "domain": "Black Hole Physics / General Relativity"
-          }
-        ]
-      },
-      {
         "term": "fraction",
         "count": 32,
         "articles": [
@@ -7563,8 +7631,13 @@
       },
       {
         "term": "total",
-        "count": 31,
+        "count": 32,
         "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
           {
             "id": "8c49a97f",
             "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
@@ -8866,6 +8939,142 @@
         ]
       },
       {
+        "term": "parameter",
+        "count": 26,
+        "articles": [
+          {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "376643d5",
+            "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
+            "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
+          },
+          {
+            "id": "4e9f2a1f",
+            "title": "Exceptional Point Amplitude Test with GWTC‑3 Ringdowns",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "a59bc907",
+            "title": "Hawking‑Temperature Consistency Check for GWTC‑3 Remnants in Deformed Sine‑Dilaton Gravity",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "e9075588",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Mergers",
+            "domain": "Gravitational-Wave Astrophysics"
+          },
+          {
+            "id": "20cadf4a",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+          },
+          {
+            "id": "67364e4e",
+            "title": "Edge‑Case Variability Test for Super‑Eddington Slim‑Disk LRDs",
+            "domain": "Black Hole Physics / Accretion Disk Variability"
+          },
+          {
+            "id": "43e9dfd9",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "756dfdab",
+            "title": "Verification of the analytic bound on lens‑induced GW polarisation rotation",
+            "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+          },
+          {
+            "id": "df1609c5",
+            "title": "Semicoherent Phase Variance of Lensed Continuous Gravitational Waves behind Sgr A*",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "67c25478",
+            "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "54bb4dd3",
+            "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
+            "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
+          },
+          {
+            "id": "2ae31198",
+            "title": "Verification of the Dimensionless Horizon Angular Velocity Relation for Sub‑Extremal Kerr Black Holes",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "ac2ef4a0",
+            "title": "Schwarzschild Black‑Hole Thermodynamic Identity Verification and Photon‑Sphere Consistency Check",
+            "domain": "General Relativity & Black‑Hole Thermodynamics"
+          },
+          {
+            "id": "e12e1b01",
+            "title": "Empirical Test of Kerr Horizon Sum Relation in SI Units",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "fd429d27",
+            "title": "SI‑unit verification of the Kerr horizon angular‑velocity identity Ω_H r₊/c = χ/2",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "92031e3d",
+            "title": "Schwarzschild Black Hole Shadow Impact Parameter vs Photon‑Sphere Radius",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "5d514993",
+            "title": "Universal Constancy of Hawking Temperature–Mass Product and Black‑Hole Consistency Suite",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "95608073",
+            "title": "Schwarzschild Black Hole Consistency Suite",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "ea932602",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Horizon Geometry",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "876a78bd",
+            "title": "Empirical Test of Gravitational Lensing Time‑Delay Formula for Sgr A*",
+            "domain": "Black Hole Physics / Gravitational Lensing"
+          },
+          {
+            "id": "588d0c4b",
+            "title": "Empirical Validation of Schwarzschild Radius and Related Black Hole Relations",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "5a278d67",
+            "title": "Empirical Verification of the Schwarzschild Photon Sphere Radius",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "9f6b1afa",
+            "title": "Edge‑Case Test of Photon Capture Impact Parameter for a Schwarzschild Black Hole",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "d44868c9",
+            "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
+            "domain": "Theoretical Physics / Black Hole Thermodynamics"
+          },
+          {
+            "id": "34194407",
+            "title": "Consistency Checks of Black‑Hole Horizon and Ringdown Observables as a Baseline for Large‑N Transseries Validation",
+            "domain": "Gravitational‑Wave Physics • Numerical Relativity • Holographic Resurgence"
+          }
+        ]
+      },
+      {
         "term": "provides",
         "count": 26,
         "articles": [
@@ -9002,159 +9211,28 @@
         ]
       },
       {
-        "term": "independent",
-        "count": 25,
+        "term": "source",
+        "count": 26,
         "articles": [
           {
-            "id": "5e78ce00",
-            "title": "Helium‑donor Roche‑lobe Consistency Test for a 3.5‑hr LMXB",
-            "domain": "Astrophysics – Binary Evolution / Compact Objects"
-          },
-          {
-            "id": "e7bc8512",
-            "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
-            "domain": "Black Hole Physics / Modified Gravity"
-          },
-          {
-            "id": "e6a8d5f8",
-            "title": "Radiated Energy Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "a4fa9fd5",
-            "title": "Radiated Energy Fraction Consistency Test in GWTC Catalog",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "579efec0",
-            "title": "Photon‑Ring Diameter Test of Late‑Time Lensing Enhancement Σ≈1.03",
-            "domain": "Black Hole Physics / Gravitational Lensing"
-          },
-          {
-            "id": "7d9f6ae5",
-            "title": "Entropy Change Bound Test for GWTC‑3 Binary Black Hole Mergers",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "30eaec66",
-            "title": "Edge‑Case Test of EP Ringdown Peak Time for the (ℓ,m)=(2,1) Odd‑Parity Mode",
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "ef5085ed",
-            "title": "Mass‑independent ISCO–Hawking ratio and Schwarzschild thermodynamic consistency",
+            "id": "2b94610b",
+            "title": "Radiated Energy Fraction Consistency Test for GWTC Merger Catalog",
             "domain": "Black Hole Physics"
           },
           {
-            "id": "8599432b",
-            "title": "Verification of Kerr Horizon Area Sum and Hawking Temperature Consistency",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "eb2633dd",
-            "title": "Monte‑Carlo Verification of the Kerr Horizon Sum and Area‑Sum Identities",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "2f90a90c",
-            "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr‑Area‑Sum Identity",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "2d98a7e1",
-            "title": "Universal Schwarzschild Hawking Temperature–Radius Product",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "bec32c63",
-            "title": "Empirical Verification of the Quadratic‑Sum Horizon Identity for Sub‑Extremal Kerr Black Holes",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "ba4dc173",
-            "title": "Empirical Verification of the Kerr Horizon Difference Identity",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "9d05b696",
-            "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr Horizon‑Area Product Identity",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "2ae31198",
-            "title": "Verification of the Dimensionless Horizon Angular Velocity Relation for Sub‑Extremal Kerr Black Holes",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "ac2ef4a0",
-            "title": "Schwarzschild Black‑Hole Thermodynamic Identity Verification and Photon‑Sphere Consistency Check",
-            "domain": "General Relativity & Black‑Hole Thermodynamics"
-          },
-          {
-            "id": "5b96b97e",
-            "title": "Empirical Verification of the Kerr Horizon Area Product",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "0c40fc36",
-            "title": "Empirical Verification of the Kerr J²/(M³ r₊) ≤ 1 Bound in SI Units",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "2d415bfa",
-            "title": "Empirical Verification of Mass‑Independent Kerr Horizon Area Product in SI Units",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "f3c41fb8",
-            "title": "Verification of Photon‑Sphere Radius Relation for Schwarzschild Black Holes",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "e12e1b01",
-            "title": "Empirical Test of Kerr Horizon Sum Relation in SI Units",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "6ae7aa40",
-            "title": "Schwarzschild Black Hole Thermodynamic Consistency Check",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "d44868c9",
-            "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
-            "domain": "Theoretical Physics / Black Hole Thermodynamics"
-          },
-          {
-            "id": "0a203be4",
-            "title": "Bayesian Model Comparison Framework for Hubble Tension Resolution",
-            "domain": "Cosmology / Theoretical Physics"
-          }
-        ]
-      },
-      {
-        "term": "magnitude",
-        "count": 25,
-        "articles": [
-          {
-            "id": "9becef2c",
-            "title": "Hawking‑Temperature Coldness Test for GWTC‑3 Binary‑Black‑Hole Remnants",
+            "id": "fa4e9001",
+            "title": "Penrose Inequality Test for GWTC‑3 Binary Black Hole Mergers",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "e903a334",
-            "title": "Gravitational‑Wave Radial Velocity PMI Test on GWTC‑3 Remnants",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "a9b759aa",
-            "title": "Universal Planck‑Scale Curvature Corrections to GWTC‑3 Remnant OPE Coefficients",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "255c6ad2",
-            "title": "Hawking‑Evaporation Timescale vs. Gravitational‑Wave Signal Duration for GWTC‑3 Black‑Hole Mergers",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            "id": "aecdef0a",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
           },
           {
             "id": "d0a8dfad",
@@ -9162,28 +9240,83 @@
             "domain": "Black Hole Physics"
           },
           {
-            "id": "20f1c338",
-            "title": "Hawking‑radiation power vs peak GW luminosity for GWTC‑3 binary‑black‑hole remnants",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            "id": "a1274709",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics"
           },
           {
-            "id": "2c367dba",
-            "title": "dsDG Critical Temperature Consistency Test with GWTC‑3 Black‑Hole Remnants",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            "id": "e583a342",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
           },
           {
-            "id": "619bc092",
-            "title": "Sign reversal of the R⁻⁵ scalar‑charge correction in the axial GW master potential",
-            "domain": "Black Hole Physics / Gravitational‑Wave Theory"
+            "id": "df1808c7",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Black Hole Physics"
           },
           {
-            "id": "756dfdab",
-            "title": "Verification of the analytic bound on lens‑induced GW polarisation rotation",
-            "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            "id": "16fcef64",
+            "title": "Compact Millimeter Source Size vs Gravitational Radius in NGC 985",
+            "domain": "Black Hole Physics / High‑Energy Astrophysics"
           },
           {
-            "id": "c0fabe5c",
-            "title": "dsDG entropy‑correction test on GWTC‑4 black‑hole remnants",
+            "id": "f90c03ef",
+            "title": "Radiated Mass Fraction ≤ 10 % Test for GWTC Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "4b6e3ff3",
+            "title": "Edge‑Case & Failure‑Mode Analysis of the Semicoherent Mismatch Formula for Lensed Continuous Gravitational Waves",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "d8fb4906",
+            "title": "Quadratic Scaling Test of Semicoherent Mismatch for Lensed Continuous Gravitational Waves behind Sgr A*",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "f3ff024e",
+            "title": "Empirical Test of the Lense‑Thirring Blast‑Train Hypothesis for a Continuous‑Wave Source around Sgr A*",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "a049758b",
+            "title": "Empirical Falsification of Semicoherent Mismatch Scaling for Lensed Continuous Gravitational Waves behind Sgr A*",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "1661c0bd",
+            "title": "Semicoherent Mismatch from Sgr A* Lensing of Continuous Gravitational Waves",
+            "domain": "Black Hole Physics / Gravitational-Wave Astronomy"
+          },
+          {
+            "id": "ae2d72bd",
+            "title": "Verification of SIS Cluster‑Lens Einstein Radius for a GW Source at z≈1",
+            "domain": "Black Hole Physics / Gravitational‑Wave Lensing"
+          },
+          {
+            "id": "a5078f50",
+            "title": "Verification of Semicoherent Mismatch and Energy Consistency for Lensed Continuous Gravitational Waves",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "331b3cfe",
+            "title": "Consistency Check of GWTC‑4.0 Final Masses with Simple Radiated‑Energy Model",
+            "domain": "Black Hole Physics"
+          },
+          {
+            "id": "48df6235",
+            "title": "Semicoherent Mismatch of Continuous Gravitational Waves Lensed by Sgr A*",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "a1949c2b",
+            "title": "Empirical Test of Lens‑Induced Phase Drift for Continuous Gravitational Waves behind Sgr A*",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "0dac32b3",
+            "title": "Verification of the Geometric‑Optics Lensing Time‑Delay for Sgr A* Using the EHT Mass Catalog",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
@@ -9192,80 +9325,211 @@
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "ca61e1bd",
-            "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
+            "id": "a68b9192",
+            "title": "Edge‑Case & Failure‑Mode Analysis of Lensing‑Induced Modulation Depth",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "ee8b1b28",
-            "title": "Testing the Token‑to‑Entropy Analogy for Schwarzschild Black Holes",
-            "domain": "Black Hole Physics / Machine‑Learning Analogy"
+            "id": "1b8fb614",
+            "title": "Lensing‑induced semicoherent mismatch scaling verification",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
-            "id": "ef5085ed",
-            "title": "Mass‑independent ISCO–Hawking ratio and Schwarzschild thermodynamic consistency",
-            "domain": "Black Hole Physics"
-          },
-          {
-            "id": "eb2633dd",
-            "title": "Monte‑Carlo Verification of the Kerr Horizon Sum and Area‑Sum Identities",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "2d98a7e1",
-            "title": "Universal Schwarzschild Hawking Temperature–Radius Product",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "3add01f6",
-            "title": "Monte‑Carlo verification of the Kerr outer‑horizon area identity",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "de39f77b",
-            "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr Horizon‑Sum Identity",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "89a925f8",
-            "title": "Irreducible Mass Consistency Check for Sub‑Extremal Kerr Black Holes (SI Units)",
-            "domain": "Black Hole Physics / General Relativity"
+            "id": "460c5824",
+            "title": "Horizon‑Area Theorem Consistency Check for GWTC‑4.0 Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
           },
           {
             "id": "3ef20484",
             "title": "Empirical Verification of the Schwarzschild Black‑Hole Thermodynamic Identity",
             "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "d9ea2826",
-            "title": "Empirical Verification of the Smarr Relation for Sub‑Extremal Kerr Black Holes in SI Units",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "79187c7e",
-            "title": "Photon‑Orbit‑Outside‑Horizon Bound for Sub‑Extremal Kerr Black Holes",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "5a447872",
-            "title": "Quadrupole‑Moment Bound Verification for Sub‑Extremal Kerr Black Holes",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "fd429d27",
-            "title": "SI‑unit verification of the Kerr horizon angular‑velocity identity Ω_H r₊/c = χ/2",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "588d0c4b",
-            "title": "Empirical Validation of Schwarzschild Radius and Related Black Hole Relations",
-            "domain": "Black Hole Physics"
           }
         ]
       }
     ],
     "by_letter": {
       "A": [
+        {
+          "term": "area",
+          "count": 35,
+          "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "2b94610b",
+              "title": "Radiated Energy Fraction Consistency Test for GWTC Merger Catalog",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "1e539faa",
+              "title": "Roche‑Lobe Filling Test for the Helium‑Rich Donor in a 3.5‑hr LMXB and Consistency Check of the Black‑Hole Area Theorem",
+              "domain": "Astrophysics / Black Hole Physics"
+            },
+            {
+              "id": "4c3d442f",
+              "title": "Testing the 2 % Lensing‑Coupling Excess on the M87* Shadow and Consistency of GWTC Radiated Mass Fractions",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "a1274709",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "ca61e1bd",
+              "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "1edaef2e",
+              "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "460c5824",
+              "title": "Horizon‑Area Theorem Consistency Check for GWTC‑4.0 Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "67c25478",
+              "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "34ca9c78",
+              "title": "Horizon Area Theorem Test on LIGO/Virgo/KAGRA GWTC Mergers and EHT Shadow Consistency",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "97d2f81e",
+              "title": "Area-Theorem Consistency Check for a Binary Schwarzschild Black Hole Merger",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "54bb4dd3",
+              "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
+              "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
+            },
+            {
+              "id": "aca9e538",
+              "title": "Quadratic Scaling of PixVid Inference Time and Black‑Hole Horizon Area Analogy",
+              "domain": "Mathematical & Quantitative Modeling"
+            },
+            {
+              "id": "ef5085ed",
+              "title": "Mass‑independent ISCO–Hawking ratio and Schwarzschild thermodynamic consistency",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "06be01d1",
+              "title": "Quantitative Consistency Checks for Black‑Hole Physics and Lens‑Induced CW Modulation",
+              "domain": "Mathematical & Quantitative Modeling"
+            },
+            {
+              "id": "8599432b",
+              "title": "Verification of Kerr Horizon Area Sum and Hawking Temperature Consistency",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "eb2633dd",
+              "title": "Monte‑Carlo Verification of the Kerr Horizon Sum and Area‑Sum Identities",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "2f90a90c",
+              "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr‑Area‑Sum Identity",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "3add01f6",
+              "title": "Monte‑Carlo verification of the Kerr outer‑horizon area identity",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "9d05b696",
+              "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr Horizon‑Area Product Identity",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "89a925f8",
+              "title": "Irreducible Mass Consistency Check for Sub‑Extremal Kerr Black Holes (SI Units)",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "d9ea2826",
+              "title": "Empirical Verification of the Smarr Relation for Sub‑Extremal Kerr Black Holes in SI Units",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "5b96b97e",
+              "title": "Empirical Verification of the Kerr Horizon Area Product",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "cacbef4c",
+              "title": "Angular‑Momentum‑to‑Area Bound for Sub‑Extremal Kerr Black Holes",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "ce4cb704",
+              "title": "SI‑Unit Consistency Test for Kerr Horizon Area and Hawking Temperature",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "2d415bfa",
+              "title": "Empirical Verification of Mass‑Independent Kerr Horizon Area Product in SI Units",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "c0d9c1ff",
+              "title": "Thermodynamic Consistency of a Schwarzschild Black Hole in SI Units",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "5d514993",
+              "title": "Universal Constancy of Hawking Temperature–Mass Product and Black‑Hole Consistency Suite",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "fdda16fe",
+              "title": "Verification of the Kerr Irreducible‑Mass Identity with SI Constants",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "ea932602",
+              "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Horizon Geometry",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "4a892917",
+              "title": "Edge‑Case Consistency Check of Schwarzschild Black‑Hole Thermodynamics and Area Theorem",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "b6f20d5f",
+              "title": "Quantitative Consistency Checks for Schwarzschild Black Hole Thermodynamics and Merger Area Theorem",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "3c14eec4",
+              "title": "Quantitative Validation of Schwarzschild Horizon Area, Hawking Temperature, and the Area Theorem for Black Hole Mergers",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "9fa376e8",
+              "title": "Black Hole Information Paradox & Page Curve Brief #49",
+              "domain": "Black Hole Information Paradox & Page Curve"
+            },
+            {
+              "id": "d44868c9",
+              "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
+              "domain": "Theoretical Physics / Black Hole Thermodynamics"
+            }
+          ]
+        },
         {
           "term": "across",
           "count": 34,
@@ -9439,182 +9703,6 @@
               "id": "0a203be4",
               "title": "Bayesian Model Comparison Framework for Hubble Tension Resolution",
               "domain": "Cosmology / Theoretical Physics"
-            }
-          ]
-        },
-        {
-          "term": "area",
-          "count": 34,
-          "articles": [
-            {
-              "id": "2b94610b",
-              "title": "Radiated Energy Fraction Consistency Test for GWTC Merger Catalog",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "1e539faa",
-              "title": "Roche‑Lobe Filling Test for the Helium‑Rich Donor in a 3.5‑hr LMXB and Consistency Check of the Black‑Hole Area Theorem",
-              "domain": "Astrophysics / Black Hole Physics"
-            },
-            {
-              "id": "4c3d442f",
-              "title": "Testing the 2 % Lensing‑Coupling Excess on the M87* Shadow and Consistency of GWTC Radiated Mass Fractions",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "a1274709",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black‑Hole Mergers",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "ca61e1bd",
-              "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "1edaef2e",
-              "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "460c5824",
-              "title": "Horizon‑Area Theorem Consistency Check for GWTC‑4.0 Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "67c25478",
-              "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "34ca9c78",
-              "title": "Horizon Area Theorem Test on LIGO/Virgo/KAGRA GWTC Mergers and EHT Shadow Consistency",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "97d2f81e",
-              "title": "Area-Theorem Consistency Check for a Binary Schwarzschild Black Hole Merger",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "54bb4dd3",
-              "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
-              "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
-            },
-            {
-              "id": "aca9e538",
-              "title": "Quadratic Scaling of PixVid Inference Time and Black‑Hole Horizon Area Analogy",
-              "domain": "Mathematical & Quantitative Modeling"
-            },
-            {
-              "id": "ef5085ed",
-              "title": "Mass‑independent ISCO–Hawking ratio and Schwarzschild thermodynamic consistency",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "06be01d1",
-              "title": "Quantitative Consistency Checks for Black‑Hole Physics and Lens‑Induced CW Modulation",
-              "domain": "Mathematical & Quantitative Modeling"
-            },
-            {
-              "id": "8599432b",
-              "title": "Verification of Kerr Horizon Area Sum and Hawking Temperature Consistency",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "eb2633dd",
-              "title": "Monte‑Carlo Verification of the Kerr Horizon Sum and Area‑Sum Identities",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "2f90a90c",
-              "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr‑Area‑Sum Identity",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "3add01f6",
-              "title": "Monte‑Carlo verification of the Kerr outer‑horizon area identity",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "9d05b696",
-              "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr Horizon‑Area Product Identity",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "89a925f8",
-              "title": "Irreducible Mass Consistency Check for Sub‑Extremal Kerr Black Holes (SI Units)",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "d9ea2826",
-              "title": "Empirical Verification of the Smarr Relation for Sub‑Extremal Kerr Black Holes in SI Units",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "5b96b97e",
-              "title": "Empirical Verification of the Kerr Horizon Area Product",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "cacbef4c",
-              "title": "Angular‑Momentum‑to‑Area Bound for Sub‑Extremal Kerr Black Holes",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "ce4cb704",
-              "title": "SI‑Unit Consistency Test for Kerr Horizon Area and Hawking Temperature",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "2d415bfa",
-              "title": "Empirical Verification of Mass‑Independent Kerr Horizon Area Product in SI Units",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "c0d9c1ff",
-              "title": "Thermodynamic Consistency of a Schwarzschild Black Hole in SI Units",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "5d514993",
-              "title": "Universal Constancy of Hawking Temperature–Mass Product and Black‑Hole Consistency Suite",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "fdda16fe",
-              "title": "Verification of the Kerr Irreducible‑Mass Identity with SI Constants",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "ea932602",
-              "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Horizon Geometry",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "4a892917",
-              "title": "Edge‑Case Consistency Check of Schwarzschild Black‑Hole Thermodynamics and Area Theorem",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "b6f20d5f",
-              "title": "Quantitative Consistency Checks for Schwarzschild Black Hole Thermodynamics and Merger Area Theorem",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "3c14eec4",
-              "title": "Quantitative Validation of Schwarzschild Horizon Area, Hawking Temperature, and the Area Theorem for Black Hole Mergers",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "9fa376e8",
-              "title": "Black Hole Information Paradox & Page Curve Brief #49",
-              "domain": "Black Hole Information Paradox & Page Curve"
-            },
-            {
-              "id": "d44868c9",
-              "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
-              "domain": "Theoretical Physics / Black Hole Thermodynamics"
             }
           ]
         },
@@ -10067,8 +10155,13 @@
       "B": [
         {
           "term": "black",
-          "count": 131,
+          "count": 132,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "e7bc8512",
               "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
@@ -10728,8 +10821,13 @@
         },
         {
           "term": "binary",
-          "count": 54,
+          "count": 55,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "5e78ce00",
               "title": "Helium‑donor Roche‑lobe Consistency Test for a 3.5‑hr LMXB",
@@ -11509,8 +11607,13 @@
       "C": [
         {
           "term": "consistency",
-          "count": 69,
+          "count": 70,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "83a3f423",
               "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -11860,8 +11963,13 @@
         },
         {
           "term": "check",
-          "count": 49,
+          "count": 50,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "83a3f423",
               "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -13019,8 +13127,13 @@
         },
         {
           "term": "classical",
-          "count": 11,
+          "count": 12,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "1e539faa",
               "title": "Roche‑Lobe Filling Test for the Helium‑Rich Donor in a 3.5‑hr LMXB and Consistency Check of the Black‑Hole Area Theorem",
@@ -13143,8 +13256,13 @@
       "D": [
         {
           "term": "dimensionless",
-          "count": 20,
+          "count": 21,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "376643d5",
               "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
@@ -13315,6 +13433,67 @@
               "id": "876a78bd",
               "title": "Empirical Test of Gravitational Lensing Time‑Delay Formula for Sgr A*",
               "domain": "Black Hole Physics / Gravitational Lensing"
+            }
+          ]
+        },
+        {
+          "term": "direct",
+          "count": 11,
+          "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "e7bc8512",
+              "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
+              "domain": "Black Hole Physics / Modified Gravity"
+            },
+            {
+              "id": "579efec0",
+              "title": "Photon‑Ring Diameter Test of Late‑Time Lensing Enhancement Σ≈1.03",
+              "domain": "Black Hole Physics / Gravitational Lensing"
+            },
+            {
+              "id": "756dfdab",
+              "title": "Verification of the analytic bound on lens‑induced GW polarisation rotation",
+              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            },
+            {
+              "id": "f90c03ef",
+              "title": "Radiated Mass Fraction ≤ 10 % Test for GWTC Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "1661c0bd",
+              "title": "Semicoherent Mismatch from Sgr A* Lensing of Continuous Gravitational Waves",
+              "domain": "Black Hole Physics / Gravitational-Wave Astronomy"
+            },
+            {
+              "id": "1edaef2e",
+              "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "ee8b1b28",
+              "title": "Testing the Token‑to‑Entropy Analogy for Schwarzschild Black Holes",
+              "domain": "Black Hole Physics / Machine‑Learning Analogy"
+            },
+            {
+              "id": "eb2633dd",
+              "title": "Monte‑Carlo Verification of the Kerr Horizon Sum and Area‑Sum Identities",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "3e4fea35",
+              "title": "Testing Hawking Temperature Scaling and Black Hole Thermodynamics",
+              "domain": "Black Hole Physics / Theoretical Astrophysics"
+            },
+            {
+              "id": "d44868c9",
+              "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
+              "domain": "Theoretical Physics / Black Hole Thermodynamics"
             }
           ]
         }
@@ -14005,6 +14184,107 @@
           ]
         },
         {
+          "term": "event",
+          "count": 19,
+          "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "e7bc8512",
+              "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
+              "domain": "Black Hole Physics / Modified Gravity"
+            },
+            {
+              "id": "e6a8d5f8",
+              "title": "Radiated Energy Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "dcabcaa2",
+              "title": "Shadow‑Distance Consistency Test for M87* under Non‑Parametric Dark‑Energy Reconstruction",
+              "domain": "Black Hole Physics / Cosmology"
+            },
+            {
+              "id": "4e9f2a1f",
+              "title": "Exceptional Point Amplitude Test with GWTC‑3 Ringdowns",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "778504ef",
+              "title": "Photon‑Ring Diameter Test of Late‑Time Lensing Enhancement (Σ₀≈1.03) using M87* EHT Data",
+              "domain": "Black Hole Physics / Gravitational Lensing"
+            },
+            {
+              "id": "579efec0",
+              "title": "Photon‑Ring Diameter Test of Late‑Time Lensing Enhancement Σ≈1.03",
+              "domain": "Black Hole Physics / Gravitational Lensing"
+            },
+            {
+              "id": "995eace4",
+              "title": "Photon‑Orbit Inequality & M87* Shadow Consistency Test",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "20cadf4a",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+            },
+            {
+              "id": "67349c42",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "e583a342",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "48df6235",
+              "title": "Semicoherent Mismatch of Continuous Gravitational Waves Lensed by Sgr A*",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "1edaef2e",
+              "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "460c5824",
+              "title": "Horizon‑Area Theorem Consistency Check for GWTC‑4.0 Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "34ca9c78",
+              "title": "Horizon Area Theorem Test on LIGO/Virgo/KAGRA GWTC Mergers and EHT Shadow Consistency",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "54bb4dd3",
+              "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
+              "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
+            },
+            {
+              "id": "79187c7e",
+              "title": "Photon‑Orbit‑Outside‑Horizon Bound for Sub‑Extremal Kerr Black Holes",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "38c85bb6",
+              "title": "Empirical Test of the ISCO–Horizon Bound for Sub‑Extremal Kerr Black Holes",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "3c14eec4",
+              "title": "Quantitative Validation of Schwarzschild Horizon Area, Hawking Temperature, and the Area Theorem for Black Hole Mergers",
+              "domain": "Black Hole Physics / General Relativity"
+            }
+          ]
+        },
+        {
           "term": "exact",
           "count": 19,
           "articles": [
@@ -14106,13 +14386,13 @@
           ]
         },
         {
-          "term": "event",
-          "count": 18,
+          "term": "every",
+          "count": 14,
           "articles": [
             {
-              "id": "e7bc8512",
-              "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
-              "domain": "Black Hole Physics / Modified Gravity"
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
             },
             {
               "id": "e6a8d5f8",
@@ -14120,29 +14400,9 @@
               "domain": "Black Hole Physics"
             },
             {
-              "id": "dcabcaa2",
-              "title": "Shadow‑Distance Consistency Test for M87* under Non‑Parametric Dark‑Energy Reconstruction",
-              "domain": "Black Hole Physics / Cosmology"
-            },
-            {
-              "id": "4e9f2a1f",
-              "title": "Exceptional Point Amplitude Test with GWTC‑3 Ringdowns",
+              "id": "6856d3ce",
+              "title": "Upper‑bound test of the GW‑radial‑velocity phase‑modulation index for GWTC‑3 binary black‑hole mergers",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "778504ef",
-              "title": "Photon‑Ring Diameter Test of Late‑Time Lensing Enhancement (Σ₀≈1.03) using M87* EHT Data",
-              "domain": "Black Hole Physics / Gravitational Lensing"
-            },
-            {
-              "id": "579efec0",
-              "title": "Photon‑Ring Diameter Test of Late‑Time Lensing Enhancement Σ≈1.03",
-              "domain": "Black Hole Physics / Gravitational Lensing"
-            },
-            {
-              "id": "995eace4",
-              "title": "Photon‑Orbit Inequality & M87* Shadow Consistency Test",
-              "domain": "Black Hole Physics"
             },
             {
               "id": "20cadf4a",
@@ -14150,28 +14410,33 @@
               "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
             },
             {
+              "id": "8af276a4",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+            },
+            {
+              "id": "2c367dba",
+              "title": "dsDG Critical Temperature Consistency Test with GWTC‑3 Black‑Hole Remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "b7e4f00b",
+              "title": "Edge‑Case Test of Slim‑Disk Variability Timescales for Little Red Dots",
+              "domain": "Black Hole Physics / AGN Variability"
+            },
+            {
               "id": "67349c42",
               "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
               "domain": "Black Hole Physics"
             },
             {
-              "id": "e583a342",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "48df6235",
-              "title": "Semicoherent Mismatch of Continuous Gravitational Waves Lensed by Sgr A*",
+              "id": "c0fabe5c",
+              "title": "dsDG entropy‑correction test on GWTC‑4 black‑hole remnants",
               "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
             },
             {
-              "id": "1edaef2e",
-              "title": "Area-Theorem Consistency Check for GWTC-3/4 Mergers",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "460c5824",
-              "title": "Horizon‑Area Theorem Consistency Check for GWTC‑4.0 Mergers",
+              "id": "51a00bad",
+              "title": "Empirical Test of the 10 % Radiated‑Mass Limit for GWTC Binary‑Black‑Hole Mergers",
               "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
             },
             {
@@ -14180,23 +14445,18 @@
               "domain": "Black Hole Physics"
             },
             {
-              "id": "54bb4dd3",
-              "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
-              "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
+              "id": "9d05b696",
+              "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr Horizon‑Area Product Identity",
+              "domain": "Black Hole Physics / General Relativity"
             },
             {
-              "id": "79187c7e",
-              "title": "Photon‑Orbit‑Outside‑Horizon Bound for Sub‑Extremal Kerr Black Holes",
+              "id": "d9ea2826",
+              "title": "Empirical Verification of the Smarr Relation for Sub‑Extremal Kerr Black Holes in SI Units",
               "domain": "Black Hole Physics / General Relativity"
             },
             {
               "id": "38c85bb6",
               "title": "Empirical Test of the ISCO–Horizon Bound for Sub‑Extremal Kerr Black Holes",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "3c14eec4",
-              "title": "Quantitative Validation of Schwarzschild Horizon Area, Hawking Temperature, and the Area Theorem for Black Hole Mergers",
               "domain": "Black Hole Physics / General Relativity"
             }
           ]
@@ -14349,12 +14609,27 @@
           ]
         },
         {
-          "term": "every",
+          "term": "events",
           "count": 13,
           "articles": [
             {
-              "id": "e6a8d5f8",
-              "title": "Radiated Energy Fraction Consistency Test for GWTC‑3 Binary Black‑Hole Mergers",
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "8c49a97f",
+              "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "7e65ee60",
+              "title": "Axion‑NED induced shift of the ℓ=2 fundamental QNM frequency in observed GW ringdowns",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "36f0d713",
+              "title": "Radiated Energy–Symmetry Consistency Test for GWTC‑3 Binary Black Hole Mergers",
               "domain": "Black Hole Physics"
             },
             {
@@ -14363,9 +14638,19 @@
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             },
             {
-              "id": "20cadf4a",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+              "id": "a3eac603",
+              "title": "Axion–NED Induced QNM Frequency Shift Test on GWTC‑3 Remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "4c3d442f",
+              "title": "Testing the 2 % Lensing‑Coupling Excess on the M87* Shadow and Consistency of GWTC Radiated Mass Fractions",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "d48ced0c",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             },
             {
               "id": "8af276a4",
@@ -14373,49 +14658,24 @@
               "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
             },
             {
-              "id": "2c367dba",
-              "title": "dsDG Critical Temperature Consistency Test with GWTC‑3 Black‑Hole Remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "b7e4f00b",
-              "title": "Edge‑Case Test of Slim‑Disk Variability Timescales for Little Red Dots",
-              "domain": "Black Hole Physics / AGN Variability"
-            },
-            {
-              "id": "67349c42",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "c0fabe5c",
-              "title": "dsDG entropy‑correction test on GWTC‑4 black‑hole remnants",
+              "id": "3680a1f2",
+              "title": "Empirical Test of the 10% Radiated‑Energy Limit for Binary Black‑Hole Mergers",
               "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
             },
             {
-              "id": "51a00bad",
-              "title": "Empirical Test of the 10 % Radiated‑Mass Limit for GWTC Binary‑Black‑Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "34ca9c78",
-              "title": "Horizon Area Theorem Test on LIGO/Virgo/KAGRA GWTC Mergers and EHT Shadow Consistency",
+              "id": "331b3cfe",
+              "title": "Consistency Check of GWTC‑4.0 Final Masses with Simple Radiated‑Energy Model",
               "domain": "Black Hole Physics"
             },
             {
-              "id": "9d05b696",
-              "title": "Edge‑Case & Failure‑Mode Analysis of the Kerr Horizon‑Area Product Identity",
-              "domain": "Black Hole Physics / General Relativity"
+              "id": "ca61e1bd",
+              "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
             },
             {
-              "id": "d9ea2826",
-              "title": "Empirical Verification of the Smarr Relation for Sub‑Extremal Kerr Black Holes in SI Units",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "38c85bb6",
-              "title": "Empirical Test of the ISCO–Horizon Bound for Sub‑Extremal Kerr Black Holes",
-              "domain": "Black Hole Physics / General Relativity"
+              "id": "67c25478",
+              "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
             }
           ]
         },
@@ -14487,72 +14747,6 @@
               "id": "37eff747",
               "title": "Empirical Falsification of the Kerr Surface‑Gravity Bound κ₊·r₊ ≤ ½",
               "domain": "Black Hole Physics / General Relativity"
-            }
-          ]
-        },
-        {
-          "term": "events",
-          "count": 12,
-          "articles": [
-            {
-              "id": "8c49a97f",
-              "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "7e65ee60",
-              "title": "Axion‑NED induced shift of the ℓ=2 fundamental QNM frequency in observed GW ringdowns",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "36f0d713",
-              "title": "Radiated Energy–Symmetry Consistency Test for GWTC‑3 Binary Black Hole Mergers",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "6856d3ce",
-              "title": "Upper‑bound test of the GW‑radial‑velocity phase‑modulation index for GWTC‑3 binary black‑hole mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "a3eac603",
-              "title": "Axion–NED Induced QNM Frequency Shift Test on GWTC‑3 Remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "4c3d442f",
-              "title": "Testing the 2 % Lensing‑Coupling Excess on the M87* Shadow and Consistency of GWTC Radiated Mass Fractions",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "d48ced0c",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "8af276a4",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
-            },
-            {
-              "id": "3680a1f2",
-              "title": "Empirical Test of the 10% Radiated‑Energy Limit for Binary Black‑Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "331b3cfe",
-              "title": "Consistency Check of GWTC‑4.0 Final Masses with Simple Radiated‑Energy Model",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "ca61e1bd",
-              "title": "Empirical falsification of neutron‑star magnetic‑stress ellipticity as a significant contributor to black‑hole horizon‑area growth",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "67c25478",
-              "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
             }
           ]
         },
@@ -14926,8 +15120,13 @@
       "G": [
         {
           "term": "gwtc",
-          "count": 61,
+          "count": 62,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "83a3f423",
               "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -15899,8 +16098,13 @@
       "H": [
         {
           "term": "hole",
-          "count": 117,
+          "count": 118,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "e7bc8512",
               "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
@@ -16490,8 +16694,13 @@
         },
         {
           "term": "horizon",
-          "count": 61,
+          "count": 62,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "e7bc8512",
               "title": "M87* Shadow Scaling Test for Low‑Redshift Σ Modification",
@@ -17672,8 +17881,13 @@
       "K": [
         {
           "term": "kerr",
-          "count": 44,
+          "count": 45,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "fa4e9001",
               "title": "Penrose Inequality Test for GWTC‑3 Binary Black Hole Mergers",
@@ -18122,8 +18336,13 @@
         },
         {
           "term": "ligo",
-          "count": 12,
+          "count": 13,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "9becef2c",
               "title": "Hawking‑Temperature Coldness Test for GWTC‑3 Binary‑Black‑Hole Remnants",
@@ -18808,8 +19027,13 @@
         },
         {
           "term": "mergers",
-          "count": 47,
+          "count": 48,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "8c49a97f",
               "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
@@ -19538,8 +19762,13 @@
         },
         {
           "term": "masses",
-          "count": 18,
+          "count": 19,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "8c49a97f",
               "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
@@ -19990,8 +20219,13 @@
         },
         {
           "term": "never",
-          "count": 17,
+          "count": 18,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "65f49d8c",
               "title": "Helium‑white‑dwarf Roche‑lobe density consistency test for a 3.5‑hr LMXB",
@@ -20083,8 +20317,13 @@
       "O": [
         {
           "term": "observed",
-          "count": 35,
+          "count": 36,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "83a3f423",
               "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -20483,8 +20722,13 @@
       "P": [
         {
           "term": "predicts",
-          "count": 34,
+          "count": 35,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "8c49a97f",
               "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
@@ -20658,6 +20902,142 @@
           ]
         },
         {
+          "term": "parameter",
+          "count": 26,
+          "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "376643d5",
+              "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
+              "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
+            },
+            {
+              "id": "4e9f2a1f",
+              "title": "Exceptional Point Amplitude Test with GWTC‑3 Ringdowns",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "a59bc907",
+              "title": "Hawking‑Temperature Consistency Check for GWTC‑3 Remnants in Deformed Sine‑Dilaton Gravity",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "e9075588",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC Mergers",
+              "domain": "Gravitational-Wave Astrophysics"
+            },
+            {
+              "id": "20cadf4a",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+            },
+            {
+              "id": "67364e4e",
+              "title": "Edge‑Case Variability Test for Super‑Eddington Slim‑Disk LRDs",
+              "domain": "Black Hole Physics / Accretion Disk Variability"
+            },
+            {
+              "id": "43e9dfd9",
+              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "756dfdab",
+              "title": "Verification of the analytic bound on lens‑induced GW polarisation rotation",
+              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            },
+            {
+              "id": "df1609c5",
+              "title": "Semicoherent Phase Variance of Lensed Continuous Gravitational Waves behind Sgr A*",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "67c25478",
+              "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "54bb4dd3",
+              "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
+              "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
+            },
+            {
+              "id": "2ae31198",
+              "title": "Verification of the Dimensionless Horizon Angular Velocity Relation for Sub‑Extremal Kerr Black Holes",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "ac2ef4a0",
+              "title": "Schwarzschild Black‑Hole Thermodynamic Identity Verification and Photon‑Sphere Consistency Check",
+              "domain": "General Relativity & Black‑Hole Thermodynamics"
+            },
+            {
+              "id": "e12e1b01",
+              "title": "Empirical Test of Kerr Horizon Sum Relation in SI Units",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "fd429d27",
+              "title": "SI‑unit verification of the Kerr horizon angular‑velocity identity Ω_H r₊/c = χ/2",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "92031e3d",
+              "title": "Schwarzschild Black Hole Shadow Impact Parameter vs Photon‑Sphere Radius",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "5d514993",
+              "title": "Universal Constancy of Hawking Temperature–Mass Product and Black‑Hole Consistency Suite",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "95608073",
+              "title": "Schwarzschild Black Hole Consistency Suite",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "ea932602",
+              "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Horizon Geometry",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "876a78bd",
+              "title": "Empirical Test of Gravitational Lensing Time‑Delay Formula for Sgr A*",
+              "domain": "Black Hole Physics / Gravitational Lensing"
+            },
+            {
+              "id": "588d0c4b",
+              "title": "Empirical Validation of Schwarzschild Radius and Related Black Hole Relations",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "5a278d67",
+              "title": "Empirical Verification of the Schwarzschild Photon Sphere Radius",
+              "domain": "Black Hole Physics"
+            },
+            {
+              "id": "9f6b1afa",
+              "title": "Edge‑Case Test of Photon Capture Impact Parameter for a Schwarzschild Black Hole",
+              "domain": "Black Hole Physics / General Relativity"
+            },
+            {
+              "id": "d44868c9",
+              "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
+              "domain": "Theoretical Physics / Black Hole Thermodynamics"
+            },
+            {
+              "id": "34194407",
+              "title": "Consistency Checks of Black‑Hole Horizon and Ringdown Observables as a Baseline for Large‑N Transseries Validation",
+              "domain": "Gravitational‑Wave Physics • Numerical Relativity • Holographic Resurgence"
+            }
+          ]
+        },
+        {
           "term": "provides",
           "count": 26,
           "articles": [
@@ -20785,137 +21165,6 @@
               "id": "4674c221",
               "title": "Testing Kerr Photon‑Sphere Radii against the Exact Analytic Formula",
               "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "34194407",
-              "title": "Consistency Checks of Black‑Hole Horizon and Ringdown Observables as a Baseline for Large‑N Transseries Validation",
-              "domain": "Gravitational‑Wave Physics • Numerical Relativity • Holographic Resurgence"
-            }
-          ]
-        },
-        {
-          "term": "parameter",
-          "count": 25,
-          "articles": [
-            {
-              "id": "376643d5",
-              "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
-              "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
-            },
-            {
-              "id": "4e9f2a1f",
-              "title": "Exceptional Point Amplitude Test with GWTC‑3 Ringdowns",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "a59bc907",
-              "title": "Hawking‑Temperature Consistency Check for GWTC‑3 Remnants in Deformed Sine‑Dilaton Gravity",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "e9075588",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC Mergers",
-              "domain": "Gravitational-Wave Astrophysics"
-            },
-            {
-              "id": "20cadf4a",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC-3 Binary Black Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
-            },
-            {
-              "id": "67364e4e",
-              "title": "Edge‑Case Variability Test for Super‑Eddington Slim‑Disk LRDs",
-              "domain": "Black Hole Physics / Accretion Disk Variability"
-            },
-            {
-              "id": "43e9dfd9",
-              "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "756dfdab",
-              "title": "Verification of the analytic bound on lens‑induced GW polarisation rotation",
-              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
-            },
-            {
-              "id": "df1609c5",
-              "title": "Semicoherent Phase Variance of Lensed Continuous Gravitational Waves behind Sgr A*",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "67c25478",
-              "title": "Horizon Area Theorem Consistency Check for GWTC‑3 Binary Black Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "54bb4dd3",
-              "title": "Kerr Horizon Area Theorem Consistency Check for a Binary Black‑Hole Merger",
-              "domain": "Black Hole Physics / Mathematical & Quantitative Modeling"
-            },
-            {
-              "id": "2ae31198",
-              "title": "Verification of the Dimensionless Horizon Angular Velocity Relation for Sub‑Extremal Kerr Black Holes",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "ac2ef4a0",
-              "title": "Schwarzschild Black‑Hole Thermodynamic Identity Verification and Photon‑Sphere Consistency Check",
-              "domain": "General Relativity & Black‑Hole Thermodynamics"
-            },
-            {
-              "id": "e12e1b01",
-              "title": "Empirical Test of Kerr Horizon Sum Relation in SI Units",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "fd429d27",
-              "title": "SI‑unit verification of the Kerr horizon angular‑velocity identity Ω_H r₊/c = χ/2",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "92031e3d",
-              "title": "Schwarzschild Black Hole Shadow Impact Parameter vs Photon‑Sphere Radius",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "5d514993",
-              "title": "Universal Constancy of Hawking Temperature–Mass Product and Black‑Hole Consistency Suite",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "95608073",
-              "title": "Schwarzschild Black Hole Consistency Suite",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "ea932602",
-              "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Horizon Geometry",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "876a78bd",
-              "title": "Empirical Test of Gravitational Lensing Time‑Delay Formula for Sgr A*",
-              "domain": "Black Hole Physics / Gravitational Lensing"
-            },
-            {
-              "id": "588d0c4b",
-              "title": "Empirical Validation of Schwarzschild Radius and Related Black Hole Relations",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "5a278d67",
-              "title": "Empirical Verification of the Schwarzschild Photon Sphere Radius",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "9f6b1afa",
-              "title": "Edge‑Case Test of Photon Capture Impact Parameter for a Schwarzschild Black Hole",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "d44868c9",
-              "title": "Entropy–Shadow Area Proportionality Check for Schwarzschild Black Holes",
-              "domain": "Theoretical Physics / Black Hole Thermodynamics"
             },
             {
               "id": "34194407",
@@ -22582,6 +22831,87 @@
           ]
         },
         {
+          "term": "remnants",
+          "count": 15,
+          "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "376643d5",
+              "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
+              "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
+            },
+            {
+              "id": "9becef2c",
+              "title": "Hawking‑Temperature Coldness Test for GWTC‑3 Binary‑Black‑Hole Remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "e903a334",
+              "title": "Gravitational‑Wave Radial Velocity PMI Test on GWTC‑3 Remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "6a25d1a3",
+              "title": "Curvature‑Induced OPE Coefficient Suppression in GWTC Black‑Hole Remnants",
+              "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
+            },
+            {
+              "id": "a3eac603",
+              "title": "Axion–NED Induced QNM Frequency Shift Test on GWTC‑3 Remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "6da53e7e",
+              "title": "Λ‑Induced Quasinormal‑Mode Shift Test for GWTC‑3 Remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "a59bc907",
+              "title": "Hawking‑Temperature Consistency Check for GWTC‑3 Remnants in Deformed Sine‑Dilaton Gravity",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "a9b759aa",
+              "title": "Universal Planck‑Scale Curvature Corrections to GWTC‑3 Remnant OPE Coefficients",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "a015f241",
+              "title": "Radiated Mass Fraction and Hawking Evaporation Consistency Test for GWTC‑3 Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "255c6ad2",
+              "title": "Hawking‑Evaporation Timescale vs. Gravitational‑Wave Signal Duration for GWTC‑3 Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "20f1c338",
+              "title": "Hawking‑radiation power vs peak GW luminosity for GWTC‑3 binary‑black‑hole remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "2c367dba",
+              "title": "dsDG Critical Temperature Consistency Test with GWTC‑3 Black‑Hole Remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "c0fabe5c",
+              "title": "dsDG entropy‑correction test on GWTC‑4 black‑hole remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "996c1f42",
+              "title": "Gravitational‑Wave Radial‑Velocity Phase‑Modulation Index (PMI) Test on GWTC‑4 Black‑Hole Remnants",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            }
+          ]
+        },
+        {
           "term": "rotating",
           "count": 15,
           "articles": [
@@ -22663,82 +22993,6 @@
           ]
         },
         {
-          "term": "remnants",
-          "count": 14,
-          "articles": [
-            {
-              "id": "376643d5",
-              "title": "Curvature‑Induced OPE Coefficient Correction in Astrophysical Black Hole Remnants",
-              "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
-            },
-            {
-              "id": "9becef2c",
-              "title": "Hawking‑Temperature Coldness Test for GWTC‑3 Binary‑Black‑Hole Remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "e903a334",
-              "title": "Gravitational‑Wave Radial Velocity PMI Test on GWTC‑3 Remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "6a25d1a3",
-              "title": "Curvature‑Induced OPE Coefficient Suppression in GWTC Black‑Hole Remnants",
-              "domain": "Black Hole Physics / Quantum Field Theory in Curved Spacetime"
-            },
-            {
-              "id": "a3eac603",
-              "title": "Axion–NED Induced QNM Frequency Shift Test on GWTC‑3 Remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "6da53e7e",
-              "title": "Λ‑Induced Quasinormal‑Mode Shift Test for GWTC‑3 Remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "a59bc907",
-              "title": "Hawking‑Temperature Consistency Check for GWTC‑3 Remnants in Deformed Sine‑Dilaton Gravity",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "a9b759aa",
-              "title": "Universal Planck‑Scale Curvature Corrections to GWTC‑3 Remnant OPE Coefficients",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "a015f241",
-              "title": "Radiated Mass Fraction and Hawking Evaporation Consistency Test for GWTC‑3 Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "255c6ad2",
-              "title": "Hawking‑Evaporation Timescale vs. Gravitational‑Wave Signal Duration for GWTC‑3 Black‑Hole Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "20f1c338",
-              "title": "Hawking‑radiation power vs peak GW luminosity for GWTC‑3 binary‑black‑hole remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "2c367dba",
-              "title": "dsDG Critical Temperature Consistency Test with GWTC‑3 Black‑Hole Remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "c0fabe5c",
-              "title": "dsDG entropy‑correction test on GWTC‑4 black‑hole remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "996c1f42",
-              "title": "Gravitational‑Wave Radial‑Velocity Phase‑Modulation Index (PMI) Test on GWTC‑4 Black‑Hole Remnants",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            }
-          ]
-        },
-        {
           "term": "radii",
           "count": 13,
           "articles": [
@@ -22806,67 +23060,6 @@
               "id": "4674c221",
               "title": "Testing Kerr Photon‑Sphere Radii against the Exact Analytic Formula",
               "domain": "Black Hole Physics / General Relativity"
-            }
-          ]
-        },
-        {
-          "term": "relative",
-          "count": 11,
-          "articles": [
-            {
-              "id": "ebbdc11c",
-              "title": "M87* Shadow Scaling Test for Modified Gravity Σ₀",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "7e65ee60",
-              "title": "Axion‑NED induced shift of the ℓ=2 fundamental QNM frequency in observed GW ringdowns",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "fba1d364",
-              "title": "Plebański–Demiański Radiated‑Energy–Spin Consistency Test for GWTC‑3 Mergers",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "76860891",
-              "title": "Slim‑Disk Variability Suppression Test for Little Red Dots",
-              "domain": "Black Hole Physics / Accretion Theory"
-            },
-            {
-              "id": "579efec0",
-              "title": "Photon‑Ring Diameter Test of Late‑Time Lensing Enhancement Σ≈1.03",
-              "domain": "Black Hole Physics / Gravitational Lensing"
-            },
-            {
-              "id": "3ef20484",
-              "title": "Empirical Verification of the Schwarzschild Black‑Hole Thermodynamic Identity",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "5b96b97e",
-              "title": "Empirical Verification of the Kerr Horizon Area Product",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "5c5a1a84",
-              "title": "Verification of the Smarr Relation for Sub‑Extremal Kerr–Newman Black Holes",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "38adc1c9",
-              "title": "Verification of Kerr Horizon Angular Velocity Identity in SI Units",
-              "domain": "Black Hole Physics / General Relativity"
-            },
-            {
-              "id": "95608073",
-              "title": "Schwarzschild Black Hole Consistency Suite",
-              "domain": "Black Hole Physics"
-            },
-            {
-              "id": "3ae056fb",
-              "title": "Correlated Defect Engineering for Flux Pinning in Type-II Superconductors: A Calibrated, Physics-Grounded Study",
-              "domain": "Condensed Matter Physics / Superconductivity"
             }
           ]
         }
@@ -23090,8 +23283,13 @@
         },
         {
           "term": "source",
-          "count": 25,
+          "count": 26,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "2b94610b",
               "title": "Radiated Energy Fraction Consistency Test for GWTC Merger Catalog",
@@ -23915,8 +24113,13 @@
       "T": [
         {
           "term": "test",
-          "count": 93,
+          "count": 94,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "83a3f423",
               "title": "Helium‑donor Roche‑lobe Density vs Period Test and GWTC Radiated‑Mass Consistency Check",
@@ -24386,8 +24589,13 @@
         },
         {
           "term": "total",
-          "count": 31,
+          "count": 32,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "8c49a97f",
               "title": "Gravitational‑Wave Radiated‑Mass Fraction Consistency Test (GWTC‑3)",
@@ -24678,8 +24886,13 @@
         },
         {
           "term": "theorem",
-          "count": 19,
+          "count": 20,
           "articles": [
+            {
+              "id": "d66036c0",
+              "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+            },
             {
               "id": "2b94610b",
               "title": "Radiated Energy Fraction Consistency Test for GWTC Merger Catalog",
@@ -25917,6 +26130,11 @@
         "url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
         "articles": [
           {
+            "id": "d66036c0",
+            "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
+          },
+          {
             "id": "fba1d364",
             "title": "Plebański–Demiański Radiated‑Energy–Spin Consistency Test for GWTC‑3 Mergers",
             "domain": "Black Hole Physics / Gravitational‑Wave Astronomy"
@@ -26827,6 +27045,38 @@
     ]
   },
   "articles": [
+    {
+      "id": "d66036c0",
+      "created_at": "2026-11-24T00:39:17.839406+00:00",
+      "title": "Kerr Horizon‑Area Theorem Consistency Check for GWTC‑3 Binary Black‑Hole Mergers",
+      "domain": "Black Hole Physics / Gravitational‑Wave Astronomy",
+      "insight": "The classical area theorem predicts that the total horizon area of a Kerr black‑hole can never decrease in any classical process. By evaluating the dimensionless area change \\(\\Delta\\hat A = (A_f - A_i)/M_{\\rm tot}^2\\) for every GWTC‑3 binary‑black‑hole event using the published source‑frame component masses and dimensionless spins, we obtain a direct, catalogue‑wide test of this fundamental result. A non‑negative \\(\\Delta\\hat A\\) for all events would confirm internal consistency of the LIGO/Virgo parameter inference pipelines and the applicability of the Kerr solution to the observed remnants.",
+      "hypothesis": "For every binary‑black‑hole merger reported in GWTC‑3 the dimensionless horizon‑area increase \\(\\Delta\\hat A\\) is non‑negative (\\(\\Delta\\hat A \\ge 0\\)).",
+      "mini_experiment": "Compute the initial total horizon area as the sum of the two progenitor Kerr‑black‑hole areas, \\(A_i = 8\\pi m_1^2[1+\\sqrt{1-\\chi_1^2}] + 8\\pi m_2^2[1+\\sqrt{1-\\chi_2^2}]\\). Compute the final remnant area, \\(A_f = 8\\pi M_f^2[1+\\sqrt{1-\\chi_f^2}]\\). Form the dimensionless change \\(\\Delta\\hat A = (A_f-A_i)/(m_1+m_2)^2\\). Flag any event with \\(\\Delta\\hat A < -10^{-6}\\) as a violation. Report the total number of violations and the most extreme negative value.",
+      "experiment_code": "#!/usr/bin/env python3\n\"\"\"Kerr horizon‑area consistency test for the GWTC‑3 catalog.\n\nThe script loads the GWTC‑3 JSON catalog (path supplied via the\nenvironment variable GWTC_CATALOG_PATH), computes the dimensionless\narea change \\(Δ\\hat A\\) for every binary‑black‑hole event and prints a\nsummary.  A tolerance of 1e-6 is used to allow for numerical round‑off.\nThe script is self‑contained and relies only on the Python standard\nlibrary and the allowed third‑party packages.\n\"\"\"\n\nimport os\nimport json\nimport math\nimport numpy as np\n\n# ---------------------------------------------------------------------------\n# Physical constants (SI).  They are not required for the dimensionless\n# quantity Δ̂A, but are included for completeness and possible future\n# extensions.\n# ---------------------------------------------------------------------------\nG = 6.67430e-11          # m^3·kg⁻¹·s⁻²\nc = 2.99792458e8        # m·s⁻¹\nM_sun_kg = 1.98847e30   # kg\n\n# ---------------------------------------------------------------------------\n# Helper: Kerr horizon area in geometric units (G = c = 1).\n# Input masses are in solar‑mass units; the overall scale cancels in the\n# dimensionless ratio, so we can work directly with those units.\n# ---------------------------------------------------------------------------\ndef kerr_area(m, chi):\n    \"\"\"Return the horizon area 8π m² (1 + sqrt(1‑χ²)).\n\n    Parameters\n    ----------\n    m : float\n        Mass in solar‑mass units (or any consistent mass unit).\n    chi : float\n        Dimensionless spin magnitude (|χ| ≤ 1).\n    \"\"\"\n    # Guard against numerical overshoot |chi|>1 due to posterior tails.\n    chi = max(min(chi, 1.0), -1.0)\n    return 8.0 * math.pi * m * m * (1.0 + math.sqrt(1.0 - chi * chi))\n\n# ---------------------------------------------------------------------------\n# Load the catalog.\n# ---------------------------------------------------------------------------\ncatalog_path = os.getenv('GWTC_CATALOG_PATH')\nif not catalog_path:\n    raise RuntimeError('Environment variable GWTC_CATALOG_PATH not set')\nwith open(catalog_path, 'r') as f:\n    cat = json.load(f)\n\nevents = cat.get('events', [])\nif not events:\n    raise RuntimeError('No events found in the catalog')\n\nfails = []\nfor ev in events:\n    # Extract required fields, skipping events with missing data.\n    try:\n        m1 = ev.get('mass_1_source')\n        m2 = ev.get('mass_2_source')\n        chi1 = ev.get('spin_1')\n        chi2 = ev.get('spin_2')\n        mf = ev.get('final_mass_source')\n        chif = ev.get('final_spin')\n        # Some releases use alternative key names – fall back if needed.\n        if mf is None:\n            mf = ev.get('final_mass')\n        if chif is None:\n            chif = ev.get('final_spin_source')\n        # Ensure none are None or NaN.\n        if None in (m1, m2, chi1, chi2, mf, chif):\n            continue\n        if any(math.isnan(x) for x in (m1, m2, chi1, chi2, mf, chif)):\n            continue\n    except Exception:\n        continue\n\n    # Compute ",
+      "experiment_output": "Total GWTC‑3 binary‑BH events examined : 282\nNumber of Δ̂A violations (Δ̂A < -1e-6) : 0\nPASS: all examined events satisfy Δ̂A ≥ 0 within numerical tolerance.\n{\n  \"total_events\": 282,\n  \"violations\": 0,\n  \"worst_violation\": null,\n  \"status\": \"PASS\"\n}\nSTDERR: C:\\Users\\Lamont\\AppData\\Local\\Temp\\tmp4rf0x9cr.py:2: SyntaxWarning: invalid escape sequence '\\('\n  \"\"\"Kerr horizon‑area consistency test for the GWTC‑3 catalog.",
+      "experiment_passed": true,
+      "open_question": "If one or more events show a statistically significant negative \\(\\Delta\\hat A\\), is the discrepancy driven by (i) systematic biases in the waveform‑model inference of spins, (ii) limitations of the effective‑spin parametrisation (e.g., neglect of precession), or (iii) a hint of new physics beyond classical general relativity? Quantifying the contribution of measurement uncertainties to \\(\\Delta\\hat A\\) and propagating them through a Monte‑Carlo error analysis would be a natural next step.",
+      "critic_takeaway": "All reviewers agree that the script correctly implements the Kerr horizon‑area formula (A = 8π m²[1+√(1‑χ²)]) and the dimensionless change Δ̂A, clamps spin magnitudes to the physical range, handles missing fields safely, and reports zero violations for the 282 GWTC‑3 BBH events. The code therefore directly tests the stated hypothesis and passes it. Minor but important caveats were noted: the analysis uses only point‑estimate (median/MAP) values and does not propagate posterior uncertainties; spin orientation/precession effects are ignored; systematic waveform‑model biases could mask real violations; clamping χ to ±1 may bias Δ̂A toward non‑negative values; events with missing data are silently skipped, which could hide violations. These scope limitations mean the “PASS” result is a deterministic consistency check rather than a statistically robust falsification.",
+      "confidence": "High",
+      "verified": true,
+      "scout_angle": "**Hypothesis:** For every binary‑black‑hole merger in GWTC‑3 the dimensionless horizon‑area increase ΔÂ ≡ (A_f − A_i)/M_tot² must be non‑negative, where the initial total area A_i = 8π (m₁² + m₂²)[1 + √(1 − χ₁²) + 1 + √(1 − χ₂²)] and the final area A_f = 8π M_f²[1 + √(1 − χ_f²)] (geometric G = c = 1).  \n\n**Numerical check (self‑contained):**  \n\n```python\nimport json, numpy as np\ncat = json.load(open(os.getenv('GWTC_CATALOG_PATH')))\ndef area(m, chi):\n    return 8*np.pi*m**2*(1+np.sqrt(1-chi**2))\n\nfails = []\nfor ev in cat['events']:\n    try:\n        m1, m2 = ev['mass_1_source'], ev['mass_2_source']\n        chi1, chi2 = ev['spin_1'], ev['spin_2']\n        mf, chif = ev['final_mass_source'], ev['final_spin']\n        A_i = area(m1, chi1) + area(m2, chi2)\n        A_f = area(mf, chif)\n        dA = (A_f - A_i)/((m1+m2)**2)\n        if dA < -1e-6:  # tolerance for numerical noise\n            fails.append((ev['name'], dA))\n    except KeyError:\n        continue\nprint(f\"Violations: {len(fails)} out of {len(cat['events'])}\")\nif fails: print(fails[:5])\n```\n\nIf the hypothesis holds, the script will report zero violations (ΔÂ ≥ 0) across the catalog; any negative ΔÂ would flag a potential inconsistency in the inferred masses/spins or in the underlying Kerr‑area theorem.",
+      "source_title": "Diffusing the assumptions: towards realistic LISA stochastic component separation with physics-aware simulation-based inference",
+      "source_url": "http://arxiv.org/abs/2611.27848v1",
+      "wiki_title": "Gravitational wave background",
+      "wiki_extract": "The gravitational wave background is a random background of gravitational waves permeating the Universe, which is detectable by gravitational-wave experiments, like pulsar timing arrays. The signal may be intrinsically random, due to stochastic processes in the early Universe and the relic gravitational waves produced directly by cosmic inflation, or it may be produced by an incoherent superposition of a large number of weak independent unresolved gravitational-wave sources, such as supermassive black-hole binaries. Detecting the gravitational wave background can provide information that is in",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gravitational_wave_background",
+      "published": true,
+      "is_unique": false,
+      "novelty_score": 55,
+      "data_first": false,
+      "arxiv_id": "2611.27848",
+      "author_name": "Cuceu, Iuliu",
+      "author_affiliation": "Université Côte d'Azur, Observatoire de la Côte d'Azur,",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3231876",
+      "claim_token": "f988e8ec5edee742"
+    },
     {
       "id": "83a3f423",
       "created_at": "2026-11-16T22:53:16.467181+00:00",
