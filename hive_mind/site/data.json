@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T10:54:25.975648+00:00",
+  "generated_at": "2026-11-26T10:59:03.041240+00:00",
   "status": {
     "enabled": true,
     "running": false,
@@ -11,12 +11,12 @@
     "workers_per_run": 5,
     "calls_per_cycle": 12,
     "arxiv_grounding": true,
-    "total_runs": 16194,
-    "runs_per_hour": 92.0,
-    "verified_count": 689,
-    "training_examples": 689,
+    "total_runs": 16240,
+    "runs_per_hour": 174.0,
+    "verified_count": 690,
+    "training_examples": 690,
     "training_goal": 1000,
-    "training_pct": 68.9,
+    "training_pct": 69.0,
     "unique_count": 12,
     "latest_unique": {
       "id": "4bd9fe5a",
@@ -30,7 +30,7 @@
     "schedule_start": "22:00",
     "schedule_end": "07:00",
     "within_schedule": true,
-    "rejected_count": 15546,
+    "rejected_count": 15586,
     "seconds_until_next": null,
     "last_error": null,
     "provider": "groq",
@@ -49,12 +49,17 @@
   },
   "index": {
     "total_articles": 200,
-    "total_terms": 1372,
+    "total_terms": 1382,
     "top_terms": [
       {
         "term": "test",
-        "count": 85,
+        "count": 86,
         "articles": [
+          {
+            "id": "bb9c672b",
+            "title": "Synthetic injection–recovery test of waveform‑systematics on the $\\chi_{\\rm eff}$–$q$ correlation",
+            "domain": "Gravitational‑wave data analysis / statistical inference"
+          },
           {
             "id": "d5a39c9b",
             "title": "Spectral exponent consistency test for a non‑precessing IMRPhenomT binary",
@@ -3349,7 +3354,7 @@
       },
       {
         "term": "entropy",
-        "count": 25,
+        "count": 24,
         "articles": [
           {
             "id": "6391fd6f",
@@ -3470,11 +3475,6 @@
             "id": "d3e60800",
             "title": "Numerical verification of flat‑space interval entanglement via RT minimal surface",
             "domain": "Holographic Quantum Gravity"
-          },
-          {
-            "id": "25369653",
-            "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-            "domain": "Quantum Information / Holography"
           }
         ]
       },
@@ -4928,102 +4928,6 @@
         ]
       },
       {
-        "term": "random",
-        "count": 18,
-        "articles": [
-          {
-            "id": "6904eaec",
-            "title": "Haar‑random unitary black‑hole evaporation vs. Page curve",
-            "domain": "Quantum information / black‑hole thermodynamics"
-          },
-          {
-            "id": "a48d28d7",
-            "title": "Haar‑Random Bipartite Pure‑State Test of the Page Entropy Curve",
-            "domain": "Quantum Information / Black‑Hole Information Theory"
-          },
-          {
-            "id": "05c90b8e",
-            "title": "Return Probability of a Site‑0 Excitation in a Random (p,q)‑Deformed Oscillator Chain",
-            "domain": "Computational Quantum Physics"
-          },
-          {
-            "id": "0142b639",
-            "title": "Soft‑mode eigenvalue screening in a large‑N random Hermitian matrix model",
-            "domain": "Quantitative Modeling"
-          },
-          {
-            "id": "569802a4",
-            "title": "Random two‑qubit unitary on a 6‑qubit system – reduced state of the radiation subsystem",
-            "domain": "Quantum Information / Black‑Hole Information"
-          },
-          {
-            "id": "dd059ba9",
-            "title": "Falsifiable Test of the Page Curve via Haar‑Random Bipartite States",
-            "domain": "Quantum Information / Black‑Hole Information Theory"
-          },
-          {
-            "id": "19bb5f99",
-            "title": "Random brick‑wall unitary circuit reproduces the Page curve",
-            "domain": "Quantum information / many‑body dynamics"
-          },
-          {
-            "id": "05b1f4da",
-            "title": "Random‑unitary black‑hole evaporation test",
-            "domain": "Quantum information theory / Black‑hole thermodynamics"
-          },
-          {
-            "id": "e657beb6",
-            "title": "Random‑unitary circuit test of the Page curve for evaporating black holes",
-            "domain": "Quantum information / black‑hole information paradox"
-          },
-          {
-            "id": "282697a6",
-            "title": "Random Haar‑state Page curve test with physical‑constant sanity check",
-            "domain": "Quantum information / black‑hole thermodynamics"
-          },
-          {
-            "id": "dc1bcf1b",
-            "title": "Quantitative Test of the Page Curve for Haar‑Random Bipartite States",
-            "domain": "Quantum Information / Black‑Hole Information Theory"
-          },
-          {
-            "id": "8efc8f5f",
-            "title": "Random‑Unitary Scrambling Test of the Page Curve for Finite‑Dimensional Black Holes",
-            "domain": "Quantum Information / Black‑Hole Thermodynamics"
-          },
-          {
-            "id": "516318d4",
-            "title": "Verification of Page Curve for Haar‑Random Pure States",
-            "domain": "Quantum Information / Statistical Physics"
-          },
-          {
-            "id": "0987ac57",
-            "title": "Empirical Verification of Page Entropy for Random Pure‑State Subsystems",
-            "domain": "Quantum Information Theory / Black Hole Thermodynamics"
-          },
-          {
-            "id": "71f9ee32",
-            "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
-            "domain": "Quantum Gravity / Information Theory"
-          },
-          {
-            "id": "d6bbb703",
-            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
-            "domain": "Quantum Information / Holography"
-          },
-          {
-            "id": "a024c25c",
-            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
-            "domain": "Quantum Information / Holography"
-          },
-          {
-            "id": "25369653",
-            "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-            "domain": "Quantum Information / Holography"
-          }
-        ]
-      },
-      {
         "term": "schwarzschild",
         "count": 18,
         "articles": [
@@ -5120,102 +5024,6 @@
         ]
       },
       {
-        "term": "space",
-        "count": 18,
-        "articles": [
-          {
-            "id": "52f0fa68",
-            "title": "Falsifying Power‑Law Grain‑Size Distributions with the 10 µm Silicate Feature in DG Tau",
-            "domain": "Astrophysics – Protoplanetary Disk Dust Modeling"
-          },
-          {
-            "id": "983fc678",
-            "title": "Vaidya Null‑Slice Test of Noether‑Charge vs Phase‑Space Entropy",
-            "domain": "Quantitative Modeling – General Relativity"
-          },
-          {
-            "id": "6610d8c5",
-            "title": "Falsifying First‑Order Drinfeld‑Twist Corrections to Kerr Ringdown Frequencies",
-            "domain": "Gravitational‑wave phenomenology"
-          },
-          {
-            "id": "3c8d88f5",
-            "title": "Quantitative RG‑Flow Scan vs Black‑Hole Superradiance Exclusion for the Hidden SU(2) Axion",
-            "domain": "Theoretical Particle Physics / Astrophysical Phenomenology"
-          },
-          {
-            "id": "e657beb6",
-            "title": "Random‑unitary circuit test of the Page curve for evaporating black holes",
-            "domain": "Quantum information / black‑hole information paradox"
-          },
-          {
-            "id": "85553da1",
-            "title": "Falsification of the first‑order non‑commutative correction to Kerr QNM frequencies",
-            "domain": "Gravitational‑wave phenomenology / Quantum gravity"
-          },
-          {
-            "id": "3dffd9eb",
-            "title": "Falsification of Phase‑Space Norm Entropy vs. Horizon Area for a Perturbed Schwarzschild Black Hole",
-            "domain": "General Relativity / Black‑Hole Thermodynamics"
-          },
-          {
-            "id": "e0428eec",
-            "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies",
-            "domain": "Quantitative Modeling of Black‑hole Ringdown"
-          },
-          {
-            "id": "36b5fec7",
-            "title": "Flat‑limit verification of holographic entanglement for AdS$_4$ wedge → 3‑d flat space",
-            "domain": "theoretical high‑energy physics / holography"
-          },
-          {
-            "id": "71f9ee32",
-            "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
-            "domain": "Quantum Gravity / Information Theory"
-          },
-          {
-            "id": "89dc53e5",
-            "title": "Weyl‑ordered moment verification for a squeezed FLRW mode via Bargmann phase‑space integration",
-            "domain": "Quantum Cosmology – Phase‑space representations"
-          },
-          {
-            "id": "a8afee7b",
-            "title": "Monte‑Carlo verification of Weyl‑ordered moments for a squeezed Gaussian state in FLRW",
-            "domain": "Quantum cosmology / Phase‑space methods"
-          },
-          {
-            "id": "9ebd403e",
-            "title": "Numerical test of flat‑space interval entanglement via RT geodesic shooting",
-            "domain": "Theoretical high‑energy physics / holographic entanglement"
-          },
-          {
-            "id": "d45b12b3",
-            "title": "Monte‑Carlo verification of Weyl‑ordered moments from the Bargmann phase‑space density",
-            "domain": "Quantum cosmology – linear field modes on FLRW backgrounds"
-          },
-          {
-            "id": "50e80870",
-            "title": "Weyl‑ordered two‑point function vs. analytic power spectrum for the Bunch‑Davies vacuum",
-            "domain": "quantum cosmology"
-          },
-          {
-            "id": "501c8672",
-            "title": "Linear‑θ test of the first‑order Drinfeld‑twist correction to Kerr QNMs",
-            "domain": "Gravitational‑wave phenomenology / Quantum gravity"
-          },
-          {
-            "id": "d3e60800",
-            "title": "Numerical verification of flat‑space interval entanglement via RT minimal surface",
-            "domain": "Holographic Quantum Gravity"
-          },
-          {
-            "id": "25369653",
-            "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-            "domain": "Quantum Information / Holography"
-          }
-        ]
-      },
-      {
         "term": "verification",
         "count": 18,
         "articles": [
@@ -5308,97 +5116,6 @@
             "id": "d3e60800",
             "title": "Numerical verification of flat‑space interval entanglement via RT minimal surface",
             "domain": "Holographic Quantum Gravity"
-          }
-        ]
-      },
-      {
-        "term": "binary",
-        "count": 17,
-        "articles": [
-          {
-            "id": "d5a39c9b",
-            "title": "Spectral exponent consistency test for a non‑precessing IMRPhenomT binary",
-            "domain": "Gravitational‑wave data analysis"
-          },
-          {
-            "id": "996f2526",
-            "title": "Synthetic Galactic Binary Foreground Power‑Law Consistency Test",
-            "domain": "Quantitative Modeling"
-          },
-          {
-            "id": "64388594",
-            "title": "Falsifying the Power‑Law Galactic Binary Population Assumption via Synthetic Confusion Noise",
-            "domain": "Gravitational‑Wave Astrophysics / Data‑Driven Foreground Modelling"
-          },
-          {
-            "id": "81d7f429",
-            "title": "EOB‑ISCO → Effective Spin → Penrose bound vs. GW radiated energy for q=200",
-            "domain": "Gravitational‑wave modeling / Black‑hole dynamics"
-          },
-          {
-            "id": "be7c56de",
-            "title": "ML‑based prediction of resolvable Galactic binaries for a LISA‑like mission",
-            "domain": "Quantitative Modeling – Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "1303e9e6",
-            "title": "EOB vs NR remnant shadow test for q=200",
-            "domain": "Gravitational‑wave astrophysics & black‑hole imaging"
-          },
-          {
-            "id": "6ea8e0c8",
-            "title": "Synthetic Galactic Binary Foreground vs Analytic Confusion Noise",
-            "domain": "Gravitational‑Wave Astrophysics – Quantitative Modeling"
-          },
-          {
-            "id": "c3a976a7",
-            "title": "Synthetic Galactic Binary Frequency Distribution via Broken Power‑Law Sampling",
-            "domain": "Astrophysics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "806fff71",
-            "title": "Physical consistency test of the GWTC binary‑black‑hole catalog",
-            "domain": "Gravitational‑wave astrophysics / data validation"
-          },
-          {
-            "id": "d99bd688",
-            "title": "Toy Model Page Curve via Lovelock Entanglement Functional on a Binary‑Tree Network",
-            "domain": "Theoretical Physics – Holographic Entanglement & Quantum Information"
-          },
-          {
-            "id": "1fec0cb3",
-            "title": "Falsifying a Simple Gravitational‑Wave Radiated‑Energy Model Using GWTC Data",
-            "domain": "Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "61aed7a5",
-            "title": "Test of Radiated Energy Fractions in GWTC Binary Black Hole Mergers",
-            "domain": "Gravitational‑wave astrophysics"
-          },
-          {
-            "id": "f66b1bec",
-            "title": "Sanity Check of Binary Black Hole Merger Catalog Energy and Spin",
-            "domain": "Astrophysics / Gravitational‑Wave Astronomy"
-          },
-          {
-            "id": "d6bbb703",
-            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
-            "domain": "Quantum Information / Holography"
-          },
-          {
-            "id": "a024c25c",
-            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
-            "domain": "Quantum Information / Holography"
-          },
-          {
-            "id": "c017ebab",
-            "title": "Falsification of the t_trigger ∝ r_p^{3/2} M_BH^{-1/2} scaling for tidally driven binary eccentricity growth",
-            "domain": "Gravitational dynamics / three‑body tidal interactions"
-          },
-          {
-            "id": "25369653",
-            "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-            "domain": "Quantum Information / Holography"
           }
         ]
       },
@@ -5763,6 +5480,279 @@
             "id": "f4f1e63a",
             "title": "Gauss‑Bonnet scalar hair vs. Schwarzschild horizon radius",
             "domain": "Gravitational physics – black‑hole perturbations"
+          }
+        ]
+      },
+      {
+        "term": "random",
+        "count": 17,
+        "articles": [
+          {
+            "id": "6904eaec",
+            "title": "Haar‑random unitary black‑hole evaporation vs. Page curve",
+            "domain": "Quantum information / black‑hole thermodynamics"
+          },
+          {
+            "id": "a48d28d7",
+            "title": "Haar‑Random Bipartite Pure‑State Test of the Page Entropy Curve",
+            "domain": "Quantum Information / Black‑Hole Information Theory"
+          },
+          {
+            "id": "05c90b8e",
+            "title": "Return Probability of a Site‑0 Excitation in a Random (p,q)‑Deformed Oscillator Chain",
+            "domain": "Computational Quantum Physics"
+          },
+          {
+            "id": "0142b639",
+            "title": "Soft‑mode eigenvalue screening in a large‑N random Hermitian matrix model",
+            "domain": "Quantitative Modeling"
+          },
+          {
+            "id": "569802a4",
+            "title": "Random two‑qubit unitary on a 6‑qubit system – reduced state of the radiation subsystem",
+            "domain": "Quantum Information / Black‑Hole Information"
+          },
+          {
+            "id": "dd059ba9",
+            "title": "Falsifiable Test of the Page Curve via Haar‑Random Bipartite States",
+            "domain": "Quantum Information / Black‑Hole Information Theory"
+          },
+          {
+            "id": "19bb5f99",
+            "title": "Random brick‑wall unitary circuit reproduces the Page curve",
+            "domain": "Quantum information / many‑body dynamics"
+          },
+          {
+            "id": "05b1f4da",
+            "title": "Random‑unitary black‑hole evaporation test",
+            "domain": "Quantum information theory / Black‑hole thermodynamics"
+          },
+          {
+            "id": "e657beb6",
+            "title": "Random‑unitary circuit test of the Page curve for evaporating black holes",
+            "domain": "Quantum information / black‑hole information paradox"
+          },
+          {
+            "id": "282697a6",
+            "title": "Random Haar‑state Page curve test with physical‑constant sanity check",
+            "domain": "Quantum information / black‑hole thermodynamics"
+          },
+          {
+            "id": "dc1bcf1b",
+            "title": "Quantitative Test of the Page Curve for Haar‑Random Bipartite States",
+            "domain": "Quantum Information / Black‑Hole Information Theory"
+          },
+          {
+            "id": "8efc8f5f",
+            "title": "Random‑Unitary Scrambling Test of the Page Curve for Finite‑Dimensional Black Holes",
+            "domain": "Quantum Information / Black‑Hole Thermodynamics"
+          },
+          {
+            "id": "516318d4",
+            "title": "Verification of Page Curve for Haar‑Random Pure States",
+            "domain": "Quantum Information / Statistical Physics"
+          },
+          {
+            "id": "0987ac57",
+            "title": "Empirical Verification of Page Entropy for Random Pure‑State Subsystems",
+            "domain": "Quantum Information Theory / Black Hole Thermodynamics"
+          },
+          {
+            "id": "71f9ee32",
+            "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
+            "domain": "Quantum Gravity / Information Theory"
+          },
+          {
+            "id": "d6bbb703",
+            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
+            "domain": "Quantum Information / Holography"
+          },
+          {
+            "id": "a024c25c",
+            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
+            "domain": "Quantum Information / Holography"
+          }
+        ]
+      },
+      {
+        "term": "space",
+        "count": 17,
+        "articles": [
+          {
+            "id": "52f0fa68",
+            "title": "Falsifying Power‑Law Grain‑Size Distributions with the 10 µm Silicate Feature in DG Tau",
+            "domain": "Astrophysics – Protoplanetary Disk Dust Modeling"
+          },
+          {
+            "id": "983fc678",
+            "title": "Vaidya Null‑Slice Test of Noether‑Charge vs Phase‑Space Entropy",
+            "domain": "Quantitative Modeling – General Relativity"
+          },
+          {
+            "id": "6610d8c5",
+            "title": "Falsifying First‑Order Drinfeld‑Twist Corrections to Kerr Ringdown Frequencies",
+            "domain": "Gravitational‑wave phenomenology"
+          },
+          {
+            "id": "3c8d88f5",
+            "title": "Quantitative RG‑Flow Scan vs Black‑Hole Superradiance Exclusion for the Hidden SU(2) Axion",
+            "domain": "Theoretical Particle Physics / Astrophysical Phenomenology"
+          },
+          {
+            "id": "e657beb6",
+            "title": "Random‑unitary circuit test of the Page curve for evaporating black holes",
+            "domain": "Quantum information / black‑hole information paradox"
+          },
+          {
+            "id": "85553da1",
+            "title": "Falsification of the first‑order non‑commutative correction to Kerr QNM frequencies",
+            "domain": "Gravitational‑wave phenomenology / Quantum gravity"
+          },
+          {
+            "id": "3dffd9eb",
+            "title": "Falsification of Phase‑Space Norm Entropy vs. Horizon Area for a Perturbed Schwarzschild Black Hole",
+            "domain": "General Relativity / Black‑Hole Thermodynamics"
+          },
+          {
+            "id": "e0428eec",
+            "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies",
+            "domain": "Quantitative Modeling of Black‑hole Ringdown"
+          },
+          {
+            "id": "36b5fec7",
+            "title": "Flat‑limit verification of holographic entanglement for AdS$_4$ wedge → 3‑d flat space",
+            "domain": "theoretical high‑energy physics / holography"
+          },
+          {
+            "id": "71f9ee32",
+            "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
+            "domain": "Quantum Gravity / Information Theory"
+          },
+          {
+            "id": "89dc53e5",
+            "title": "Weyl‑ordered moment verification for a squeezed FLRW mode via Bargmann phase‑space integration",
+            "domain": "Quantum Cosmology – Phase‑space representations"
+          },
+          {
+            "id": "a8afee7b",
+            "title": "Monte‑Carlo verification of Weyl‑ordered moments for a squeezed Gaussian state in FLRW",
+            "domain": "Quantum cosmology / Phase‑space methods"
+          },
+          {
+            "id": "9ebd403e",
+            "title": "Numerical test of flat‑space interval entanglement via RT geodesic shooting",
+            "domain": "Theoretical high‑energy physics / holographic entanglement"
+          },
+          {
+            "id": "d45b12b3",
+            "title": "Monte‑Carlo verification of Weyl‑ordered moments from the Bargmann phase‑space density",
+            "domain": "Quantum cosmology – linear field modes on FLRW backgrounds"
+          },
+          {
+            "id": "50e80870",
+            "title": "Weyl‑ordered two‑point function vs. analytic power spectrum for the Bunch‑Davies vacuum",
+            "domain": "quantum cosmology"
+          },
+          {
+            "id": "501c8672",
+            "title": "Linear‑θ test of the first‑order Drinfeld‑twist correction to Kerr QNMs",
+            "domain": "Gravitational‑wave phenomenology / Quantum gravity"
+          },
+          {
+            "id": "d3e60800",
+            "title": "Numerical verification of flat‑space interval entanglement via RT minimal surface",
+            "domain": "Holographic Quantum Gravity"
+          }
+        ]
+      },
+      {
+        "term": "spin",
+        "count": 17,
+        "articles": [
+          {
+            "id": "dacc9a01",
+            "title": "Simple Kerr ISCO, Temperature, and Doppler Factor Calculator",
+            "domain": "Astrophysics / Black Hole Accretion Physics"
+          },
+          {
+            "id": "ea7eda6c",
+            "title": "Monotonic Shrinkage of EMRI Spin Credible Intervals with SNR",
+            "domain": "Gravitational‑wave data analysis"
+          },
+          {
+            "id": "64bf0205",
+            "title": "Physical Consistency Test of Gravitational‑Wave Event Catalogs",
+            "domain": "Gravitational‑wave astrophysics – validation of observed binary‑black‑hole parameters against General‑Relativity bounds."
+          },
+          {
+            "id": "232a954e",
+            "title": "Toy EMRI Spin‑Inference Coverage Test",
+            "domain": "Gravitational‑wave data analysis"
+          },
+          {
+            "id": "020c5fed",
+            "title": "Bias test for ML‑based EMRI spin inference using a toy kludge model",
+            "domain": "Gravitational‑wave data analysis / Quantitative modeling"
+          },
+          {
+            "id": "81d7f429",
+            "title": "EOB‑ISCO → Effective Spin → Penrose bound vs. GW radiated energy for q=200",
+            "domain": "Gravitational‑wave modeling / Black‑hole dynamics"
+          },
+          {
+            "id": "0e6f3148",
+            "title": "Falsifiability test of the ML‑surrogate EMRI waveform via spin posterior KL divergence",
+            "domain": "Gravitational‑wave data analysis / Bayesian inference"
+          },
+          {
+            "id": "8a6f07f3",
+            "title": "Synthetic EMRI Spin‑Bias Validation with Toy Analytic‑Kludge Model",
+            "domain": "Gravitational Wave Astrophysics"
+          },
+          {
+            "id": "6d7d472f",
+            "title": "One‑zone He‑burning toy model: mapping S300 to the BH‑mass gap edge",
+            "domain": "Astrophysics – Stellar evolution & Gravitational‑wave population inference"
+          },
+          {
+            "id": "69f3b120",
+            "title": "Validation of Surrogate Likelihood Credible Intervals for Spin‑Dependent EMRIs",
+            "domain": "Gravitational‑Wave Astrophysics / Machine‑Learning Surrogates"
+          },
+          {
+            "id": "5884b3ba",
+            "title": "Numerical verification of the island‑boundary scaling in the 2‑D near‑horizon Kerr model",
+            "domain": "Quantum gravity / Black‑hole information"
+          },
+          {
+            "id": "60d4b18e",
+            "title": "Falsifiable test of low‑energy X‑ray disc polarisation around Kerr black holes",
+            "domain": "High‑energy astrophysics / General relativity"
+          },
+          {
+            "id": "e0428eec",
+            "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies",
+            "domain": "Quantitative Modeling of Black‑hole Ringdown"
+          },
+          {
+            "id": "a8a8d5b4",
+            "title": "First‑order Drinfeld‑twist correction to the dominant Kerr QNM",
+            "domain": "Gravitational‑wave phenomenology / Quantum gravity"
+          },
+          {
+            "id": "5caca75a",
+            "title": "Toy EMRI Spin Inference with Neural‑Net Surrogate Likelihood",
+            "domain": "Gravitational‑wave astrophysics / Extreme Mass‑Ratio Inspirals"
+          },
+          {
+            "id": "f66b1bec",
+            "title": "Sanity Check of Binary Black Hole Merger Catalog Energy and Spin",
+            "domain": "Astrophysics / Gravitational‑Wave Astronomy"
+          },
+          {
+            "id": "501c8672",
+            "title": "Linear‑θ test of the first‑order Drinfeld‑twist correction to Kerr QNMs",
+            "domain": "Gravitational‑wave phenomenology / Quantum gravity"
           }
         ]
       }
@@ -6443,7 +6433,7 @@
         },
         {
           "term": "binary",
-          "count": 17,
+          "count": 16,
           "articles": [
             {
               "id": "d5a39c9b",
@@ -6524,17 +6514,12 @@
               "id": "c017ebab",
               "title": "Falsification of the t_trigger ∝ r_p^{3/2} M_BH^{-1/2} scaling for tidally driven binary eccentricity growth",
               "domain": "Gravitational dynamics / three‑body tidal interactions"
-            },
-            {
-              "id": "25369653",
-              "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-              "domain": "Quantum Information / Holography"
             }
           ]
         },
         {
           "term": "below",
-          "count": 14,
+          "count": 13,
           "articles": [
             {
               "id": "8f9fba08",
@@ -6600,11 +6585,6 @@
               "id": "c0ad38f6",
               "title": "Hawking evaporation mass‑loss falsification test",
               "domain": "Black hole physics"
-            },
-            {
-              "id": "25369653",
-              "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-              "domain": "Quantum Information / Holography"
             }
           ]
         },
@@ -8134,7 +8114,7 @@
         },
         {
           "term": "entropy",
-          "count": 25,
+          "count": 24,
           "articles": [
             {
               "id": "6391fd6f",
@@ -8255,11 +8235,6 @@
               "id": "d3e60800",
               "title": "Numerical verification of flat‑space interval entanglement via RT minimal surface",
               "domain": "Holographic Quantum Gravity"
-            },
-            {
-              "id": "25369653",
-              "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-              "domain": "Quantum Information / Holography"
             }
           ]
         },
@@ -9925,7 +9900,7 @@
         },
         {
           "term": "haar",
-          "count": 12,
+          "count": 11,
           "articles": [
             {
               "id": "6904eaec",
@@ -9981,11 +9956,6 @@
               "id": "71f9ee32",
               "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
               "domain": "Quantum Gravity / Information Theory"
-            },
-            {
-              "id": "25369653",
-              "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-              "domain": "Quantum Information / Holography"
             }
           ]
         },
@@ -12881,77 +12851,6 @@
           ]
         },
         {
-          "term": "pure",
-          "count": 13,
-          "articles": [
-            {
-              "id": "510932b8",
-              "title": "RG‑Flow Determination of the Hidden SU(2) Confinement Scale and Axion Mass Falsification",
-              "domain": "theoretical particle physics / astroparticle phenomenology"
-            },
-            {
-              "id": "6904eaec",
-              "title": "Haar‑random unitary black‑hole evaporation vs. Page curve",
-              "domain": "Quantum information / black‑hole thermodynamics"
-            },
-            {
-              "id": "a48d28d7",
-              "title": "Haar‑Random Bipartite Pure‑State Test of the Page Entropy Curve",
-              "domain": "Quantum Information / Black‑Hole Information Theory"
-            },
-            {
-              "id": "c24bdcba",
-              "title": "Numerical test of totally‑geodesic hemispheres in de Sitter static slices",
-              "domain": "General Relativity / Geometric Analysis"
-            },
-            {
-              "id": "569802a4",
-              "title": "Random two‑qubit unitary on a 6‑qubit system – reduced state of the radiation subsystem",
-              "domain": "Quantum Information / Black‑Hole Information"
-            },
-            {
-              "id": "dd059ba9",
-              "title": "Falsifiable Test of the Page Curve via Haar‑Random Bipartite States",
-              "domain": "Quantum Information / Black‑Hole Information Theory"
-            },
-            {
-              "id": "05b1f4da",
-              "title": "Random‑unitary black‑hole evaporation test",
-              "domain": "Quantum information theory / Black‑hole thermodynamics"
-            },
-            {
-              "id": "e657beb6",
-              "title": "Random‑unitary circuit test of the Page curve for evaporating black holes",
-              "domain": "Quantum information / black‑hole information paradox"
-            },
-            {
-              "id": "282697a6",
-              "title": "Random Haar‑state Page curve test with physical‑constant sanity check",
-              "domain": "Quantum information / black‑hole thermodynamics"
-            },
-            {
-              "id": "516318d4",
-              "title": "Verification of Page Curve for Haar‑Random Pure States",
-              "domain": "Quantum Information / Statistical Physics"
-            },
-            {
-              "id": "0987ac57",
-              "title": "Empirical Verification of Page Entropy for Random Pure‑State Subsystems",
-              "domain": "Quantum Information Theory / Black Hole Thermodynamics"
-            },
-            {
-              "id": "71f9ee32",
-              "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
-              "domain": "Quantum Gravity / Information Theory"
-            },
-            {
-              "id": "25369653",
-              "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-              "domain": "Quantum Information / Holography"
-            }
-          ]
-        },
-        {
           "term": "precision",
           "count": 12,
           "articles": [
@@ -13014,6 +12913,72 @@
               "id": "501c8672",
               "title": "Linear‑θ test of the first‑order Drinfeld‑twist correction to Kerr QNMs",
               "domain": "Gravitational‑wave phenomenology / Quantum gravity"
+            }
+          ]
+        },
+        {
+          "term": "pure",
+          "count": 12,
+          "articles": [
+            {
+              "id": "510932b8",
+              "title": "RG‑Flow Determination of the Hidden SU(2) Confinement Scale and Axion Mass Falsification",
+              "domain": "theoretical particle physics / astroparticle phenomenology"
+            },
+            {
+              "id": "6904eaec",
+              "title": "Haar‑random unitary black‑hole evaporation vs. Page curve",
+              "domain": "Quantum information / black‑hole thermodynamics"
+            },
+            {
+              "id": "a48d28d7",
+              "title": "Haar‑Random Bipartite Pure‑State Test of the Page Entropy Curve",
+              "domain": "Quantum Information / Black‑Hole Information Theory"
+            },
+            {
+              "id": "c24bdcba",
+              "title": "Numerical test of totally‑geodesic hemispheres in de Sitter static slices",
+              "domain": "General Relativity / Geometric Analysis"
+            },
+            {
+              "id": "569802a4",
+              "title": "Random two‑qubit unitary on a 6‑qubit system – reduced state of the radiation subsystem",
+              "domain": "Quantum Information / Black‑Hole Information"
+            },
+            {
+              "id": "dd059ba9",
+              "title": "Falsifiable Test of the Page Curve via Haar‑Random Bipartite States",
+              "domain": "Quantum Information / Black‑Hole Information Theory"
+            },
+            {
+              "id": "05b1f4da",
+              "title": "Random‑unitary black‑hole evaporation test",
+              "domain": "Quantum information theory / Black‑hole thermodynamics"
+            },
+            {
+              "id": "e657beb6",
+              "title": "Random‑unitary circuit test of the Page curve for evaporating black holes",
+              "domain": "Quantum information / black‑hole information paradox"
+            },
+            {
+              "id": "282697a6",
+              "title": "Random Haar‑state Page curve test with physical‑constant sanity check",
+              "domain": "Quantum information / black‑hole thermodynamics"
+            },
+            {
+              "id": "516318d4",
+              "title": "Verification of Page Curve for Haar‑Random Pure States",
+              "domain": "Quantum Information / Statistical Physics"
+            },
+            {
+              "id": "0987ac57",
+              "title": "Empirical Verification of Page Entropy for Random Pure‑State Subsystems",
+              "domain": "Quantum Information Theory / Black Hole Thermodynamics"
+            },
+            {
+              "id": "71f9ee32",
+              "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
+              "domain": "Quantum Gravity / Information Theory"
             }
           ]
         }
@@ -13304,102 +13269,6 @@
           ]
         },
         {
-          "term": "random",
-          "count": 18,
-          "articles": [
-            {
-              "id": "6904eaec",
-              "title": "Haar‑random unitary black‑hole evaporation vs. Page curve",
-              "domain": "Quantum information / black‑hole thermodynamics"
-            },
-            {
-              "id": "a48d28d7",
-              "title": "Haar‑Random Bipartite Pure‑State Test of the Page Entropy Curve",
-              "domain": "Quantum Information / Black‑Hole Information Theory"
-            },
-            {
-              "id": "05c90b8e",
-              "title": "Return Probability of a Site‑0 Excitation in a Random (p,q)‑Deformed Oscillator Chain",
-              "domain": "Computational Quantum Physics"
-            },
-            {
-              "id": "0142b639",
-              "title": "Soft‑mode eigenvalue screening in a large‑N random Hermitian matrix model",
-              "domain": "Quantitative Modeling"
-            },
-            {
-              "id": "569802a4",
-              "title": "Random two‑qubit unitary on a 6‑qubit system – reduced state of the radiation subsystem",
-              "domain": "Quantum Information / Black‑Hole Information"
-            },
-            {
-              "id": "dd059ba9",
-              "title": "Falsifiable Test of the Page Curve via Haar‑Random Bipartite States",
-              "domain": "Quantum Information / Black‑Hole Information Theory"
-            },
-            {
-              "id": "19bb5f99",
-              "title": "Random brick‑wall unitary circuit reproduces the Page curve",
-              "domain": "Quantum information / many‑body dynamics"
-            },
-            {
-              "id": "05b1f4da",
-              "title": "Random‑unitary black‑hole evaporation test",
-              "domain": "Quantum information theory / Black‑hole thermodynamics"
-            },
-            {
-              "id": "e657beb6",
-              "title": "Random‑unitary circuit test of the Page curve for evaporating black holes",
-              "domain": "Quantum information / black‑hole information paradox"
-            },
-            {
-              "id": "282697a6",
-              "title": "Random Haar‑state Page curve test with physical‑constant sanity check",
-              "domain": "Quantum information / black‑hole thermodynamics"
-            },
-            {
-              "id": "dc1bcf1b",
-              "title": "Quantitative Test of the Page Curve for Haar‑Random Bipartite States",
-              "domain": "Quantum Information / Black‑Hole Information Theory"
-            },
-            {
-              "id": "8efc8f5f",
-              "title": "Random‑Unitary Scrambling Test of the Page Curve for Finite‑Dimensional Black Holes",
-              "domain": "Quantum Information / Black‑Hole Thermodynamics"
-            },
-            {
-              "id": "516318d4",
-              "title": "Verification of Page Curve for Haar‑Random Pure States",
-              "domain": "Quantum Information / Statistical Physics"
-            },
-            {
-              "id": "0987ac57",
-              "title": "Empirical Verification of Page Entropy for Random Pure‑State Subsystems",
-              "domain": "Quantum Information Theory / Black Hole Thermodynamics"
-            },
-            {
-              "id": "71f9ee32",
-              "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
-              "domain": "Quantum Gravity / Information Theory"
-            },
-            {
-              "id": "d6bbb703",
-              "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
-              "domain": "Quantum Information / Holography"
-            },
-            {
-              "id": "a024c25c",
-              "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
-              "domain": "Quantum Information / Holography"
-            },
-            {
-              "id": "25369653",
-              "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-              "domain": "Quantum Information / Holography"
-            }
-          ]
-        },
-        {
           "term": "radius",
           "count": 17,
           "articles": [
@@ -13487,6 +13356,97 @@
               "id": "f4f1e63a",
               "title": "Gauss‑Bonnet scalar hair vs. Schwarzschild horizon radius",
               "domain": "Gravitational physics – black‑hole perturbations"
+            }
+          ]
+        },
+        {
+          "term": "random",
+          "count": 17,
+          "articles": [
+            {
+              "id": "6904eaec",
+              "title": "Haar‑random unitary black‑hole evaporation vs. Page curve",
+              "domain": "Quantum information / black‑hole thermodynamics"
+            },
+            {
+              "id": "a48d28d7",
+              "title": "Haar‑Random Bipartite Pure‑State Test of the Page Entropy Curve",
+              "domain": "Quantum Information / Black‑Hole Information Theory"
+            },
+            {
+              "id": "05c90b8e",
+              "title": "Return Probability of a Site‑0 Excitation in a Random (p,q)‑Deformed Oscillator Chain",
+              "domain": "Computational Quantum Physics"
+            },
+            {
+              "id": "0142b639",
+              "title": "Soft‑mode eigenvalue screening in a large‑N random Hermitian matrix model",
+              "domain": "Quantitative Modeling"
+            },
+            {
+              "id": "569802a4",
+              "title": "Random two‑qubit unitary on a 6‑qubit system – reduced state of the radiation subsystem",
+              "domain": "Quantum Information / Black‑Hole Information"
+            },
+            {
+              "id": "dd059ba9",
+              "title": "Falsifiable Test of the Page Curve via Haar‑Random Bipartite States",
+              "domain": "Quantum Information / Black‑Hole Information Theory"
+            },
+            {
+              "id": "19bb5f99",
+              "title": "Random brick‑wall unitary circuit reproduces the Page curve",
+              "domain": "Quantum information / many‑body dynamics"
+            },
+            {
+              "id": "05b1f4da",
+              "title": "Random‑unitary black‑hole evaporation test",
+              "domain": "Quantum information theory / Black‑hole thermodynamics"
+            },
+            {
+              "id": "e657beb6",
+              "title": "Random‑unitary circuit test of the Page curve for evaporating black holes",
+              "domain": "Quantum information / black‑hole information paradox"
+            },
+            {
+              "id": "282697a6",
+              "title": "Random Haar‑state Page curve test with physical‑constant sanity check",
+              "domain": "Quantum information / black‑hole thermodynamics"
+            },
+            {
+              "id": "dc1bcf1b",
+              "title": "Quantitative Test of the Page Curve for Haar‑Random Bipartite States",
+              "domain": "Quantum Information / Black‑Hole Information Theory"
+            },
+            {
+              "id": "8efc8f5f",
+              "title": "Random‑Unitary Scrambling Test of the Page Curve for Finite‑Dimensional Black Holes",
+              "domain": "Quantum Information / Black‑Hole Thermodynamics"
+            },
+            {
+              "id": "516318d4",
+              "title": "Verification of Page Curve for Haar‑Random Pure States",
+              "domain": "Quantum Information / Statistical Physics"
+            },
+            {
+              "id": "0987ac57",
+              "title": "Empirical Verification of Page Entropy for Random Pure‑State Subsystems",
+              "domain": "Quantum Information Theory / Black Hole Thermodynamics"
+            },
+            {
+              "id": "71f9ee32",
+              "title": "Discrete Black‑Hole Evaporation and Page Curve with Simple Scrambling",
+              "domain": "Quantum Gravity / Information Theory"
+            },
+            {
+              "id": "d6bbb703",
+              "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
+              "domain": "Quantum Information / Holography"
+            },
+            {
+              "id": "a024c25c",
+              "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
+              "domain": "Quantum Information / Holography"
             }
           ]
         },
@@ -14326,7 +14286,7 @@
         },
         {
           "term": "space",
-          "count": 18,
+          "count": 17,
           "articles": [
             {
               "id": "52f0fa68",
@@ -14412,11 +14372,6 @@
               "id": "d3e60800",
               "title": "Numerical verification of flat‑space interval entanglement via RT minimal surface",
               "domain": "Holographic Quantum Gravity"
-            },
-            {
-              "id": "25369653",
-              "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-              "domain": "Quantum Information / Holography"
             }
           ]
         },
@@ -14831,6 +14786,82 @@
           ]
         },
         {
+          "term": "shift",
+          "count": 14,
+          "articles": [
+            {
+              "id": "bb9c672b",
+              "title": "Synthetic injection–recovery test of waveform‑systematics on the $\\chi_{\\rm eff}$–$q$ correlation",
+              "domain": "Gravitational‑wave data analysis / statistical inference"
+            },
+            {
+              "id": "dacc9a01",
+              "title": "Simple Kerr ISCO, Temperature, and Doppler Factor Calculator",
+              "domain": "Astrophysics / Black Hole Accretion Physics"
+            },
+            {
+              "id": "c6f228c3",
+              "title": "Falsifying First‑Order Non‑Commutative Twist Corrections to Kerr QNMs",
+              "domain": "Gravitational‑wave phenomenology / Quantum gravity"
+            },
+            {
+              "id": "6610d8c5",
+              "title": "Falsifying First‑Order Drinfeld‑Twist Corrections to Kerr Ringdown Frequencies",
+              "domain": "Gravitational‑wave phenomenology"
+            },
+            {
+              "id": "909ad1d6",
+              "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies",
+              "domain": "Gravitational‑wave phenomenology / Quantum gravity"
+            },
+            {
+              "id": "d49a37ce",
+              "title": "Falsification of Mild Magnetic Perturbation Claim via ISCO Shift in Vlasov Disks",
+              "domain": "General Relativistic Astrophysics / Kinetic Disk Modeling"
+            },
+            {
+              "id": "286ab60a",
+              "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies: quantitative falsification test",
+              "domain": "Gravitational‑wave theory / Quantum gravity phenomenology"
+            },
+            {
+              "id": "5884b3ba",
+              "title": "Numerical verification of the island‑boundary scaling in the 2‑D near‑horizon Kerr model",
+              "domain": "Quantum gravity / Black‑hole information"
+            },
+            {
+              "id": "e0428eec",
+              "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies",
+              "domain": "Quantitative Modeling of Black‑hole Ringdown"
+            },
+            {
+              "id": "e8522193",
+              "title": "Shadow‑radius test of Gauss‑Bonnet scalar hair versus GR",
+              "domain": "Gravitational physics – black‑hole phenomenology"
+            },
+            {
+              "id": "a8a8d5b4",
+              "title": "First‑order Drinfeld‑twist correction to the dominant Kerr QNM",
+              "domain": "Gravitational‑wave phenomenology / Quantum gravity"
+            },
+            {
+              "id": "670d9b23",
+              "title": "High‑overtone Kerr QNM scaling test via sextic‑oscillator universality",
+              "domain": "Gravitational‑wave theory / Black‑hole perturbation"
+            },
+            {
+              "id": "f4f1e63a",
+              "title": "Gauss‑Bonnet scalar hair vs. Schwarzschild horizon radius",
+              "domain": "Gravitational physics – black‑hole perturbations"
+            },
+            {
+              "id": "501c8672",
+              "title": "Linear‑θ test of the first‑order Drinfeld‑twist correction to Kerr QNMs",
+              "domain": "Gravitational‑wave phenomenology / Quantum gravity"
+            }
+          ]
+        },
+        {
           "term": "surface",
           "count": 14,
           "articles": [
@@ -14978,77 +15009,6 @@
           ]
         },
         {
-          "term": "shift",
-          "count": 13,
-          "articles": [
-            {
-              "id": "dacc9a01",
-              "title": "Simple Kerr ISCO, Temperature, and Doppler Factor Calculator",
-              "domain": "Astrophysics / Black Hole Accretion Physics"
-            },
-            {
-              "id": "c6f228c3",
-              "title": "Falsifying First‑Order Non‑Commutative Twist Corrections to Kerr QNMs",
-              "domain": "Gravitational‑wave phenomenology / Quantum gravity"
-            },
-            {
-              "id": "6610d8c5",
-              "title": "Falsifying First‑Order Drinfeld‑Twist Corrections to Kerr Ringdown Frequencies",
-              "domain": "Gravitational‑wave phenomenology"
-            },
-            {
-              "id": "909ad1d6",
-              "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies",
-              "domain": "Gravitational‑wave phenomenology / Quantum gravity"
-            },
-            {
-              "id": "d49a37ce",
-              "title": "Falsification of Mild Magnetic Perturbation Claim via ISCO Shift in Vlasov Disks",
-              "domain": "General Relativistic Astrophysics / Kinetic Disk Modeling"
-            },
-            {
-              "id": "286ab60a",
-              "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies: quantitative falsification test",
-              "domain": "Gravitational‑wave theory / Quantum gravity phenomenology"
-            },
-            {
-              "id": "5884b3ba",
-              "title": "Numerical verification of the island‑boundary scaling in the 2‑D near‑horizon Kerr model",
-              "domain": "Quantum gravity / Black‑hole information"
-            },
-            {
-              "id": "e0428eec",
-              "title": "First‑order Drinfeld‑twist correction to Kerr QNM frequencies",
-              "domain": "Quantitative Modeling of Black‑hole Ringdown"
-            },
-            {
-              "id": "e8522193",
-              "title": "Shadow‑radius test of Gauss‑Bonnet scalar hair versus GR",
-              "domain": "Gravitational physics – black‑hole phenomenology"
-            },
-            {
-              "id": "a8a8d5b4",
-              "title": "First‑order Drinfeld‑twist correction to the dominant Kerr QNM",
-              "domain": "Gravitational‑wave phenomenology / Quantum gravity"
-            },
-            {
-              "id": "670d9b23",
-              "title": "High‑overtone Kerr QNM scaling test via sextic‑oscillator universality",
-              "domain": "Gravitational‑wave theory / Black‑hole perturbation"
-            },
-            {
-              "id": "f4f1e63a",
-              "title": "Gauss‑Bonnet scalar hair vs. Schwarzschild horizon radius",
-              "domain": "Gravitational physics – black‑hole perturbations"
-            },
-            {
-              "id": "501c8672",
-              "title": "Linear‑θ test of the first‑order Drinfeld‑twist correction to Kerr QNMs",
-              "domain": "Gravitational‑wave phenomenology / Quantum gravity"
-            }
-          ]
-        },
-        {
           "term": "state",
           "count": 13,
           "articles": [
@@ -15116,6 +15076,72 @@
               "id": "d45b12b3",
               "title": "Monte‑Carlo verification of Weyl‑ordered moments from the Bargmann phase‑space density",
               "domain": "Quantum cosmology – linear field modes on FLRW backgrounds"
+            }
+          ]
+        },
+        {
+          "term": "synthetic",
+          "count": 12,
+          "articles": [
+            {
+              "id": "bb9c672b",
+              "title": "Synthetic injection–recovery test of waveform‑systematics on the $\\chi_{\\rm eff}$–$q$ correlation",
+              "domain": "Gravitational‑wave data analysis / statistical inference"
+            },
+            {
+              "id": "9536bec7",
+              "title": "Pressure‑Scaling Test for Sub‑2 keV GPD Modulation",
+              "domain": "Quantitative Modeling – X‑ray Polarimetry"
+            },
+            {
+              "id": "996f2526",
+              "title": "Synthetic Galactic Binary Foreground Power‑Law Consistency Test",
+              "domain": "Quantitative Modeling"
+            },
+            {
+              "id": "64388594",
+              "title": "Falsifying the Power‑Law Galactic Binary Population Assumption via Synthetic Confusion Noise",
+              "domain": "Gravitational‑Wave Astrophysics / Data‑Driven Foreground Modelling"
+            },
+            {
+              "id": "dd6901b8",
+              "title": "Testing the $^{12}$C(α,γ)$^{16}$O S‑factor impact on the pair‑instability mass‑gap edge",
+              "domain": "Quantitative Modeling – Stellar Evolution & Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "8a6f07f3",
+              "title": "Synthetic EMRI Spin‑Bias Validation with Toy Analytic‑Kludge Model",
+              "domain": "Gravitational Wave Astrophysics"
+            },
+            {
+              "id": "e21b7271",
+              "title": "Falsifying Gaussian‑Width Suppression of Schwarzschild QNM Excitation",
+              "domain": "Gravitational‑wave theory / Black‑hole perturbation"
+            },
+            {
+              "id": "12b50bbb",
+              "title": "Falsification Test of a Simple Power‑Law Temperature and Opacity Model for the DG Tau Disk Mid‑IR Spectrum",
+              "domain": "Astronomy / Protoplanetary Disk Modeling"
+            },
+            {
+              "id": "6ea8e0c8",
+              "title": "Synthetic Galactic Binary Foreground vs Analytic Confusion Noise",
+              "domain": "Gravitational‑Wave Astrophysics – Quantitative Modeling"
+            },
+            {
+              "id": "a4e971d2",
+              "title": "Phase‑resolved X‑ray Polarization Test of a Single‑Scattering Disk + Cone Model for LMC X‑1",
+              "domain": "Astrophysics – X‑ray Polarimetry"
+            },
+            {
+              "id": "c3a976a7",
+              "title": "Synthetic Galactic Binary Frequency Distribution via Broken Power‑Law Sampling",
+              "domain": "Astrophysics / Gravitational‑Wave Astronomy"
+            },
+            {
+              "id": "87852d97",
+              "title": "Phase‑resolved X‑ray polarization falsification test for LMC X‑1",
+              "domain": "Astrophysics – X‑ray Polarimetry"
             }
           ]
         },
@@ -15303,6 +15329,67 @@
           ]
         },
         {
+          "term": "statistically",
+          "count": 11,
+          "articles": [
+            {
+              "id": "bb9c672b",
+              "title": "Synthetic injection–recovery test of waveform‑systematics on the $\\chi_{\\rm eff}$–$q$ correlation",
+              "domain": "Gravitational‑wave data analysis / statistical inference"
+            },
+            {
+              "id": "9536bec7",
+              "title": "Pressure‑Scaling Test for Sub‑2 keV GPD Modulation",
+              "domain": "Quantitative Modeling – X‑ray Polarimetry"
+            },
+            {
+              "id": "996f2526",
+              "title": "Synthetic Galactic Binary Foreground Power‑Law Consistency Test",
+              "domain": "Quantitative Modeling"
+            },
+            {
+              "id": "35d4f5a2",
+              "title": "Super‑Eddington Neutron‑Star Accretion Column Width Scaling Test",
+              "domain": "Astrophysics"
+            },
+            {
+              "id": "18c8a45f",
+              "title": "Falsifying the B^{-1/2} scaling of super‑Eddington neutron‑star accretion column width",
+              "domain": "Astrophysics – Neutron Star Accretion Physics"
+            },
+            {
+              "id": "64388594",
+              "title": "Falsifying the Power‑Law Galactic Binary Population Assumption via Synthetic Confusion Noise",
+              "domain": "Gravitational‑Wave Astrophysics / Data‑Driven Foreground Modelling"
+            },
+            {
+              "id": "a48d28d7",
+              "title": "Haar‑Random Bipartite Pure‑State Test of the Page Entropy Curve",
+              "domain": "Quantum Information / Black‑Hole Information Theory"
+            },
+            {
+              "id": "85733b35",
+              "title": "Falsification of Page‑curve dynamics in a finite (p,q)‑deformed oscillator chain",
+              "domain": "Quantum many‑body physics / Krylov complexity"
+            },
+            {
+              "id": "659788f3",
+              "title": "Phase‑resolved X‑ray polarization test of a thin‑disk Thomson‑scattering model for LMC X‑1",
+              "domain": "Astrophysics – High‑energy X‑ray Polarimetry"
+            },
+            {
+              "id": "a4e971d2",
+              "title": "Phase‑resolved X‑ray Polarization Test of a Single‑Scattering Disk + Cone Model for LMC X‑1",
+              "domain": "Astrophysics – X‑ray Polarimetry"
+            },
+            {
+              "id": "f0ce0a8c",
+              "title": "Penrose‑process energy‑extraction floor vs. ML foreground residuals",
+              "domain": "Gravitational‑wave data analysis / Black‑hole physics"
+            }
+          ]
+        },
+        {
           "term": "super",
           "count": 11,
           "articles": [
@@ -15421,67 +15508,6 @@
               "id": "ba3aa474",
               "title": "Numerical verification of the planar Bremsstrahlung function B(ν) as an A‑cycle period",
               "domain": "Theoretical Physics – Quantum Field Theory"
-            }
-          ]
-        },
-        {
-          "term": "synthetic",
-          "count": 11,
-          "articles": [
-            {
-              "id": "9536bec7",
-              "title": "Pressure‑Scaling Test for Sub‑2 keV GPD Modulation",
-              "domain": "Quantitative Modeling – X‑ray Polarimetry"
-            },
-            {
-              "id": "996f2526",
-              "title": "Synthetic Galactic Binary Foreground Power‑Law Consistency Test",
-              "domain": "Quantitative Modeling"
-            },
-            {
-              "id": "64388594",
-              "title": "Falsifying the Power‑Law Galactic Binary Population Assumption via Synthetic Confusion Noise",
-              "domain": "Gravitational‑Wave Astrophysics / Data‑Driven Foreground Modelling"
-            },
-            {
-              "id": "dd6901b8",
-              "title": "Testing the $^{12}$C(α,γ)$^{16}$O S‑factor impact on the pair‑instability mass‑gap edge",
-              "domain": "Quantitative Modeling – Stellar Evolution & Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "8a6f07f3",
-              "title": "Synthetic EMRI Spin‑Bias Validation with Toy Analytic‑Kludge Model",
-              "domain": "Gravitational Wave Astrophysics"
-            },
-            {
-              "id": "e21b7271",
-              "title": "Falsifying Gaussian‑Width Suppression of Schwarzschild QNM Excitation",
-              "domain": "Gravitational‑wave theory / Black‑hole perturbation"
-            },
-            {
-              "id": "12b50bbb",
-              "title": "Falsification Test of a Simple Power‑Law Temperature and Opacity Model for the DG Tau Disk Mid‑IR Spectrum",
-              "domain": "Astronomy / Protoplanetary Disk Modeling"
-            },
-            {
-              "id": "6ea8e0c8",
-              "title": "Synthetic Galactic Binary Foreground vs Analytic Confusion Noise",
-              "domain": "Gravitational‑Wave Astrophysics – Quantitative Modeling"
-            },
-            {
-              "id": "a4e971d2",
-              "title": "Phase‑resolved X‑ray Polarization Test of a Single‑Scattering Disk + Cone Model for LMC X‑1",
-              "domain": "Astrophysics – X‑ray Polarimetry"
-            },
-            {
-              "id": "c3a976a7",
-              "title": "Synthetic Galactic Binary Frequency Distribution via Broken Power‑Law Sampling",
-              "domain": "Astrophysics / Gravitational‑Wave Astronomy"
-            },
-            {
-              "id": "87852d97",
-              "title": "Phase‑resolved X‑ray polarization falsification test for LMC X‑1",
-              "domain": "Astrophysics – X‑ray Polarimetry"
             }
           ]
         },
@@ -15652,69 +15678,18 @@
               "domain": "Gravitational physics – black‑hole perturbations"
             }
           ]
-        },
-        {
-          "term": "statistically",
-          "count": 10,
-          "articles": [
-            {
-              "id": "9536bec7",
-              "title": "Pressure‑Scaling Test for Sub‑2 keV GPD Modulation",
-              "domain": "Quantitative Modeling – X‑ray Polarimetry"
-            },
-            {
-              "id": "996f2526",
-              "title": "Synthetic Galactic Binary Foreground Power‑Law Consistency Test",
-              "domain": "Quantitative Modeling"
-            },
-            {
-              "id": "35d4f5a2",
-              "title": "Super‑Eddington Neutron‑Star Accretion Column Width Scaling Test",
-              "domain": "Astrophysics"
-            },
-            {
-              "id": "18c8a45f",
-              "title": "Falsifying the B^{-1/2} scaling of super‑Eddington neutron‑star accretion column width",
-              "domain": "Astrophysics – Neutron Star Accretion Physics"
-            },
-            {
-              "id": "64388594",
-              "title": "Falsifying the Power‑Law Galactic Binary Population Assumption via Synthetic Confusion Noise",
-              "domain": "Gravitational‑Wave Astrophysics / Data‑Driven Foreground Modelling"
-            },
-            {
-              "id": "a48d28d7",
-              "title": "Haar‑Random Bipartite Pure‑State Test of the Page Entropy Curve",
-              "domain": "Quantum Information / Black‑Hole Information Theory"
-            },
-            {
-              "id": "85733b35",
-              "title": "Falsification of Page‑curve dynamics in a finite (p,q)‑deformed oscillator chain",
-              "domain": "Quantum many‑body physics / Krylov complexity"
-            },
-            {
-              "id": "659788f3",
-              "title": "Phase‑resolved X‑ray polarization test of a thin‑disk Thomson‑scattering model for LMC X‑1",
-              "domain": "Astrophysics – High‑energy X‑ray Polarimetry"
-            },
-            {
-              "id": "a4e971d2",
-              "title": "Phase‑resolved X‑ray Polarization Test of a Single‑Scattering Disk + Cone Model for LMC X‑1",
-              "domain": "Astrophysics – X‑ray Polarimetry"
-            },
-            {
-              "id": "f0ce0a8c",
-              "title": "Penrose‑process energy‑extraction floor vs. ML foreground residuals",
-              "domain": "Gravitational‑wave data analysis / Black‑hole physics"
-            }
-          ]
         }
       ],
       "T": [
         {
           "term": "test",
-          "count": 85,
+          "count": 86,
           "articles": [
+            {
+              "id": "bb9c672b",
+              "title": "Synthetic injection–recovery test of waveform‑systematics on the $\\chi_{\\rm eff}$–$q$ correlation",
+              "domain": "Gravitational‑wave data analysis / statistical inference"
+            },
             {
               "id": "d5a39c9b",
               "title": "Spectral exponent consistency test for a non‑precessing IMRPhenomT binary",
@@ -16394,7 +16369,7 @@
         },
         {
           "term": "value",
-          "count": 14,
+          "count": 13,
           "articles": [
             {
               "id": "c285585e",
@@ -16460,11 +16435,6 @@
               "id": "87852d97",
               "title": "Phase‑resolved X‑ray polarization falsification test for LMC X‑1",
               "domain": "Astrophysics – X‑ray Polarimetry"
-            },
-            {
-              "id": "25369653",
-              "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-              "domain": "Quantum Information / Holography"
             }
           ]
         },
@@ -17746,27 +17716,6 @@
         ]
       },
       {
-        "title": "Electronic quantum holography",
-        "url": "https://en.wikipedia.org/wiki/Electronic_quantum_holography",
-        "articles": [
-          {
-            "id": "d6bbb703",
-            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
-            "domain": "Quantum Information / Holography"
-          },
-          {
-            "id": "a024c25c",
-            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
-            "domain": "Quantum Information / Holography"
-          },
-          {
-            "id": "25369653",
-            "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-            "domain": "Quantum Information / Holography"
-          }
-        ]
-      },
-      {
         "title": "Remote sensing",
         "url": "https://en.wikipedia.org/wiki/Remote_sensing",
         "articles": [
@@ -18039,6 +17988,22 @@
         ]
       },
       {
+        "title": "Electronic quantum holography",
+        "url": "https://en.wikipedia.org/wiki/Electronic_quantum_holography",
+        "articles": [
+          {
+            "id": "d6bbb703",
+            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
+            "domain": "Quantum Information / Holography"
+          },
+          {
+            "id": "a024c25c",
+            "title": "Falsifiable Refined Rényi Entropy Test for Random Binary‑Tree Tensor Networks",
+            "domain": "Quantum Information / Holography"
+          }
+        ]
+      },
+      {
         "title": "Orders of magnitude (energy)",
         "url": "https://en.wikipedia.org/wiki/Orders_of_magnitude_(energy)",
         "articles": [
@@ -18305,6 +18270,38 @@
     ]
   },
   "articles": [
+    {
+      "id": "bb9c672b",
+      "created_at": "2026-11-26T10:57:09.674006+00:00",
+      "title": "Synthetic injection–recovery test of waveform‑systematics on the $\\chi_{\\rm eff}$–$q$ correlation",
+      "domain": "Gravitational‑wave data analysis / statistical inference",
+      "insight": "If a modest, physically‑motivated bias between two waveform families produces a correlation shift that is statistically significant (p < 0.01), then waveform systematics cannot be ignored in formation‑channel studies that rely on the $\\chi_{\\rm eff}$–$q$ plane.",
+      "hypothesis": "Waveform‑model mismatches introduce negligible bias in the inferred $\\chi_{\\rm eff}$–$q$ correlation for typical BBH observations.",
+      "mini_experiment": "Generate 5 000 synthetic BBH pairs (true $\\chi_{\\rm eff}$, $q$), add realistic Gaussian measurement noise, apply a simple bias that mimics a mismatched approximant, compute Pearson correlations before and after the bias, and evaluate the shift’s p‑value via Fisher‑$z$; a p‑value < 0.01 falsifies the hypothesis.",
+      "experiment_code": "#!/usr/bin/env python3\n\"\"\"Falsifiable test of waveform‑systematics impact on the $\\chi_{\\rm eff}\\!-$q correlation.\n\nThe script synthesises a large population of binary‑black‑hole (BBH) sources with\nknown effective spin $\\chi_{\\rm eff}$ and mass‑ratio $q$, adds realistic Gaussian\nmeasurement noise, then applies a simple systematic offset that mimics the bias\nintroduced when analysing the data with a mismatched waveform approximant.\nIt computes the Pearson correlation coefficient of the *true* and the *recovered*\n$(\\chi_{\\rm eff},q)$ samples, evaluates the statistical significance of the shift\nusing the Fisher‑$z$ transformation, and reports PASS if the p‑value is below\n0.01 (i.e. the systematic bias is larger than the statistical uncertainty).\n\nOnly the standard library and the allowed scientific packages are used – no\nbilby/pycbc dependencies – so the script is completely self‑contained.\n\"\"\"\n\nimport os, json, math, random, statistics\nimport numpy as np\nfrom scipy import stats\n\n# ---------------------------------------------------------------------------\n# Physical constants (included for completeness – not directly needed here)\nG = 6.67430e-11          # m^3 kg^-1 s^-2\nc = 2.99792458e8        # m s^-1\nhbar = 1.054571817e-34  # J s\nk_B = 1.380649e-23      # J K^-1\nM_sun = 1.98847e30      # kg\n# ---------------------------------------------------------------------------\n\ndef fisher_z(r):\n    \"\"\"Fisher $z$ transform of a Pearson correlation coefficient.\"\"\"\n    # Clip to avoid infinities at |r| = 1 due to finite‑sample noise\n    r = np.clip(r, -0.999999, 0.999999)\n    return 0.5 * np.log((1 + r) / (1 - r))\n\ndef correlation_significance(r1, r2, N):\n    \"\"\"Return two‑sided p‑value for the difference between two correlations.\n    Uses the approximate normal distribution of the Fisher‑$z$ values.\n    \"\"\"\n    z1 = fisher_z(r1)\n    z2 = fisher_z(r2)\n    sigma = 1.0 / math.sqrt(N - 3)\n    dz = (z2 - z1) / sigma\n    p = 2 * (1 - stats.norm.cdf(abs(dz)))\n    return p\n\ndef main():\n    rng = np.random.default_rng(seed=42)\n    N = 5000  # number of synthetic injections\n\n    # ---- 1. Generate a realistic underlying population ----------------------\n    # Mass‑ratio q in (0.1, 1) – uniform for simplicity\n    q_true = rng.uniform(0.1, 1.0, size=N)\n    # Effective spin χ_eff in (-0.5, 0.5) – uniform\n    chi_true = rng.uniform(-0.5, 0.5, size=N)\n\n    # Physical consistency checks\n    assert np.all((q_true > 0) & (q_true <= 1))\n    assert np.all((chi_true >= -1) & (chi_true <= 1))\n\n    # ---- 2. Simulate measurement noise (statistical uncertainty) ----------\n    sigma_chi = 0.10   # typical 1‑sigma error on χ_eff for moderate SNR\n    sigma_q   = 0.05   # typical 1‑sigma error on q\n    chi_meas = chi_true + rng.normal(0, sigma_chi, size=N)\n    q_meas   = q_true   + rng.normal(0, sigma_q,   size=N)\n\n    # ---- 3. Impose a systematic bias mimicking waveform mismatch -----------\n    # Simple linear bias: Δχ_eff = 0.2 * (1‑q) , Δq = -0.03 * χ_eff\n    bias_chi = 0.2 * (1.0",
+      "experiment_output": "True  correlation (χ_eff , q) :  0.0180\nRecovered correlation (χ_eff , q) : -0.1808\nΔ correlation = -0.1988\np‑value for shift = 0.000e+00\nResult: PASS (systematic bias significant)\n{\n  \"r_true\": 0.01800637673868341,\n  \"r_rec\": -0.18077899450489268,\n  \"delta_r\": -0.1987853712435761,\n  \"p_value\": 0.0,\n  \"status\": \"PASS\"\n}\nSTDERR: C:\\Users\\Lamont\\AppData\\Local\\Temp\\tmp8xz0c9sa.py:2: SyntaxWarning: invalid escape sequence '\\c'\n  \"\"\"Falsifiable test of waveform‑systematics impact on the $\\chi_{\\rm eff}\\!-$q correlation.",
+      "experiment_passed": true,
+      "open_question": "How do more complex, mass‑dependent waveform mismatches (e.g., higher‑order mode errors) affect the $\\chi_{\\rm eff}$–$q$ inference across the full LIGO‑Virgo‑KAGRA sensitivity band?",
+      "critic_takeaway": "The toy population and linear systematic shifts are crude approximations, serving only as a proof‑of‑principle. Pearson‑correlation, Fisher‑$z$, and variance calculations are correct, though the p‑value underflows to 0 and should be reported as an upper bound (e.g., p < 10⁻³⁰⁰). The test evaluates a single ad‑hoc bias and does not capture realistic, mass‑dependent or higher‑order‑mode waveform errors, so the conclusion of a significant systematic bias cannot be directly extrapolated to real analyses.",
+      "confidence": "High",
+      "verified": true,
+      "scout_angle": "A simple falsifiable test is to generate a synthetic population of binary‑black‑hole signals with known (χ_eff, q) pairs, inject them into Gaussian noise using an IMRPhenomD (or another non‑precessing) waveform model, and then recover the parameters with a different waveform approximant (e.g., IMRPhenomXAS). By measuring the recovered χ_eff–q correlation matrix across many injections with numpy and scipy.stats, one can quantify whether the systematic bias introduced by the waveform mismatch exceeds the statistical uncertainty; a statistically significant shift (p < 0.01) would falsify the hypothesis that waveform systematics are negligible for formation‑channel inference. The entire pipeline can be scripted in Python with bilby or pycbc for waveform generation and numpy/scipy for the correlation analysis.",
+      "source_title": "Is Gravitational-Wave Waveform Systematics a Bottleneck for Formation Channel Inferences using Effective-Spin and Mass-Ratio?",
+      "source_url": "http://arxiv.org/abs/2611.34731v1",
+      "wiki_title": "",
+      "wiki_extract": "",
+      "wiki_url": "",
+      "published": true,
+      "is_unique": false,
+      "novelty_score": 50,
+      "data_first": false,
+      "arxiv_id": "2611.34731",
+      "author_name": "Das, Upasana",
+      "author_affiliation": "",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3234020",
+      "claim_token": "88273595464c5b81"
+    },
     {
       "id": "d5a39c9b",
       "created_at": "2026-11-26T10:51:01.899158+00:00",
@@ -23131,6 +23128,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "e92e6c9a053aa911"
     },
     {
@@ -23159,6 +23160,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31749",
+      "author_name": "Bañuls, Mari Carmen",
+      "author_affiliation": "Max Planck Institute of Quantum Optics, Garching, Germany",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233473",
       "claim_token": "75169cc61bac2b40"
     },
     {
@@ -23219,6 +23224,10 @@
       "novelty_score": 82,
       "data_first": false,
       "arxiv_id": "2611.32062",
+      "author_name": "Liu, Yan",
+      "author_affiliation": "Department of Space Science, Beihang University, Beijing 100191, China",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233495",
       "claim_token": "0ae888471daa3fd7"
     },
     {
@@ -23247,6 +23256,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31414",
+      "author_name": "Myers, Robert C.",
+      "author_affiliation": "Perimeter Institute for Theoretical Physics, Waterloo, ON N2L 2Y5, Canada",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233422",
       "claim_token": "a4a9a84750f37b88"
     },
     {
@@ -23275,6 +23288,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31749",
+      "author_name": "Bañuls, Mari Carmen",
+      "author_affiliation": "Max Planck Institute of Quantum Optics, Garching, Germany",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233473",
       "claim_token": "3e5c523bae720cb2"
     },
     {
@@ -23367,6 +23384,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.32224",
+      "author_name": "Deng, Zhi-Rong",
+      "author_affiliation": "Key Laboratory for Quantum Theory and Applications of MoE, Lanzhou University, Lanzhou, 730000, China.",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233557",
       "claim_token": "0f60dc62bcc33ab9"
     },
     {
@@ -23395,6 +23416,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31438",
+      "author_name": "Trenkler, Georg",
+      "author_affiliation": "Cosmology, Gravity, and Astroparticle Physics Group, Center for Theoretical Physics of the Universe, Institute for Basic Science (IBS), Daejeon, 34126, Korea.",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233437",
       "claim_token": "d28f797be0d658f8"
     },
     {
@@ -23423,6 +23448,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31912",
+      "author_name": "Corichi, Alejandro",
+      "author_affiliation": "Centro de Ciencias Matemáticas, Universidad Nacional Autónoma de México,",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233468",
       "claim_token": "81ceb6168f690e9b"
     },
     {
@@ -23451,6 +23480,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.32150",
+      "author_name": "Ahmed, Wasif",
+      "author_affiliation": "Physics Department, Broida Hall, University of California, Santa Barbara, CA 93106, USA",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233527",
       "claim_token": "ab3c4690316fa610"
     },
     {
@@ -23479,6 +23512,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31912",
+      "author_name": "Corichi, Alejandro",
+      "author_affiliation": "Centro de Ciencias Matemáticas, Universidad Nacional Autónoma de México,",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233468",
       "claim_token": "cffee25e712c4dcc"
     },
     {
@@ -23539,6 +23576,10 @@
       "novelty_score": 81,
       "data_first": false,
       "arxiv_id": "2611.32224",
+      "author_name": "Deng, Zhi-Rong",
+      "author_affiliation": "Key Laboratory for Quantum Theory and Applications of MoE, Lanzhou University, Lanzhou, 730000, China.",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233557",
       "claim_token": "7381fb4184d4934f"
     },
     {
@@ -23567,6 +23608,10 @@
       "novelty_score": 65,
       "data_first": false,
       "arxiv_id": "2611.31912",
+      "author_name": "Corichi, Alejandro",
+      "author_affiliation": "Centro de Ciencias Matemáticas, Universidad Nacional Autónoma de México,",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233468",
       "claim_token": "4ca3cf4635fa9aca"
     },
     {
@@ -23595,6 +23640,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "aed5c0838d99da18"
     },
     {
@@ -23623,6 +23672,10 @@
       "novelty_score": 70,
       "data_first": false,
       "arxiv_id": "2611.32150",
+      "author_name": "Ahmed, Wasif",
+      "author_affiliation": "Physics Department, Broida Hall, University of California, Santa Barbara, CA 93106, USA",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233527",
       "claim_token": "042fa3cc337037d2"
     },
     {
@@ -23651,6 +23704,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31414",
+      "author_name": "Myers, Robert C.",
+      "author_affiliation": "Perimeter Institute for Theoretical Physics, Waterloo, ON N2L 2Y5, Canada",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233422",
       "claim_token": "83fbd41cdd9f2b9a"
     },
     {
@@ -23679,6 +23736,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "d85eedc4035961bb"
     },
     {
@@ -23707,6 +23768,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.32283",
+      "author_name": "Black, Brennen",
+      "author_affiliation": "Tsung-Dao Lee Institute, Shanghai Jiao-Tong University, Shanghai, 520 Shengrong Road, 201210, China",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233561",
       "claim_token": "eafb2ecf054ce6ec"
     },
     {
@@ -23767,6 +23832,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "3f354f80c7a57953"
     },
     {
@@ -23795,6 +23864,10 @@
       "novelty_score": 88,
       "data_first": false,
       "arxiv_id": "2611.32062",
+      "author_name": "Liu, Yan",
+      "author_affiliation": "Department of Space Science, Beihang University, Beijing 100191, China",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233495",
       "claim_token": "2d96ca6fb7dda8ab"
     },
     {
@@ -23823,6 +23896,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31912",
+      "author_name": "Corichi, Alejandro",
+      "author_affiliation": "Centro de Ciencias Matemáticas, Universidad Nacional Autónoma de México,",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233468",
       "claim_token": "b7c46b5f377e3168"
     },
     {
@@ -23851,6 +23928,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "d459b286304674be"
     },
     {
@@ -23879,6 +23960,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.32224",
+      "author_name": "Deng, Zhi-Rong",
+      "author_affiliation": "Key Laboratory for Quantum Theory and Applications of MoE, Lanzhou University, Lanzhou, 730000, China.",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233557",
       "claim_token": "aa7343e73c26a8f7"
     },
     {
@@ -23907,6 +23992,10 @@
       "novelty_score": 70,
       "data_first": false,
       "arxiv_id": "2611.31399",
+      "author_name": "Bobula, Michał",
+      "author_affiliation": "",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233431",
       "claim_token": "bdb043cc68e2eebb"
     },
     {
@@ -23967,6 +24056,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31749",
+      "author_name": "Bañuls, Mari Carmen",
+      "author_affiliation": "Max Planck Institute of Quantum Optics, Garching, Germany",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233473",
       "claim_token": "5b2e3363dc08e607"
     },
     {
@@ -24059,6 +24152,10 @@
       "novelty_score": 70,
       "data_first": false,
       "arxiv_id": "2611.32062",
+      "author_name": "Liu, Yan",
+      "author_affiliation": "Department of Space Science, Beihang University, Beijing 100191, China",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233495",
       "claim_token": "7d64e7a24da93dff"
     },
     {
@@ -24087,6 +24184,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31912",
+      "author_name": "Corichi, Alejandro",
+      "author_affiliation": "Centro de Ciencias Matemáticas, Universidad Nacional Autónoma de México,",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233468",
       "claim_token": "9ec4ca72672cba17"
     },
     {
@@ -24147,6 +24248,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "776652dfd73101f2"
     },
     {
@@ -24207,6 +24312,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31398",
+      "author_name": "Wen, Qiang",
+      "author_affiliation": "School of Physics and Shing-Tung Yau Center, Southeast University, Nanjing 210096, China",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233411",
       "claim_token": "b30f0195439465c6"
     },
     {
@@ -24267,6 +24376,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31438",
+      "author_name": "Trenkler, Georg",
+      "author_affiliation": "Cosmology, Gravity, and Astroparticle Physics Group, Center for Theoretical Physics of the Universe, Institute for Basic Science (IBS), Daejeon, 34126, Korea.",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233437",
       "claim_token": "d560ac2dc8a72d63"
     },
     {
@@ -24295,6 +24408,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31398",
+      "author_name": "Wen, Qiang",
+      "author_affiliation": "School of Physics and Shing-Tung Yau Center, Southeast University, Nanjing 210096, China",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233411",
       "claim_token": "794080f2b676aa2c"
     },
     {
@@ -24323,6 +24440,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "dfbbc9f37c2457f8"
     },
     {
@@ -24351,6 +24472,10 @@
       "novelty_score": 57,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "d871d715c7d8bb9e"
     },
     {
@@ -24411,6 +24536,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31555",
+      "author_name": "Preti, Michelangelo",
+      "author_affiliation": "Dipartimento di Fisica, Università di Torino and INFN -Sezione di Torino, Via P. Giuria 1, Torino 10125, Italy",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233489",
       "claim_token": "0c333104d91a1c06"
     },
     {
@@ -24439,6 +24568,10 @@
       "novelty_score": 70,
       "data_first": false,
       "arxiv_id": "2611.31433",
+      "author_name": "Sadeghi, Mehdi",
+      "author_affiliation": "Department of Physics, Faculty of Basic Sciences, Ayatollah Boroujerdi University, Boroujerd, Iran",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233456",
       "claim_token": "33e5fd2d382fb7b5"
     },
     {
@@ -24499,6 +24632,10 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31361",
+      "author_name": "Kritos, Konstantinos",
+      "author_affiliation": "",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233424",
       "claim_token": "5c8ae40030ba7828"
     },
     {
@@ -24527,35 +24664,11 @@
       "novelty_score": 50,
       "data_first": false,
       "arxiv_id": "2611.31414",
+      "author_name": "Myers, Robert C.",
+      "author_affiliation": "Perimeter Institute for Theoretical Physics, Waterloo, ON N2L 2Y5, Canada",
+      "author_email": "",
+      "inspire_url": "https://inspirehep.net/literature/3233422",
       "claim_token": "717683bd64791826"
-    },
-    {
-      "id": "25369653",
-      "created_at": "2026-11-25T03:02:38.091205+00:00",
-      "title": "Refined Rényi Entropy of Random Tensor‑Network Boundary States",
-      "domain": "Quantum Information / Holography",
-      "insight": "For Haar‑random pure states on the boundary Hilbert space of a binary‑tree tensor network, the refined Rényi entropy ̅S_n decreases monotonically with the Rényi index n and stays below the maximal value ln(dim) of the subsystem, matching theoretical expectations.",
-      "hypothesis": "In a binary‑tree tensor network with random bond dimensions, the refined Rényi entropy of a chosen boundary region follows the universal ordering ̅S_{n1} > ̅S_{n2} for n1 < n2 and is bounded by the logarithm of the subsystem dimension.",
-      "mini_experiment": "A depth‑3 binary tree with leaf bond dimensions drawn uniformly from [2,5] was generated. A Haar‑random pure state on the full boundary Hilbert space was sampled, and the reduced density matrix of the first half of the leaves was computed. Refined Rényi entropies were evaluated for n = 1.2, 1.5, 2.0, 3.0, 5.0, yielding: n=1.2 → 3.33964, n=1.5 → 3.28452, n=2.0 → 3.20937, n=3.0 → 3.10049, n=5.0 → 2.96863 (nats).",
-      "experiment_code": "#!/usr/bin/env python3\nimport numpy as np, math, random, sys, json, os\n\n# Physical constants (included for completeness – not used directly in the test)\nG = 6.67430e-11          # m^3 kg^-1 s^-2\nc = 2.99792458e8        # m s^-1\nhbar = 1.054571817e-34  # J s\n\ndef random_tensor_network(depth=3, D_min=2, D_max=5):\n    \"\"\"Generate a simple binary‑tree tensor‑network geometry.\n    We only need the bond dimensions on the leaf edges; interior tensors are\n    absorbed into a single random state vector.\n    \"\"\"\n    leaves = 2 ** depth\n    leaf_dims = [random.randint(D_min, D_max) for _ in range(leaves)]\n    return leaf_dims\n\ndef random_state(leaf_dims):\n    \"\"\"Create a Haar‑random pure state on the full boundary Hilbert space.\n    The state lives in \\(\\bigotimes_i \\mathbb{C}^{D_i}\\).\n    \"\"\"\n    dim = int(np.prod(leaf_dims))\n    vec = (np.random.randn(dim) + 1j * np.random.randn(dim))\n    vec /= np.linalg.norm(vec)\n    return vec\n\ndef reduced_density_matrix(state, leaf_dims, region):\n    \"\"\"Partial trace over the complement of *region*.\n    *region* is a list of leaf indices to keep.\n    \"\"\"\n    tensor = state.reshape(leaf_dims)\n    keep = region\n    trace_axes = [i for i in range(len(leaf_dims)) if i not in keep]\n    # Contract the kept legs of the ket with the corresponding legs of the bra\n    rho = np.tensordot(tensor, np.conj(tensor), axes=(trace_axes, trace_axes))\n    # The resulting array already has shape (dim_keep, dim_keep)\n    return rho\n\ndef refined_renyi_entropy(state, leaf_dims, region, n):\n    \"\"\"Compute the refined Rényi entropy \\(\\widetilde S_n\\).\n    \\(\\widetilde S_n = \\frac{1}{1-n}\\log \\mathrm{Tr}\\,\\rho^n\\).\n    \"\"\"\n    rho = reduced_density_matrix(state, leaf_dims, region)\n    # Reshape rho into a matrix acting on the kept subsystem\n    dim_keep = int(np.prod([leaf_dims[i] for i in region]))\n    rho = rho.reshape(dim_keep, dim_keep)\n    evals = np.linalg.eigvalsh(rho)\n    evals = np.clip(evals, 0, None)  # remove tiny negative eigenvalues due to numerical error\n    if np.isclose(n, 1.0):\n        # von Neumann entropy as the n->1 limit\n        return -np.sum(evals * np.log(evals + 1e-12))\n    tr_rho_n = np.sum(evals**n)\n    return (1.0 / (1.0 - n)) * np.log(tr_rho_n + 1e-12)\n\nif __name__ == \"__main__\":\n    leaf_dims = random_tensor_network(depth=3, D_min=2, D_max=5)\n    state = random_state(leaf_dims)\n    # Example region: first half of the leaves\n    region = list(range(len(leaf_dims) // 2))\n    for n in [1.2, 1.5, 2.0, 3.0, 5.0]:\n        s = refined_renyi_entropy(state, leaf_dims, region, n)\n        print(f\"n={n:.1f}, S~={s:.5f}\")",
-      "experiment_output": "n=1.2, S~=3.33964\nn=1.5, S~=3.28452\nn=2.0, S~=3.20937\nn=3.0, S~=3.10049\nn=5.0, S~=2.96863\nSTDERR: C:\\Users\\Lamont\\AppData\\Local\\Temp\\tmpcaev0k_m.py:19: SyntaxWarning: invalid escape sequence '\\('\n  \"\"\"Create a Haar‑random pure state on the full boundary Hilbert space.\nC:\\Users\\Lamont\\AppData\\Local\\Temp\\tmpcaev0k_m.py:40: SyntaxWarning: invalid escape sequence '\\('\n  \"\"\"Compute the refined Rényi entropy \\(\\widetilde S_n\\).",
-      "experiment_passed": true,
-      "open_question": "How do structured interior tensors, deeper network geometries, or non‑Haar‑random boundary states modify the scaling and ordering of refined Rényi entropies, especially in holographic or AdS/CFT‑inspired models?",
-      "critic_takeaway": "The script correctly implements Haar‑random state generation, reduced density matrix construction, and the refined Rényi entropy formula, producing physically sensible values. Minor issues include harmless SyntaxWarnings about escape sequences and the use of natural logarithms (nats) rather than bits. The test is limited to random, uncorrelated tensor‑network states without interior dynamics.",
-      "confidence": "High",
-      "verified": true,
-      "scout_angle": "**Proposed test:** Generate a random holographic tensor‑network state on a fixed graph (e.g. a binary tree or hyperbolic tiling) with bond dimensions \\(D\\) drawn from a controllable distribution, then compute the refined Rényi entropy \\(\\widetilde S_n\\) for several replica indices \\(n\\) by (i) contracting the network to obtain the reduced density matrix of a boundary region, (ii) diagonalising it with NumPy/SciPy, and (iii) evaluating \\(\\widetilde S_n = \\frac{1}{1-n}\\log\\!\\bigl[\\mathrm{Tr}\\,\\rho^n\\bigr]\\). Compare the numerical \\(n\\)‑dependence with the analytic holographic prediction \\(\\widetilde S_n = \\frac{\\mathrm{Area}(\\gamma_n)}{4G_N}\\) (where \\(\\gamma_n\\) is the tensionful cosmic‑brane surface whose area scales as \\(A_n = A_0\\,\\frac{n}{n-1}\\)). A deviation from the flat‑spectrum (constant) result constitutes a falsifiable signature that the tensor‑network construction reproduces the refined Rényi entropy of a holographic CFT.",
-      "source_title": "Refined Rényi Entropy from Replica-Geometry Tensor Networks",
-      "source_url": "http://arxiv.org/abs/2611.31398v1",
-      "wiki_title": "Electronic quantum holography",
-      "wiki_extract": "Electronic quantum holography is a holographic imagery and information storage technology based on the principles of electron holography. By recording both the amplitude and phase of electron waves through interference using a reference wave, electronic quantum holography can encode and read out data at high precision and density, storing as much as 35 bits per electron.",
-      "wiki_url": "https://en.wikipedia.org/wiki/Electronic_quantum_holography",
-      "published": true,
-      "is_unique": false,
-      "novelty_score": 50,
-      "data_first": false,
-      "arxiv_id": "2611.31398",
-      "claim_token": "87726147fd5b406c"
     }
   ]
 }
