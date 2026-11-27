@@ -798,6 +798,46 @@ async def get_author_omnibus(hours: int = 24):
     return await loop.run_in_executor(None, build_author_omnibus, list(science_bot.feed), hours)
 
 
+@app.get("/api/science/papers-tried")
+async def get_papers_tried(status: str = "all", limit: int = 2000):
+    """Return a public database of all arXiv papers ScienceBot has attempted so external bots can retry or add perspectives."""
+    import re
+    import sqlite3
+    db_path = getattr(science_bot, "DB_FILE", Path(__file__).resolve().parent / "memory" / "science.db")
+    agg: Dict[str, Dict[str, Any]] = {}
+    with sqlite3.connect(db_path) as conn:
+        rows = conn.execute(
+            "SELECT source_url, source_title, domain, verified, published, created_at FROM articles WHERE length(trim(coalesce(source_url, ''))) > 0 ORDER BY created_at DESC"
+        ).fetchall()
+    for url, title, domain, ver, pub, ts in rows:
+        u = str(url or "").strip()
+        m = re.search(r"(\d{4}\.\d{4,5})", u)
+        key = f"arxiv:{m.group(1)}" if m else u.lower().rstrip("/")
+        rec = agg.setdefault(key, {
+            "paper_key": key,
+            "arxiv_id": m.group(1) if m else "",
+            "source_url": u,
+            "source_title": str(title or "").strip(),
+            "domain": str(domain or "").strip(),
+            "attempts": 0,
+            "verified_count": 0,
+            "rejected_count": 0,
+            "last_tried_at": str(ts or ""),
+        })
+        rec["attempts"] += 1
+        if ver and pub:
+            rec["verified_count"] += 1
+        else:
+            rec["rejected_count"] += 1
+    items = []
+    for rec in agg.values():
+        rec["status"] = "verified" if rec["verified_count"] > 0 else "needs_retry"
+        if status == "all" or rec["status"] == status:
+            items.append(rec)
+    items.sort(key=lambda x: x["last_tried_at"], reverse=True)
+    return {"total_papers": len(items), "papers": items[:max(1, min(10000, limit))]}
+
+
 @app.get("/api/science/stream")
 async def stream_science_updates(request: Request):
     queue = science_bot.subscribe()

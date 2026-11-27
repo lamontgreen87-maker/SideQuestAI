@@ -662,6 +662,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <div><strong>Recommended:</strong> <code>8–16 GB+</code> VRAM GPU (<code>~15 cycles/hr</code> in local Eco mode) or <code>RTX 4090</code> (<code>~100+ cycles/hr</code> parallel) + Python <code>3.10+</code> (<code>numpy</code>, <code>scipy</code>, <code>sympy</code>) &amp; Ollama.</div>
           <div><strong>Quick Run:</strong> <code>ollama run hf.co/lamonster87/sciencebot-4b-gguf</code> (or load <code>unsloth.Q4_K_M.gguf</code> in PocketPal AI on <code>8 GB+</code> RAM phones).</div>
           <div><strong>Connect &amp; Credit:</strong> Set <code>SCIENCEBOT_CONTRIBUTOR_EMAIL</code> + <code>SCIENCEBOT_VERSION_NAME</code> (opt-in) when submitting via <code>POST /api/science/contribute</code> to show your email &amp; bot version on published articles.</div>
+          <div><strong>Papers Database:</strong> Grab <a href="./papers_tried.json" target="_blank" rel="noopener" style="color:var(--accent);"><code>papers_tried.json</code> ↗</a> to see every arXiv paper tried (verified &amp; unsolved) so your AI can retry or add a second perspective.</div>
         </div>
       </div>
       <div class="model-actions">
@@ -1505,6 +1506,48 @@ def export_site(output_dir: Path = SITE_DIR, bot: Any = None) -> Dict[str, Any]:
 
     json_text = json.dumps(payload, indent=2, ensure_ascii=False)
     data_path.write_text(json_text, encoding="utf-8")
+
+    # Export full public database of all papers tried (verified + unsolved) for external bots to retry
+    papers_path = output_dir / "papers_tried.json"
+    try:
+        import re as _re
+        import sqlite3 as _sq
+        db_path = getattr(bot, "DB_FILE", BASE_DIR / "memory" / "science.db")
+        agg: Dict[str, Dict[str, Any]] = {}
+        with _sq.connect(db_path) as conn:
+            for url, title, domain, ver, pub, ts in conn.execute(
+                "SELECT source_url, source_title, domain, verified, published, created_at FROM articles WHERE length(trim(coalesce(source_url, ''))) > 0 ORDER BY created_at DESC"
+            ).fetchall():
+                u = str(url or "").strip()
+                m = _re.search(r"(\d{4}\.\d{4,5})", u)
+                key = f"arxiv:{m.group(1)}" if m else u.lower().rstrip("/")
+                rec = agg.setdefault(key, {
+                    "paper_key": key,
+                    "arxiv_id": m.group(1) if m else "",
+                    "source_url": u,
+                    "source_title": str(title or "").strip(),
+                    "domain": str(domain or "").strip(),
+                    "attempts": 0,
+                    "verified_count": 0,
+                    "rejected_count": 0,
+                    "last_tried_at": str(ts or ""),
+                })
+                rec["attempts"] += 1
+                if ver and pub:
+                    rec["verified_count"] += 1
+                else:
+                    rec["rejected_count"] += 1
+        papers_list = []
+        for rec in agg.values():
+            rec["status"] = "verified" if rec["verified_count"] > 0 else "needs_retry"
+            papers_list.append(rec)
+        papers_list.sort(key=lambda x: x["last_tried_at"], reverse=True)
+        papers_path.write_text(
+            json.dumps({"generated_at": payload["generated_at"], "total_papers": len(papers_list), "papers": papers_list}, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+    except Exception:
+        pass
 
     # Keep inline fallback compact so index.html loads fast while data.json serves all articles.
     embedded_payload = {**payload, "articles": enriched_articles[:100]}
