@@ -203,6 +203,9 @@ class ScienceConfigRequest(BaseModel):
     schedule_enabled: Optional[bool] = None
     schedule_start: Optional[str] = None
     schedule_end: Optional[str] = None
+    contributor_email: Optional[str] = None
+    sciencebot_version: Optional[str] = None
+    hub_url: Optional[str] = None
 
 
 @app.on_event("startup")
@@ -597,8 +600,82 @@ async def update_science_config(req: ScienceConfigRequest):
         schedule_enabled=req.schedule_enabled,
         schedule_start=req.schedule_start,
         schedule_end=req.schedule_end,
+        contributor_email=req.contributor_email,
+        sciencebot_version=req.sciencebot_version,
+        hub_url=req.hub_url,
     )
     return {"status": status}
+
+
+@app.post("/api/science/contribute")
+async def contribute_science_article(request: Request):
+    """Accept a verified discovery submitted from a connected ScienceBot instance."""
+    import re
+    import uuid
+    from datetime import datetime, timezone
+
+    body = await request.json()
+    if not isinstance(body, dict):
+        raise HTTPException(status_code=400, detail="Invalid JSON payload")
+
+    title = str(body.get("title") or "").strip()
+    insight = str(body.get("insight") or "").strip()
+    if not title or not insight:
+        raise HTTPException(status_code=400, detail="title and insight are required")
+
+    verified = bool(body.get("verified"))
+    experiment_passed = bool(body.get("experiment_passed"))
+    if not (verified or experiment_passed):
+        raise HTTPException(status_code=400, detail="Only verified or experiment-passed articles can be contributed")
+
+    raw_email = str(body.get("contributor_email") or "").strip()[:160]
+    contributor_email = raw_email if (raw_email and re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", raw_email)) else ""
+    sciencebot_version = str(body.get("sciencebot_version") or "").strip()[:80]
+
+    entry = {
+        "id": str(body.get("id") or uuid.uuid4())[:16],
+        "created_at": str(body.get("created_at") or datetime.now(timezone.utc).isoformat()),
+        "title": title[:300],
+        "domain": str(body.get("domain") or "Physics & Astrophysics").strip()[:120],
+        "insight": insight[:6000],
+        "hypothesis": str(body.get("hypothesis") or "See insight.")[:2000],
+        "mini_experiment": str(body.get("mini_experiment") or "N/A")[:2000],
+        "experiment_code": str(body.get("experiment_code") or "")[:12000],
+        "experiment_output": str(body.get("experiment_output") or "")[:6000],
+        "experiment_passed": experiment_passed,
+        "open_question": str(body.get("open_question") or "")[:2000],
+        "critic_takeaway": str(body.get("critic_takeaway") or "")[:2000],
+        "confidence": str(body.get("confidence") or "High")[:40],
+        "verified": verified,
+        "published": True,
+        "data_first": bool(body.get("data_first")),
+        "scout_angle": str(body.get("scout_angle") or "")[:2000],
+        "source_title": str(body.get("source_title") or "")[:400],
+        "source_url": str(body.get("source_url") or "")[:500],
+        "wiki_title": str(body.get("wiki_title") or "")[:200],
+        "wiki_extract": str(body.get("wiki_extract") or "")[:2000],
+        "wiki_url": str(body.get("wiki_url") or "")[:500],
+        "contributor_email": contributor_email,
+        "sciencebot_version": sciencebot_version,
+    }
+
+    novelty_score, is_unique, _ = science_bot._score_uniqueness(entry, science_bot.feed)
+    entry["novelty_score"] = novelty_score
+    entry["is_unique"] = is_unique
+
+    science_bot._upsert_article_db(entry)
+    science_bot.feed = science_bot._load_articles_from_db()
+    science_bot._save_state()
+    science_bot._emit("update", entry)
+    threading.Thread(target=science_bot._publish_static_site, daemon=True).start()
+    return {
+        "status": "accepted",
+        "id": entry["id"],
+        "contributor_email": contributor_email,
+        "sciencebot_version": sciencebot_version,
+        "novelty_score": novelty_score,
+        "is_unique": is_unique,
+    }
 
 
 @app.get("/api/science/author-draft/{article_id}")

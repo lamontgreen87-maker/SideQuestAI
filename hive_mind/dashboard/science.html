@@ -439,6 +439,11 @@
       <input id="topicInput" type="text" placeholder="Topic focus (blank = rotating)" />
       <button id="saveTopicBtn">Save Topic</button>
     </div>
+    <div class="config-row">
+      <input id="contributorEmailInput" type="email" placeholder="Contributor email (opt-in on articles)" />
+      <input id="sciencebotVersionInput" type="text" placeholder="ScienceBot version (e.g. sciencebot-4b)" />
+      <button id="saveIdentityBtn">Save Attribution</button>
+    </div>
   </div>
 
   <section class="findings-box" id="liveRunBox" style="margin-bottom: 14px;">
@@ -566,6 +571,9 @@
     const providerSelect = document.getElementById("providerSelect");
     const topicInput = document.getElementById("topicInput");
     const saveTopicBtn = document.getElementById("saveTopicBtn");
+    const contributorEmailInput = document.getElementById("contributorEmailInput");
+    const sciencebotVersionInput = document.getElementById("sciencebotVersionInput");
+    const saveIdentityBtn = document.getElementById("saveIdentityBtn");
     const feedContainer = document.getElementById("feedContainer");
     const findingsCount = document.getElementById("findingsCount");
     const findingsList = document.getElementById("findingsList");
@@ -747,6 +755,12 @@
       }
       if (document.activeElement !== topicInput && st.topic_focus !== undefined) {
         topicInput.value = st.topic_focus;
+      }
+      if (document.activeElement !== contributorEmailInput && st.contributor_email !== undefined) {
+        contributorEmailInput.value = st.contributor_email;
+      }
+      if (document.activeElement !== sciencebotVersionInput && st.sciencebot_version !== undefined) {
+        sciencebotVersionInput.value = st.sciencebot_version;
       }
       if (st.schedule_enabled !== undefined) schedEnabled.checked = Boolean(st.schedule_enabled);
       if (document.activeElement !== schedStart && st.schedule_start) schedStart.value = st.schedule_start;
@@ -1023,6 +1037,8 @@
                 ${isDataFirst(item) ? `<span class="badge" style="background:rgba(167,139,250,0.22);color:#c4b5fd;">Data-First (.hdf5)</span>` : ""}
                 ${isRealData(item) ? `<span class="badge" style="background:rgba(14,165,233,0.22);color:#38bdf8;">Real Data (GWTC/EHT)</span>` : ""}
                 ${item.is_unique ? `<span class="badge" style="background:rgba(250,204,21,0.18);color:#fde047;">${isDataFirst(item) ? "★ Novel Strain Lead" : "★ Empirical Lead"} (${escapeHtml(item.novelty_score || 0)}%)</span>` : (item.novelty_score ? `<span class="badge" style="background:rgba(148,163,184,0.16);color:#cbd5e1;">${escapeHtml(item.novelty_score)}% score</span>` : "")}
+                ${item.sciencebot_version ? `<span class="badge" style="background:rgba(56,189,248,0.16);color:#79c0ff;">🤖 ${escapeHtml(item.sciencebot_version)}</span>` : ""}
+                ${item.contributor_email ? `<span class="badge" style="background:rgba(167,139,250,0.16);color:#d2a8ff;">✉ ${escapeHtml(item.contributor_email)}</span>` : ""}
                 ${item.is_unique ? `<button type="button" class="btn-secondary" onclick="openSingleDraft('${escapeHtml(item.id)}')" style="padding:2px 8px;font-size:11px;border-color:rgba(250,204,21,0.45);color:#fde047;">Draft Email to Author</button>` : ""}
               </div>
               <span class="time">${escapeHtml(dt)}</span>
@@ -1180,6 +1196,19 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ topic_focus: topicInput.value })
+      });
+      const data = await res.json();
+      renderStatus(data.status);
+    };
+
+    saveIdentityBtn.onclick = async () => {
+      const res = await fetch("/api/science/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contributor_email: contributorEmailInput.value,
+          sciencebot_version: sciencebotVersionInput.value
+        })
       });
       const data = await res.json();
       renderStatus(data.status);

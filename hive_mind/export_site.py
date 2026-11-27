@@ -661,6 +661,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <div><strong>Minimum Hardware:</strong> <code>6 GB+</code> VRAM GPU (RTX 2060/3060/4060 or Apple Silicon <code>8 GB+</code> unified RAM) or <code>16 GB</code> system RAM for CPU/iGPU fallback.</div>
           <div><strong>Recommended:</strong> <code>8–16 GB+</code> VRAM GPU (<code>~15 cycles/hr</code> in local Eco mode) or <code>RTX 4090</code> (<code>~100+ cycles/hr</code> parallel) + Python <code>3.10+</code> (<code>numpy</code>, <code>scipy</code>, <code>sympy</code>) &amp; Ollama.</div>
           <div><strong>Quick Run:</strong> <code>ollama run hf.co/lamonster87/sciencebot-4b-gguf</code> (or load <code>unsloth.Q4_K_M.gguf</code> in PocketPal AI on <code>8 GB+</code> RAM phones).</div>
+          <div><strong>Connect &amp; Credit:</strong> Set <code>SCIENCEBOT_CONTRIBUTOR_EMAIL</code> + <code>SCIENCEBOT_VERSION_NAME</code> (opt-in) when submitting via <code>POST /api/science/contribute</code> to show your email &amp; bot version on published articles.</div>
         </div>
       </div>
       <div class="model-actions">
@@ -897,6 +898,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             isDataFirst(a) ? `<span class="badge data-first">Data-First (.hdf5)</span>` : "",
             isRealData(a) ? `<span class="badge real-data">Real Data (GWTC/EHT)</span>` : "",
             a.novelty_score != null ? `<span class="badge">${escapeHtml(String(a.novelty_score))}% score</span>` : "",
+            a.sciencebot_version ? `<span class="badge" style="border-color:rgba(88,166,255,0.45);color:#79c0ff;">🤖 ${escapeHtml(a.sciencebot_version)}</span>` : "",
+            a.contributor_email ? `<span class="badge" style="border-color:rgba(163,113,247,0.45);color:#d2a8ff;">✉ ${escapeHtml(a.contributor_email)}</span>` : "",
             a.created_at ? `<span class="badge">${escapeHtml(String(a.created_at).slice(0, 10))}</span>` : "",
           ].join("");
           const bodyParts = [
@@ -1236,6 +1239,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         isDataFirst(a) ? `<span class="badge data-first">Data-First (.hdf5)</span>` : "",
         isRealData(a) ? `<span class="badge real-data">Real Data (GWTC/EHT)</span>` : "",
         a.novelty_score != null ? `<span class="badge">${escapeHtml(String(a.novelty_score))}% score</span>` : "",
+        a.sciencebot_version ? `<span class="badge" style="border-color:rgba(88,166,255,0.45);color:#79c0ff;">🤖 ${escapeHtml(a.sciencebot_version)}</span>` : "",
+        a.contributor_email ? `<span class="badge" style="border-color:rgba(163,113,247,0.45);color:#d2a8ff;">✉ ${escapeHtml(a.contributor_email)}</span>` : "",
         a.created_at ? `<span class="badge">${escapeHtml(String(a.created_at).slice(0, 10))}</span>` : "",
       ].join("");
 
@@ -1269,11 +1274,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         const linesCount = String(a.experiment_code).split("\n").length;
         sections.push(`<div class="detail-section"><details><summary>Reproducible Python Verification Script (${linesCount} lines${a.experiment_passed ? " · Passed" : ""})</summary><pre><code>${escapeHtml(a.experiment_code)}</code></pre></details></div>`);
       }
-      if (a.source_url || a.author_name || a.inspire_url) {
+      if (a.source_url || a.author_name || a.inspire_url || a.contributor_email || a.sciencebot_version) {
         const refParts = [];
         if (a.source_url) refParts.push(`<div><strong>Source Paper:</strong> <a href="${escapeHtml(a.source_url)}" target="_blank" rel="noopener" style="color:var(--accent)">${escapeHtml(a.source_title || a.source_url)}</a></div>`);
         if (a.author_name) refParts.push(`<div><strong>Author:</strong> ${escapeHtml(a.author_name)}${a.author_affiliation ? ` (${escapeHtml(a.author_affiliation)})` : ""}</div>`);
         if (a.inspire_url) refParts.push(`<div><strong>INSPIRE-HEP:</strong> <a href="${escapeHtml(a.inspire_url)}" target="_blank" rel="noopener" style="color:var(--accent)">${escapeHtml(a.inspire_url)}</a></div>`);
+        if (a.sciencebot_version) refParts.push(`<div><strong>ScienceBot Version:</strong> <code>${escapeHtml(a.sciencebot_version)}</code></div>`);
+        if (a.contributor_email) refParts.push(`<div><strong>Contributor Email:</strong> <a href="mailto:${encodeURIComponent(a.contributor_email)}" style="color:var(--accent)">${escapeHtml(a.contributor_email)}</a></div>`);
         sections.push(`<div class="detail-section"><div class="detail-label">Source &amp; Attribution</div><div class="meta-note" style="margin-top:0;">${refParts.join("")}</div></div>`);
       }
 

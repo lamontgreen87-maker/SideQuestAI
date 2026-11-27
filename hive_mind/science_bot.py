@@ -329,6 +329,9 @@ class ScienceBot:
         self.schedule_enabled: bool = os.getenv("SCIENCE_SCHEDULE_ENABLED", "0") == "1"
         self.schedule_start: str = os.getenv("SCIENCE_SCHEDULE_START", "22:00")
         self.schedule_end: str = os.getenv("SCIENCE_SCHEDULE_END", "07:00")
+        self.contributor_email: str = os.getenv("SCIENCEBOT_CONTRIBUTOR_EMAIL", "").strip()
+        self.sciencebot_version: str = os.getenv("SCIENCEBOT_VERSION_NAME", "").strip()
+        self.hub_url: str = os.getenv("SIDEQUEST_HUB_URL", "").strip().rstrip("/")
 
         self.running: bool = False
         self.current_stage: str = "Initializing..."
@@ -386,6 +389,10 @@ class ScienceBot:
                 conn.execute("ALTER TABLE articles ADD COLUMN novelty_score INTEGER DEFAULT 0")
             if "data_first" not in cols:
                 conn.execute("ALTER TABLE articles ADD COLUMN data_first INTEGER DEFAULT 0")
+            if "contributor_email" not in cols:
+                conn.execute("ALTER TABLE articles ADD COLUMN contributor_email TEXT DEFAULT ''")
+            if "sciencebot_version" not in cols:
+                conn.execute("ALTER TABLE articles ADD COLUMN sciencebot_version TEXT DEFAULT ''")
             conn.commit()
 
     def _count_rejected_db(self) -> int:
@@ -443,8 +450,9 @@ class ScienceBot:
                     experiment_code, experiment_output, experiment_passed,
                     open_question, critic_takeaway, confidence, verified, published,
                     is_unique, novelty_score, data_first,
-                    scout_angle, source_title, source_url, wiki_title, wiki_extract, wiki_url
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    scout_angle, source_title, source_url, wiki_title, wiki_extract, wiki_url,
+                    contributor_email, sciencebot_version
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     entry.get("id", ""),
@@ -471,6 +479,8 @@ class ScienceBot:
                     entry.get("wiki_title", ""),
                     entry.get("wiki_extract", ""),
                     entry.get("wiki_url", ""),
+                    str(entry.get("contributor_email") or "").strip(),
+                    str(entry.get("sciencebot_version") or "").strip(),
                 ),
             )
             conn.commit()
@@ -669,6 +679,12 @@ class ScienceBot:
                         self.schedule_end = str(cfg["schedule_end"])
                     if cfg.get("provider"):
                         set_active_provider(str(cfg["provider"]))
+                    if cfg.get("contributor_email") is not None and not self.contributor_email:
+                        self.contributor_email = str(cfg.get("contributor_email") or "").strip()
+                    if cfg.get("sciencebot_version") is not None and not self.sciencebot_version:
+                        self.sciencebot_version = str(cfg.get("sciencebot_version") or "").strip()
+                    if cfg.get("hub_url") is not None and not self.hub_url:
+                        self.hub_url = str(cfg.get("hub_url") or "").strip().rstrip("/")
                     for old_item in data.get("feed", []):
                         if isinstance(old_item, dict) and old_item.get("id"):
                             self._upsert_article_db(old_item)
@@ -697,6 +713,9 @@ class ScienceBot:
                     "schedule_enabled": self.schedule_enabled,
                     "schedule_start": self.schedule_start,
                     "schedule_end": self.schedule_end,
+                    "contributor_email": self.contributor_email,
+                    "sciencebot_version": self.sciencebot_version,
+                    "hub_url": self.hub_url,
                     "provider": get_active_provider_info()["provider"],
                 },
                 "feed": self.feed[:MAX_FEED_ITEMS],
@@ -761,6 +780,9 @@ class ScienceBot:
             "available_providers": info.get("available_providers", []),
             "api_key_configured": _has_any_api_key(),
             "phone_alerts_enabled": os.getenv("PHONE_ALERTS_ENABLED", "1") == "1" and bool((os.getenv("NTFY_TOPIC") or "").strip()),
+            "contributor_email": self.contributor_email,
+            "sciencebot_version": self.sciencebot_version,
+            "hub_url": self.hub_url,
             "current_run": self.current_run_details,
         }
 
@@ -921,6 +943,9 @@ class ScienceBot:
         schedule_enabled: Optional[bool] = None,
         schedule_start: Optional[str] = None,
         schedule_end: Optional[str] = None,
+        contributor_email: Optional[str] = None,
+        sciencebot_version: Optional[str] = None,
+        hub_url: Optional[str] = None,
     ) -> Dict[str, Any]:
         if enabled is not None:
             self.enabled = bool(enabled)
@@ -961,6 +986,12 @@ class ScienceBot:
             self.schedule_start = schedule_start.strip()
         if schedule_end and self._parse_hhmm(schedule_end) is not None:
             self.schedule_end = schedule_end.strip()
+        if contributor_email is not None:
+            self.contributor_email = contributor_email.strip()[:160]
+        if sciencebot_version is not None:
+            self.sciencebot_version = sciencebot_version.strip()[:80]
+        if hub_url is not None:
+            self.hub_url = hub_url.strip().rstrip("/")
         self._save_state()
         self._emit("status", self.get_status())
         self._wake_event.set()
@@ -1507,6 +1538,8 @@ class ScienceBot:
                     "wiki_title": wiki["title"] if wiki else "",
                     "wiki_extract": wiki["extract"] if wiki else "",
                     "wiki_url": wiki["url"] if wiki else "",
+                    "contributor_email": self.contributor_email,
+                    "sciencebot_version": self.sciencebot_version,
                 }
 
                 novelty_score, is_unique, closest_title = self._score_uniqueness(entry, self.feed)
@@ -1537,6 +1570,12 @@ class ScienceBot:
                         args=(entry,),
                         daemon=True,
                     ).start()
+                    if self.hub_url:
+                        threading.Thread(
+                            target=self._submit_to_hub,
+                            args=(entry,),
+                            daemon=True,
+                        ).start()
                     if is_unique and data_first:
                         self._emit("unique_discovery", {**entry, "closest_match_title": closest_title})
                         self._set_stage(f"NOVEL STRAIN LEAD ({novelty_score}% score) published! Waiting for next cycle")
@@ -1557,6 +1596,28 @@ class ScienceBot:
                 self.running = False
                 self.next_run_epoch = time.time() + self.interval_minutes * 60
                 self._emit("status", self.get_status())
+
+    def _submit_to_hub(self, entry: Dict[str, Any]) -> bool:
+        """Forward a published discovery to a connected SideQuestAI hub server."""
+        if not self.hub_url:
+            return False
+        try:
+            import urllib.request
+            payload = {
+                **entry,
+                "contributor_email": entry.get("contributor_email") or self.contributor_email,
+                "sciencebot_version": entry.get("sciencebot_version") or self.sciencebot_version,
+            }
+            req = urllib.request.Request(
+                f"{self.hub_url}/api/science/contribute",
+                data=json.dumps(payload).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                return 200 <= resp.status < 300
+        except Exception:
+            return False
 
     def _publish_static_site(self) -> None:
         """Export and deploy updated static wiki to Cloudflare Pages (sidequestai.org)."""
@@ -1729,6 +1790,8 @@ class ScienceBot:
             "wiki_title": "",
             "wiki_extract": "",
             "wiki_url": "",
+            "contributor_email": self.contributor_email,
+            "sciencebot_version": self.sciencebot_version,
         }
         async with self._db_lock:
             novelty_score, is_unique, _ = self._score_uniqueness(entry, self.feed)
@@ -1742,6 +1805,8 @@ class ScienceBot:
             if published:
                 self._emit("update", entry)
                 threading.Thread(target=send_phone_alert, args=(entry,), daemon=True).start()
+                if self.hub_url:
+                    threading.Thread(target=self._submit_to_hub, args=(entry,), daemon=True).start()
                 self._turbo_pub_count += 1
                 if self._turbo_pub_count % 10 == 0:
                     threading.Thread(target=self._publish_static_site, daemon=True).start()
