@@ -833,7 +833,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           ${bar("Self-Repair SFT Traces", (l3.self_repair_sft || {}).current, (l3.self_repair_sft || {}).target || 3000, "traces", "linear-gradient(90deg,#fb7185,#f472b6)")}
           ${bar("Unique Empirical Leads", (l3.unique_leads || {}).current, (l3.unique_leads || {}).target || 200, "leads", "linear-gradient(90deg,#eab308,#fde047)")}
           ${bar("Real-Data (GWTC / EHT / .hdf5)", (l3.real_data_runs || {}).current, (l3.real_data_runs || {}).target || 400, "runs", "linear-gradient(90deg,#0ea5e9,#38bdf8)")}
-          ${bar("Data-First (.hdf5) Strain", (l3.data_first_hdf5 || {}).current, (l3.data_first_hdf5 || {}).target || 25, "runs", "linear-gradient(90deg,#a78bfa,#c084fc)")}
+          ${bar("Data-First (.hdf5) Strain", (l3.data_first_hdf5 || {}).current, (l3.data_first_hdf5 || {}).target || 100, "runs", "linear-gradient(90deg,#a78bfa,#c084fc)")}
         </div>
       `;
     }
@@ -1486,7 +1486,7 @@ def export_site(output_dir: Path = SITE_DIR, bot: Any = None) -> Dict[str, Any]:
                 "self_repair_sft": {"current": repair_count, "target": 3000},
                 "unique_leads": {"current": unique_leads, "target": 200},
                 "real_data_runs": {"current": real_data_runs, "target": 400},
-                "data_first_hdf5": {"current": data_first_hdf5, "target": 25},
+                "data_first_hdf5": {"current": data_first_hdf5, "target": 100},
             },
         }
     except Exception:

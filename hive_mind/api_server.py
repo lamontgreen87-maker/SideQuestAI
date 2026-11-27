@@ -575,7 +575,7 @@ async def get_science_dual_progress():
         "verified_sft": {"current": verified_sft, "target": sft_goal},
         "unique_leads": {"current": unique_leads, "target": 250},
         "real_data_runs": {"current": real_data_runs, "target": 500},
-        "data_first_hdf5": {"current": data_first_hdf5, "target": 25},
+        "data_first_hdf5": {"current": data_first_hdf5, "target": 100},
         "dpo_pairs": {"current": dpo_count, "target": 1000, "min": 800},
         "self_repair_sft": {"current": repair_count, "target": 3500},
     }

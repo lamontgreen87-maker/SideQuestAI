@@ -744,7 +744,7 @@
         const realT = l4.real_data_runs || {};
         setBar("realDataText", "realDataBar", realT.current ?? 0, realT.target || 500, "runs");
         const dfT = l4.data_first_hdf5 || {};
-        setBar("dataFirstText", "dataFirstBar", dfT.current ?? 0, dfT.target || 25, "runs");
+        setBar("dataFirstText", "dataFirstBar", dfT.current ?? 0, dfT.target || 100, "runs");
 
         const p2 = d.pod2_4090 || {};
         const v4El = document.getElementById("v4LiveText");
