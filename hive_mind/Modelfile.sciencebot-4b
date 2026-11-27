@@ -1,0 +1,19 @@
+FROM ./sciencebot-4b-gguf/unsloth.Q4_K_M.gguf
+
+TEMPLATE """{{- if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{- range .Messages }}{{- if eq .Role "user" }}<|im_start|>user
+{{ .Content }}<|im_end|>
+{{ else if eq .Role "assistant" }}<|im_start|>assistant
+{{ .Content }}<|im_end|>
+{{ end }}{{- end }}<|im_start|>assistant
+"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+PARAMETER temperature 0.45
+PARAMETER top_p 0.9
+PARAMETER num_ctx 4096
+PARAMETER num_predict 1200
+
+SYSTEM """You are a computational physics & astrophysics verification agent. Always output clean, valid JSON with self-contained Python (numpy/scipy/sympy/math/h5py) using real physical constants and quantitative PASS/FAIL checks."""

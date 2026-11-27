@@ -64,17 +64,101 @@ def _strip_json_fences(raw: str) -> str:
     return text
 
 
+def _log_repair_sft(broken_code: str, err_out: str, fixed_raw: str) -> None:
+    """Append a verified Self-Repair trajectory to memory/training/self_repair_sft.jsonl."""
+    try:
+        out_path = BASE_DIR / "memory" / "training" / "self_repair_sft.jsonl"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        rec = {
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You are a Python computational physics debugger. Fix the broken script using the sandbox traceback and return ONLY valid JSON with corrected \"experiment_code\".",
+                },
+                {
+                    "role": "user",
+                    "content": f"Broken code:\n```python\n{(broken_code or '')[:1400]}\n```\nError/Output:\n{(err_out or '')[:600]}",
+                },
+                {"role": "assistant", "content": (fixed_raw or "")[:4000]},
+            ]
+        }
+        with out_path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 def _extract_json_obj(raw: str) -> Optional[Dict[str, Any]]:
     cleaned = _strip_json_fences(raw)
     start = cleaned.find("{")
     end = cleaned.rfind("}") + 1
-    if start == -1 or end <= start:
-        return None
+    if start != -1 and end > start:
+        snippet = cleaned[start:end]
+        for candidate in (
+            snippet,
+            re.sub(r'\\(?!["\\/bfnrtu])', r"\\\\", snippet),
+        ):
+            try:
+                parsed = json.loads(candidate, strict=False)
+                if isinstance(parsed, dict):
+                    return parsed
+            except json.JSONDecodeError:
+                pass
+    # Fallback: extract Python code block + key fields if JSON had unescaped quotes/backslashes
+    m_code = re.search(r"```python\s*(.*?)```", raw or "", re.DOTALL | re.IGNORECASE)
+    if not m_code:
+        m_code = re.search(r'"experiment_code"\s*:\s*"(.*?)"\s*(?:,|\})', raw or "", re.DOTALL)
+    if m_code:
+        code_txt = m_code.group(1).replace("\\n", "\n").replace('\\"', '"').strip()
+        out: Dict[str, Any] = {"experiment_code": code_txt}
+        for key in ("title", "domain", "insight", "hypothesis", "confidence"):
+            mk = re.search(rf'"{key}"\s*:\s*"([^"]*)"', raw or "")
+            if mk:
+                out[key] = mk.group(1)
+        return out
+    return None
+
+
+def send_phone_alert(entry: Dict[str, Any], force: bool = False) -> bool:
+    """Send a push notification via ntfy.sh when ScienceBot finds a high-value discovery."""
+    if not force and os.getenv("PHONE_ALERTS_ENABLED", "1") != "1":
+        return False
+    topic = (os.getenv("NTFY_TOPIC") or "").strip()
+    if not topic:
+        return False
+    is_unique = bool(entry.get("is_unique"))
+    score = int(entry.get("novelty_score") or 0)
+    verified = bool(entry.get("verified"))
+    if not force and not (verified and (is_unique or score >= 85)):
+        return False
+    art_id = str(entry.get("id") or "")
+    if not force and art_id:
+        try:
+            from export_site import deploy_site
+            deploy_site()
+        except Exception:
+            pass
+    title = str(entry.get("title") or "SideQuestAI Discovery")[:140]
+    domain = str(entry.get("domain") or "Physics")
+    insight = str(entry.get("insight") or "")[:360]
+    prefix = "NOVEL LEAD" if is_unique else f"Verified ({score}%)"
+    body = f"[{domain}]\n{insight}\n\nhttps://sidequestai.org/#article-{art_id}" if art_id else f"[{domain}]\n{insight}"
+    safe_title = f"{prefix}: {title}".encode("ascii", "ignore").decode("ascii").strip()
     try:
-        parsed = json.loads(cleaned[start:end])
-        return parsed if isinstance(parsed, dict) else None
-    except json.JSONDecodeError:
-        return None
+        r = requests.post(
+            f"https://ntfy.sh/{topic}",
+            data=body.encode("utf-8"),
+            headers={
+                "Title": safe_title,
+                "Priority": "high" if is_unique else "default",
+                "Tags": "star,telescope" if is_unique else "white_check_mark,atom_symbol",
+                "Click": f"https://sidequestai.org/#article-{art_id}" if art_id else "https://sidequestai.org",
+            },
+            timeout=8,
+        )
+        return r.status_code == 200
+    except Exception:
+        return False
 
 
 def _fetch_arxiv_papers(query: str, max_results: int = 3) -> List[Dict[str, str]]:
@@ -187,7 +271,7 @@ def _run_experiment_code(code: str, timeout_s: int = 25) -> Dict[str, Any]:
         err = (proc.stderr or "").strip()
         combined = "\n".join(part for part in (out, f"STDERR: {err}" if err else "") if part)
         upper_out = out.upper()
-        explicit_fail = "FAIL" in upper_out and "PASS" not in upper_out
+        explicit_fail = bool(re.search(r"\bFAIL\b", upper_out)) and not bool(re.search(r"\bPASS\b", upper_out))
         passed = proc.returncode == 0 and bool(out) and not explicit_fail
         return {
             "passed": passed,
@@ -257,6 +341,8 @@ class ScienceBot:
         self._subscribers: List[asyncio.Queue] = []
         self._wake_event = asyncio.Event()
         self._run_lock = asyncio.Lock()
+        self._db_lock = asyncio.Lock()
+        self._turbo_pub_count: int = 0
         self._prefetch_task: Optional[asyncio.Task] = None
         self._init_db()
         self._load_state()
@@ -306,6 +392,47 @@ class ScienceBot:
         with sqlite3.connect(DB_FILE) as conn:
             row = conn.execute("SELECT COUNT(*) FROM articles WHERE published = 0").fetchone()
             return int(row[0]) if row else 0
+
+    def _count_verified_db(self) -> int:
+        with sqlite3.connect(DB_FILE) as conn:
+            row = conn.execute("SELECT COUNT(*) FROM articles WHERE verified = 1").fetchone()
+            return int(row[0]) if row else 0
+
+    def _count_training_examples_db(self) -> int:
+        with sqlite3.connect(DB_FILE) as conn:
+            row = conn.execute(
+                "SELECT COUNT(*) FROM articles WHERE verified = 1 AND experiment_passed = 1 AND length(trim(coalesce(experiment_code, ''))) > 0"
+            ).fetchone()
+            return int(row[0]) if row else 0
+
+    def _runs_per_hour_db(self) -> float:
+        """Calculate recent ScienceBot throughput (runs/hour) from article timestamps."""
+        try:
+            with sqlite3.connect(DB_FILE) as conn:
+                rows = conn.execute(
+                    "SELECT created_at FROM articles ORDER BY created_at DESC LIMIT 200"
+                ).fetchall()
+            now = datetime.now(timezone.utc)
+            stamps = []
+            for (ts,) in rows:
+                if not ts:
+                    continue
+                try:
+                    dt = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+                    if dt.tzinfo is None:
+                        dt = dt.replace(tzinfo=timezone.utc)
+                    if (now - dt).total_seconds() <= 86400:
+                        stamps.append(dt)
+                except ValueError:
+                    continue
+            if not stamps:
+                return 0.0
+            recent_6h = [d for d in stamps if (now - d).total_seconds() <= 21600]
+            sample = recent_6h if len(recent_6h) >= 2 else stamps
+            span_h = max(0.5, (now - min(sample)).total_seconds() / 3600.0)
+            return round(len(sample) / span_h, 1)
+        except Exception:
+            return 0.0
 
     def _upsert_article_db(self, entry: Dict[str, Any]) -> None:
         with sqlite3.connect(DB_FILE) as conn:
@@ -432,12 +559,46 @@ class ScienceBot:
         )
         return novelty_score, is_unique, closest_title
 
-    def _load_articles_from_db(self) -> List[Dict[str, Any]]:
+    def _build_rag_examples(self, query_text: str, limit: int = 2) -> str:
+        """Retrieve top verified passing examples from science.db as few-shot RAG context."""
+        candidates = [
+            a for a in self.feed
+            if a.get("verified") and a.get("experiment_passed") and str(a.get("experiment_code") or "").strip()
+        ]
+        if not candidates:
+            return ""
+        q_words = {w for w in re.findall(r"[a-z0-9_]{4,}", (query_text or "").lower())}
+
+        def _score(a: Dict[str, Any]) -> tuple:
+            hay = f"{a.get('domain', '')} {a.get('title', '')} {a.get('insight', '')}".lower()
+            overlap = sum(1 for w in q_words if w in hay)
+            return (
+                overlap,
+                1 if a.get("data_first") else 0,
+                1 if a.get("is_unique") else 0,
+                int(a.get("novelty_score") or 0),
+            )
+
+        top = sorted(candidates, key=_score, reverse=True)[:limit]
+        blocks = []
+        for idx, ex in enumerate(top, 1):
+            code_snip = str(ex.get("experiment_code") or "").strip()[:550]
+            blocks.append(
+                f"Example {idx} ({ex.get('domain', 'physics')} — {ex.get('title', '')[:80]}):\n"
+                f"```python\n{code_snip}\n```"
+            )
+        return (
+            "\nVerified working Python reference(s) from past runs (follow these import/numerical patterns):\n"
+            + "\n".join(blocks)
+            + "\n"
+        )
+
+    def _load_articles_from_db(self, limit: int = MAX_FEED_ITEMS) -> List[Dict[str, Any]]:
         with sqlite3.connect(DB_FILE) as conn:
             conn.row_factory = sqlite3.Row
             rows = conn.execute(
                 "SELECT * FROM articles WHERE published = 1 ORDER BY created_at DESC LIMIT ?",
-                (MAX_FEED_ITEMS,),
+                (limit,),
             ).fetchall()
         items = []
         for r in rows:
@@ -514,6 +675,8 @@ class ScienceBot:
             except (OSError, ValueError, TypeError):
                 pass
         self.feed = self._load_articles_from_db()
+        if os.getenv("SCIENCE_ALWAYS_RUN", "1") == "1":
+            self.enabled = True
         if self.total_runs < len(self.feed):
             self.total_runs = len(self.feed)
 
@@ -549,7 +712,10 @@ class ScienceBot:
             if self.next_run_epoch and self.enabled
             else None
         )
-        verified_count = sum(1 for item in self.feed if item.get("verified"))
+        verified_count = self._count_verified_db()
+        training_examples = self._count_training_examples_db()
+        training_goal = max(1, int(os.getenv("TRAINING_GOAL", "1000")))
+        training_pct = min(100.0, round(100.0 * training_examples / training_goal, 1))
         unique_items = [item for item in self.feed if item.get("is_unique")]
         latest_unique = (
             {
@@ -574,7 +740,11 @@ class ScienceBot:
             "calls_per_cycle": 2 if self.mode == "eco" else (2 + 2 * self.workers_per_run),
             "arxiv_grounding": self.arxiv_grounding,
             "total_runs": self.total_runs,
+            "runs_per_hour": self._runs_per_hour_db(),
             "verified_count": verified_count,
+            "training_examples": training_examples,
+            "training_goal": training_goal,
+            "training_pct": training_pct,
             "unique_count": len(unique_items),
             "latest_unique": latest_unique,
             "strict_publish": self.strict_publish,
@@ -590,6 +760,7 @@ class ScienceBot:
             "cooling_down": info.get("cooling_down", []),
             "available_providers": info.get("available_providers", []),
             "api_key_configured": _has_any_api_key(),
+            "phone_alerts_enabled": os.getenv("PHONE_ALERTS_ENABLED", "1") == "1" and bool((os.getenv("NTFY_TOPIC") or "").strip()),
             "current_run": self.current_run_details,
         }
 
@@ -1170,6 +1341,7 @@ class ScienceBot:
                         )
 
                     w_count = self.workers_per_run
+                    rag_ctx = self._build_rag_examples(f"{scout_angle}\n{paper_ctx}", limit=2)
                     lenses = [
                         "Mechanistic & Theoretical Physics/Biology",
                         "Experimental & Empirical Falsification",
@@ -1185,7 +1357,7 @@ class ScienceBot:
                             "action",
                             (
                                 f"Perspective: {lenses[i % len(lenses)]}\n"
-                                f"Scout brief:\n{scout_angle}\n{paper_ctx}\n"
+                                f"Scout brief:\n{scout_angle}\n{paper_ctx}{rag_ctx}\n"
                                 "Produce a JSON object with keys: "
                                 '"title", "domain", "insight", "hypothesis", "mini_experiment", "open_question", '
                                 f"and:\n{exp_schema_note}\nReturn ONLY valid JSON."
@@ -1223,6 +1395,37 @@ class ScienceBot:
                         ),
                     )
                     passed_count = sum(1 for r in exp_results if r.get("passed"))
+                    if passed_count == 0 and parsed_writers[best_idx]:
+                        broken_code = str(parsed_writers[best_idx].get("experiment_code") or "").strip()
+                        err_out = str(exp_results[best_idx].get("output") or "")[:600]
+                        if broken_code or err_out:
+                            self._set_stage("Self-repairing failed Python experiment (3/5)...")
+                            repair_raw = await self._call_drone(
+                                "Sci-Repair",
+                                "writer",
+                                "action",
+                                (
+                                    "Your Python verification script failed in the sandbox.\n"
+                                    f"Broken code:\n```python\n{broken_code[:1200]}\n```\n"
+                                    f"Error/Output:\n{err_out}\n\n"
+                                    "Fix ONLY the Python bug (imports, units, array shapes, or syntax). "
+                                    f"Return ONLY valid JSON matching the original keys with corrected \"experiment_code\".\n"
+                                    f"Original draft:\n{writer_outputs[best_idx][:1500]}"
+                                ),
+                                provider_override=heavy_prov,
+                            )
+                            repaired_obj = _extract_json_obj(repair_raw)
+                            if repaired_obj and repaired_obj.get("experiment_code"):
+                                repaired_res = await loop.run_in_executor(
+                                    None, _run_experiment_code, str(repaired_obj.get("experiment_code") or "")
+                                )
+                                if repaired_res.get("passed"):
+                                    _log_repair_sft(broken_code, err_out, repair_raw)
+                                    parsed_writers[best_idx] = repaired_obj
+                                    exp_results[best_idx] = repaired_res
+                                    writer_outputs[best_idx] = repair_raw
+                                    passed_count = 1
+                                    self._log_run_step("Self-repair fixed Python experiment!")
                     exp_res = exp_results[best_idx]
                     writer_raw = writer_outputs[best_idx]
                     self._log_run_step(
@@ -1329,6 +1532,11 @@ class ScienceBot:
                         target=self._publish_static_site,
                         daemon=True,
                     ).start()
+                    threading.Thread(
+                        target=send_phone_alert,
+                        args=(entry,),
+                        daemon=True,
+                    ).start()
                     if is_unique and data_first:
                         self._emit("unique_discovery", {**entry, "closest_match_title": closest_title})
                         self._set_stage(f"NOVEL STRAIN LEAD ({novelty_score}% score) published! Waiting for next cycle")
@@ -1364,14 +1572,236 @@ class ScienceBot:
         except Exception as e:
             print(f"[ScienceBot] site deploy error: {e}", flush=True)
 
+    async def _run_turbo_slot(self, slot_id: int) -> Optional[Dict[str, Any]]:
+        """Run one independent fast cycle for parallel Groq data collection."""
+        loop = asyncio.get_event_loop()
+        run_started = time.time()
+        async with self._db_lock:
+            run_idx = self.total_runs + slot_id
+            recent_titles = [item.get("title", "") for item in self.feed[:8] if item.get("title")]
+            recent_urls = {item.get("source_url") for item in self.feed[:20] if item.get("source_url")}
+            if self.topic_focus:
+                domain = self.topic_focus
+                arxiv_query = f"all:{self.topic_focus.replace(' ', '+')}"
+            else:
+                domain, arxiv_query = SCIENCE_DOMAINS[run_idx % len(SCIENCE_DOMAINS)]
+
+        paper = None
+        paper_ctx = ""
+        if self.arxiv_grounding:
+            papers = await loop.run_in_executor(None, _fetch_arxiv_papers, arxiv_query, 6)
+            fresh = [p for p in papers if p.get("url") not in recent_urls]
+            pool = fresh or papers
+            if pool:
+                paper = pool[slot_id % len(pool)]
+                paper_ctx = f"\nPaper: {paper['title']}\nURL: {paper['url']}\nSummary: {paper['summary']}\n"
+
+        scout_raw = await self._call_drone(
+            f"Turbo-Scout-{slot_id+1}",
+            "scout",
+            "architecture",
+            (
+                f"Domain: {domain}\n{paper_ctx}"
+                f"Avoid: {'; '.join(recent_titles[:5])}\n"
+                "Propose ONE falsifiable computational physics/astrophysics angle testable in Python (numpy/scipy/sympy). "
+                "Reply with 2-3 crisp sentences."
+            ),
+            provider_override="groq",
+        )
+        await asyncio.sleep(0.2)
+        rag_ctx = self._build_rag_examples(f"{scout_raw}\n{paper_ctx}", limit=2)
+        exp_schema = (
+            '- "experiment_code": a self-contained Python 3 script (`math`, `cmath`, `random`, `statistics`, `numpy`, `scipy`, `h5py`, `emcee`, `json`, `os`) '
+            "that runs a quantitative check using real constants "
+            "(G=6.67430e-11, c=2.99792458e8, hbar=1.054571817e-34, k_B=1.380649e-23, M_sun=1.98847e30). "
+            "When testing gravitational-wave mergers, ringdowns, radiated mass/energy, spins, or shadows, you may load the real LIGO/Virgo/KAGRA GWTC + EHT catalog from "
+            "`json.load(open(os.environ['GWTC_CATALOG_PATH']))` (`events`: 282 mergers; `eht_targets`: `M87*`, `SgrA*`). "
+            "Always filter out `None` values when reading catalog fields. "
+            "It MUST compute real numerical values, assert physical consistency, and print clear metrics plus PASS or FAIL."
+        )
+        w_count = 2
+        lenses = ["Quantitative Modeling", "Experimental Falsification"]
+        writer_outputs = await asyncio.gather(*[
+            self._call_drone(
+                f"Turbo-W{slot_id+1}-{i+1}",
+                "writer",
+                "action",
+                (
+                    f"Perspective: {lenses[i]}\nScout brief:\n{scout_raw}\n{paper_ctx}{rag_ctx}\n"
+                    'Return ONLY valid JSON with "experiment_code" FIRST, followed by concise (2-3 sentence) keys: '
+                    '"title", "domain", "insight", "hypothesis", "mini_experiment", "open_question".\n'
+                    f"Schema for experiment_code:\n{exp_schema}"
+                ),
+                provider_override="groq",
+            )
+            for i in range(w_count)
+        ])
+        parsed_writers = [_extract_json_obj(w) or {} for w in writer_outputs]
+        exp_results = await asyncio.gather(*[
+            loop.run_in_executor(None, _run_experiment_code, str(obj.get("experiment_code") or ""))
+            for obj in parsed_writers
+        ])
+        best_idx = max(
+            range(len(exp_results)),
+            key=lambda idx: (1 if exp_results[idx].get("passed") else 0, len(exp_results[idx].get("output") or "")),
+        )
+        if not exp_results[best_idx].get("passed"):
+            broken = str(parsed_writers[best_idx].get("experiment_code") or "").strip()
+            err_out = str(exp_results[best_idx].get("output") or "")[:600]
+            if not broken:
+                print(f"[Turbo] Empty code from W{slot_id+1}: {writer_outputs[best_idx][:220]!r}", flush=True)
+            rep_raw = await self._call_drone(
+                f"Turbo-Repair-{slot_id+1}",
+                "writer",
+                "action",
+                (
+                    f"Fix ONLY the JSON formatting / Python bug and return ONLY valid JSON with all keys including \"experiment_code\".\n"
+                    f"Broken code:\n```python\n{broken[:1000]}\n```\nError:\n{err_out}\nDraft:\n{writer_outputs[best_idx][:1500]}"
+                ),
+                provider_override="groq",
+            )
+            rep_obj = _extract_json_obj(rep_raw)
+            if rep_obj and rep_obj.get("experiment_code"):
+                rep_res = await loop.run_in_executor(None, _run_experiment_code, str(rep_obj["experiment_code"]))
+                if rep_res.get("passed"):
+                    _log_repair_sft(broken, err_out, rep_raw)
+                    parsed_writers[best_idx] = rep_obj
+                    exp_results[best_idx] = rep_res
+                    writer_outputs[best_idx] = rep_raw
+
+        exp_res = exp_results[best_idx]
+        writer_raw = writer_outputs[best_idx]
+        await asyncio.sleep(0.2)
+        critic_out = await self._call_drone(
+            f"Turbo-Critic-{slot_id+1}",
+            "critic",
+            "audit",
+            (
+                f"Audit the selected Draft against its ACTUAL measured experiment output below.\n"
+                f"Draft:\n{writer_raw}\n\n"
+                f"Experiment Passed: {exp_res['passed']}\nMeasured Output:\n{exp_res['output']}\n\n"
+                "Start with 'VERDICT: VALID' if the math, units, and code are physically sound within the stated regime (even if minor scope caveats apply), "
+                "or 'VERDICT: FATAL_ERROR' ONLY if there is an actual formula/unit/code error or the script failed to test the hypothesis. "
+                "Then give 2-3 sharp bullets on scientific accuracy, math/simulation validity, and scope caveats."
+            ),
+            provider_override="groq",
+        )
+        await asyncio.sleep(0.2)
+        judge_raw = await self._call_drone(
+            f"Turbo-Judge-{slot_id+1}",
+            "judge",
+            "architecture",
+            (
+                f"Selected Draft:\n{writer_raw}\n\n"
+                f"Actual Python Experiment Result (passed={exp_res['passed']}):\n{exp_res['output']}\n\n"
+                f"Critic Audit:\n{critic_out}\n\n"
+                "Synthesize the empirically grounded result as a single JSON object with keys: "
+                '"title", "domain", "insight", "hypothesis", "mini_experiment", "open_question", "critic_takeaway", '
+                '"confidence" (set "High" if experiment passed, directly tested the hypothesis, and Critic returned VERDICT: VALID with no fatal physics/math/unit error; record any minor scope caveats in critic_takeaway/open_question; otherwise set "Exploratory" or "Speculative"). '
+                "Return ONLY valid JSON."
+            ),
+            provider_override="groq",
+        )
+        parsed = _extract_json_obj(judge_raw) or _extract_json_obj(writer_raw) or {}
+        confidence = parsed.get("confidence") or "Exploratory"
+        verified = bool(exp_res.get("passed")) and confidence == "High"
+        published = verified if self.strict_publish else True
+        entry = {
+            "id": str(uuid.uuid4())[:8],
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "title": parsed.get("title") or f"{domain} Brief",
+            "domain": parsed.get("domain") or domain,
+            "insight": parsed.get("insight") or judge_raw[:600],
+            "hypothesis": parsed.get("hypothesis") or "See insight.",
+            "mini_experiment": parsed.get("mini_experiment") or "N/A",
+            "experiment_code": exp_res.get("code", ""),
+            "experiment_output": exp_res.get("output", ""),
+            "experiment_passed": bool(exp_res.get("passed")),
+            "open_question": parsed.get("open_question") or "",
+            "critic_takeaway": parsed.get("critic_takeaway") or critic_out[:1200],
+            "confidence": confidence,
+            "verified": verified,
+            "published": published,
+            "data_first": False,
+            "scout_angle": scout_raw[:2000],
+            "source_title": paper["title"] if paper else "",
+            "source_url": paper["url"] if paper else "",
+            "wiki_title": "",
+            "wiki_extract": "",
+            "wiki_url": "",
+        }
+        async with self._db_lock:
+            novelty_score, is_unique, _ = self._score_uniqueness(entry, self.feed)
+            entry["novelty_score"] = novelty_score
+            entry["is_unique"] = is_unique
+            self._upsert_article_db(entry)
+            self.feed = self._load_articles_from_db()
+            self.total_runs += 1
+            self._save_state()
+            self._emit("run_complete", entry)
+            if published:
+                self._emit("update", entry)
+                threading.Thread(target=send_phone_alert, args=(entry,), daemon=True).start()
+                self._turbo_pub_count += 1
+                if self._turbo_pub_count % 10 == 0:
+                    threading.Thread(target=self._publish_static_site, daemon=True).start()
+            self._emit("status", self.get_status())
+        return entry
+
+    def _check_training_auto_stop(self) -> bool:
+        """Stop ScienceBot automatically once verified training examples reach TRAINING_AUTO_STOP_AT."""
+        stop_at = int(os.getenv("TRAINING_AUTO_STOP_AT", "0") or 0)
+        if stop_at <= 0:
+            return False
+        count = self._count_training_examples_db()
+        if count < stop_at:
+            return False
+        self.enabled = False
+        self.next_run_epoch = None
+        self._save_state()
+        self._set_stage(f"Goal reached: {count}/{stop_at} verified training examples — stopped!")
+
+        def _finalize():
+            try:
+                from export_training_data import export_datasets
+                export_datasets()
+            except Exception:
+                pass
+            self._publish_static_site()
+
+        threading.Thread(target=_finalize, daemon=True).start()
+        return True
+
+    async def run_turbo_batch(self, concurrency: int = 4) -> None:
+        if self._run_lock.locked() or self._check_training_auto_stop():
+            return
+        async with self._run_lock:
+            self.running = True
+            self.last_error = None
+            self._set_stage(f"Groq Turbo: running {concurrency} parallel cycles toward 1,000...")
+            try:
+                await asyncio.gather(
+                    *[asyncio.wait_for(self._run_turbo_slot(i), timeout=240.0) for i in range(concurrency)],
+                    return_exceptions=True,
+                )
+            finally:
+                self.running = False
+                self.next_run_epoch = time.time() + self.interval_minutes * 60
+                self._emit("status", self.get_status())
+
     async def run_loop(self) -> None:
         """Background scheduler loop that runs every interval_minutes when enabled."""
         await asyncio.sleep(2.0)
         loop = asyncio.get_event_loop()
         await loop.run_in_executor(None, self.backfill_wiki_for_feed)
 
-        if self.enabled and not self.feed and _has_any_api_key():
-            await self.run_cycle()
+        if self.enabled and _has_any_api_key() and (not self.feed or self.interval_minutes == 0):
+            if self._check_training_auto_stop():
+                pass
+            elif get_active_provider_info()["provider"] == "groq" and os.getenv("SCIENCE_TURBO", "1") == "1":
+                await self.run_turbo_batch(max(1, int(os.getenv("SCIENCE_TURBO_CONCURRENCY", "4"))))
+            else:
+                await self.run_cycle()
         else:
             self.next_run_epoch = time.time() + self.interval_minutes * 60
             self._set_stage(
@@ -1398,7 +1828,12 @@ class ScienceBot:
                     self._set_stage(f"Alarm schedule sleeping (active {self.schedule_start}–{self.schedule_end})")
                 elif _has_any_api_key():
                     try:
-                        await self.run_cycle()
+                        if self._check_training_auto_stop():
+                            continue
+                        if get_active_provider_info()["provider"] == "groq" and os.getenv("SCIENCE_TURBO", "1") == "1":
+                            await self.run_turbo_batch(max(1, int(os.getenv("SCIENCE_TURBO_CONCURRENCY", "4"))))
+                        else:
+                            await self.run_cycle()
                     except (Exception, asyncio.CancelledError) as e:
                         self.running = False
                         self.last_error = f"Cycle interrupted: {e}"

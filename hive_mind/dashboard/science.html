@@ -359,6 +359,31 @@
       <span id="runsText">Updates: 0</span>
       <span id="modelText">Model: --</span>
     </div>
+    <div style="margin-top:8px;">
+      <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
+        <span>Lesson 1 AI Training Data</span>
+        <span id="trainingText">0 / 1,000 (0%)</span>
+      </div>
+      <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+        <div id="trainingBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
+      </div>
+    </div>
+    <div id="dualProgressBox" style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.08);">
+      <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
+        <span>Runpod Pod 1 (A40 · v3 DPO + Self-Repair)</span>
+        <span id="pod1Text">Loading...</span>
+      </div>
+      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;margin-bottom:8px;">
+        <div id="pod1Bar" style="height:100%;width:0%;background:linear-gradient(90deg,#f59e0b,#facc15);transition:width 0.3s ease;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
+        <span>Runpod Pod 2 (RTX 4090 · Live ScienceBot 4B)</span>
+        <span id="pod2Text">Starting...</span>
+      </div>
+      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+        <div id="pod2Bar" style="height:100%;width:0%;background:linear-gradient(90deg,#a78bfa,#2dd4bf);transition:width 0.3s ease;"></div>
+      </div>
+    </div>
   </div>
 
   <div class="controls">
@@ -366,6 +391,7 @@
       <button id="runNowBtn" class="primary">Run Now</button>
       <button id="toggleBtn">Pause Bot</button>
       <button id="notifyBtn">Alerts: Off</button>
+      <button id="phoneAlertBtn" type="button" title="Subscribe on ntfy app: sidequestai-lamont-8793" style="border-color: rgba(45, 212, 191, 0.5); color: #5eead4;">Test Phone Alert</button>
       <button id="omnibusBtn" type="button" style="border-color: rgba(250, 204, 21, 0.5); color: #fde047;">Email Workup Omnibus</button>
     </div>
     <div class="config-row">
@@ -645,10 +671,45 @@
       return `${s}s`;
     }
 
+    async function refreshDualProgress() {
+      try {
+        const res = await fetch("/api/science/dual-progress", { cache: "no-store" });
+        if (!res.ok) return;
+        const d = await res.json();
+        const p1 = d.pod1_a40 || {};
+        const p1Count = p1.dpo_pairs || 0;
+        const p1Target = p1.target || 692;
+        const p1Pct = Math.min(100, Math.round((1000 * p1Count) / Math.max(1, p1Target)) / 10);
+        const p1El = document.getElementById("pod1Text");
+        const p1Bar = document.getElementById("pod1Bar");
+        if (p1El) p1El.textContent = `${p1Count} DPO mistakes logged (${p1Pct}% of ${p1Target} queue)`;
+        if (p1Bar) p1Bar.style.width = `${p1Pct}%`;
+
+        const p2 = d.pod2_4090 || {};
+        const p2El = document.getElementById("pod2Text");
+        const p2Bar = document.getElementById("pod2Bar");
+        if (p2.cycles != null) {
+          const passPct = p2.cycles > 0 ? Math.round((1000 * (p2.verified || 0)) / p2.cycles) / 10 : 0;
+          const timePct = p2.duration_sec ? Math.min(100, Math.round((1000 * (p2.elapsed_sec || 0)) / p2.duration_sec) / 10) : 0;
+          if (p2El) p2El.textContent = `${p2.verified || 0} verified / ${p2.cycles} cycles (${passPct}% · ${p2.rate_per_hr || 0}/hr · ${Math.round((p2.elapsed_sec || 0)/60)}m)`;
+          if (p2Bar) p2Bar.style.width = `${timePct}%`;
+        }
+      } catch (_) {}
+    }
+    setInterval(refreshDualProgress, 10000);
+
     function renderStatus(st) {
       currentStatus = st;
       stageText.textContent = st.current_stage || "Ready";
-      runsText.textContent = `Published: ${st.verified_count || 0} verified (${st.unique_count || 0} unique) · ${st.rejected_count || 0} rejected (${st.total_runs || 0} runs)`;
+      runsText.textContent = `Published: ${st.verified_count || 0} verified (${st.unique_count || 0} unique) · ${st.rejected_count || 0} rejected (${st.total_runs || 0} runs · ${st.runs_per_hour ?? 0} runs/hr)`;
+      const tCount = st.training_examples ?? 0;
+      const tGoal = st.training_goal ?? 1000;
+      const tPct = st.training_pct ?? 0;
+      const tTextEl = document.getElementById("trainingText");
+      const tBarEl = document.getElementById("trainingBar");
+      if (tTextEl) tTextEl.textContent = `${tCount.toLocaleString()} / ${tGoal.toLocaleString()} verified (${tPct}%)`;
+      if (tBarEl) tBarEl.style.width = `${Math.min(100, Math.max(0, tPct))}%`;
+      if (typeof refreshDualProgress === "function") refreshDualProgress();
       modelText.textContent = `Model: ${st.model || "--"}`;
       const coolNote = (st.cooling_down && st.cooling_down.length) ? ` (cooling: ${st.cooling_down.join(",")})` : "";
       providerPill.textContent = `${(st.provider || "custom").toUpperCase()} FREE${coolNote}`;
@@ -657,6 +718,10 @@
       runNowBtn.disabled = !!st.running;
       runNowBtn.textContent = st.running ? "Running..." : "Run Now";
       toggleBtn.textContent = st.enabled ? "Pause Bot" : "Resume Bot";
+      if (typeof st.phone_alerts_enabled === "boolean") {
+        notifyEnabled = st.phone_alerts_enabled;
+        notifyBtn.textContent = notifyEnabled ? "Alerts: On" : "Alerts: Off";
+      }
 
       if (st.mode) modeSelect.value = st.mode;
       if (st.workers_per_run) workersSelect.value = String(st.workers_per_run);
@@ -1026,14 +1091,14 @@
             uniqueBanner.style.display = "block";
             uniqueBanner.innerHTML = `<strong>★ NEW UNIQUE DISCOVERY (${escapeHtml(msg.data.novelty_score || 0)}% novel):</strong> ${escapeHtml(msg.data.title)} — <a href="#card-${escapeHtml(msg.data.id)}" style="color:#4ade80;text-decoration:underline;" onclick="jumpToArticle('${escapeHtml(msg.data.id)}'); return false;">Jump to article</a>`;
             if (notifyEnabled && "Notification" in window && Notification.permission === "granted") {
-              new Notification(`Unique Discovery (${msg.data.novelty_score || 0}% novel): ${msg.data.title}`, { body: msg.data.insight });
+              try { new Notification(`Unique Discovery (${msg.data.novelty_score || 0}% novel): ${msg.data.title}`, { body: msg.data.insight }); } catch (_) {}
             }
           } else if (msg.type === "update") {
             feedItems = [msg.data, ...feedItems.filter(i => i.id !== msg.data.id)].slice(0, 100);
             renderFeed();
             refreshIndex();
             if (notifyEnabled && "Notification" in window && Notification.permission === "granted") {
-              new Notification(`Science Update: ${msg.data.title}`, { body: msg.data.insight });
+              try { new Notification(`Science Update: ${msg.data.title}`, { body: msg.data.insight }); } catch (_) {}
             }
           }
         } catch (e) {}
@@ -1137,14 +1202,36 @@
     saveSchedBtn.onclick = saveAlarmSchedule;
 
     notifyBtn.onclick = async () => {
-      if (!("Notification" in window)) return;
-      if (Notification.permission !== "granted") {
-        const perm = await Notification.requestPermission();
-        if (perm !== "granted") return;
+      const next = !notifyEnabled;
+      try {
+        const res = await fetch("/api/science/alerts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ enabled: next })
+        });
+        const data = await res.json();
+        notifyEnabled = !!data.phone_alerts_enabled;
+        notifyBtn.textContent = notifyEnabled ? "Alerts: On" : "Alerts: Off";
+      } catch (_) {}
+      if (notifyEnabled && "Notification" in window && Notification.permission === "default") {
+        try { await Notification.requestPermission(); } catch (_) {}
       }
-      notifyEnabled = !notifyEnabled;
-      notifyBtn.textContent = notifyEnabled ? "Alerts: On" : "Alerts: Off";
     };
+
+    const phoneAlertBtn = document.getElementById("phoneAlertBtn");
+    if (phoneAlertBtn) {
+      phoneAlertBtn.onclick = async () => {
+        phoneAlertBtn.textContent = "Sending...";
+        try {
+          const res = await fetch("/api/science/test-alert", { method: "POST" });
+          const d = await res.json();
+          phoneAlertBtn.textContent = d.sent ? `Sent! (${d.topic})` : "Alert Failed";
+          setTimeout(() => { phoneAlertBtn.textContent = "Test Phone Alert"; }, 4000);
+        } catch (_) {
+          phoneAlertBtn.textContent = "Alert Error";
+        }
+      };
+    }
 
     articleSelect.onchange = renderFeed;
     searchInput.oninput = renderFeed;

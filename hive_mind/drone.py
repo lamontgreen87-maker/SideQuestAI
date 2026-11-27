@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import requests
 import random
+import threading
 import time as _time
 
 
@@ -163,12 +164,15 @@ async def _pace_remote_call():
         _LAST_REMOTE_CALL_AT = _time.monotonic()
 
 
+_OLLAMA_LOCAL_LOCK = threading.Lock()
+
+
 class DroneAgent:
     """
     The Specialized 'Little AI'.
     Handles search, education, action, and testing using real local AI (Ollama).
     """
-    OLLAMA_URL = "http://localhost:11434/api/generate"
+    OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
     HEAVY_MODEL = os.getenv("HEAVY_MODEL", "qwen2.5-coder:7b")
     LIGHT_MODEL = os.getenv("LIGHT_MODEL", "qwen2.5-coder:7b") # Fast mobile-class audit
     NANO_MODEL = os.getenv("NANO_MODEL", "qwen2.5:14b")  # Fast mobile-class shatter
@@ -319,33 +323,43 @@ class DroneAgent:
             timeout_sec = int(os.getenv("OLLAMA_TIMEOUT", "45"))
             default_predict = "400" if self.role == "scout" else "2000"
             num_predict = int(os.getenv("OLLAMA_NUM_PREDICT", default_predict))
+            if self.role == "scout":
+                num_predict = min(num_predict, 500)
             def stream_request():
-                response = requests.post(
-                    self.OLLAMA_URL,
-                    json={
-                        "model": self.model,
-                        "prompt": full_prompt,
-                        "stream": stream_enabled,
-                        "keep_alive": "15m",
-                        "options": {"temperature": 0.7, "num_predict": num_predict}
-                    },
-                    timeout=(10, timeout_sec),
-                    stream=stream_enabled
-                )
-                if response.status_code != 200:
-                    return f"Error: Ollama API returned {response.status_code}"
+                payload = {
+                    "model": self.model,
+                    "messages": [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": prompt},
+                    ],
+                    "stream": stream_enabled,
+                    "keep_alive": "15m",
+                    "options": {"temperature": 0.7, "num_predict": num_predict},
+                }
+                model_low = (self.model or "").lower()
+                if "qwen3" in model_low or "sciencebot" in model_low:
+                    payload["think"] = False
+                with _OLLAMA_LOCAL_LOCK:
+                    response = requests.post(
+                        self.OLLAMA_URL,
+                        json=payload,
+                        timeout=(10, timeout_sec),
+                        stream=stream_enabled
+                    )
+                    if response.status_code != 200:
+                        return f"Error: Ollama API returned {response.status_code}"
 
-                if not stream_enabled:
-                    return response.json().get("response", "")
-                
-                full_response = ""
-                for line in response.iter_lines():
-                    if line:
-                        chunk = json.loads(line)
-                        content = chunk.get("response", "")
-                        full_response += content
-                        print(".", end="", flush=True) # Token pulse
-                return full_response
+                    if not stream_enabled:
+                        return str((response.json().get("message") or {}).get("content") or "")
+                    
+                    full_response = ""
+                    for line in response.iter_lines():
+                        if line:
+                            chunk = json.loads(line)
+                            content = str((chunk.get("message") or {}).get("content") or chunk.get("response") or "")
+                            full_response += content
+                            print(".", end="", flush=True) # Token pulse
+                    return full_response
 
             output = await loop.run_in_executor(None, stream_request)
             print(f"\n[DroneAgent] AI Response received (Length: {len(output)})", flush=True)

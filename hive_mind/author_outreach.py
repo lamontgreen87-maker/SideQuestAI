@@ -2,14 +2,71 @@
 
 from __future__ import annotations
 
+import hashlib
+import hmac
+import json
+import os
 import re
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import requests
 
+_CLAIM_SECRET = os.getenv("SIDEQUEST_CLAIM_SECRET", "sidequestai-claim-v1")
+
+
+def make_claim_token(article_id: str, arxiv_id: str = "") -> str:
+    msg = f"{article_id}:{arxiv_id}".encode("utf-8")
+    return hmac.new(_CLAIM_SECRET.encode("utf-8"), msg, hashlib.sha256).hexdigest()[:16]
+
+
+def fetch_verified_claims() -> Dict[str, Dict[str, str]]:
+    """Fetch public GitHub claim issues that carry a valid HMAC claim token (best-effort)."""
+    claims: Dict[str, Dict[str, str]] = {}
+    try:
+        r = requests.get(
+            "https://api.github.com/repos/lamontgreen87-maker/SideQuestAI/issues",
+            params={"state": "all", "per_page": 50},
+            timeout=4,
+        )
+        if not r.ok:
+            return claims
+        for issue in r.json():
+            body = str(issue.get("body") or "")
+            m_id = re.search(r"Article ID:\s*([A-Za-z0-9_-]+)", body)
+            m_tok = re.search(r"Claim Token:\s*([a-f0-9]{16})", body)
+            m_ax = re.search(r"arXiv ID:\s*([^\s\r\n]+)", body)
+            m_auth = re.search(r"Claimed By:\s*(.+)", body)
+            if not (m_id and m_tok):
+                continue
+            art_id = m_id.group(1).strip()
+            ax_id = "" if not m_ax or m_ax.group(1).strip() == "N/A" else m_ax.group(1).strip()
+            if hmac.compare_digest(m_tok.group(1).strip(), make_claim_token(art_id, ax_id)):
+                claims[art_id] = {
+                    "claimed_by": (m_auth.group(1).strip() if m_auth else "") or (issue.get("user") or {}).get("login", "Verified Author"),
+                    "claim_url": str(issue.get("html_url") or ""),
+                }
+    except Exception:
+        pass
+    return claims
+
+_CACHE_FILE = Path(__file__).resolve().parent / "memory" / "inspire_cache.json"
 _INSPIRE_CACHE: Dict[str, Dict[str, Any]] = {}
+if _CACHE_FILE.exists():
+    try:
+        _INSPIRE_CACHE = json.loads(_CACHE_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        _INSPIRE_CACHE = {}
 _ARXIV_RE = re.compile(r"arxiv\.org/(?:abs|pdf)/([0-9]{4}\.[0-9]{4,5})", re.IGNORECASE)
+
+
+def _save_inspire_cache() -> None:
+    try:
+        _CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        _CACHE_FILE.write_text(json.dumps(_INSPIRE_CACHE, indent=2), encoding="utf-8")
+    except Exception:
+        pass
 
 
 def extract_arxiv_id(source_url: str) -> str:
@@ -63,7 +120,36 @@ def lookup_inspire_authors(arxiv_id: str) -> Dict[str, Any]:
         pass
 
     _INSPIRE_CACHE[arxiv_id] = info
+    _save_inspire_cache()
     return info
+
+
+def enrich_articles_with_authors(articles: List[Dict[str, Any]], max_lookups: int = 25) -> List[Dict[str, Any]]:
+    """Return shallow-copied articles enriched with INSPIRE-HEP author metadata, claim tokens, and verified claims."""
+    claims = fetch_verified_claims()
+    enriched: List[Dict[str, Any]] = []
+    lookups = 0
+    for art in articles:
+        copy = dict(art)
+        art_id = str(copy.get("id") or "")
+        arxiv_id = extract_arxiv_id(str(copy.get("source_url") or ""))
+        if arxiv_id:
+            copy["arxiv_id"] = arxiv_id
+            if arxiv_id in _INSPIRE_CACHE or lookups < max_lookups:
+                if arxiv_id not in _INSPIRE_CACHE:
+                    lookups += 1
+                info = lookup_inspire_authors(arxiv_id)
+                copy["author_name"] = info.get("primary_author", "")
+                copy["author_affiliation"] = info.get("primary_affiliation", "")
+                copy["author_email"] = info.get("primary_email", "")
+                copy["inspire_url"] = info.get("inspire_url", "")
+        if copy.get("source_url") and art_id:
+            copy["claim_token"] = make_claim_token(art_id, arxiv_id)
+            if art_id in claims:
+                copy["claimed_by"] = claims[art_id]["claimed_by"]
+                copy["claim_url"] = claims[art_id]["claim_url"]
+        enriched.append(copy)
+    return enriched
 
 
 def _greeting_name(full_name: str) -> str:
@@ -154,3 +240,4 @@ def build_author_omnibus(articles: List[Dict[str, Any]], hours: Optional[int] = 
         "count": len(drafts),
         "drafts": drafts,
     }
+
