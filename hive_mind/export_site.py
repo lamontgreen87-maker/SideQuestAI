@@ -671,6 +671,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <a class="btn" href="https://github.com/lamontgreen87-maker/SideQuestAI" target="_blank" rel="noopener" style="text-decoration:none;">GitHub ↗</a>
       </div>
     </section>
+    <section class="container model-banner" id="trainingRoadmapBox" style="display:block;padding-top:0.9rem;padding-bottom:0.95rem;"></section>
     <section id="splashBox" class="splash-section container"></section>
     <div class="container layout" id="mainLayout">
       <section class="articles" id="articlesBox"></section>
@@ -788,10 +789,53 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         `<span class="stat-pill"><strong>${s.verified_count ?? 0}</strong> Verified</span>`,
         `<span class="stat-pill"><strong>${s.unique_count ?? 0}</strong> ★ Empirical Leads</span>`,
         `<span class="stat-pill"><strong>${s.runs_per_hour ?? 0}</strong> Runs/hr</span>`,
-        `<span class="stat-pill"><strong>${s.training_examples ?? 0}/${s.training_goal ?? 1000}</strong> Lesson 1 (${s.training_pct ?? 0}%)</span>`,
+        `<span class="stat-pill"><strong>${s.training_examples ?? 0}/${s.training_goal ?? 2500}</strong> Lesson 3 (v5) (${s.training_pct ?? 0}%)</span>`,
         `<span class="stat-pill"><strong>${idx.total_terms ?? 0}</strong> Terms</span>`,
         gen ? `<span class="stat-pill">Updated <strong>${escapeHtml(gen)} UTC</strong></span>` : "",
       ].join("");
+      renderTrainingRoadmap();
+    }
+
+    function renderTrainingRoadmap() {
+      const box = document.getElementById("trainingRoadmapBox");
+      if (!box) return;
+      const ts = (state.data && state.data.training_stats) || null;
+      if (!ts) { box.style.display = "none"; return; }
+      const l3 = ts.lesson3_targets || {};
+      const v4 = ts.v4_live || {};
+      const passPct = v4.cycles > 0 ? Math.round((1000 * (v4.verified || 0)) / v4.cycles) / 10 : 60.0;
+      const bar = (label, cur, tgt, unit, color) => {
+        const pct = Math.min(100, Math.round((1000 * (cur || 0)) / Math.max(1, tgt || 1)) / 10);
+        return `
+          <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.65rem;">
+            <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--muted);margin-bottom:0.25rem;gap:0.5rem;">
+              <span>${escapeHtml(label)}</span>
+              <span style="color:var(--text);font-weight:600;">${Number(cur || 0).toLocaleString()} / ${Number(tgt || 0).toLocaleString()} ${escapeHtml(unit)} (${pct}%)</span>
+            </div>
+            <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+              <div style="height:100%;width:${pct}%;background:${color};"></div>
+            </div>
+          </div>
+        `;
+      };
+      box.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.65rem;">
+          <div>
+            <div class="kicker" style="margin-bottom:0.1rem;">Training Progression · Lesson 3 (v5) Roadmap</div>
+            <div style="font-size:0.86rem;color:var(--muted);">
+              <code>v3</code> (29.4% pass) → <code>v4</code> (<strong style="color:var(--green);">${passPct}% pass</strong>${v4.cycles ? ` · ${v4.verified}/${v4.cycles} on RTX 4090 at ${v4.rate_per_hr || 0}/hr` : ""}) → <strong style="color:var(--accent);">v5 Frontier &amp; Real-Data</strong>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0.55rem;">
+          ${bar("Verified Passing SFT", (l3.verified_sft || {}).current, (l3.verified_sft || {}).target || 2500, "articles", "linear-gradient(90deg,#38bdf8,#4ade80)")}
+          ${bar("Hard-Domain DPO Pairs", (l3.dpo_pairs || {}).current, (l3.dpo_pairs || {}).target || 1000, "pairs", "linear-gradient(90deg,#f59e0b,#facc15)")}
+          ${bar("Self-Repair SFT Traces", (l3.self_repair_sft || {}).current, (l3.self_repair_sft || {}).target || 3000, "traces", "linear-gradient(90deg,#fb7185,#f472b6)")}
+          ${bar("Unique Empirical Leads", (l3.unique_leads || {}).current, (l3.unique_leads || {}).target || 200, "leads", "linear-gradient(90deg,#eab308,#fde047)")}
+          ${bar("Real-Data (GWTC / EHT / .hdf5)", (l3.real_data_runs || {}).current, (l3.real_data_runs || {}).target || 400, "runs", "linear-gradient(90deg,#0ea5e9,#38bdf8)")}
+          ${bar("Data-First (.hdf5) Strain", (l3.data_first_hdf5 || {}).current, (l3.data_first_hdf5 || {}).target || 25, "runs", "linear-gradient(90deg,#a78bfa,#c084fc)")}
+        </div>
+      `;
     }
 
     function renderDomains() {
@@ -1415,10 +1459,43 @@ def export_site(output_dir: Path = SITE_DIR, bot: Any = None) -> Dict[str, Any]:
     from author_outreach import enrich_articles_with_authors
     all_published = bot._load_articles_from_db(limit=5000)
     enriched_articles = enrich_articles_with_authors(list(all_published), max_lookups=25)
+    training_stats: Dict[str, Any] = {}
+    try:
+        import sqlite3
+        train_dir = BASE_DIR / "memory" / "training"
+        dpo_file = train_dir / "onpolicy_dpo_pairs_v3.jsonl"
+        repair_file = train_dir / "self_repair_sft.jsonl"
+        live_file = train_dir / "runpod_live_progress.json"
+        dpo_count = sum(1 for ln in dpo_file.read_text(encoding="utf-8", errors="ignore").splitlines() if ln.strip()) if dpo_file.exists() else 0
+        repair_count = sum(1 for ln in repair_file.read_text(encoding="utf-8", errors="ignore").splitlines() if ln.strip()) if repair_file.exists() else 0
+        v4_live = json.loads(live_file.read_text(encoding="utf-8", errors="ignore")) if live_file.exists() else {}
+        db_path = getattr(bot, "DB_FILE", BASE_DIR / "memory" / "science.db")
+        with sqlite3.connect(db_path) as conn:
+            verified_sft = int(conn.execute("SELECT COUNT(*) FROM articles WHERE verified=1 AND experiment_passed=1").fetchone()[0] or 0)
+            unique_leads = int(conn.execute("SELECT COUNT(*) FROM articles WHERE verified=1 AND is_unique=1").fetchone()[0] or 0)
+            data_first_hdf5 = int(conn.execute("SELECT COUNT(*) FROM articles WHERE verified=1 AND data_first=1").fetchone()[0] or 0)
+            real_data_runs = int(conn.execute(
+                "SELECT COUNT(*) FROM articles WHERE verified=1 AND (lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%gwtc%' OR lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%eht%' OR lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%.hdf5%')"
+            ).fetchone()[0] or 0)
+        training_stats = {
+            "lesson": "Lesson 3 (v5)",
+            "v4_live": v4_live,
+            "lesson3_targets": {
+                "verified_sft": {"current": verified_sft, "target": 2500},
+                "dpo_pairs": {"current": dpo_count, "target": 1000},
+                "self_repair_sft": {"current": repair_count, "target": 3000},
+                "unique_leads": {"current": unique_leads, "target": 200},
+                "real_data_runs": {"current": real_data_runs, "target": 400},
+                "data_first_hdf5": {"current": data_first_hdf5, "target": 25},
+            },
+        }
+    except Exception:
+        pass
     payload: Dict[str, Any] = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "status": bot.get_status(),
         "index": bot.build_dictionary_index(),
+        "training_stats": training_stats,
         "articles": enriched_articles,
     }
 
