@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T23:24:17.585539+00:00",
+  "generated_at": "2026-11-27T23:24:48.621802+00:00",
   "status": {
     "enabled": false,
     "running": false,
@@ -12,9 +12,9 @@
     "calls_per_cycle": 2,
     "arxiv_grounding": true,
     "total_runs": 22958,
-    "runs_per_hour": 241.1,
-    "verified_count": 3554,
-    "training_examples": 3554,
+    "runs_per_hour": 238.7,
+    "verified_count": 3555,
+    "training_examples": 3555,
     "training_goal": 3500,
     "training_pct": 100.0,
     "unique_count": 33,
@@ -22872,17 +22872,17 @@
   "training_stats": {
     "lesson": "Lesson 3 (v5)",
     "v4_live": {
-      "cycles": 607,
-      "verified": 22,
+      "cycles": 592,
+      "verified": 19,
       "errors": 0,
-      "elapsed_sec": 2406.8,
+      "elapsed_sec": 2479.6,
       "duration_sec": 2700,
-      "rate_per_hr": 907.9,
-      "updated_at": "2026-11-27T23:23:38.140705+00:00"
+      "rate_per_hr": 859.5,
+      "updated_at": "2026-11-27T23:24:39.389316+00:00"
     },
     "lesson3_targets": {
       "verified_sft": {
-        "current": 3554,
+        "current": 3555,
         "target": 2500
       },
       "dpo_pairs": {
@@ -22894,15 +22894,15 @@
         "target": 3000
       },
       "unique_leads": {
-        "current": 241,
+        "current": 242,
         "target": 200
       },
       "real_data_runs": {
-        "current": 691,
+        "current": 692,
         "target": 400
       },
       "data_first_hdf5": {
-        "current": 46,
+        "current": 47,
         "target": 100
       }
     }
