@@ -119,6 +119,7 @@ def _extract_json_obj(raw: str) -> Optional[Dict[str, Any]]:
     return None
 
 
+import threading
 _PHONE_ALERT_LOCK = threading.Lock()
 _LAST_ALERT_FILE = BASE_DIR / "memory" / "last_phone_alert.txt"
 
