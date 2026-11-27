@@ -119,18 +119,44 @@ def _extract_json_obj(raw: str) -> Optional[Dict[str, Any]]:
     return None
 
 
+_PHONE_ALERT_LOCK = threading.Lock()
+_LAST_ALERT_FILE = BASE_DIR / "memory" / "last_phone_alert.txt"
+
+
 def send_phone_alert(entry: Dict[str, Any], force: bool = False) -> bool:
-    """Send a push notification via ntfy.sh when ScienceBot finds a high-value discovery."""
+    """Send a push notification via ntfy.sh only for truly rare, high-novelty discoveries (15m cooldown)."""
     if not force and os.getenv("PHONE_ALERTS_ENABLED", "1") != "1":
         return False
     topic = (os.getenv("NTFY_TOPIC") or "").strip()
     if not topic:
         return False
     is_unique = bool(entry.get("is_unique"))
+    data_first = bool(entry.get("data_first"))
     score = int(entry.get("novelty_score") or 0)
     verified = bool(entry.get("verified"))
-    if not force and not (verified and (is_unique or score >= 85)):
+    min_score = int(os.getenv("PHONE_ALERT_MIN_SCORE", "92"))
+    qualifies = verified and is_unique and (score >= min_score or (data_first and score >= 88))
+    if not force and not qualifies:
         return False
+    if not force and _degenerate_output_reason(str(entry.get("experiment_output") or "")):
+        return False
+
+    cooldown_s = int(os.getenv("PHONE_ALERT_COOLDOWN_S", "900"))
+    if not force and cooldown_s > 0:
+        with _PHONE_ALERT_LOCK:
+            now = time.time()
+            try:
+                last_ts = float(_LAST_ALERT_FILE.read_text(encoding="utf-8").strip()) if _LAST_ALERT_FILE.exists() else 0.0
+            except Exception:
+                last_ts = 0.0
+            if now - last_ts < cooldown_s:
+                return False
+            try:
+                _LAST_ALERT_FILE.parent.mkdir(parents=True, exist_ok=True)
+                _LAST_ALERT_FILE.write_text(str(now), encoding="utf-8")
+            except OSError:
+                pass
+
     art_id = str(entry.get("id") or "")
     if not force and art_id:
         try:
