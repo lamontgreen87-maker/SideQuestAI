@@ -524,55 +524,6 @@ async def run_science_now():
     return {"started": started, "status": science_bot.get_status()}
 
 
-_V5_TRAIN_CACHE: Dict[str, Any] = {"ts": 0.0, "data": {}}
-
-
-def _fetch_v5_train_progress() -> Dict[str, Any]:
-    import re
-    import time
-    import urllib.request
-    now = time.time()
-    if now - _V5_TRAIN_CACHE["ts"] < 15.0 and _V5_TRAIN_CACHE["data"]:
-        return _V5_TRAIN_CACHE["data"]
-    url = os.getenv("V5_TRAIN_LOG_URL", "https://6nurw2h1vfitix-11434.proxy.runpod.net/train_v5.log")
-    info: Dict[str, Any] = {"stage": "Idle", "step": 0, "total_steps": 0, "pct": 0.0, "eta": "", "loss": ""}
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            txt = resp.read().decode("utf-8", errors="ignore")[-16000:].replace("\r", "\n")
-        if "DOWNLOAD THESE GGUF FILE(S)" in txt:
-            info.update({"stage": "Complete (GGUF Ready)", "pct": 100.0})
-        elif "Converting GGUF" in txt or "Converting HF to GGUF" in txt or "Merge process complete" in txt:
-            info.update({"stage": "Stage 3 · GGUF Export", "pct": 95.0})
-        else:
-            is_dpo = "DPOTrainer" in txt or "rewards/accuracies" in txt
-            matches = re.findall(r"(\d+)/(\d+)\s+\[[^\]<]*<([^,\]]+),\s*[\d.]+(?:s/it|it/s)", txt)
-            losses = re.findall(r"'loss':\s*'([^']+)'", txt)
-            if matches and (is_dpo or int(matches[-1][1]) >= 500):
-                step, total, eta = int(matches[-1][0]), int(matches[-1][1]), matches[-1][2].strip()
-                pct = min(100.0, round(100.0 * step / max(1, total), 1))
-                info.update({
-                    "stage": "Stage 2 · DPO" if is_dpo else "Stage 1 · SFT",
-                    "step": step,
-                    "total_steps": total,
-                    "pct": pct,
-                    "eta": eta,
-                    "loss": losses[-1] if losses else "",
-                })
-            elif "[3] Starting v5 training" in txt or "Unsloth:" in txt or "Tokenizing" in txt:
-                info.update({"stage": "RTX 5090 · Loading Model & Tokenizing", "pct": 1.0})
-            elif "[2] Installing unsloth" in txt:
-                info.update({"stage": "RTX 5090 · Installing Unsloth/TRL", "pct": 0.5})
-            elif "[1] Downloading" in txt:
-                info.update({"stage": "RTX 5090 · Downloading v5 Data", "pct": 0.2})
-        _V5_TRAIN_CACHE["ts"] = now
-        _V5_TRAIN_CACHE["data"] = info
-    except Exception:
-        if _V5_TRAIN_CACHE["data"]:
-            return _V5_TRAIN_CACHE["data"]
-    return info
-
-
 @app.get("/api/science/dual-progress")
 async def get_science_dual_progress():
     from pathlib import Path
@@ -605,7 +556,7 @@ async def get_science_dual_progress():
         except Exception:
             live = {}
     verified_sft = science_bot._count_training_examples_db() if hasattr(science_bot, "_count_training_examples_db") else 0
-    sft_goal = max(1, int(os.getenv("TRAINING_GOAL", "2500")))
+    sft_goal = max(1, int(os.getenv("TRAINING_GOAL", "3500")))
     unique_leads = 0
     real_data_runs = 0
     data_first_hdf5 = 0
@@ -620,18 +571,19 @@ async def get_science_dual_progress():
             ).fetchone()[0] or 0)
     except Exception:
         pass
-    l3_targets = {
+    l4_targets = {
         "verified_sft": {"current": verified_sft, "target": sft_goal},
-        "unique_leads": {"current": unique_leads, "target": 200},
-        "real_data_runs": {"current": real_data_runs, "target": 400},
+        "unique_leads": {"current": unique_leads, "target": 250},
+        "real_data_runs": {"current": real_data_runs, "target": 500},
         "data_first_hdf5": {"current": data_first_hdf5, "target": 25},
         "dpo_pairs": {"current": dpo_count, "target": 1000, "min": 800},
-        "self_repair_sft": {"current": repair_count, "target": 3000},
+        "self_repair_sft": {"current": repair_count, "target": 3500},
     }
     return {
-        "lesson": "Lesson 3 (v5)",
-        "lesson3_targets": l3_targets,
-        "lesson2_targets": l3_targets,
+        "lesson": "Lesson 4 (v6)",
+        "lesson4_targets": l4_targets,
+        "lesson3_targets": l4_targets,
+        "lesson2_targets": l4_targets,
         "pod1_a40": {
             "dpo_pairs": dpo_count,
             "target": 1000,
@@ -639,7 +591,6 @@ async def get_science_dual_progress():
             "failure_modes": dict(modes),
         },
         "pod2_4090": live,
-        "v5_train": _fetch_v5_train_progress(),
     }
 
 

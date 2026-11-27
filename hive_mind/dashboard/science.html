@@ -361,8 +361,8 @@
     </div>
     <div style="margin-top:8px;">
       <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
-        <span>Lesson 3 (v5) AI Training Data · Verified Passing SFT</span>
-        <span id="trainingText">0 / 2,500 (0%)</span>
+        <span>Lesson 4 (v6) AI Training Data · Verified Passing SFT</span>
+        <span id="trainingText">0 / 3,500 (0%)</span>
       </div>
       <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
         <div id="trainingBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
@@ -372,7 +372,7 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;">
         <div>
           <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v5 · Hard-Domain DPO Pairs (v4 errors)</span>
+            <span>Pod B (RTX 4090) · Hard-Domain DPO Pairs</span>
             <span id="pod1Text">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -381,7 +381,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v5 · Self-Repair SFT Traces</span>
+            <span>v6 · Self-Repair SFT Traces</span>
             <span id="repairText">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -390,7 +390,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v5 · Unique Empirical Leads</span>
+            <span>v6 · Unique Empirical Leads</span>
             <span id="uniqueLeadsText">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -399,7 +399,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v5 · Real-Data Runs (GWTC / EHT / .hdf5)</span>
+            <span>v6 · Real-Data Runs (GWTC / EHT / .hdf5)</span>
             <span id="realDataText">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -408,7 +408,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v5 · Data-First (.hdf5) Novel Strain</span>
+            <span>v6 · Data-First (.hdf5) Novel Strain</span>
             <span id="dataFirstText">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -417,20 +417,11 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v4 Live Mode (RTX 4090 · 3-Hr Run)</span>
+            <span>Pod A (RTX 4090) · v5 Live 2-Hr Run</span>
             <span id="v4LiveText">Starting...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
             <div id="v4LiveBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
-          </div>
-        </div>
-        <div>
-          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v5 Training (RTX 5090 · SFT + DPO → GGUF)</span>
-            <span id="v5TrainText">Loading...</span>
-          </div>
-          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
-            <div id="v5TrainBar" style="height:100%;width:0%;background:linear-gradient(90deg,#22d3ee,#818cf8);transition:width 0.3s ease;"></div>
           </div>
         </div>
       </div>
@@ -735,7 +726,7 @@
         const res = await fetch("/api/science/dual-progress", { cache: "no-store" });
         if (!res.ok) return;
         const d = await res.json();
-        const l3 = d.lesson3_targets || d.lesson2_targets || {};
+        const l4 = d.lesson4_targets || d.lesson3_targets || d.lesson2_targets || {};
         const setBar = (textId, barId, cur, tgt, label) => {
           const pct = Math.min(100, Math.round((1000 * cur) / Math.max(1, tgt)) / 10);
           const el = document.getElementById(textId);
@@ -744,15 +735,15 @@
           if (bar) bar.style.width = `${pct}%`;
         };
         const p1 = d.pod1_a40 || {};
-        const dpoT = l3.dpo_pairs || {};
+        const dpoT = l4.dpo_pairs || {};
         setBar("pod1Text", "pod1Bar", dpoT.current ?? p1.dpo_pairs ?? 0, dpoT.target || 1000, "pairs");
-        const repT = l3.self_repair_sft || {};
-        setBar("repairText", "repairBar", repT.current ?? p1.repair_count ?? 0, repT.target || 3000, "traces");
-        const uniqT = l3.unique_leads || {};
-        setBar("uniqueLeadsText", "uniqueLeadsBar", uniqT.current ?? 0, uniqT.target || 200, "leads");
-        const realT = l3.real_data_runs || {};
-        setBar("realDataText", "realDataBar", realT.current ?? 0, realT.target || 400, "runs");
-        const dfT = l3.data_first_hdf5 || {};
+        const repT = l4.self_repair_sft || {};
+        setBar("repairText", "repairBar", repT.current ?? p1.repair_count ?? 0, repT.target || 3500, "traces");
+        const uniqT = l4.unique_leads || {};
+        setBar("uniqueLeadsText", "uniqueLeadsBar", uniqT.current ?? 0, uniqT.target || 250, "leads");
+        const realT = l4.real_data_runs || {};
+        setBar("realDataText", "realDataBar", realT.current ?? 0, realT.target || 500, "runs");
+        const dfT = l4.data_first_hdf5 || {};
         setBar("dataFirstText", "dataFirstBar", dfT.current ?? 0, dfT.target || 25, "runs");
 
         const p2 = d.pod2_4090 || {};
@@ -762,22 +753,11 @@
           const deepCount = p2.verified || 0;
           const passPct = p2.cycles > 0 ? Math.round((1000 * deepCount) / p2.cycles) / 10 : 0;
           const elSec = Number(p2.elapsed_sec || 0);
-          const durSec = Number(p2.duration_sec || 10800);
-          const durPct = Math.min(100, Math.round((1000 * elSec) / Math.max(1, durSec)) / 10);
+          const durSec = 7200;
+          const durPct = Math.min(100, Math.round((1000 * elSec) / durSec) / 10);
           const elMin = Math.round((elSec / 60) * 10) / 10;
-          const durMin = Math.round(durSec / 60);
-          if (v4El) v4El.textContent = `${elMin} / ${durMin}m (${durPct}%) · ${deepCount}/${p2.cycles} verified (${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
+          if (v4El) v4El.textContent = `${elMin} / 120m (${durPct}%) · ${deepCount}/${p2.cycles} verified (${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
           if (v4Bar) v4Bar.style.width = `${durPct}%`;
-        }
-        const v5 = d.v5_train || {};
-        const v5El = document.getElementById("v5TrainText");
-        const v5Bar = document.getElementById("v5TrainBar");
-        if (v5El && v5.stage) {
-          const v5Pct = Number(v5.pct || 0);
-          const stepTxt = v5.total_steps ? `${v5.step}/${v5.total_steps} (${v5Pct}%)` : `${v5Pct}%`;
-          const metaTxt = [v5.eta ? `ETA ${v5.eta}` : "", v5.loss ? `loss ${v5.loss}` : ""].filter(Boolean).join(" · ");
-          v5El.textContent = `${v5.stage} · ${stepTxt}${metaTxt ? ` · ${metaTxt}` : ""}`;
-          if (v5Bar) v5Bar.style.width = `${Math.min(100, Math.max(0, v5Pct))}%`;
         }
       } catch (_) {}
     }
