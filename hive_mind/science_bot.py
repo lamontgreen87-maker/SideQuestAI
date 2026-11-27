@@ -232,6 +232,28 @@ def _fetch_wikipedia_summary(query: str) -> Optional[Dict[str, str]]:
         return None
 
 
+_DEGENERATE_OUTPUT_PATTERNS = (
+    (re.compile(r"\bchecked\s+0\b", re.I), "Checked 0 items (empty loop)"),
+    (re.compile(r"\b0\s+(?:events|rows|samples|galaxies|stars|models|trials|cases|points)\s+(?:checked|examined|loaded|found|matched|processed)\b", re.I), "0 items processed"),
+    (re.compile(r"\b(?:events|rows|samples|models)\s+(?:checked|examined|loaded|found|processed)\s*[:=]\s*0\b", re.I), "0 items processed"),
+    (re.compile(r"failed to load", re.I), "Data load failed"),
+    (re.compile(r"using toy model|fallback to toy|falling back to toy|dummy data|mock data|placeholder", re.I), "Fell back to toy/mock stub"),
+    (re.compile(r"no events found|no matching events|dataset not found", re.I), "No data/events found"),
+)
+
+
+def _degenerate_output_reason(out: str) -> Optional[str]:
+    txt = (out or "").strip()
+    if len(txt) < 20:
+        return "Output too short (<20 chars)"
+    if not re.search(r"\d", txt):
+        return "No numeric measurement in output"
+    for pat, reason in _DEGENERATE_OUTPUT_PATTERNS:
+        if pat.search(txt):
+            return reason
+    return None
+
+
 def _run_experiment_code(code: str, timeout_s: int = 25) -> Dict[str, Any]:
     """Execute a self-contained Python experiment script in an isolated subprocess."""
     clean_code = _strip_json_fences(code or "").strip()
@@ -272,7 +294,10 @@ def _run_experiment_code(code: str, timeout_s: int = 25) -> Dict[str, Any]:
         combined = "\n".join(part for part in (out, f"STDERR: {err}" if err else "") if part)
         upper_out = out.upper()
         explicit_fail = bool(re.search(r"\bFAIL\b", upper_out)) and not bool(re.search(r"\bPASS\b", upper_out))
-        passed = proc.returncode == 0 and bool(out) and not explicit_fail
+        degen_reason = _degenerate_output_reason(out)
+        if degen_reason:
+            combined = "\n".join(part for part in (combined, f"AUTO-REJECT: {degen_reason}") if part)
+        passed = proc.returncode == 0 and bool(out) and not explicit_fail and not degen_reason
         return {
             "passed": passed,
             "output": (combined or "(no output)")[:1500],
