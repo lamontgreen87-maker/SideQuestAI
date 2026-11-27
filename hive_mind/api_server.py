@@ -534,7 +534,7 @@ def _fetch_v5_train_progress() -> Dict[str, Any]:
     now = time.time()
     if now - _V5_TRAIN_CACHE["ts"] < 15.0 and _V5_TRAIN_CACHE["data"]:
         return _V5_TRAIN_CACHE["data"]
-    url = os.getenv("V5_TRAIN_LOG_URL", "https://dl37l1otjih8oy-11434.proxy.runpod.net/train_v5.log")
+    url = os.getenv("V5_TRAIN_LOG_URL", "https://6nurw2h1vfitix-11434.proxy.runpod.net/train_v5.log")
     info: Dict[str, Any] = {"stage": "Idle", "step": 0, "total_steps": 0, "pct": 0.0, "eta": "", "loss": ""}
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
