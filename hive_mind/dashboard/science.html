@@ -417,7 +417,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v4 Live Mode (RTX 4090 · 1-Hr Test Run)</span>
+            <span>v4 Live Mode (RTX 4090 · 3-Hr Run)</span>
             <span id="v4LiveText">Starting...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -753,9 +753,11 @@
           const deepCount = p2.verified || 0;
           const passPct = p2.cycles > 0 ? Math.round((1000 * deepCount) / p2.cycles) / 10 : 0;
           const elSec = Number(p2.elapsed_sec || 0);
-          const durPct = Math.min(100, Math.round((1000 * elSec) / 3600) / 10);
+          const durSec = Number(p2.duration_sec || 10800);
+          const durPct = Math.min(100, Math.round((1000 * elSec) / Math.max(1, durSec)) / 10);
           const elMin = Math.round((elSec / 60) * 10) / 10;
-          if (v4El) v4El.textContent = `${elMin} / 60m (${durPct}%) · ${deepCount}/${p2.cycles} verified (${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
+          const durMin = Math.round(durSec / 60);
+          if (v4El) v4El.textContent = `${elMin} / ${durMin}m (${durPct}%) · ${deepCount}/${p2.cycles} verified (${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
           if (v4Bar) v4Bar.style.width = `${durPct}%`;
         }
       } catch (_) {}
