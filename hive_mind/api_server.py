@@ -530,6 +530,7 @@ async def get_science_dual_progress():
     import collections
     mem_dir = Path(science_bot.DB_FILE).parent if hasattr(science_bot, "DB_FILE") else Path(__file__).resolve().parent / "memory"
     dpo_file = mem_dir / "training" / "onpolicy_dpo_pairs_v3.jsonl"
+    repair_file = mem_dir / "training" / "self_repair_sft.jsonl"
     live_file = mem_dir / "training" / "runpod_live_progress.json"
     dpo_count = 0
     modes = collections.Counter()
@@ -543,16 +544,31 @@ async def get_science_dual_progress():
                 modes[m] += 1
             except Exception:
                 pass
+    repair_count = 0
+    if repair_file.exists():
+        for line in repair_file.read_text(encoding="utf-8", errors="ignore").splitlines():
+            if line.strip():
+                repair_count += 1
     live = {}
     if live_file.exists():
         try:
             live = json.loads(live_file.read_text(encoding="utf-8", errors="ignore"))
         except Exception:
             live = {}
+    verified_sft = science_bot._count_training_examples_db() if hasattr(science_bot, "_count_training_examples_db") else 0
+    sft_goal = max(1, int(os.getenv("TRAINING_GOAL", "1500")))
     return {
+        "lesson": "Lesson 2 (v4)",
+        "lesson2_targets": {
+            "verified_sft": {"current": verified_sft, "target": sft_goal},
+            "dpo_pairs": {"current": dpo_count, "target": 692, "min": 500},
+            "self_repair_sft": {"current": repair_count, "target": 150, "min": 100},
+            "deep_followup_runs": {"current": int(live.get("verified", 0) or 0), "target": 75, "min": 50},
+        },
         "pod1_a40": {
             "dpo_pairs": dpo_count,
             "target": 692,
+            "repair_count": repair_count,
             "failure_modes": dict(modes),
         },
         "pod2_4090": live,
