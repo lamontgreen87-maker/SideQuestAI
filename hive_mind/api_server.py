@@ -527,7 +527,7 @@ async def run_science_now():
 _TRAIN_CACHE: Dict[str, Any] = {"ts": 0.0, "data": {}}
 
 
-def _fetch_active_train_progress(mem_dir: Path) -> Dict[str, Any]:
+def _fetch_active_train_progress(mem_dir: Any) -> Dict[str, Any]:
     import re
     import time
     import urllib.request
