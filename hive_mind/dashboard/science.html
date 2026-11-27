@@ -425,6 +425,15 @@
           </div>
         </div>
       </div>
+      <div id="v7TrainWrap" style="display:none;margin-top:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
+          <span>v7 Training (RTX 5090 · SFT + DPO → GGUF)</span>
+          <span id="v7TrainText" style="flex-shrink:0;">Starting...</span>
+        </div>
+        <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+          <div id="v7TrainBar" style="height:100%;width:0%;background:linear-gradient(90deg,#22d3ee,#818cf8);transition:width 0.3s ease;"></div>
+        </div>
+      </div>
       <div id="v7ExamBox" style="display:none;margin-top:8px;padding:6px 10px;border-radius:8px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.28);font-size:0.8rem;color:#cbd5e1;"></div>
     </div>
   </div>
@@ -762,6 +771,20 @@
           const durMin = Math.round(durSec / 60);
           if (v4El) v4El.textContent = `${elMin}/${durMin}m · ${deepCount}/${p2.cycles} (${passPct}% · ${p2.rate_per_hr || 0}/hr)`;
           if (v4Bar) v4Bar.style.width = `${durPct}%`;
+        }
+        const at = d.active_train || {};
+        const trWrap = document.getElementById("v7TrainWrap");
+        const trEl = document.getElementById("v7TrainText");
+        const trBar = document.getElementById("v7TrainBar");
+        if (trWrap && at.stage) {
+          trWrap.style.display = "block";
+          const pct = Number(at.pct || 0);
+          const stepTxt = at.total_steps ? `${at.step}/${at.total_steps} (${pct}%)` : `${pct}%`;
+          const metaTxt = [at.eta ? `ETA ${at.eta}` : "", at.loss ? `loss ${at.loss}` : ""].filter(Boolean).join(" · ");
+          if (trEl) trEl.textContent = `${at.stage} · ${stepTxt}${metaTxt ? ` · ${metaTxt}` : ""}`;
+          if (trBar) trBar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+        } else if (trWrap) {
+          trWrap.style.display = "none";
         }
         const ex = d.v7_phd_exam || {};
         const exBox = document.getElementById("v7ExamBox");

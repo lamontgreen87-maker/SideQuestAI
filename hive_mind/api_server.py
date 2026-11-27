@@ -524,6 +524,60 @@ async def run_science_now():
     return {"started": started, "status": science_bot.get_status()}
 
 
+_TRAIN_CACHE: Dict[str, Any] = {"ts": 0.0, "data": {}}
+
+
+def _fetch_active_train_progress(mem_dir: Path) -> Dict[str, Any]:
+    import re
+    import time
+    import urllib.request
+    url_file = mem_dir / "training" / "active_train_url.txt"
+    if not url_file.exists():
+        return {}
+    url = url_file.read_text(encoding="utf-8", errors="ignore").strip()
+    if not url:
+        return {}
+    now = time.time()
+    if now - _TRAIN_CACHE["ts"] < 15.0 and _TRAIN_CACHE["data"].get("url") == url:
+        return _TRAIN_CACHE["data"]
+    info: Dict[str, Any] = {"url": url, "stage": "RTX 5090 · Starting", "step": 0, "total_steps": 0, "pct": 0.0, "eta": "", "loss": ""}
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            txt = resp.read().decode("utf-8", errors="ignore")[-16000:].replace("\r", "\n")
+        if "DOWNLOAD THESE GGUF FILE(S)" in txt:
+            info.update({"stage": "Complete (GGUF Ready)", "pct": 100.0})
+        elif "Converting GGUF" in txt or "Converting HF to GGUF" in txt or "Merge process complete" in txt:
+            info.update({"stage": "Stage 3 · GGUF Export", "pct": 95.0})
+        else:
+            is_dpo = "DPOTrainer" in txt or "rewards/accuracies" in txt
+            matches = re.findall(r"(\d+)/(\d+)\s+\[[^\]<]*<([^,\]]+),\s*[\d.]+(?:s/it|it/s)", txt)
+            losses = re.findall(r"'loss':\s*'([^']+)'", txt)
+            if matches and (is_dpo or int(matches[-1][1]) >= 500):
+                step, total, eta = int(matches[-1][0]), int(matches[-1][1]), matches[-1][2].strip()
+                pct = min(100.0, round(100.0 * step / max(1, total), 1))
+                info.update({
+                    "stage": "Stage 2 · DPO" if is_dpo else "Stage 1 · SFT",
+                    "step": step,
+                    "total_steps": total,
+                    "pct": pct,
+                    "eta": eta,
+                    "loss": losses[-1] if losses else "",
+                })
+            elif "[3] Starting" in txt or "Unsloth:" in txt or "Tokenizing" in txt:
+                info.update({"stage": "RTX 5090 · Loading Model & Tokenizing", "pct": 1.0})
+            elif "[2] Installing" in txt:
+                info.update({"stage": "RTX 5090 · Installing Unsloth/TRL", "pct": 0.5})
+            elif "[1] Downloading" in txt:
+                info.update({"stage": "RTX 5090 · Downloading Dataset", "pct": 0.2})
+        _TRAIN_CACHE["ts"] = now
+        _TRAIN_CACHE["data"] = info
+    except Exception:
+        if _TRAIN_CACHE["data"].get("url") == url:
+            return _TRAIN_CACHE["data"]
+    return info
+
+
 @app.get("/api/science/dual-progress")
 async def get_science_dual_progress():
     from pathlib import Path
@@ -599,6 +653,7 @@ async def get_science_dual_progress():
         },
         "pod2_4090": live,
         "v7_phd_exam": v7_exam,
+        "active_train": _fetch_active_train_progress(mem_dir),
     }
 
 
