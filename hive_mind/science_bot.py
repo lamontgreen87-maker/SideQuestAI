@@ -236,9 +236,12 @@ _DEGENERATE_OUTPUT_PATTERNS = (
     (re.compile(r"\bchecked\s+0\b", re.I), "Checked 0 items (empty loop)"),
     (re.compile(r"\b0\s+(?:events|rows|samples|galaxies|stars|models|trials|cases|points)\s+(?:checked|examined|loaded|found|matched|processed)\b", re.I), "0 items processed"),
     (re.compile(r"\b(?:events|rows|samples|models)\s+(?:checked|examined|loaded|found|processed)\s*[:=]\s*0\b", re.I), "0 items processed"),
-    (re.compile(r"failed to load", re.I), "Data load failed"),
-    (re.compile(r"using toy model|fallback to toy|falling back to toy|dummy data|mock data|placeholder", re.I), "Fell back to toy/mock stub"),
+    (re.compile(r"loaded[^.\n]*:\s*0\s+events|\b0\s+events\s+with\s+valid", re.I), "0 events loaded"),
+    (re.compile(r"failed to load|could not load|could not read catalog|unable to load|error loading|catalogue not found|catalog not found|traceback \(most recent", re.I), "Data load failed"),
+    (re.compile(r"using toy model|fallback to toy|falling back to|using a mock|mock sample|dummy data|mock data|placeholder|synthetic fallback", re.I), "Fell back to toy/mock stub"),
     (re.compile(r"no events found|no matching events|dataset not found", re.I), "No data/events found"),
+    (re.compile(r"\bnan\b|\binf\b", re.I), "NaN or Inf in output"),
+    (re.compile(r"^total gw events in catalog:\s*\d+\s*$", re.I), "Only printed catalog count (no experiment)"),
 )
 
 
