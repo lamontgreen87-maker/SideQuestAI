@@ -537,9 +537,9 @@ def _fetch_v5_train_progress() -> Dict[str, Any]:
     url = os.getenv("V5_TRAIN_LOG_URL", "https://dl37l1otjih8oy-11434.proxy.runpod.net/train_v5.log")
     info: Dict[str, Any] = {"stage": "Idle", "step": 0, "total_steps": 0, "pct": 0.0, "eta": "", "loss": ""}
     try:
-        req = urllib.request.Request(url, headers={"Range": "bytes=-12000"})
-        with urllib.request.urlopen(req, timeout=4) as resp:
-            txt = resp.read().decode("utf-8", errors="ignore").replace("\r", "\n")
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            txt = resp.read().decode("utf-8", errors="ignore")[-16000:].replace("\r", "\n")
         if "DOWNLOAD THESE GGUF FILE(S)" in txt:
             info.update({"stage": "Complete (GGUF Ready)", "pct": 100.0})
         elif "Converting GGUF" in txt or "Converting HF to GGUF" in txt or "Merge process complete" in txt:
