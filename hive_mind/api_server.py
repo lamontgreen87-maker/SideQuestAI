@@ -548,7 +548,7 @@ def _fetch_v5_train_progress() -> Dict[str, Any]:
             is_dpo = "DPOTrainer" in txt or "rewards/accuracies" in txt
             matches = re.findall(r"(\d+)/(\d+)\s+\[[^\]<]*<([^,\]]+),\s*[\d.]+(?:s/it|it/s)", txt)
             losses = re.findall(r"'loss':\s*'([^']+)'", txt)
-            if matches:
+            if matches and (is_dpo or int(matches[-1][1]) >= 500):
                 step, total, eta = int(matches[-1][0]), int(matches[-1][1]), matches[-1][2].strip()
                 pct = min(100.0, round(100.0 * step / max(1, total), 1))
                 info.update({
