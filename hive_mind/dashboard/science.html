@@ -368,57 +368,57 @@
         <div id="trainingBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
       </div>
     </div>
-    <div id="dualProgressBox" style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.08);">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;">
+    <div id="dualProgressBox" style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.08);font-variant-numeric:tabular-nums;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:10px 14px;">
         <div>
-          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>Pod B (RTX 4090) · Hard-Domain DPO Pairs</span>
-            <span id="pod1Text">Loading...</span>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
+            <span style="overflow:hidden;text-overflow:ellipsis;">Pod B (RTX 4090) · Hard-Domain DPO</span>
+            <span id="pod1Text" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
             <div id="pod1Bar" style="height:100%;width:0%;background:linear-gradient(90deg,#f59e0b,#facc15);transition:width 0.3s ease;"></div>
           </div>
         </div>
         <div>
-          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v6 · Self-Repair SFT Traces</span>
-            <span id="repairText">Loading...</span>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
+            <span style="overflow:hidden;text-overflow:ellipsis;">v6 · Self-Repair SFT Traces</span>
+            <span id="repairText" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
             <div id="repairBar" style="height:100%;width:0%;background:linear-gradient(90deg,#fb7185,#f472b6);transition:width 0.3s ease;"></div>
           </div>
         </div>
         <div>
-          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v6 · Unique Empirical Leads</span>
-            <span id="uniqueLeadsText">Loading...</span>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
+            <span style="overflow:hidden;text-overflow:ellipsis;">v6 · Unique Empirical Leads</span>
+            <span id="uniqueLeadsText" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
             <div id="uniqueLeadsBar" style="height:100%;width:0%;background:linear-gradient(90deg,#eab308,#fde047);transition:width 0.3s ease;"></div>
           </div>
         </div>
         <div>
-          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v6 · Real-Data Runs (GWTC / EHT / .hdf5)</span>
-            <span id="realDataText">Loading...</span>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
+            <span style="overflow:hidden;text-overflow:ellipsis;">v6 · Real-Data (GWTC / EHT / .hdf5)</span>
+            <span id="realDataText" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
             <div id="realDataBar" style="height:100%;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);transition:width 0.3s ease;"></div>
           </div>
         </div>
         <div>
-          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>v6 · Data-First (.hdf5) Novel Strain</span>
-            <span id="dataFirstText">Loading...</span>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
+            <span style="overflow:hidden;text-overflow:ellipsis;">v6 · Data-First (.hdf5) Strain</span>
+            <span id="dataFirstText" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
             <div id="dataFirstBar" style="height:100%;width:0%;background:linear-gradient(90deg,#a78bfa,#c084fc);transition:width 0.3s ease;"></div>
           </div>
         </div>
         <div>
-          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
-            <span>Pod A (RTX 4090) · v5 Live 2-Hr Run</span>
-            <span id="v4LiveText">Starting...</span>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
+            <span style="overflow:hidden;text-overflow:ellipsis;">Pod A (RTX 4090) · v5 Live</span>
+            <span id="v4LiveText" style="flex-shrink:0;">Starting...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
             <div id="v4LiveBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
@@ -756,7 +756,7 @@
           const durSec = 7200;
           const durPct = Math.min(100, Math.round((1000 * elSec) / durSec) / 10);
           const elMin = Math.round((elSec / 60) * 10) / 10;
-          if (v4El) v4El.textContent = `${elMin} / 120m (${durPct}%) · ${deepCount}/${p2.cycles} verified (${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
+          if (v4El) v4El.textContent = `${elMin}/120m · ${deepCount}/${p2.cycles} (${passPct}% · ${p2.rate_per_hr || 0}/hr)`;
           if (v4Bar) v4Bar.style.width = `${durPct}%`;
         }
       } catch (_) {}
