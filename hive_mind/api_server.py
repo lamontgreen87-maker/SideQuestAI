@@ -545,14 +545,14 @@ def _fetch_v5_train_progress() -> Dict[str, Any]:
         elif "Converting GGUF" in txt or "Converting HF to GGUF" in txt or "Merge process complete" in txt:
             info.update({"stage": "Stage 3 · GGUF Export", "pct": 95.0})
         else:
-            is_dpo = "DPOTrainer" in txt or "rewards/accuracies" in txt or "101 [" in txt or "/112 [" in txt
-            matches = re.findall(r"(\d+)/(\d+)\s+\[[^\]<]*<([^,\]]+)", txt)
+            is_dpo = "DPOTrainer" in txt or "rewards/accuracies" in txt
+            matches = re.findall(r"(\d+)/(\d+)\s+\[[^\]<]*<([^,\]]+),\s*[\d.]+(?:s/it|it/s)", txt)
             losses = re.findall(r"'loss':\s*'([^']+)'", txt)
-            if matches and int(matches[-1][1]) >= 50:
+            if matches:
                 step, total, eta = int(matches[-1][0]), int(matches[-1][1]), matches[-1][2].strip()
                 pct = min(100.0, round(100.0 * step / max(1, total), 1))
                 info.update({
-                    "stage": "Stage 2 · DPO" if (is_dpo or total < 500) else "Stage 1 · SFT",
+                    "stage": "Stage 2 · DPO" if is_dpo else "Stage 1 · SFT",
                     "step": step,
                     "total_steps": total,
                     "pct": pct,
