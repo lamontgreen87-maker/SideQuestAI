@@ -548,7 +548,7 @@ def _fetch_v5_train_progress() -> Dict[str, Any]:
             is_dpo = "DPOTrainer" in txt or "rewards/accuracies" in txt or "101 [" in txt or "/112 [" in txt
             matches = re.findall(r"(\d+)/(\d+)\s+\[[^\]<]*<([^,\]]+)", txt)
             losses = re.findall(r"'loss':\s*'([^']+)'", txt)
-            if matches:
+            if matches and int(matches[-1][1]) >= 50:
                 step, total, eta = int(matches[-1][0]), int(matches[-1][1]), matches[-1][2].strip()
                 pct = min(100.0, round(100.0 * step / max(1, total), 1))
                 info.update({
@@ -559,6 +559,12 @@ def _fetch_v5_train_progress() -> Dict[str, Any]:
                     "eta": eta,
                     "loss": losses[-1] if losses else "",
                 })
+            elif "[3] Starting v5 training" in txt or "Unsloth:" in txt or "Tokenizing" in txt:
+                info.update({"stage": "RTX 5090 · Loading Model & Tokenizing", "pct": 1.0})
+            elif "[2] Installing unsloth" in txt:
+                info.update({"stage": "RTX 5090 · Installing Unsloth/TRL", "pct": 0.5})
+            elif "[1] Downloading" in txt:
+                info.update({"stage": "RTX 5090 · Downloading v5 Data", "pct": 0.2})
         _V5_TRAIN_CACHE["ts"] = now
         _V5_TRAIN_CACHE["data"] = info
     except Exception:
