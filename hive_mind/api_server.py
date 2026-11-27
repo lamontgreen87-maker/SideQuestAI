@@ -648,8 +648,13 @@ async def contribute_science_article(request: Request):
     contributor_email = raw_email if (raw_email and re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", raw_email)) else ""
     sciencebot_version = str(body.get("sciencebot_version") or "").strip()[:80]
 
+    existing_ids = {str(a.get("id") or "") for a in science_bot.feed}
+    cand_id = str(body.get("id") or "").strip()[:16]
+    if not cand_id or cand_id in existing_ids:
+        cand_id = str(uuid.uuid4())[:12]
+
     entry = {
-        "id": str(body.get("id") or uuid.uuid4())[:16],
+        "id": cand_id,
         "created_at": str(body.get("created_at") or datetime.now(timezone.utc).isoformat()),
         "title": title[:300],
         "domain": str(body.get("domain") or "Physics & Astrophysics").strip()[:120],

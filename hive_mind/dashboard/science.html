@@ -1044,14 +1044,27 @@
         feedContainer.innerHTML = `<div class="empty">${feedItems.length ? "No articles match your lookup filter." : "No science updates yet. Tap <strong>Run Now</strong> or wait for the scheduled free cycle."}</div>`;
         return;
       }
+      const normProof = (u) => {
+        const s = String(u || "").trim().toLowerCase();
+        const m = s.match(/(\d{4}\.\d{4,5})/);
+        return m ? `arxiv:${m[1]}` : s.replace(/v\d+$/, "");
+      };
+      const proofCounts = {};
+      feedItems.forEach(x => {
+        const k = normProof(x.source_url);
+        if (k) proofCounts[k] = (proofCounts[k] || 0) + 1;
+      });
       feedContainer.innerHTML = filtered.map(item => {
         const dt = item.created_at ? new Date(item.created_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "";
+        const pk = normProof(item.source_url);
+        const pTotal = pk ? (proofCounts[pk] || 1) : 1;
         return `
           <article class="card" id="card-${escapeHtml(item.id)}">
             <div class="card-top">
               <div class="badges">
                 <span class="badge">${escapeHtml(item.domain)}</span>
                 <span class="badge conf">${escapeHtml(item.confidence || "Exploratory")}</span>
+                ${pTotal > 1 ? `<span class="badge" style="background:rgba(167,139,250,0.2);color:#d2a8ff;">🔍 ${pTotal} Perspectives</span>` : ""}
                 ${item.verified ? `<span class="badge" style="background:rgba(34,197,94,0.22);color:#4ade80;">Verified Empirical</span>` : (item.experiment_passed ? `<span class="badge" style="background:rgba(56,189,248,0.18);color:#7dd3fc;">Experiment Passed</span>` : "")}
                 ${isDataFirst(item) ? `<span class="badge" style="background:rgba(167,139,250,0.22);color:#c4b5fd;">Data-First (.hdf5)</span>` : ""}
                 ${isRealData(item) ? `<span class="badge" style="background:rgba(14,165,233,0.22);color:#38bdf8;">Real Data (GWTC/EHT)</span>` : ""}

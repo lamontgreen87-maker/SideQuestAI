@@ -886,12 +886,36 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         return;
       }
 
+      const normProofUrl = (u) => {
+        const s = String(u || "").trim().toLowerCase();
+        const m = s.match(/(\d{4}\.\d{4,5})/);
+        return m ? `arxiv:${m[1]}` : s.replace(/v\d+$/, "");
+      };
+      const getPerspectives = (a) => {
+        const all = (state.data && state.data.articles) || [];
+        const key = normProofUrl(a.source_url);
+        let group = [];
+        if (key) {
+          group = all.filter((x) => normProofUrl(x.source_url) === key);
+        } else {
+          const t = String(a.title || "").trim().toLowerCase();
+          if (t) group = all.filter((x) => String(x.title || "").trim().toLowerCase() === t);
+        }
+        if (group.length <= 1) return { index: 1, total: 1, others: [] };
+        const sorted = [...group].sort((x, y) => String(x.created_at || "").localeCompare(String(y.created_at || "")));
+        const idx = Math.max(0, sorted.findIndex((x) => String(x.id || "") === String(a.id || ""))) + 1;
+        const others = sorted.filter((x) => String(x.id || "") !== String(a.id || ""));
+        return { index: idx, total: sorted.length, others };
+      };
+
       const visible = filtered.slice(0, state.visibleCount);
       box.innerHTML = visible
         .map((a) => {
+          const persp = getPerspectives(a);
           const badges = [
             a.domain ? `<span class="badge">${escapeHtml(a.domain)}</span>` : "",
             isVerified(a) ? `<span class="badge verified">✓ Verified</span>` : "",
+            persp.total > 1 ? `<span class="badge" style="border-color:rgba(210,168,255,0.55);color:#d2a8ff;">🔍 Perspective #${persp.index} of ${persp.total}</span>` : "",
             isNovelStrainLead(a)
               ? `<span class="badge novel-strain">★ Novel Strain Lead</span>`
               : (isUnique(a) ? `<span class="badge unique">★ Empirical Lead</span>` : ""),
@@ -947,6 +971,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
               ${criticSnippet}
               <div class="card-footer">
                 <a class="splash-link" href="#article-${escapeHtml(a.id || "")}" onclick="event.preventDefault();openArticleModal('${escapeHtml(a.id || "")}')">Read full dispatch &amp; verification code →</a>
+                ${persp.others.length ? `<a href="#article-${escapeHtml(persp.others[0].id || "")}" onclick="event.preventDefault();openArticleModal('${escapeHtml(persp.others[0].id || "")}')" style="font-size:0.8rem;color:#d2a8ff;text-decoration:none;">Other perspective (${persp.others.length}) →</a>` : ""}
                 ${a.source_url ? `<a href="${escapeHtml(a.source_url)}" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--muted);text-decoration:none;">arXiv Paper ↗</a>` : ""}
               </div>
             </article>
@@ -1229,10 +1254,24 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       if (window.location.hash !== `#article-${_activeArticleId}`) {
         history.replaceState(null, "", `#article-${_activeArticleId}`);
       }
+      const normUrl = (u) => {
+        const s = String(u || "").trim().toLowerCase();
+        const m = s.match(/(\d{4}\.\d{4,5})/);
+        return m ? `arxiv:${m[1]}` : s.replace(/v\d+$/, "");
+      };
+      const pKey = normUrl(a.source_url);
+      const pGroup = pKey
+        ? articles.filter((x) => normUrl(x.source_url) === pKey)
+        : articles.filter((x) => String(x.title || "").trim().toLowerCase() === String(a.title || "").trim().toLowerCase());
+      const pSorted = pGroup.length > 1 ? [...pGroup].sort((x, y) => String(x.created_at || "").localeCompare(String(y.created_at || ""))) : [a];
+      const pIdx = Math.max(0, pSorted.findIndex((x) => String(x.id || "") === String(a.id || ""))) + 1;
+      const pOthers = pSorted.filter((x) => String(x.id || "") !== String(a.id || ""));
+
       document.getElementById("articleModalTitle").textContent = a.title || "Untitled Article";
       document.getElementById("articleModalBadges").innerHTML = [
         a.domain ? `<span class="badge">${escapeHtml(a.domain)}</span>` : "",
         isVerified(a) ? `<span class="badge verified">✓ Verified</span>` : "",
+        pSorted.length > 1 ? `<span class="badge" style="border-color:rgba(210,168,255,0.55);color:#d2a8ff;">🔍 Perspective #${pIdx} of ${pSorted.length}</span>` : "",
         isNovelStrainLead(a)
           ? `<span class="badge novel-strain">★ Novel Strain Lead</span>`
           : (isUnique(a) ? `<span class="badge unique">★ Empirical Lead</span>` : ""),
@@ -1273,6 +1312,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       if (a.experiment_code) {
         const linesCount = String(a.experiment_code).split("\n").length;
         sections.push(`<div class="detail-section"><details><summary>Reproducible Python Verification Script (${linesCount} lines${a.experiment_passed ? " · Passed" : ""})</summary><pre><code>${escapeHtml(a.experiment_code)}</code></pre></details></div>`);
+      }
+      if (pOthers.length) {
+        const otherLinks = pOthers.map((o, i) => {
+          const meta = [
+            o.sciencebot_version ? `🤖 ${escapeHtml(o.sciencebot_version)}` : "",
+            o.contributor_email ? `✉ ${escapeHtml(o.contributor_email)}` : "",
+            o.novelty_score != null ? `${escapeHtml(String(o.novelty_score))}% score` : "",
+          ].filter(Boolean).join(" · ");
+          return `<div style="margin-bottom:0.5rem;"><a href="#article-${escapeHtml(o.id || "")}" onclick="event.preventDefault();openArticleModal('${escapeHtml(o.id || "")}')" style="color:#d2a8ff;font-weight:600;text-decoration:none;">Perspective #${pSorted.findIndex((x) => String(x.id || "") === String(o.id || "")) + 1}: ${escapeHtml(o.title || "Verification")} →</a>${meta ? ` <span style="font-size:0.78rem;color:var(--muted);">(${meta})</span>` : ""}${o.hypothesis ? `<div style="font-size:0.84rem;color:var(--muted);margin-top:0.15rem;">${escapeHtml(String(o.hypothesis).slice(0, 180))}${String(o.hypothesis).length > 180 ? "…" : ""}</div>` : ""}</div>`;
+        }).join("");
+        sections.push(`<div class="detail-section"><div class="detail-label" style="color:#d2a8ff;">Other ScienceBot Perspectives on This Proof (${pOthers.length})</div><div class="meta-note" style="margin-top:0;">${otherLinks}</div></div>`);
       }
       if (a.source_url || a.author_name || a.inspire_url || a.contributor_email || a.sciencebot_version) {
         const refParts = [];
