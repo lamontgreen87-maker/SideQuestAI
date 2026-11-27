@@ -361,41 +361,69 @@
     </div>
     <div style="margin-top:8px;">
       <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
-        <span>Lesson 2 (v4) AI Training Data · Verified Passing SFT</span>
-        <span id="trainingText">0 / 1,500 (0%)</span>
+        <span>Lesson 3 (v5) AI Training Data · Verified Passing SFT</span>
+        <span id="trainingText">0 / 2,500 (0%)</span>
       </div>
       <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
         <div id="trainingBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
       </div>
     </div>
     <div id="dualProgressBox" style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.08);">
-      <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
-        <span>Pod 1 (A40) · On-Policy DPO Pairs (target 500–700)</span>
-        <span id="pod1Text">Loading...</span>
-      </div>
-      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;margin-bottom:8px;">
-        <div id="pod1Bar" style="height:100%;width:0%;background:linear-gradient(90deg,#f59e0b,#facc15);transition:width 0.3s ease;"></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
-        <span>Pod 1 (A40) · Self-Repair SFT Traces (target 100–200)</span>
-        <span id="repairText">Loading...</span>
-      </div>
-      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;margin-bottom:8px;">
-        <div id="repairBar" style="height:100%;width:0%;background:linear-gradient(90deg,#fb7185,#f472b6);transition:width 0.3s ease;"></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
-        <span>Pod 2 (RTX 4090) · 2-Pass &amp; Next-Exploration Runs (target 50–100)</span>
-        <span id="pod2Text">Starting...</span>
-      </div>
-      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;margin-bottom:8px;">
-        <div id="pod2Bar" style="height:100%;width:0%;background:linear-gradient(90deg,#a78bfa,#2dd4bf);transition:width 0.3s ease;"></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
-        <span>v4 Live Mode (RTX 4090 · 1-Hr Test Run)</span>
-        <span id="v4LiveText">Starting...</span>
-      </div>
-      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
-        <div id="v4LiveBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
+            <span>v5 · Hard-Domain DPO Pairs (v4 errors)</span>
+            <span id="pod1Text">Loading...</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+            <div id="pod1Bar" style="height:100%;width:0%;background:linear-gradient(90deg,#f59e0b,#facc15);transition:width 0.3s ease;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
+            <span>v5 · Self-Repair SFT Traces</span>
+            <span id="repairText">Loading...</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+            <div id="repairBar" style="height:100%;width:0%;background:linear-gradient(90deg,#fb7185,#f472b6);transition:width 0.3s ease;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
+            <span>v5 · Unique Empirical Leads</span>
+            <span id="uniqueLeadsText">Loading...</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+            <div id="uniqueLeadsBar" style="height:100%;width:0%;background:linear-gradient(90deg,#eab308,#fde047);transition:width 0.3s ease;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
+            <span>v5 · Real-Data Runs (GWTC / EHT / .hdf5)</span>
+            <span id="realDataText">Loading...</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+            <div id="realDataBar" style="height:100%;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);transition:width 0.3s ease;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
+            <span>v5 · Data-First (.hdf5) Novel Strain</span>
+            <span id="dataFirstText">Loading...</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+            <div id="dataFirstBar" style="height:100%;width:0%;background:linear-gradient(90deg,#a78bfa,#c084fc);transition:width 0.3s ease;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
+            <span>v4 Live Mode (RTX 4090 · 1-Hr Test Run)</span>
+            <span id="v4LiveText">Starting...</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+            <div id="v4LiveBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -698,37 +726,32 @@
         const res = await fetch("/api/science/dual-progress", { cache: "no-store" });
         if (!res.ok) return;
         const d = await res.json();
+        const l3 = d.lesson3_targets || d.lesson2_targets || {};
+        const setBar = (textId, barId, cur, tgt, label) => {
+          const pct = Math.min(100, Math.round((1000 * cur) / Math.max(1, tgt)) / 10);
+          const el = document.getElementById(textId);
+          const bar = document.getElementById(barId);
+          if (el) el.textContent = `${Number(cur).toLocaleString()} / ${Number(tgt).toLocaleString()} ${label} (${pct}%)`;
+          if (bar) bar.style.width = `${pct}%`;
+        };
         const p1 = d.pod1_a40 || {};
-        const p1Count = p1.dpo_pairs || 0;
-        const p1Target = p1.target || 692;
-        const p1Pct = Math.min(100, Math.round((1000 * p1Count) / Math.max(1, p1Target)) / 10);
-        const p1El = document.getElementById("pod1Text");
-        const p1Bar = document.getElementById("pod1Bar");
-        if (p1El) p1El.textContent = `${p1Count} / ${p1Target} DPO pairs (${p1Pct}%)`;
-        if (p1Bar) p1Bar.style.width = `${p1Pct}%`;
-
-        const l2 = d.lesson2_targets || {};
-        const rep = l2.self_repair_sft || {};
-        const repCount = rep.current ?? p1.repair_count ?? 0;
-        const repTarget = rep.target || 150;
-        const repPct = Math.min(100, Math.round((1000 * repCount) / Math.max(1, repTarget)) / 10);
-        const repEl = document.getElementById("repairText");
-        const repBar = document.getElementById("repairBar");
-        if (repEl) repEl.textContent = `${repCount} / ${repTarget} repair traces (${repPct}%)`;
-        if (repBar) repBar.style.width = `${repPct}%`;
+        const dpoT = l3.dpo_pairs || {};
+        setBar("pod1Text", "pod1Bar", dpoT.current ?? p1.dpo_pairs ?? 0, dpoT.target || 1000, "pairs");
+        const repT = l3.self_repair_sft || {};
+        setBar("repairText", "repairBar", repT.current ?? p1.repair_count ?? 0, repT.target || 3000, "traces");
+        const uniqT = l3.unique_leads || {};
+        setBar("uniqueLeadsText", "uniqueLeadsBar", uniqT.current ?? 0, uniqT.target || 200, "leads");
+        const realT = l3.real_data_runs || {};
+        setBar("realDataText", "realDataBar", realT.current ?? 0, realT.target || 400, "runs");
+        const dfT = l3.data_first_hdf5 || {};
+        setBar("dataFirstText", "dataFirstBar", dfT.current ?? 0, dfT.target || 25, "runs");
 
         const p2 = d.pod2_4090 || {};
-        const p2El = document.getElementById("pod2Text");
-        const p2Bar = document.getElementById("pod2Bar");
         const v4El = document.getElementById("v4LiveText");
         const v4Bar = document.getElementById("v4LiveBar");
         if (p2.cycles != null) {
-          const deepTarget = (l2.deep_followup_runs && l2.deep_followup_runs.target) || 75;
           const deepCount = p2.verified || 0;
-          const deepPct = Math.min(100, Math.round((1000 * deepCount) / Math.max(1, deepTarget)) / 10);
           const passPct = p2.cycles > 0 ? Math.round((1000 * deepCount) / p2.cycles) / 10 : 0;
-          if (p2El) p2El.textContent = `${deepCount} / ${deepTarget} verified (${deepPct}% · ${p2.cycles} cycles · ${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
-          if (p2Bar) p2Bar.style.width = `${deepPct}%`;
           const elSec = Number(p2.elapsed_sec || 0);
           const durPct = Math.min(100, Math.round((1000 * elSec) / 3600) / 10);
           const elMin = Math.round((elSec / 60) * 10) / 10;

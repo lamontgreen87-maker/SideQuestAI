@@ -733,7 +733,7 @@ class ScienceBot:
         )
         verified_count = self._count_verified_db()
         training_examples = self._count_training_examples_db()
-        training_goal = max(1, int(os.getenv("TRAINING_GOAL", "1500")))
+        training_goal = max(1, int(os.getenv("TRAINING_GOAL", "2500")))
         training_pct = min(100.0, round(100.0 * training_examples / training_goal, 1))
         unique_items = [item for item in self.feed if item.get("is_unique")]
         latest_unique = (

@@ -556,18 +556,36 @@ async def get_science_dual_progress():
         except Exception:
             live = {}
     verified_sft = science_bot._count_training_examples_db() if hasattr(science_bot, "_count_training_examples_db") else 0
-    sft_goal = max(1, int(os.getenv("TRAINING_GOAL", "1500")))
+    sft_goal = max(1, int(os.getenv("TRAINING_GOAL", "2500")))
+    unique_leads = 0
+    real_data_runs = 0
+    data_first_hdf5 = 0
+    try:
+        import sqlite3
+        db_path = getattr(science_bot, "DB_FILE", mem_dir / "science.db")
+        with sqlite3.connect(db_path) as conn:
+            unique_leads = int(conn.execute("SELECT COUNT(*) FROM articles WHERE verified=1 AND is_unique=1").fetchone()[0] or 0)
+            data_first_hdf5 = int(conn.execute("SELECT COUNT(*) FROM articles WHERE verified=1 AND data_first=1").fetchone()[0] or 0)
+            real_data_runs = int(conn.execute(
+                "SELECT COUNT(*) FROM articles WHERE verified=1 AND (lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%gwtc%' OR lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%eht%' OR lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%.hdf5%')"
+            ).fetchone()[0] or 0)
+    except Exception:
+        pass
+    l3_targets = {
+        "verified_sft": {"current": verified_sft, "target": sft_goal},
+        "unique_leads": {"current": unique_leads, "target": 200},
+        "real_data_runs": {"current": real_data_runs, "target": 400},
+        "data_first_hdf5": {"current": data_first_hdf5, "target": 25},
+        "dpo_pairs": {"current": dpo_count, "target": 1000, "min": 800},
+        "self_repair_sft": {"current": repair_count, "target": 3000},
+    }
     return {
-        "lesson": "Lesson 2 (v4)",
-        "lesson2_targets": {
-            "verified_sft": {"current": verified_sft, "target": sft_goal},
-            "dpo_pairs": {"current": dpo_count, "target": 692, "min": 500},
-            "self_repair_sft": {"current": repair_count, "target": 150, "min": 100},
-            "deep_followup_runs": {"current": int(live.get("verified", 0) or 0), "target": 75, "min": 50},
-        },
+        "lesson": "Lesson 3 (v5)",
+        "lesson3_targets": l3_targets,
+        "lesson2_targets": l3_targets,
         "pod1_a40": {
             "dpo_pairs": dpo_count,
-            "target": 692,
+            "target": 1000,
             "repair_count": repair_count,
             "failure_modes": dict(modes),
         },
