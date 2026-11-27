@@ -424,6 +424,15 @@
             <div id="v4LiveBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
           </div>
         </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#94a3b8;margin-bottom:3px;">
+            <span>v5 Training (A40 Pod · SFT + DPO → GGUF)</span>
+            <span id="v5TrainText">Loading...</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+            <div id="v5TrainBar" style="height:100%;width:0%;background:linear-gradient(90deg,#22d3ee,#818cf8);transition:width 0.3s ease;"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -759,6 +768,16 @@
           const durMin = Math.round(durSec / 60);
           if (v4El) v4El.textContent = `${elMin} / ${durMin}m (${durPct}%) · ${deepCount}/${p2.cycles} verified (${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
           if (v4Bar) v4Bar.style.width = `${durPct}%`;
+        }
+        const v5 = d.v5_train || {};
+        const v5El = document.getElementById("v5TrainText");
+        const v5Bar = document.getElementById("v5TrainBar");
+        if (v5El && v5.stage) {
+          const v5Pct = Number(v5.pct || 0);
+          const stepTxt = v5.total_steps ? `${v5.step}/${v5.total_steps} (${v5Pct}%)` : `${v5Pct}%`;
+          const metaTxt = [v5.eta ? `ETA ${v5.eta}` : "", v5.loss ? `loss ${v5.loss}` : ""].filter(Boolean).join(" · ");
+          v5El.textContent = `${v5.stage} · ${stepTxt}${metaTxt ? ` · ${metaTxt}` : ""}`;
+          if (v5Bar) v5Bar.style.width = `${Math.min(100, Math.max(0, v5Pct))}%`;
         }
       } catch (_) {}
     }

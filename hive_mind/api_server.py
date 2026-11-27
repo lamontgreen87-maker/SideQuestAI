@@ -524,6 +524,49 @@ async def run_science_now():
     return {"started": started, "status": science_bot.get_status()}
 
 
+_V5_TRAIN_CACHE: Dict[str, Any] = {"ts": 0.0, "data": {}}
+
+
+def _fetch_v5_train_progress() -> Dict[str, Any]:
+    import re
+    import time
+    import urllib.request
+    now = time.time()
+    if now - _V5_TRAIN_CACHE["ts"] < 15.0 and _V5_TRAIN_CACHE["data"]:
+        return _V5_TRAIN_CACHE["data"]
+    url = os.getenv("V5_TRAIN_LOG_URL", "https://dl37l1otjih8oy-11434.proxy.runpod.net/train_v5.log")
+    info: Dict[str, Any] = {"stage": "Idle", "step": 0, "total_steps": 0, "pct": 0.0, "eta": "", "loss": ""}
+    try:
+        req = urllib.request.Request(url, headers={"Range": "bytes=-12000"})
+        with urllib.request.urlopen(req, timeout=4) as resp:
+            txt = resp.read().decode("utf-8", errors="ignore").replace("\r", "\n")
+        if "DOWNLOAD THESE GGUF FILE(S)" in txt:
+            info.update({"stage": "Complete (GGUF Ready)", "pct": 100.0})
+        elif "Converting GGUF" in txt or "Converting HF to GGUF" in txt or "Merge process complete" in txt:
+            info.update({"stage": "Stage 3 · GGUF Export", "pct": 95.0})
+        else:
+            is_dpo = "DPOTrainer" in txt or "rewards/accuracies" in txt or "101 [" in txt or "/112 [" in txt
+            matches = re.findall(r"(\d+)/(\d+)\s+\[[^\]<]*<([^,\]]+)", txt)
+            losses = re.findall(r"'loss':\s*'([^']+)'", txt)
+            if matches:
+                step, total, eta = int(matches[-1][0]), int(matches[-1][1]), matches[-1][2].strip()
+                pct = min(100.0, round(100.0 * step / max(1, total), 1))
+                info.update({
+                    "stage": "Stage 2 · DPO" if (is_dpo or total < 500) else "Stage 1 · SFT",
+                    "step": step,
+                    "total_steps": total,
+                    "pct": pct,
+                    "eta": eta,
+                    "loss": losses[-1] if losses else "",
+                })
+        _V5_TRAIN_CACHE["ts"] = now
+        _V5_TRAIN_CACHE["data"] = info
+    except Exception:
+        if _V5_TRAIN_CACHE["data"]:
+            return _V5_TRAIN_CACHE["data"]
+    return info
+
+
 @app.get("/api/science/dual-progress")
 async def get_science_dual_progress():
     from pathlib import Path
@@ -590,6 +633,7 @@ async def get_science_dual_progress():
             "failure_modes": dict(modes),
         },
         "pod2_4090": live,
+        "v5_train": _fetch_v5_train_progress(),
     }
 
 
