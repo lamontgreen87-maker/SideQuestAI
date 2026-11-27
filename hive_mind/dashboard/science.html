@@ -387,8 +387,15 @@
         <span>Pod 2 (RTX 4090) · 2-Pass &amp; Next-Exploration Runs (target 50–100)</span>
         <span id="pod2Text">Starting...</span>
       </div>
-      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;margin-bottom:8px;">
         <div id="pod2Bar" style="height:100%;width:0%;background:linear-gradient(90deg,#a78bfa,#2dd4bf);transition:width 0.3s ease;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
+        <span>v4 Live Mode (RTX 4090 · 1-Hr Test Run)</span>
+        <span id="v4LiveText">Starting...</span>
+      </div>
+      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
+        <div id="v4LiveBar" style="height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#4ade80);transition:width 0.3s ease;"></div>
       </div>
     </div>
   </div>
@@ -713,6 +720,8 @@
         const p2 = d.pod2_4090 || {};
         const p2El = document.getElementById("pod2Text");
         const p2Bar = document.getElementById("pod2Bar");
+        const v4El = document.getElementById("v4LiveText");
+        const v4Bar = document.getElementById("v4LiveBar");
         if (p2.cycles != null) {
           const deepTarget = (l2.deep_followup_runs && l2.deep_followup_runs.target) || 75;
           const deepCount = p2.verified || 0;
@@ -720,6 +729,11 @@
           const passPct = p2.cycles > 0 ? Math.round((1000 * deepCount) / p2.cycles) / 10 : 0;
           if (p2El) p2El.textContent = `${deepCount} / ${deepTarget} verified (${deepPct}% · ${p2.cycles} cycles · ${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
           if (p2Bar) p2Bar.style.width = `${deepPct}%`;
+          const elSec = Number(p2.elapsed_sec || 0);
+          const durPct = Math.min(100, Math.round((1000 * elSec) / 3600) / 10);
+          const elMin = Math.round((elSec / 60) * 10) / 10;
+          if (v4El) v4El.textContent = `${elMin} / 60m (${durPct}%) · ${deepCount}/${p2.cycles} verified (${passPct}% pass · ${p2.rate_per_hr || 0}/hr)`;
+          if (v4Bar) v4Bar.style.width = `${durPct}%`;
         }
       } catch (_) {}
     }
