@@ -579,8 +579,15 @@ async def get_science_dual_progress():
         "dpo_pairs": {"current": dpo_count, "target": 1000, "min": 800},
         "self_repair_sft": {"current": repair_count, "target": 3500},
     }
+    exam_file = mem_dir / "training" / "v7_phd_exam.json"
+    v7_exam = {}
+    if exam_file.exists():
+        try:
+            v7_exam = json.loads(exam_file.read_text(encoding="utf-8", errors="ignore"))
+        except Exception:
+            v7_exam = {}
     return {
-        "lesson": "Lesson 4 (v6)",
+        "lesson": "Lesson 4 (v6/v7)",
         "lesson4_targets": l4_targets,
         "lesson3_targets": l4_targets,
         "lesson2_targets": l4_targets,
@@ -591,6 +598,7 @@ async def get_science_dual_progress():
             "failure_modes": dict(modes),
         },
         "pod2_4090": live,
+        "v7_phd_exam": v7_exam,
     }
 
 

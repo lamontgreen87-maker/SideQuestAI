@@ -223,5 +223,81 @@ def build_v7_lab_datasets(samples_per_event: int = 3) -> Dict[str, Any]:
     }
 
 
+EXAM_FILE = BASE_DIR / "memory" / "training" / "v7_phd_exam.json"
+
+
+def run_phd_exam(ollama_base: str = "http://127.0.0.1:11434", model: str = "sciencebot-4b") -> Dict[str, Any]:
+    """Grade a model on the 4-part PhD Qualifying Exam using held-out GW190814 strain."""
+    import requests
+    from datetime import datetime, timezone
+
+    m = json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
+    held = [k for k, v in m.get("events", {}).items() if v.get("held_out")]
+    ev_name = held[0] if held else "GW190521"
+
+    tests = [
+        ("blind_signal", f"DATA-FIRST EXAM ({ev_name} - Test 1): Load H1 & L1 4096 Hz .hdf5 strain from GWOSC_STRAIN_MANIFEST, inject a coherent 180 Hz damped sinusoid (amp=3.5*std) in BOTH H1 and L1 off-source noise, whiten, run >=50 time-shifted null controls, and print verdict=DETECTION or NULL_NO_SIGNAL + PASS."),
+        ("pure_noise", f"DATA-FIRST EXAM ({ev_name} - Test 2): Load H1 & L1 4096 Hz .hdf5 off-source background noise (ZERO injection), whiten, run >=50 time-shifted null controls, and honestly print whether a signal is present (verdict=NULL_NO_SIGNAL or DETECTION) + PASS."),
+        ("single_glitch", f"DATA-FIRST EXAM ({ev_name} - Test 3): Load H1 & L1 4096 Hz .hdf5 off-source noise, inject a 7*std glitch into H1 ONLY (nothing in L1), check H1-L1 coincidence + >=50 time-shifts, and print verdict=SINGLE_DETECTOR_GLITCH or DETECTION + PASS."),
+        ("held_out_real", f"DATA-FIRST EXAM ({ev_name} - Test 4): Analyze the real on-source window around ev['gps'] in {ev_name} H1 & L1 .hdf5 strain, whiten, run >=50 time-shifted background trials, and print empirical p-value + PASS."),
+    ]
+    results: Dict[str, Any] = {}
+    passed_count = 0
+    for key, prompt in tests:
+        ok = False
+        detail = ""
+        try:
+            r = requests.post(
+                f"{ollama_base.rstrip('/')}/api/chat",
+                json={
+                    "model": model,
+                    "messages": [{"role": "system", "content": WRITER_SYSTEM}, {"role": "user", "content": prompt}],
+                    "stream": False,
+                    "think": False,
+                    "options": {"temperature": 0.3, "num_predict": 2200},
+                },
+                timeout=(15, 180),
+            )
+            r.raise_for_status()
+            raw = str((r.json().get("message") or {}).get("content") or "")
+            parsed = _extract_json_obj(raw) or {}
+            code = str(parsed.get("experiment_code") or "")
+            exp = _run_experiment_code(code, timeout_s=25)
+            out = str(exp.get("output") or "")
+            up = out.upper()
+            if exp.get("passed"):
+                if key == "blind_signal":
+                    ok = "DETECTION" in up and "NULL" not in up
+                elif key == "pure_noise":
+                    ok = "NULL" in up and "DETECTION" not in up
+                elif key == "single_glitch":
+                    ok = ("GLITCH" in up or "NULL" in up or "REJECT" in up) and "COINCIDENT DETECTION" not in up
+                else:
+                    ok = "H5PY" in code.upper() or "GWOSC_STRAIN_MANIFEST" in code.upper()
+            detail = out[:240].replace("\n", " | ")
+        except Exception as e:
+            detail = str(e)[:160]
+        if ok:
+            passed_count += 1
+        results[key] = {"passed": ok, "detail": detail}
+
+    payload = {
+        "model": model,
+        "held_out_event": ev_name,
+        "score": passed_count,
+        "total": len(tests),
+        "tests": results,
+        "tested_at": datetime.now(timezone.utc).isoformat(),
+    }
+    EXAM_FILE.parent.mkdir(parents=True, exist_ok=True)
+    EXAM_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return payload
+
+
 if __name__ == "__main__":
-    print(json.dumps(build_v7_lab_datasets(), indent=2))
+    if len(sys.argv) > 1 and sys.argv[1] == "exam":
+        url = sys.argv[2] if len(sys.argv) > 2 else "http://127.0.0.1:11434"
+        mdl = sys.argv[3] if len(sys.argv) > 3 else "sciencebot-4b"
+        print(json.dumps(run_phd_exam(url, mdl), indent=2))
+    else:
+        print(json.dumps(build_v7_lab_datasets(), indent=2))

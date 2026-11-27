@@ -417,7 +417,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
-            <span style="overflow:hidden;text-overflow:ellipsis;">Pod A+B (2× 4090) · v5 Frontier Live</span>
+            <span id="livePodLabel" style="overflow:hidden;text-overflow:ellipsis;">Pod A+B (2× 4090) · Live</span>
             <span id="v4LiveText" style="flex-shrink:0;">Starting...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -425,6 +425,7 @@
           </div>
         </div>
       </div>
+      <div id="v7ExamBox" style="display:none;margin-top:8px;padding:6px 10px;border-radius:8px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.28);font-size:0.8rem;color:#cbd5e1;"></div>
     </div>
   </div>
 
@@ -749,15 +750,29 @@
         const p2 = d.pod2_4090 || {};
         const v4El = document.getElementById("v4LiveText");
         const v4Bar = document.getElementById("v4LiveBar");
+        const liveLbl = document.getElementById("livePodLabel");
+        if (liveLbl && p2.mode) liveLbl.textContent = `Pod A+B (2× 4090) · ${p2.mode}`;
         if (p2.cycles != null) {
           const deepCount = p2.verified || 0;
           const passPct = p2.cycles > 0 ? Math.round((1000 * deepCount) / p2.cycles) / 10 : 0;
           const elSec = Number(p2.elapsed_sec || 0);
-          const durSec = 7200;
-          const durPct = Math.min(100, Math.round((1000 * elSec) / durSec) / 10);
+          const durSec = Number(p2.duration_sec || 7200);
+          const durPct = Math.min(100, Math.round((1000 * elSec) / Math.max(1, durSec)) / 10);
           const elMin = Math.round((elSec / 60) * 10) / 10;
-          if (v4El) v4El.textContent = `${elMin}/120m · ${deepCount}/${p2.cycles} (${passPct}% · ${p2.rate_per_hr || 0}/hr)`;
+          const durMin = Math.round(durSec / 60);
+          if (v4El) v4El.textContent = `${elMin}/${durMin}m · ${deepCount}/${p2.cycles} (${passPct}% · ${p2.rate_per_hr || 0}/hr)`;
           if (v4Bar) v4Bar.style.width = `${durPct}%`;
+        }
+        const ex = d.v7_phd_exam || {};
+        const exBox = document.getElementById("v7ExamBox");
+        if (exBox && ex.tests) {
+          exBox.style.display = "block";
+          const labels = { blind_signal: "Blind Signal", pure_noise: "Pure Noise Null", single_glitch: "H1 Glitch Reject", held_out_real: `Held-Out ${ex.held_out_event || "GW190814"}` };
+          const pills = Object.entries(labels).map(([k, lbl]) => {
+            const ok = ex.tests[k] && ex.tests[k].passed;
+            return `<span style="margin-right:10px;color:${ok ? "#4ade80" : "#f87171"};">${ok ? "✓" : "✗"} ${escapeHtml(lbl)}</span>`;
+          }).join("");
+          exBox.innerHTML = `<strong style="color:#7dd3fc;">v7 PhD Exam (${escapeHtml(ex.model || "v7")} · ${ex.score}/${ex.total}):</strong> ${pills}`;
         }
       } catch (_) {}
     }
