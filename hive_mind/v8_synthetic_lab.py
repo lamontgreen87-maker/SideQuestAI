@@ -30,6 +30,12 @@ _CATALOG_RECIPES: List[Dict[str, str]] = [
     {
         "catalog": "exoplanets",
         "title": "Exoplanet Mass-Radius Density Transition & Radius-Valley Permutation Test",
+        "math_derivation": (
+            "1) Governing Equation: Bulk density ratio relative to Earth is rho_rel = (M_p / M_earth) / (R_p / R_earth)^3, "
+            "where M_p = pl_bmasse [M_earth] and R_p = pl_rade [R_earth], so rho_rel is dimensionless. "
+            "2) Group Statistic: T_obs = median(rho_rel | R_p < 1.6) - median(rho_rel | 1.8 <= R_p <= 3.5). "
+            "3) Null Hypothesis H0: Rocky and sub-Neptune densities are exchangeable; empirical one-sided p = (1 + count(T_perm >= T_obs)) / (1 + N_perm) with N_perm = 200."
+        ),
         "hypothesis": "Confirmed exoplanets in the NASA Exoplanet Archive exhibit a statistically significant bulk-density break between rocky super-Earths (R < 1.6 R_earth) and sub-Neptunes (1.8 < R < 3.5 R_earth) that persists against 200 random label permutations (p < 0.01).",
         "code": '''import json, os
 import numpy as np
@@ -70,6 +76,13 @@ print("PASS")''',
     {
         "catalog": "pantheon_sne",
         "title": "Pantheon+SH0ES Low-z vs High-z Hubble Residual & Flat LCDM Chi2 Check",
+        "math_derivation": (
+            "1) Governing Equation (Flat LCDM): E(z) = sqrt(Omega_m*(1+z)^3 + Omega_L), "
+            "d_C(z) = (c/H_0)*integral_0^z dz'/E(z') [Mpc], d_L(z) = (1+z)*d_C(z) [Mpc], "
+            "mu_model(z) = 5*log10(d_L/Mpc) + 25 [mag], with c = 299792.458 km/s, H_0 = 73.04 km/s/Mpc, Omega_m = 0.315, Omega_L = 0.685. "
+            "2) Goodness-of-Fit & Residual Split: chi2_red = mean(((mu_obs - mu_model)/sigma_mu)^2), "
+            "Delta_mu = mean(res[z < 0.1]) - mean(res[z >= 0.1]) [mag], uncertainty via N_boot = 200 bootstrap resamples."
+        ),
         "hypothesis": "Pantheon+SH0ES Type Ia supernovae show a tight Hubble diagram residual around flat LCDM (Omega_m=0.315, H0=73.04) with non-zero reduced chi2 and measurable low-z vs high-z residual offset tested via 200 bootstrap resamples.",
         "code": '''import json, os
 import numpy as np
@@ -111,6 +124,12 @@ print("PASS")''',
     {
         "catalog": "earthquakes",
         "title": "USGS ComCat M4.5+ Gutenberg-Richter b-Value MLE & Shallow-vs-Deep Magnitude Null Test",
+        "math_derivation": (
+            "1) Governing Equation (Aki-Utsu MLE): log10 N(>=M) = a - b*M => b_hat = log10(e) / (mean(M) - (M_min - Delta_M/2)) [dimensionless], "
+            "with M_min = 4.5, bin width Delta_M = 0.1. "
+            "2) Depth Comparison: T_obs = mean(M[depth >= 70 km]) - mean(M[depth < 70 km]). "
+            "3) Null Hypothesis H0: Magnitude is independent of focal depth; two-sided p = (1 + count(|T_perm| >= |T_obs|)) / (1 + 200)."
+        ),
         "hypothesis": "Global M4.5+ USGS earthquakes follow a Gutenberg-Richter b-value near 1.0 (Aki-Utsu MLE) and exhibit a testable magnitude distribution difference between shallow (<70 km) and deep (>=70 km) events evaluated against 200 random permutations.",
         "code": '''import json, os
 import numpy as np
@@ -160,11 +179,13 @@ def build_v8_lab_datasets() -> Dict[str, int]:
                 f"Target Title: {rec['title']}\n"
                 f"Hypothesis: {rec['hypothesis']}\n"
                 f"Catalog: {rec['catalog']} via `os.environ['OPEN_CATALOGS_MANIFEST']`.\n"
-                "Output ONLY valid JSON with keys: title, domain, hypothesis, mini_experiment, experiment_code, expected_result."
+                "MATH-FIRST RULE: Explicitly derive the governing equation, units/dimensions, and null-hypothesis test statistic in `math_derivation` BEFORE `experiment_code`.\n"
+                "Output ONLY valid JSON with keys: title, domain, math_derivation, hypothesis, mini_experiment, experiment_code, expected_result."
             )
             good_json = json.dumps({
                 "title": rec["title"],
                 "domain": "Observational Astrophysics & Statistical Physics",
+                "math_derivation": rec["math_derivation"],
                 "hypothesis": rec["hypothesis"],
                 "mini_experiment": f"Load {rec['catalog']} from OPEN_CATALOGS_MANIFEST, compute real statistic, and run >=200 permutation/bootstrap null trials.",
                 "experiment_code": rec["code"],
@@ -173,6 +194,7 @@ def build_v8_lab_datasets() -> Dict[str, int]:
             bad_json = json.dumps({
                 "title": rec["title"],
                 "domain": "Observational Astrophysics & Statistical Physics",
+                "math_derivation": "Skipped explicit equations and units.",
                 "hypothesis": rec["hypothesis"],
                 "mini_experiment": "Placeholder toy check.",
                 "experiment_code": rec["bad_code"],

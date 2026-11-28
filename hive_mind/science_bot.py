@@ -1313,6 +1313,7 @@ class ScienceBot:
                 ) + wiki_ctx + prior_digest
 
                 exp_schema_note = (
+                    '- "math_derivation": BEFORE writing any code, explicitly derive the governing equation(s), check SI/natural units & dimensions, and state the null-hypothesis test statistic.\n'
                     '- "experiment_code": a self-contained Python 3 script (`math`, `cmath`, `random`, `statistics`, `numpy`, `scipy`, `h5py`, `emcee`, `json`, `os`) '
                     "that runs a quantitative Black Hole Physics check using real constants "
                     "(G=6.67430e-11, c=2.99792458e8, hbar=1.054571817e-34, k_B=1.380649e-23, M_sun=1.98847e30). "
