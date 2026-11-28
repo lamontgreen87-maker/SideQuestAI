@@ -267,5 +267,88 @@ def build_v8_lab_datasets() -> Dict[str, int]:
     return {"v8_lab_sft": len(sft_rows), "v8_lab_dpo": len(dpo_rows), "novelty_pairs": novelty_pairs}
 
 
+EXAM_FILE = BASE_DIR / "memory" / "training" / "v8_phd_exam.json"
+
+
+def run_v8_phd_exam(ollama_base: str = "http://127.0.0.1:11434", model: str = "v7-8b", max_repairs: int = 0) -> Dict[str, Any]:
+    """Grade a model on the 4-part Math-First Multi-Catalog v8 PhD Exam."""
+    import os
+    import requests
+    from datetime import datetime, timezone
+    from science_bot import _extract_json_obj, _run_experiment_code
+
+    os.environ["OPEN_CATALOGS_MANIFEST"] = str(OPEN_MANIFEST)
+    tests = [
+        ("gwosc_signal", "MATH-FIRST EXAM (GW190814 - Signal): First derive `math_derivation` (whitening, H1-L1 cross-correlation equation, units, time-slide p-value), then in `experiment_code` load GW190814 H1 & L1 from GWOSC_STRAIN_MANIFEST, inject a 180 Hz damped sinusoid (3.5*std) in BOTH off-source windows, run >=50 time-shifts, and print verdict=DETECTION + PASS."),
+        ("gwosc_null", "MATH-FIRST EXAM (GW190814 - Pure Noise): First derive `math_derivation` (null statistic & p-value formula), then in `experiment_code` load GW190814 H1 & L1 off-source noise (ZERO injection), run >=50 time-shifts, and print verdict=NULL_NO_SIGNAL + PASS."),
+        ("exoplanets_density", "MATH-FIRST EXAM (Exoplanets): First derive `math_derivation` (rho_rel = M_p / R_p^3, units, permutation test), then in `experiment_code` load `exoplanets` from OPEN_CATALOGS_MANIFEST, test rocky (R<1.6) vs sub-Neptune (1.8<=R<=3.5) density with >=200 permutations, and print p-value + PASS."),
+        ("pantheon_lcdm", "MATH-FIRST EXAM (Pantheon+ SNe Ia): First derive `math_derivation` (flat LCDM luminosity distance d_L(z) & distance modulus mu(z), chi2_red), then in `experiment_code` load `pantheon_sne` from OPEN_CATALOGS_MANIFEST, compute chi2_red and low-z vs high-z bootstrap shift, and print PASS."),
+    ]
+    results: Dict[str, Any] = {}
+    passed_count = 0
+    total_repairs = 0
+    for key, prompt in tests:
+        ok = False
+        detail = ""
+        repairs_used = 0
+        messages = [{"role": "system", "content": WRITER_SYSTEM}, {"role": "user", "content": prompt}]
+        try:
+            for attempt in range(max_repairs + 1):
+                r = requests.post(
+                    f"{ollama_base.rstrip('/')}/api/chat",
+                    json={"model": model, "messages": messages, "stream": False, "think": False, "options": {"temperature": 0.3, "num_predict": 2500}},
+                    timeout=(15, 180),
+                )
+                r.raise_for_status()
+                raw = str((r.json().get("message") or {}).get("content") or "")
+                parsed = _extract_json_obj(raw) or {}
+                has_math = len(str(parsed.get("math_derivation") or "").strip()) >= 20
+                code = str(parsed.get("experiment_code") or "")
+                exp = _run_experiment_code(code, timeout_s=25)
+                out = str(exp.get("output") or "")
+                up = out.upper()
+                if exp.get("passed") and has_math:
+                    if key == "gwosc_signal":
+                        ok = "DETECTION" in up and "NULL" not in up
+                    elif key == "gwosc_null":
+                        ok = "NULL" in up and "DETECTION" not in up
+                    elif key == "exoplanets_density":
+                        ok = "EXOPLANET" in code.upper() or "OPEN_CATALOGS_MANIFEST" in code.upper()
+                    else:
+                        ok = "PANTHEON" in code.upper() or "OPEN_CATALOGS_MANIFEST" in code.upper()
+                detail = f"math={'ok' if has_math else 'missing'} | " + out[:200].replace("\n", " | ")
+                if ok or attempt >= max_repairs:
+                    break
+                repairs_used += 1
+                total_repairs += 1
+                messages.append({"role": "assistant", "content": raw})
+                messages.append({"role": "user", "content": f"Failed check (math={'ok' if has_math else 'missing'}):\n{out[:700]}\nReturn valid JSON with `math_derivation` and `experiment_code`."})
+        except Exception as e:
+            detail = str(e)[:160]
+        if ok:
+            passed_count += 1
+        results[key] = {"passed": ok, "repairs_used": repairs_used, "detail": detail}
+
+    payload = {
+        "model": model,
+        "exam_version": "v8_math_first_multi_catalog",
+        "score": passed_count,
+        "total": len(tests),
+        "invalidated_by_corrections": max_repairs > 0,
+        "total_repairs": total_repairs,
+        "tests": results,
+        "tested_at": datetime.now(timezone.utc).isoformat(),
+    }
+    EXAM_FILE.parent.mkdir(parents=True, exist_ok=True)
+    EXAM_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return payload
+
+
 if __name__ == "__main__":
-    print(json.dumps(build_v8_lab_datasets(), indent=2))
+    if len(sys.argv) > 1 and sys.argv[1] == "exam":
+        url = sys.argv[2] if len(sys.argv) > 2 else "http://127.0.0.1:11434"
+        mdl = sys.argv[3] if len(sys.argv) > 3 else "v7-8b"
+        rep = int(sys.argv[4]) if len(sys.argv) > 4 else 0
+        print(json.dumps(run_v8_phd_exam(url, mdl, max_repairs=rep), indent=2))
+    else:
+        print(json.dumps(build_v8_lab_datasets(), indent=2))

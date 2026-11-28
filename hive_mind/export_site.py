@@ -1356,7 +1356,21 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       }
       if (a.experiment_code) {
         const linesCount = String(a.experiment_code).split("\n").length;
-        sections.push(`<div class="detail-section"><details><summary>Reproducible Python Verification Script (${linesCount} lines${a.experiment_passed ? " · Passed" : ""})</summary><pre><code>${escapeHtml(a.experiment_code)}</code></pre></details></div>`);
+        window.__downloadReproScript = function(aid) {
+          const item = (window.__ARTICLES__ || []).find((x) => String(x.id || "") === String(aid)) || a;
+          const hdr = `# SideQuestAI Reproducible Verification Script\n# Title: ${String(item.title || "").replace(/\r?\n/g, " ")}\n# Run: python reproduce_${String(aid).replace(/[^a-zA-Z0-9_-]/g, "")}.py\n\n`;
+          const blob = new Blob([hdr + String(item.experiment_code || "")], { type: "text/x-python" });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = `reproduce_${String(aid).replace(/[^a-zA-Z0-9_-]/g, "") || "experiment"}.py`;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        };
+        const dlBtn = `<button type="button" onclick="event.stopPropagation();window.__downloadReproScript('${escapeHtml(String(a.id || ""))}')" style="margin-left:10px;padding:2px 8px;border-radius:6px;border:1px solid rgba(56,189,248,0.45);background:rgba(56,189,248,0.14);color:#7dd3fc;font-size:0.75rem;cursor:pointer;">⬇ Download reproduce.py</button>`;
+        sections.push(`<div class="detail-section"><details><summary>Reproducible Python Verification Script (${linesCount} lines${a.experiment_passed ? " · Passed" : ""})${dlBtn}</summary><pre><code>${escapeHtml(a.experiment_code)}</code></pre></details></div>`);
       }
       if (pOthers.length) {
         const otherLinks = pOthers.map((o, i) => {
