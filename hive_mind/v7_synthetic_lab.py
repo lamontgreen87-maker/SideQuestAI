@@ -226,7 +226,7 @@ def build_v7_lab_datasets(samples_per_event: int = 3) -> Dict[str, Any]:
 EXAM_FILE = BASE_DIR / "memory" / "training" / "v7_phd_exam.json"
 
 
-def run_phd_exam(ollama_base: str = "http://127.0.0.1:11434", model: str = "sciencebot-4b") -> Dict[str, Any]:
+def run_phd_exam(ollama_base: str = "http://127.0.0.1:11434", model: str = "sciencebot-4b", max_repairs: int = 0) -> Dict[str, Any]:
     """Grade a model on the 4-part PhD Qualifying Exam using held-out GW190814 strain."""
     import requests
     from datetime import datetime, timezone
@@ -241,51 +241,76 @@ def run_phd_exam(ollama_base: str = "http://127.0.0.1:11434", model: str = "scie
         ("single_glitch", f"DATA-FIRST EXAM ({ev_name} - Test 3): Load H1 & L1 4096 Hz .hdf5 off-source noise, inject a 7*std glitch into H1 ONLY (nothing in L1), check H1-L1 coincidence + >=50 time-shifts, and print verdict=SINGLE_DETECTOR_GLITCH or DETECTION + PASS."),
         ("held_out_real", f"DATA-FIRST EXAM ({ev_name} - Test 4): Analyze the real on-source window around ev['gps'] in {ev_name} H1 & L1 .hdf5 strain, whiten, run >=50 time-shifted background trials, and print empirical p-value + PASS."),
     ]
+
+    def _grade(key: str, code: str, exp: Dict[str, Any]) -> bool:
+        up = str(exp.get("output") or "").upper()
+        if not exp.get("passed"):
+            return False
+        if key == "blind_signal":
+            return "DETECTION" in up and "NULL" not in up
+        if key == "pure_noise":
+            return "NULL" in up and "DETECTION" not in up
+        if key == "single_glitch":
+            return ("GLITCH" in up or "NULL" in up or "REJECT" in up) and "COINCIDENT DETECTION" not in up
+        return "H5PY" in code.upper() or "GWOSC_STRAIN_MANIFEST" in code.upper()
+
     results: Dict[str, Any] = {}
     passed_count = 0
+    total_repairs = 0
     for key, prompt in tests:
         ok = False
         detail = ""
+        repairs_used = 0
+        messages = [{"role": "system", "content": WRITER_SYSTEM}, {"role": "user", "content": prompt}]
         try:
-            r = requests.post(
-                f"{ollama_base.rstrip('/')}/api/chat",
-                json={
-                    "model": model,
-                    "messages": [{"role": "system", "content": WRITER_SYSTEM}, {"role": "user", "content": prompt}],
-                    "stream": False,
-                    "think": False,
-                    "options": {"temperature": 0.3, "num_predict": 2200},
-                },
-                timeout=(15, 180),
-            )
-            r.raise_for_status()
-            raw = str((r.json().get("message") or {}).get("content") or "")
-            parsed = _extract_json_obj(raw) or {}
-            code = str(parsed.get("experiment_code") or "")
-            exp = _run_experiment_code(code, timeout_s=25)
-            out = str(exp.get("output") or "")
-            up = out.upper()
-            if exp.get("passed"):
-                if key == "blind_signal":
-                    ok = "DETECTION" in up and "NULL" not in up
-                elif key == "pure_noise":
-                    ok = "NULL" in up and "DETECTION" not in up
-                elif key == "single_glitch":
-                    ok = ("GLITCH" in up or "NULL" in up or "REJECT" in up) and "COINCIDENT DETECTION" not in up
-                else:
-                    ok = "H5PY" in code.upper() or "GWOSC_STRAIN_MANIFEST" in code.upper()
-            detail = out[:240].replace("\n", " | ")
+            for attempt in range(max_repairs + 1):
+                r = requests.post(
+                    f"{ollama_base.rstrip('/')}/api/chat",
+                    json={
+                        "model": model,
+                        "messages": messages,
+                        "stream": False,
+                        "think": False,
+                        "options": {"temperature": 0.3, "num_predict": 2200},
+                    },
+                    timeout=(15, 180),
+                )
+                r.raise_for_status()
+                raw = str((r.json().get("message") or {}).get("content") or "")
+                parsed = _extract_json_obj(raw) or {}
+                code = str(parsed.get("experiment_code") or "")
+                exp = _run_experiment_code(code, timeout_s=25)
+                out = str(exp.get("output") or "")
+                ok = _grade(key, code, exp)
+                detail = out[:240].replace("\n", " | ")
+                if ok or attempt >= max_repairs:
+                    break
+                repairs_used += 1
+                total_repairs += 1
+                messages.append({"role": "assistant", "content": raw})
+                messages.append({
+                    "role": "user",
+                    "content": f"Your previous Python script failed or missed the check:\n{out[:900]}\nFix the bug and return ONLY valid JSON with `experiment_code`.",
+                })
         except Exception as e:
             detail = str(e)[:160]
         if ok:
             passed_count += 1
-        results[key] = {"passed": ok, "detail": detail}
+        results[key] = {"passed": ok, "repairs_used": repairs_used, "detail": detail}
 
     payload = {
         "model": model,
         "held_out_event": ev_name,
         "score": passed_count,
         "total": len(tests),
+        "invalidated_by_corrections": max_repairs > 0,
+        "max_repairs": max_repairs,
+        "total_repairs": total_repairs,
+        "note": (
+            f"Corrections enabled (up to {max_repairs} fix/test; 1-shot exam INVALID — measures retry-stack)"
+            if max_repairs > 0
+            else "Strict 1-shot PhD exam (0 corrections)"
+        ),
         "tests": results,
         "tested_at": datetime.now(timezone.utc).isoformat(),
     }
@@ -298,6 +323,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "exam":
         url = sys.argv[2] if len(sys.argv) > 2 else "http://127.0.0.1:11434"
         mdl = sys.argv[3] if len(sys.argv) > 3 else "sciencebot-4b"
-        print(json.dumps(run_phd_exam(url, mdl), indent=2))
+        rep = int(sys.argv[4]) if len(sys.argv) > 4 else 0
+        print(json.dumps(run_phd_exam(url, mdl, max_repairs=rep), indent=2))
     else:
         print(json.dumps(build_v7_lab_datasets(), indent=2))

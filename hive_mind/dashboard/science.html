@@ -793,10 +793,13 @@
           exBox.style.display = "block";
           const labels = { blind_signal: "Blind Signal", pure_noise: "Pure Noise Null", single_glitch: "H1 Glitch Reject", held_out_real: `Held-Out ${ex.held_out_event || "GW190814"}` };
           const pills = Object.entries(labels).map(([k, lbl]) => {
-            const ok = ex.tests[k] && ex.tests[k].passed;
-            return `<span style="margin-right:10px;color:${ok ? "#4ade80" : "#f87171"};">${ok ? "✓" : "✗"} ${escapeHtml(lbl)}</span>`;
+            const t = ex.tests[k] || {};
+            const ok = !!t.passed;
+            const fixTag = t.repairs_used ? ` (${t.repairs_used} fix)` : "";
+            return `<span style="margin-right:10px;color:${ok ? "#4ade80" : "#f87171"};">${ok ? "✓" : "✗"} ${escapeHtml(lbl)}${fixTag}</span>`;
           }).join("");
-          exBox.innerHTML = `<strong style="color:#7dd3fc;">v7 PhD Exam (${escapeHtml(ex.model || "v7")} · ${ex.score}/${ex.total}):</strong> ${pills}`;
+          const invBadge = ex.invalidated_by_corrections ? ` <span style="color:#fbbf24;">· INVALID (used ${ex.total_repairs || 0} correction${(ex.total_repairs || 0) === 1 ? "" : "s"})</span>` : "";
+          exBox.innerHTML = `<strong style="color:#7dd3fc;">v7 PhD Exam (${escapeHtml(ex.model || "v7")} · ${ex.score}/${ex.total}):</strong>${invBadge} ${pills}`;
         }
       } catch (_) {}
     }
