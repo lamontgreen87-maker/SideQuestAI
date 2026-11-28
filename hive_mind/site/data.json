@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-28T07:49:27.570243+00:00",
+  "generated_at": "2026-11-28T07:49:32.660288+00:00",
   "status": {
     "enabled": false,
     "running": true,
-    "current_stage": "Running 1 parallel Writer worker(s) (2/5)...",
+    "current_stage": "Scout selecting angle in Black Hole Shadows, Photon Spheres & Lensing (1/5)...",
     "interval_minutes": 0,
     "topic_focus": "",
     "mode": "full",
@@ -12,7 +12,7 @@
     "calls_per_cycle": 4,
     "arxiv_grounding": true,
     "total_runs": 25,
-    "runs_per_hour": 149.4,
+    "runs_per_hour": 149.9,
     "verified_count": 3855,
     "training_examples": 3855,
     "training_goal": 3500,
@@ -30,7 +30,7 @@
     "schedule_start": "22:00",
     "schedule_end": "07:00",
     "within_schedule": true,
-    "rejected_count": 24756,
+    "rejected_count": 24757,
     "seconds_until_next": null,
     "last_error": null,
     "provider": "ollama",
@@ -49,37 +49,30 @@
     "hub_url": "",
     "current_run": {
       "run_number": 26,
-      "started_at": "2026-11-28T07:48:27.521766+00:00",
+      "started_at": "2026-11-28T07:48:21.001282+00:00",
       "provider": "ollama",
       "model": "sciencebot-4b",
       "mode": "full",
       "research_phase": "frontier",
       "workers_count": 1,
       "events": [
-        "23:48:27 · Starting Run #26 (ollama · sciencebot-4b)",
-        "23:48:42 · arXiv paper selected: Gravitational collapse to extremal black holes with $Λ>0$: counterexamples to the third law without charge",
-        "23:49:00 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence",
-        "23:49:14 · Scout hypothesis ready"
+        "23:48:21 · Starting Run #26 (ollama · sciencebot-4b)",
+        "23:49:06 · arXiv paper selected: Gravitational collapse to extremal black holes with $Λ>0$: counterexamples to the third law without charge",
+        "23:49:20 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence"
       ],
       "domain": "Black Hole Shadows, Photon Spheres & Lensing",
       "arxiv_title": "Gravitational collapse to extremal black holes with $Λ>0$: counterexamples to the third law without charge",
-      "arxiv_url": "http://arxiv.org/abs/2611.34542v1",
-      "scout_hypothesis": "Compute the quantum‑corrected shadow radius of Sgr A* using the effective Einstein–Gauss–Bonnet–scalar metric from arXiv:2611.34924v1 and compare it to the classical Schwarzschild result; a >5 % deviation would falsify the proposed correction. In Python one can (i) read the EHT mass and distance, (ii) evaluate the correction term Δθ/θ = α(Q_eff/M)² with Q_eff derived from the scalar charge, (iii) compute the classical shadow radius b_crit = 3√3 GM/c², and (iv) test whether |Δθ/θ| > 0.05. This single numerical pipeline directly tests the paper’s core prediction."
+      "arxiv_url": "http://arxiv.org/abs/2611.34542v1"
     }
   },
   "index": {
     "total_articles": 200,
-    "total_terms": 545,
+    "total_terms": 550,
     "top_terms": [
       {
         "term": "test",
         "count": 197,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -1059,6 +1052,11 @@
             "id": "5b70521c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
         ]
       },
@@ -1066,11 +1064,6 @@
         "term": "black",
         "count": 196,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -2043,6 +2036,11 @@
           },
           {
             "id": "5b70521c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -2053,11 +2051,6 @@
         "count": 196,
         "articles": [
           {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -3031,6 +3024,11 @@
             "id": "5b70521c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
         ]
       },
@@ -3038,11 +3036,6 @@
         "term": "quantum",
         "count": 192,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -3997,6 +3990,11 @@
             "id": "5b70521c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
         ]
       },
@@ -4004,11 +4002,6 @@
         "term": "radius",
         "count": 190,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -4951,6 +4944,11 @@
           },
           {
             "id": "5b70521c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -4961,11 +4959,6 @@
         "count": 190,
         "articles": [
           {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -5907,6 +5900,11 @@
           },
           {
             "id": "5b70521c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -5917,11 +5915,6 @@
         "count": 189,
         "articles": [
           {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -6860,6 +6853,11 @@
             "id": "5b70521c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
         ]
       },
@@ -6867,11 +6865,6 @@
         "term": "bonnet",
         "count": 188,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -7804,6 +7797,11 @@
           },
           {
             "id": "5b70521c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -7814,11 +7812,6 @@
         "count": 188,
         "articles": [
           {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -8750,6 +8743,11 @@
           },
           {
             "id": "5b70521c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -8760,11 +8758,6 @@
         "count": 188,
         "articles": [
           {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -9696,6 +9689,11 @@
           },
           {
             "id": "5b70521c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -9706,11 +9704,6 @@
         "count": 188,
         "articles": [
           {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -10644,6 +10637,11 @@
             "id": "5b70521c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
         ]
       },
@@ -10651,11 +10649,6 @@
         "term": "theory",
         "count": 188,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -11590,18 +11583,18 @@
             "id": "5b70521c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
         ]
       },
       {
         "term": "effective",
-        "count": 158,
+        "count": 157,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "8f7ef34c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -12391,13 +12384,8 @@
       },
       {
         "term": "correction",
-        "count": 123,
+        "count": 122,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -13012,13 +13000,8 @@
       },
       {
         "term": "case",
-        "count": 119,
+        "count": 118,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "cb502d57",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -13613,13 +13596,8 @@
       },
       {
         "term": "metric",
-        "count": 104,
+        "count": 103,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "ccad2db1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric",
@@ -14139,13 +14117,8 @@
       },
       {
         "term": "order",
-        "count": 101,
+        "count": 100,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "0757343f",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
@@ -14650,13 +14623,8 @@
       },
       {
         "term": "leading",
-        "count": 98,
+        "count": 97,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "0757343f",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
@@ -15146,7 +15114,7 @@
       },
       {
         "term": "schwarzschild",
-        "count": 80,
+        "count": 81,
         "articles": [
           {
             "id": "8f7ef34c",
@@ -15547,365 +15515,9 @@
             "id": "5b70521c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          }
-        ]
-      },
-      {
-        "term": "shift",
-        "count": 71,
-        "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "ccad2db1",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "a4f46999",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "e0dd0fe5",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "dd7f46b4",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "18efe335",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "06c58fe8",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "7bcffa63",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b182bcd8",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "10a69c85",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* (Einstein–Gauss–Bonnet–Scalar Theory)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "9a26cb12",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "cf13b052",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "4f5b9f71",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b58e530a",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "c3b79487",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b0ded2de",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "1baab680",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "d769922b",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "1246f0a5",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "1509870b",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "5de63e34",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "872dbb76",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "e85a4a19",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "da54b393",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "2ed7a8c6",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "1f7ae9e1",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b44a4c85",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "3a606566",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "0eca9d74",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "6787b9e4",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "03c5ae4b",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "c428c77d",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "6bb606d1",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "2f14c800",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "f364bd5c",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "da099567",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "c691faf1",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "0bf855f2",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "bd63f3d8",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b48f50f5",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "3e2f7b8b",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "f0d8a5ea",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "55288f4e",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "cba1065e",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "0d9f9aab",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "bf763207",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "6fa96528",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "7cf50086",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "0115afca",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "fae1d11c",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "a561dae1",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "7d29529a",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "620929ed",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "fc2acf00",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "4e839945",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "00da747f",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "73a6f734",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "609356e5",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "d2b9bb14",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "a6217e60",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "372e2b54",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "a6498503",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "4cd0ae41",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "a4701bcf",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "ee5bc9d7",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "a055afb0",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "02668b45",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "7fc0a87e",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "58ddb096",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "1cd619c3",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "d8e90e40",
+            "id": "aa5532b1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -16262,6 +15874,362 @@
           },
           {
             "id": "5b70521c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          }
+        ]
+      },
+      {
+        "term": "shift",
+        "count": 70,
+        "articles": [
+          {
+            "id": "ccad2db1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "a4f46999",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "e0dd0fe5",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "dd7f46b4",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "18efe335",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "06c58fe8",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "7bcffa63",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "b182bcd8",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "10a69c85",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* (Einstein–Gauss–Bonnet–Scalar Theory)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "9a26cb12",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "cf13b052",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "4f5b9f71",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "b58e530a",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "c3b79487",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "b0ded2de",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "1baab680",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "d769922b",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "1246f0a5",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "1509870b",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "5de63e34",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "872dbb76",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "e85a4a19",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "da54b393",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "2ed7a8c6",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "1f7ae9e1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "b44a4c85",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "3a606566",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "0eca9d74",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "6787b9e4",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "03c5ae4b",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "c428c77d",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "6bb606d1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "2f14c800",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "f364bd5c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "da099567",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "c691faf1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "0bf855f2",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "bd63f3d8",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "b48f50f5",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "3e2f7b8b",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "f0d8a5ea",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "55288f4e",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "cba1065e",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "0d9f9aab",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "bf763207",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "6fa96528",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "7cf50086",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "0115afca",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "fae1d11c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "a561dae1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "7d29529a",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "620929ed",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "fc2acf00",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "4e839945",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "00da747f",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "73a6f734",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "609356e5",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "d2b9bb14",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "a6217e60",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "372e2b54",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "a6498503",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "4cd0ae41",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "a4701bcf",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "ee5bc9d7",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "a055afb0",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "02668b45",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "7fc0a87e",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "58ddb096",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "1cd619c3",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "d8e90e40",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -18145,13 +18113,8 @@
       },
       {
         "term": "predicts",
-        "count": 55,
+        "count": 54,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "0757343f",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
@@ -19409,222 +19372,6 @@
         ]
       },
       {
-        "term": "size",
-        "count": 42,
-        "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "8f7ef34c",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "ccad2db1",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "a4f46999",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "06c58fe8",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "34e3e902",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b182bcd8",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "cf13b052",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "1baab680",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "d769922b",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "3a7fc853",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "4833a4cc",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "5de63e34",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "d27ce4aa",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b624a171",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "da54b393",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "8530aee3",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b44a4c85",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "298a72f0",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "c428c77d",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "b3163881",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "ac03d33e",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "f5252191",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "dba81b30",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "c28f60f0",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "cba1065e",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "0115afca",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "fae1d11c",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "c6378a75",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "c281797b",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Quantum Gravity"
-          },
-          {
-            "id": "00da747f",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "73a6f734",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "372e2b54",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "1e75d1d6",
-            "title": "Quantum-Corrected Black-Hole Shadow Radius Test of Einstein-Gauss-Bonnet-Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
-          },
-          {
-            "id": "4cd0ae41",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "b599368c",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "a055afb0",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "1efb75a7",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "7fc0a87e",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "58ddb096",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "1cd619c3",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "d8e90e40",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          }
-        ]
-      },
-      {
         "term": "fractional",
         "count": 41,
         "articles": [
@@ -19836,14 +19583,9 @@
         ]
       },
       {
-        "term": "angular",
-        "count": 39,
+        "term": "size",
+        "count": 41,
         "articles": [
-          {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
           {
             "id": "8f7ef34c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -19880,16 +19622,6 @@
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "b58e530a",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "0442734d",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "1baab680",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -19905,27 +19637,7 @@
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "083bd4cb",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "4833a4cc",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "13ef2e46",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "d6b4ba2f",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
-            "id": "4adc150d",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
@@ -19935,22 +19647,27 @@
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
+            "id": "d27ce4aa",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
             "id": "b624a171",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "050c3e0a",
+            "id": "da54b393",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "f9460844",
+            "id": "8530aee3",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "5e6b39e0",
+            "id": "b44a4c85",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
@@ -19960,17 +19677,27 @@
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "997be303",
+            "id": "c428c77d",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "6bb606d1",
+            "id": "b3163881",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "bd63f3d8",
+            "id": "ac03d33e",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "f5252191",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "dba81b30",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
@@ -19985,9 +19712,14 @@
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "d8e190ac",
+            "id": "0115afca",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "fae1d11c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            "domain": "Black Hole Physics / Quantum Gravity"
           },
           {
             "id": "c6378a75",
@@ -20000,12 +19732,12 @@
             "domain": "Black Hole Physics / Quantum Gravity"
           },
           {
-            "id": "73a6f734",
+            "id": "00da747f",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
           {
-            "id": "d2b9bb14",
+            "id": "73a6f734",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
@@ -20015,17 +19747,42 @@
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "fb5b4990",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
             "id": "1e75d1d6",
             "title": "Quantum-Corrected Black-Hole Shadow Radius Test of Einstein-Gauss-Bonnet-Scalar Theory",
             "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
           },
           {
-            "id": "b0caf202",
+            "id": "4cd0ae41",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "b599368c",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "a055afb0",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "1efb75a7",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "7fc0a87e",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "58ddb096",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "1cd619c3",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
@@ -20238,14 +19995,205 @@
         ]
       },
       {
-        "term": "horizon",
+        "term": "angular",
         "count": 38,
         "articles": [
           {
-            "id": "d1294d50",
+            "id": "8f7ef34c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
           },
+          {
+            "id": "ccad2db1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "a4f46999",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "06c58fe8",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "34e3e902",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "b182bcd8",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "cf13b052",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "b58e530a",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "0442734d",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "1baab680",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "d769922b",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "3a7fc853",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "083bd4cb",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "4833a4cc",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "13ef2e46",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "d6b4ba2f",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "4adc150d",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "5de63e34",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "b624a171",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "050c3e0a",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "f9460844",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "5e6b39e0",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "298a72f0",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "997be303",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "6bb606d1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "bd63f3d8",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "c28f60f0",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "cba1065e",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "d8e190ac",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "c6378a75",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "c281797b",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Quantum Gravity"
+          },
+          {
+            "id": "73a6f734",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "d2b9bb14",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+          },
+          {
+            "id": "372e2b54",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "fb5b4990",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "1e75d1d6",
+            "title": "Quantum-Corrected Black-Hole Shadow Radius Test of Einstein-Gauss-Bonnet-Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational-Wave Astrophysics"
+          },
+          {
+            "id": "b0caf202",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "d8e90e40",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          }
+        ]
+      },
+      {
+        "term": "horizon",
+        "count": 38,
+        "articles": [
           {
             "id": "8f7ef34c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -20428,6 +20376,11 @@
           },
           {
             "id": "0662c8e6",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "aa5532b1",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
@@ -20629,11 +20582,6 @@
         "count": 37,
         "articles": [
           {
-            "id": "d1294d50",
-            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-            "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-          },
-          {
             "id": "8f7ef34c",
             "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
             "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -20812,6 +20760,11 @@
             "id": "23255c95",
             "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
             "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+          },
+          {
+            "id": "aa5532b1",
+            "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           }
         ]
       },
@@ -21011,13 +20964,8 @@
       "A": [
         {
           "term": "angular",
-          "count": 39,
+          "count": 38,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "8f7ef34c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -21660,11 +21608,6 @@
           "term": "black",
           "count": 196,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -22639,6 +22582,11 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -22646,11 +22594,6 @@
           "term": "bonnet",
           "count": 188,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -23585,6 +23528,11 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -23916,11 +23864,6 @@
           "term": "corrected",
           "count": 189,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -24860,18 +24803,18 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
         {
           "term": "correction",
-          "count": 123,
+          "count": 122,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -25486,13 +25429,8 @@
         },
         {
           "term": "case",
-          "count": 119,
+          "count": 118,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -27507,7 +27445,7 @@
         },
         {
           "term": "coupling",
-          "count": 29,
+          "count": 30,
           "articles": [
             {
               "id": "d769922b",
@@ -27653,18 +27591,18 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
         {
           "term": "compared",
-          "count": 25,
+          "count": 24,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "8f7ef34c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -28937,13 +28875,8 @@
         },
         {
           "term": "directly",
-          "count": 20,
+          "count": 19,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "8f7ef34c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -29103,6 +29036,62 @@
           ]
         },
         {
+          "term": "data",
+          "count": 10,
+          "articles": [
+            {
+              "id": "dc723a2f",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "6ef9162e",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "83404ce5",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "bf763207",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "38bd126e",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Quantum Gravity"
+            },
+            {
+              "id": "528b140a",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "8fdc5799",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "1dbc9634",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "4cd0ae41",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            }
+          ]
+        },
+        {
           "term": "detectable",
           "count": 10,
           "articles": [
@@ -29159,57 +29148,6 @@
           ]
         },
         {
-          "term": "data",
-          "count": 9,
-          "articles": [
-            {
-              "id": "dc723a2f",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "6ef9162e",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "83404ce5",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "bf763207",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "38bd126e",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Quantum Gravity"
-            },
-            {
-              "id": "528b140a",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "8fdc5799",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "1dbc9634",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "4cd0ae41",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            }
-          ]
-        },
-        {
           "term": "dimensionless",
           "count": 6,
           "articles": [
@@ -29251,11 +29189,6 @@
           "term": "einstein",
           "count": 188,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -30190,18 +30123,18 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
         {
           "term": "effective",
-          "count": 158,
+          "count": 157,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "8f7ef34c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -31260,11 +31193,6 @@
           "count": 37,
           "articles": [
             {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
               "id": "8f7ef34c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
               "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -31443,6 +31371,11 @@
               "id": "23255c95",
               "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
               "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -32199,11 +32132,6 @@
           "count": 188,
           "articles": [
             {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
               "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -33137,6 +33065,11 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -33368,11 +33301,6 @@
           "term": "hole",
           "count": 196,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -34347,6 +34275,11 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -34354,11 +34287,6 @@
           "term": "horizon",
           "count": 38,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "8f7ef34c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -34541,6 +34469,11 @@
             },
             {
               "id": "0662c8e6",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
@@ -34929,13 +34862,8 @@
       "L": [
         {
           "term": "leading",
-          "count": 98,
+          "count": 97,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "0757343f",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
@@ -35585,13 +35513,8 @@
       "M": [
         {
           "term": "metric",
-          "count": 104,
+          "count": 103,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "ccad2db1",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric",
@@ -36111,13 +36034,8 @@
         },
         {
           "term": "measurable",
-          "count": 28,
+          "count": 27,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "5aa414d6",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -36393,13 +36311,8 @@
         },
         {
           "term": "measurement",
-          "count": 15,
+          "count": 14,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "34e3e902",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
@@ -36540,7 +36453,7 @@
         },
         {
           "term": "measurements",
-          "count": 11,
+          "count": 12,
           "articles": [
             {
               "id": "8f7ef34c",
@@ -36594,6 +36507,11 @@
             },
             {
               "id": "a6498503",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
@@ -36712,13 +36630,8 @@
       "O": [
         {
           "term": "order",
-          "count": 101,
+          "count": 100,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "0757343f",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
@@ -37223,7 +37136,7 @@
         },
         {
           "term": "observational",
-          "count": 21,
+          "count": 22,
           "articles": [
             {
               "id": "dd7f46b4",
@@ -37329,6 +37242,11 @@
               "id": "cecf965b",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -37420,7 +37338,7 @@
         },
         {
           "term": "observed",
-          "count": 13,
+          "count": 14,
           "articles": [
             {
               "id": "06c58fe8",
@@ -37486,6 +37404,11 @@
               "id": "07b07175",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         }
@@ -37493,13 +37416,8 @@
       "P": [
         {
           "term": "predicts",
-          "count": 55,
+          "count": 54,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "0757343f",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using Einstein–Gauss–Bonnet–Scalar Theory",
@@ -38176,7 +38094,7 @@
         },
         {
           "term": "prediction",
-          "count": 32,
+          "count": 33,
           "articles": [
             {
               "id": "5aa414d6",
@@ -38335,6 +38253,11 @@
             },
             {
               "id": "07b07175",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
@@ -39216,11 +39139,6 @@
           "count": 192,
           "articles": [
             {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
               "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -40174,6 +40092,11 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -40224,11 +40147,6 @@
           "term": "radius",
           "count": 190,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -41173,6 +41091,162 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            }
+          ]
+        },
+        {
+          "term": "rotating",
+          "count": 29,
+          "articles": [
+            {
+              "id": "0e13035c",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "a80483bd",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "2ed7a8c6",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "b352aefd",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "03c5ae4b",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "f364bd5c",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
+              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
+            },
+            {
+              "id": "641f3928",
+              "title": "Numerical vs Analytic Mass‑Loss of a Schwarzschild Black Hole under Hawking Radiation",
+              "domain": "Theoretical Astrophysics / Quantum Gravity"
+            },
+            {
+              "id": "6e62d34e",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory"
+            },
+            {
+              "id": "a5e95e1d",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "8058fa95",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Quantum Gravity"
+            },
+            {
+              "id": "bb307368",
+              "title": "Quantitative test of the leading‑order quantum‑corrected black‑hole shadow radius",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "ab3d6e87",
+              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
+              "domain": "Gravitational-Wave Astrophysics"
+            },
+            {
+              "id": "92e2697a",
+              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
+              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            },
+            {
+              "id": "125493e8",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "e44b1a17",
+              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
+              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            },
+            {
+              "id": "1dbc9634",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "57fc4cb6",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "51a735a3",
+              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants",
+              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            },
+            {
+              "id": "23255c95",
+              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
+              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            },
+            {
+              "id": "4cd0ae41",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "7fc0a87e",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "da74aafa",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "cecf965b",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "9b3ff9c2",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "07b07175",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "54a86fff",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "93441ab0",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "5b70521c",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -41317,152 +41391,6 @@
             },
             {
               "id": "a4701bcf",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            }
-          ]
-        },
-        {
-          "term": "rotating",
-          "count": 28,
-          "articles": [
-            {
-              "id": "0e13035c",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "a80483bd",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "2ed7a8c6",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "b352aefd",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "03c5ae4b",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "f364bd5c",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
-              "id": "641f3928",
-              "title": "Numerical vs Analytic Mass‑Loss of a Schwarzschild Black Hole under Hawking Radiation",
-              "domain": "Theoretical Astrophysics / Quantum Gravity"
-            },
-            {
-              "id": "6e62d34e",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory"
-            },
-            {
-              "id": "a5e95e1d",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "8058fa95",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Quantum Gravity"
-            },
-            {
-              "id": "bb307368",
-              "title": "Quantitative test of the leading‑order quantum‑corrected black‑hole shadow radius",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "ab3d6e87",
-              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
-              "domain": "Gravitational-Wave Astrophysics"
-            },
-            {
-              "id": "92e2697a",
-              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
-              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
-            },
-            {
-              "id": "125493e8",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "e44b1a17",
-              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
-              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
-            },
-            {
-              "id": "1dbc9634",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "57fc4cb6",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "51a735a3",
-              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants",
-              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
-            },
-            {
-              "id": "23255c95",
-              "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
-              "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
-            },
-            {
-              "id": "4cd0ae41",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "7fc0a87e",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "da74aafa",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "cecf965b",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "9b3ff9c2",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "07b07175",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "54a86fff",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "93441ab0",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
-              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-            },
-            {
-              "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
@@ -41871,11 +41799,6 @@
           "count": 190,
           "articles": [
             {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
               "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -42819,6 +42742,11 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -42826,11 +42754,6 @@
           "term": "scalar",
           "count": 188,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -43765,12 +43688,17 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
         {
           "term": "schwarzschild",
-          "count": 80,
+          "count": 81,
           "articles": [
             {
               "id": "8f7ef34c",
@@ -44171,18 +44099,18 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
         {
           "term": "shift",
-          "count": 71,
+          "count": 70,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "ccad2db1",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric",
@@ -44537,13 +44465,8 @@
         },
         {
           "term": "size",
-          "count": 42,
+          "count": 41,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "8f7ef34c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -45133,11 +45056,6 @@
           "count": 197,
           "articles": [
             {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
               "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -46116,6 +46034,11 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -46123,11 +46046,6 @@
           "term": "theory",
           "count": 188,
           "articles": [
-            {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
             {
               "id": "cb502d57",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
@@ -47062,6 +46980,11 @@
               "id": "5b70521c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -47261,11 +47184,6 @@
           "count": 36,
           "articles": [
             {
-              "id": "d1294d50",
-              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
-              "domain": "Quantum Gravity / Black‑Hole Astrophysics"
-            },
-            {
               "id": "8f7ef34c",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)",
               "domain": "Quantum Gravity / Black‑Hole Astrophysics"
@@ -47437,6 +47355,11 @@
             },
             {
               "id": "b0caf202",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
@@ -47666,7 +47589,7 @@
         },
         {
           "term": "thus",
-          "count": 13,
+          "count": 14,
           "articles": [
             {
               "id": "47921733",
@@ -47730,6 +47653,11 @@
             },
             {
               "id": "07b07175",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
@@ -48242,7 +48170,7 @@
         },
         {
           "term": "within",
-          "count": 9,
+          "count": 10,
           "articles": [
             {
               "id": "dd7f46b4",
@@ -48288,6 +48216,11 @@
               "id": "23255c95",
               "title": "Quantitative Ringdown Consistency Test for GWTC‑3.7 M⊙ Black‑Hole Remnants (Gravitational‑Wave Astrophysics / Black‑Hole Physics)",
               "domain": "Gravitational‑Wave Astrophysics / Black‑Hole Physics"
+            },
+            {
+              "id": "aa5532b1",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
           ]
         },
@@ -48462,7 +48395,7 @@
         },
         {
           "term": "yielding",
-          "count": 13,
+          "count": 14,
           "articles": [
             {
               "id": "dd7f46b4",
@@ -48526,6 +48459,11 @@
             },
             {
               "id": "1cd619c3",
+              "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
+              "id": "aa5532b1",
               "title": "Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
             }
@@ -49200,13 +49138,13 @@
     "lesson": "Lesson 3 (v5)",
     "v4_live": {
       "pod": "dual-4090-v7-4x",
-      "cycles": 450,
+      "cycles": 451,
       "verified": 297,
       "errors": 0,
-      "elapsed_sec": 13629.9,
+      "elapsed_sec": 13676.9,
       "duration_sec": 0,
-      "rate_per_hr": 118.9,
-      "updated_at": "2026-11-28T07:48:42.388777+00:00"
+      "rate_per_hr": 118.7,
+      "updated_at": "2026-11-28T07:49:29.491981+00:00"
     },
     "lesson3_targets": {
       "verified_sft": {
