@@ -38,6 +38,7 @@ FEED_FILE = BASE_DIR / "memory" / "science_feed.json"
 DB_FILE = BASE_DIR / "memory" / "science.db"
 GWTC_CATALOG_FILE = BASE_DIR / "memory" / "gwtc_catalog.json"
 GWOSC_STRAIN_MANIFEST = BASE_DIR / "memory" / "gwosc_strain" / "manifest.json"
+OPEN_CATALOGS_MANIFEST = BASE_DIR / "memory" / "open_catalogs" / "manifest.json"
 MAX_FEED_ITEMS = 200
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
 
@@ -310,6 +311,8 @@ def _run_experiment_code(code: str, timeout_s: int = 25) -> Dict[str, Any]:
             env["GWTC_CATALOG_PATH"] = str(GWTC_CATALOG_FILE)
         if GWOSC_STRAIN_MANIFEST.exists():
             env["GWOSC_STRAIN_MANIFEST"] = str(GWOSC_STRAIN_MANIFEST)
+        if OPEN_CATALOGS_MANIFEST.exists():
+            env["OPEN_CATALOGS_MANIFEST"] = str(OPEN_CATALOGS_MANIFEST)
         proc = subprocess.run(
             [sys.executable, "-I", "-X", "utf8", tmp_path],
             capture_output=True,
@@ -1127,22 +1130,37 @@ class ScienceBot:
             )
         return prior_digest, len(evidence_runs)
 
+    def _recent_source_urls(self, limit: int = 200) -> set:
+        urls = {item.get("source_url") for item in self.feed[:20] if item.get("source_url")}
+        try:
+            with sqlite3.connect(DB_FILE) as conn:
+                rows = conn.execute(
+                    "SELECT source_url FROM articles WHERE source_url IS NOT NULL AND source_url != '' ORDER BY rowid DESC LIMIT ?",
+                    (int(limit),),
+                ).fetchall()
+                for (u,) in rows:
+                    if u:
+                        urls.add(u)
+        except Exception:
+            pass
+        return urls
+
     def _is_data_first_run(self, run_idx: int) -> bool:
         return (
             self.research_phase == "frontier"
-            and GWOSC_STRAIN_MANIFEST.exists()
+            and (GWOSC_STRAIN_MANIFEST.exists() or OPEN_CATALOGS_MANIFEST.exists())
             and (run_idx % 3 == 0)
         )
 
     def _data_first_instruction(self) -> str:
         return (
-            "DATA-FIRST RAW STRAIN MODE (NO ARXIV PAPER): Do NOT summarize or check a paper. "
-            "Start directly from the real 4096 Hz 32s LIGO `.hdf5` strain files (`GW170817`, `GW190521`, H1 & L1) "
-            "at `os.environ['GWOSC_STRAIN_MANIFEST']`. Pick ONE concrete raw-strain test NOT in recent topics "
-            "(e.g., post-merger echo search at Δt∈[0.05,0.5]s, ringdown QNM frequency/damping fit vs GR Kerr prediction, "
-            "H1–L1 coherence/phase-dispersion residual, or high-frequency >300 Hz spectral excess). "
-            "REQUIRED NULL CONTROL: Compare the on-source H1–L1 statistic around `ev['gps']` against >=20 off-source "
-            "time-shifted background trials (sliding H1 vs L1 by >=0.2 s across the 32s segment) and print an empirical p-value."
+            "DATA-FIRST REAL OBSERVATIONAL MODE (NO ARXIV PAPER): Do NOT summarize or check a paper. "
+            "Pick ONE real dataset from `os.environ['GWOSC_STRAIN_MANIFEST']` (7 LIGO/Virgo `.hdf5` strain events: "
+            "GW170817, GW190521, GW190412, GW200129, GW200224, GW200311, GW190814) OR `os.environ['OPEN_CATALOGS_MANIFEST']` "
+            "(real `exoplanets` [500 NASA Exoplanet Archive planets], `pantheon_sne` [1,701 Pantheon+SH0ES Type Ia SNe], "
+            "and `earthquakes` [480 USGS M4.5+ earthquakes]). "
+            "Run a quantitative anomaly/residual/scaling test NOT in recent topics and include a real statistical null control "
+            "(e.g., >=20 time-slides for `.hdf5` strain, or bootstrap/permutation/chi2-residual p-value for catalog data)."
         )
 
     def _scout_phase_instruction(self, data_first: bool = False) -> str:
@@ -1178,9 +1196,9 @@ class ScienceBot:
         data_first = self._is_data_first_run(run_idx)
         paper = None
         if self.arxiv_grounding and not data_first:
-            papers = await loop.run_in_executor(None, _fetch_arxiv_papers, arxiv_query, 4)
+            papers = await loop.run_in_executor(None, _fetch_arxiv_papers, arxiv_query, 20)
             fresh = [p for p in papers if p.get("url") not in recent_urls]
-            paper = fresh[0] if fresh else (papers[0] if papers else None)
+            paper = fresh[0] if fresh else (papers[run_idx % len(papers)] if papers else None)
 
         wiki_query = self.topic_focus or (paper["title"] if paper else domain)
         wiki = None if data_first else await loop.run_in_executor(None, _fetch_wikipedia_summary, wiki_query)
@@ -1239,7 +1257,7 @@ class ScienceBot:
             }
             recent_all_titles = [r.get("title", "") for r in self.load_recent_runs(15) if r.get("title")]
             recent_titles = list(dict.fromkeys([item.get("title", "") for item in self.feed[:8] if item.get("title")] + recent_all_titles))[:14]
-            recent_urls = {item.get("source_url") for item in self.feed[:12] if item.get("source_url")}
+            recent_urls = self._recent_source_urls(200)
 
             if self.topic_focus:
                 domain = self.topic_focus
@@ -1258,9 +1276,9 @@ class ScienceBot:
                     self._log_run_step("Data-First Mode active: hunting raw GW170817 / GW190521 H1+L1 .hdf5 strain with >=20 off-source time-slide null trials")
                 elif self.arxiv_grounding:
                     self._set_stage(f"Fetching latest arXiv papers in {domain}...")
-                    papers = await loop.run_in_executor(None, _fetch_arxiv_papers, arxiv_query, 4)
+                    papers = await loop.run_in_executor(None, _fetch_arxiv_papers, arxiv_query, 20)
                     fresh = [p for p in papers if p.get("url") not in recent_urls]
-                    paper = fresh[0] if fresh else (papers[0] if papers else None)
+                    paper = fresh[0] if fresh else (papers[self.total_runs % len(papers)] if papers else None)
                     if paper:
                         self._log_run_step(
                             f"arXiv paper selected: {paper['title'][:110]}",
@@ -1299,7 +1317,7 @@ class ScienceBot:
                     "that runs a quantitative Black Hole Physics check using real constants "
                     "(G=6.67430e-11, c=2.99792458e8, hbar=1.054571817e-34, k_B=1.380649e-23, M_sun=1.98847e30). "
                     "When testing gravitational-wave mergers, ringdowns, radiated mass/energy, spins, or shadows, you may load the real LIGO/Virgo/KAGRA GWTC + EHT catalog from "
-                    "`json.load(open(os.environ['GWTC_CATALOG_PATH']))` (`events`: 282 mergers with `event`, `mass_1_source`, `mass_2_source`, `final_mass_source`, `chi_eff`, `luminosity_distance`, `redshift`, `network_matched_filter_snr`; `eht_targets`: `M87*`, `SgrA*`), AND real LIGO `.hdf5` strain via `json.load(open(os.environ['GWOSC_STRAIN_MANIFEST']))` (`events[name]['gps']`, `events[name]['detectors'][det]['file']`, `t0_gps`, `sample_rate_hz`, HDF5 dataset `h5py.File(path,'r')['strain']['Strain'][:]`). You may also use `scipy.signal`, `h5py`, and `emcee`. "
+                    "`json.load(open(os.environ['GWTC_CATALOG_PATH']))` (`events`: 282 mergers with `event`, `mass_1_source`, `mass_2_source`, `final_mass_source`, `chi_eff`, `luminosity_distance`, `redshift`, `network_matched_filter_snr`; `eht_targets`: `M87*`, `SgrA*`), real LIGO `.hdf5` strain via `json.load(open(os.environ['GWOSC_STRAIN_MANIFEST']))` (`events[name]['gps']`, `events[name]['detectors'][det]['file']`, `t0_gps`, `sample_rate_hz`, HDF5 dataset `h5py.File(path,'r')['strain']['Strain'][:]`), AND real open observational catalogs via `json.load(open(os.environ['OPEN_CATALOGS_MANIFEST']))['catalogs']` (`exoplanets`, `pantheon_sne`, `earthquakes` — each with `['file']` and `['fields']`). You may also use `scipy.signal`, `h5py`, and `emcee`. "
                     "Always filter out `None` values when reading catalog fields. "
                     "It MUST compute real numerical values, assert physical consistency, and print clear metrics plus PASS or FAIL."
                 )
