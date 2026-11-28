@@ -807,7 +807,7 @@
       stageText.textContent = st.current_stage || "Ready";
       runsText.textContent = `Published: ${st.verified_count || 0} verified (${st.unique_count || 0} unique) · ${st.rejected_count || 0} rejected (${st.total_runs || 0} runs · ${st.runs_per_hour ?? 0} runs/hr)`;
       const tCount = st.training_examples ?? 0;
-      const tGoal = st.training_goal ?? 1000;
+      const tGoal = st.training_goal ?? 5000;
       const tPct = st.training_pct ?? 0;
       const tTextEl = document.getElementById("trainingText");
       const tBarEl = document.getElementById("trainingBar");
