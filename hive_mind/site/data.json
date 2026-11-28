@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-28T07:15:34.483295+00:00",
+  "generated_at": "2026-11-28T07:15:44.808620+00:00",
   "status": {
     "enabled": false,
     "running": true,
-    "current_stage": "Self-repairing failed Python experiment (3/5)...",
+    "current_stage": "Running 1 parallel Writer worker(s) (2/5)...",
     "interval_minutes": 0,
     "topic_focus": "",
     "mode": "full",
@@ -11,10 +11,10 @@
     "workers_per_run": 1,
     "calls_per_cycle": 4,
     "arxiv_grounding": true,
-    "total_runs": 14,
+    "total_runs": 17,
     "runs_per_hour": 117.7,
-    "verified_count": 3798,
-    "training_examples": 3798,
+    "verified_count": 3799,
+    "training_examples": 3799,
     "training_goal": 3500,
     "training_pct": 100.0,
     "unique_count": 2,
@@ -48,27 +48,23 @@
     "sciencebot_version": "v7",
     "hub_url": "",
     "current_run": {
-      "run_number": 15,
-      "started_at": "2026-11-28T07:12:23.695334+00:00",
+      "run_number": 18,
+      "started_at": "2026-11-28T07:14:05.054401+00:00",
       "provider": "ollama",
       "model": "sciencebot-4b",
       "mode": "full",
       "research_phase": "frontier",
       "workers_count": 1,
       "events": [
-        "23:12:23 · Starting Run #15 (ollama · sciencebot-4b)",
-        "23:12:40 · arXiv paper selected: Hamiltonian approach to isospectrality in nonrotating black holes",
-        "23:13:02 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence",
-        "23:13:37 · Scout hypothesis ready",
-        "23:14:29 · 1 parallel Writer(s) completed"
+        "23:14:05 · Starting Run #18 (ollama · sciencebot-4b)",
+        "23:14:21 · arXiv paper selected: Quasinormal Modes and Excitation Factors of a Parity-Symmetric Beyond-Horndeski Black Hole",
+        "23:14:33 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence",
+        "23:15:13 · Scout hypothesis ready"
       ],
-      "domain": "Black Hole Event Horizons & General Relativity",
-      "arxiv_title": "Hamiltonian approach to isospectrality in nonrotating black holes",
-      "arxiv_url": "http://arxiv.org/abs/2611.33359v1",
-      "scout_hypothesis": "Compute the angular radius of the black‑hole shadow for a static, uncharged test‑particle on the photon‑sphere using the classical Schwarzschild relation \\(\\theta_{\\rm sh}=3\\sqrt{3}\\,M/c^{2}\\) (geometric units). Then add the leading‑order quantum correction derived in the paper, \\(\\Delta\\theta/\\theta = \\alpha\\,(Q_{\\rm eff}/M)^{2}\\) with \\(Q_{\\rm eff}=Q_{\\rm BM}\\,\\sqrt{1-2M/r_{\\rm ph}}\\) and \\(\\alpha\\approx0.2\\), and evaluate the corrected angle for a range of black‑hole masses \\(M\\) and effective charges \\(Q_{\\rm BM}\\). Plot the fractional deviation \\(\\Delta\\theta/\\theta\\) versus \\(Q_{\\rm eff}/M\\) and verify that it stays below the 1 % threshold for all tested values, thereby falsifying the claim that the correction exceeds observational limits. This test is purely numerical, uses only SI constants, and can be run in a few lines of Python.",
-      "worker_titles": [
-        "W1: Quantum‑Corrected Black‑Hole Shadow Radius Test of Einstein–Gauss–Bonnet–Scalar Theory (Sgr A* Case)"
-      ]
+      "domain": "Gravitational Waves & Quasinormal Mode Ringdown",
+      "arxiv_title": "Quasinormal Modes and Excitation Factors of a Parity-Symmetric Beyond-Horndeski Black Hole",
+      "arxiv_url": "http://arxiv.org/abs/2611.29052v1",
+      "scout_hypothesis": "**Test:** Compute the quantum‑corrected shadow radius of Sgr A* using the effective metric derived from Einstein–Gauss–Bonnet–scalar theory (Δθ/θ = α(Q_eff/M)^2 with α≈0.2) and compare it to the classical Schwarzschild value. **Falsifiable prediction:** If the effective charge Q_eff is correctly sourced from the scalar‑cloud distribution, the fractional deviation |Δθ/θ| will be < 5 % for realistic galactic‑center masses; a larger deviation would indicate a breakdown of the effective‑metric assumption. **Implementation:** Load the EHT mass measurement for Sgr A* (M≈4.31×10⁶ M⊙), compute the classical shadow radius in SI units (R_sh = 3√3 GM/c²), evaluate Q_eff = (4π/3) ρ R_sh³ (with a standard dark‑matter density profile), and evaluate Δθ/θ using the published α. The script prints the classical and corrected radii and a PASS/FAIL verdict based on the 5 % threshold."
     }
   },
   "index": {
@@ -44600,17 +44596,17 @@
     "lesson": "Lesson 3 (v5)",
     "v4_live": {
       "pod": "dual-4090-v7-4x",
-      "cycles": 369,
-      "verified": 239,
+      "cycles": 370,
+      "verified": 240,
       "errors": 0,
-      "elapsed_sec": 11604.9,
+      "elapsed_sec": 11642.1,
       "duration_sec": 0,
-      "rate_per_hr": 114.5,
-      "updated_at": "2026-11-28T07:14:57.397031+00:00"
+      "rate_per_hr": 114.4,
+      "updated_at": "2026-11-28T07:15:34.733950+00:00"
     },
     "lesson3_targets": {
       "verified_sft": {
-        "current": 3798,
+        "current": 3799,
         "target": 2500
       },
       "dpo_pairs": {
@@ -44626,7 +44622,7 @@
         "target": 200
       },
       "real_data_runs": {
-        "current": 782,
+        "current": 783,
         "target": 400
       },
       "data_first_hdf5": {
