@@ -641,19 +641,49 @@ async def get_science_dual_progress():
         except Exception:
             v7_exam = {}
     compete_pods = []
+    db_metrics = {}
+    try:
+        import sqlite3
+        db_path = getattr(science_bot, "DB_FILE", mem_dir / "science.db")
+        with sqlite3.connect(db_path) as conn:
+            for row in conn.execute(
+                "SELECT sciencebot_version, "
+                "AVG(CASE WHEN verified=1 THEN novelty_score END), "
+                "SUM(CASE WHEN verified=1 AND novelty_score>=85 THEN 1 ELSE 0 END), "
+                "SUM(CASE WHEN verified=1 AND is_unique=1 THEN 1 ELSE 0 END), "
+                "SUM(CASE WHEN verified=1 AND data_first=1 THEN 1 ELSE 0 END) "
+                "FROM articles WHERE sciencebot_version IN ('v7-4b+8b', 'v7-4b') GROUP BY sciencebot_version"
+            ).fetchall():
+                db_metrics[str(row[0])] = {
+                    "avg_novelty": round(float(row[1] or 0.0), 1),
+                    "high_nov85": int(row[2] or 0),
+                    "unique_leads": int(row[3] or 0),
+                    "data_first": int(row[4] or 0),
+                }
+    except Exception:
+        pass
     for cf in sorted((mem_dir / "training").glob("compete_*.json")):
         try:
             cd = json.loads(cf.read_text(encoding="utf-8", errors="ignore"))
+            tag = cd.get("tag") or cf.stem.replace("compete_", "")
             cy = int(cd.get("cycles", 0))
             vr = int(cd.get("verified", 0))
+            el = float(cd.get("elapsed_sec", 0.0))
             pct = round((100.0 * vr / cy), 1) if cy > 0 else 0.0
+            vph = round((vr / el) * 3600.0, 1) if el > 5 else 0.0
+            m = db_metrics.get(tag, {})
             compete_pods.append({
-                "tag": cd.get("tag") or cf.stem.replace("compete_", ""),
+                "tag": tag,
                 "cycles": cy,
                 "verified": vr,
                 "errors": int(cd.get("errors", 0)),
                 "pass_pct": pct,
-                "elapsed_sec": float(cd.get("elapsed_sec", 0.0)),
+                "verified_per_hr": vph,
+                "elapsed_sec": el,
+                "avg_novelty": m.get("avg_novelty", 0.0),
+                "high_nov85": m.get("high_nov85", 0),
+                "unique_leads": m.get("unique_leads", 0),
+                "data_first": m.get("data_first", 0),
             })
         except Exception:
             pass
