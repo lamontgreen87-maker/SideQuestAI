@@ -610,7 +610,7 @@ async def get_science_dual_progress():
         except Exception:
             live = {}
     verified_sft = science_bot._count_training_examples_db() if hasattr(science_bot, "_count_training_examples_db") else 0
-    sft_goal = max(1, int(os.getenv("TRAINING_GOAL", "3500")))
+    sft_goal = max(1, int(os.getenv("TRAINING_GOAL", "5000")))
     unique_leads = 0
     real_data_runs = 0
     data_first_hdf5 = 0
@@ -631,7 +631,7 @@ async def get_science_dual_progress():
         "real_data_runs": {"current": real_data_runs, "target": 500},
         "data_first_hdf5": {"current": data_first_hdf5, "target": 100},
         "dpo_pairs": {"current": dpo_count, "target": 1000, "min": 800},
-        "self_repair_sft": {"current": repair_count, "target": 3500},
+        "self_repair_sft": {"current": repair_count, "target": 5000},
     }
     exam_file = mem_dir / "training" / "v7_phd_exam.json"
     v7_exam = {}
@@ -641,7 +641,7 @@ async def get_science_dual_progress():
         except Exception:
             v7_exam = {}
     return {
-        "lesson": "Lesson 4 (v6/v7)",
+        "lesson": "Lesson 5 (v7)",
         "lesson4_targets": l4_targets,
         "lesson3_targets": l4_targets,
         "lesson2_targets": l4_targets,
