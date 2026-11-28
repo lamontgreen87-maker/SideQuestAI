@@ -361,7 +361,7 @@
     </div>
     <div style="margin-top:8px;">
       <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">
-        <span>Lesson 5 (v7) AI Training Data · Verified Passing SFT</span>
+        <span>v8 Prep (v7 Live) AI Training Data · Verified Passing SFT</span>
         <span id="trainingText">0 / 5,000 (0%)</span>
       </div>
       <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -372,7 +372,7 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:10px 14px;">
         <div>
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
-            <span style="overflow:hidden;text-overflow:ellipsis;">v7 · Hard-Domain DPO</span>
+            <span style="overflow:hidden;text-overflow:ellipsis;">v8 · Hard-Domain DPO</span>
             <span id="pod1Text" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -381,7 +381,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
-            <span style="overflow:hidden;text-overflow:ellipsis;">v7 · Self-Repair SFT Traces</span>
+            <span style="overflow:hidden;text-overflow:ellipsis;">v8 · Self-Repair SFT Traces</span>
             <span id="repairText" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -390,7 +390,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
-            <span style="overflow:hidden;text-overflow:ellipsis;">v7 · Unique Empirical Leads</span>
+            <span style="overflow:hidden;text-overflow:ellipsis;">v8 · Unique Empirical Leads</span>
             <span id="uniqueLeadsText" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -399,7 +399,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
-            <span style="overflow:hidden;text-overflow:ellipsis;">v7 · Real-Data (GWTC / EHT / .hdf5)</span>
+            <span style="overflow:hidden;text-overflow:ellipsis;">v8 · Real-Data (GWTC / EHT / .hdf5 / Catalogs)</span>
             <span id="realDataText" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -408,7 +408,7 @@
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:0.8rem;color:#94a3b8;margin-bottom:4px;white-space:nowrap;">
-            <span style="overflow:hidden;text-overflow:ellipsis;">v7 · Data-First (.hdf5 / Open Catalogs)</span>
+            <span style="overflow:hidden;text-overflow:ellipsis;">v8 · Data-First (.hdf5 / Open Catalogs)</span>
             <span id="dataFirstText" style="flex-shrink:0;">Loading...</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;">
@@ -746,15 +746,15 @@
         };
         const p1 = d.pod1_a40 || {};
         const dpoT = l4.dpo_pairs || {};
-        setBar("pod1Text", "pod1Bar", dpoT.current ?? p1.dpo_pairs ?? 0, dpoT.target || 1000, "pairs");
+        setBar("pod1Text", "pod1Bar", dpoT.current ?? p1.dpo_pairs ?? 0, dpoT.target || 1500, "pairs");
         const repT = l4.self_repair_sft || {};
-        setBar("repairText", "repairBar", repT.current ?? p1.repair_count ?? 0, repT.target || 3500, "traces");
+        setBar("repairText", "repairBar", repT.current ?? p1.repair_count ?? 0, repT.target || 5000, "traces");
         const uniqT = l4.unique_leads || {};
-        setBar("uniqueLeadsText", "uniqueLeadsBar", uniqT.current ?? 0, uniqT.target || 250, "leads");
+        setBar("uniqueLeadsText", "uniqueLeadsBar", uniqT.current ?? 0, uniqT.target || 500, "leads");
         const realT = l4.real_data_runs || {};
-        setBar("realDataText", "realDataBar", realT.current ?? 0, realT.target || 500, "runs");
+        setBar("realDataText", "realDataBar", realT.current ?? 0, realT.target || 1200, "runs");
         const dfT = l4.data_first_hdf5 || {};
-        setBar("dataFirstText", "dataFirstBar", dfT.current ?? 0, dfT.target || 100, "runs");
+        setBar("dataFirstText", "dataFirstBar", dfT.current ?? 0, dfT.target || 300, "runs");
 
         const p2 = d.pod2_4090 || {};
         const v4El = document.getElementById("v4LiveText");

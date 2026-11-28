@@ -621,16 +621,16 @@ async def get_science_dual_progress():
             unique_leads = int(conn.execute("SELECT COUNT(*) FROM articles WHERE verified=1 AND is_unique=1").fetchone()[0] or 0)
             data_first_hdf5 = int(conn.execute("SELECT COUNT(*) FROM articles WHERE verified=1 AND data_first=1").fetchone()[0] or 0)
             real_data_runs = int(conn.execute(
-                "SELECT COUNT(*) FROM articles WHERE verified=1 AND (lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%gwtc%' OR lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%eht%' OR lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%.hdf5%')"
+                "SELECT COUNT(*) FROM articles WHERE verified=1 AND (lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%gwtc%' OR lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%eht%' OR lower(title || ' ' || insight || ' ' || experiment_code) LIKE '%.hdf5%' OR lower(experiment_code) LIKE '%exoplanets%' OR lower(experiment_code) LIKE '%pantheon_sne%' OR lower(experiment_code) LIKE '%earthquakes%')"
             ).fetchone()[0] or 0)
     except Exception:
         pass
     l4_targets = {
         "verified_sft": {"current": verified_sft, "target": sft_goal},
-        "unique_leads": {"current": unique_leads, "target": 250},
-        "real_data_runs": {"current": real_data_runs, "target": 500},
-        "data_first_hdf5": {"current": data_first_hdf5, "target": 100},
-        "dpo_pairs": {"current": dpo_count, "target": 1000, "min": 800},
+        "unique_leads": {"current": unique_leads, "target": 500},
+        "real_data_runs": {"current": real_data_runs, "target": 1200},
+        "data_first_hdf5": {"current": data_first_hdf5, "target": 300},
+        "dpo_pairs": {"current": dpo_count, "target": 1500, "min": 1000},
         "self_repair_sft": {"current": repair_count, "target": 5000},
     }
     exam_file = mem_dir / "training" / "v7_phd_exam.json"
@@ -641,13 +641,13 @@ async def get_science_dual_progress():
         except Exception:
             v7_exam = {}
     return {
-        "lesson": "Lesson 5 (v7)",
+        "lesson": "v8 Prep (v7 Live)",
         "lesson4_targets": l4_targets,
         "lesson3_targets": l4_targets,
         "lesson2_targets": l4_targets,
         "pod1_a40": {
             "dpo_pairs": dpo_count,
-            "target": 1000,
+            "target": 1500,
             "repair_count": repair_count,
             "failure_modes": dict(modes),
         },
