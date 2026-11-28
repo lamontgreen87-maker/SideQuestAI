@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-28T09:11:14.770875+00:00",
+  "generated_at": "2026-11-28T09:11:21.832810+00:00",
   "status": {
     "enabled": false,
     "running": true,
-    "current_stage": "Hypothesis failed verification — not published",
+    "current_stage": "Running 1 parallel Writer worker(s) (2/5)...",
     "interval_minutes": 0,
     "topic_focus": "",
     "mode": "full",
@@ -11,8 +11,8 @@
     "workers_per_run": 1,
     "calls_per_cycle": 4,
     "arxiv_grounding": true,
-    "total_runs": 49,
-    "runs_per_hour": 135.3,
+    "total_runs": 48,
+    "runs_per_hour": 135.1,
     "verified_count": 3977,
     "training_examples": 3977,
     "training_goal": 3500,
@@ -49,33 +49,24 @@
     "hub_url": "",
     "current_run": {
       "run_number": 49,
-      "started_at": "2026-11-28T09:07:27.185354+00:00",
+      "started_at": "2026-11-28T09:10:36.971390+00:00",
       "provider": "ollama",
       "model": "sciencebot-4b",
       "mode": "full",
       "research_phase": "frontier",
       "workers_count": 1,
       "events": [
-        "01:07:27 · Starting Run #49 (ollama · sciencebot-4b)",
-        "01:07:34 · Data-First Mode active: hunting raw GW170817 / GW190521 H1+L1 .hdf5 strain with >=20 off-source time-slide null trials",
-        "01:07:38 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence",
-        "01:07:52 · Scout hypothesis ready",
-        "01:09:11 · 1 parallel Writer(s) completed",
-        "01:10:26 · Python experiments: 0/1 PASSED (selected Writer-1)",
-        "01:10:41 · 1 parallel Critic(s) completed",
-        "01:11:12 · Judge verdict: High · Rejected · 44% real-world score (225.7s)"
+        "01:10:36 · Starting Run #49 (ollama · sciencebot-4b)",
+        "01:10:46 · Data-First Mode active: hunting raw GW170817 / GW190521 H1+L1 .hdf5 strain with >=20 off-source time-slide null trials",
+        "01:10:50 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence",
+        "01:11:05 · Scout hypothesis ready",
+        "01:11:21 · 1 parallel Writer(s) completed"
       ],
       "domain": "Black Hole Information Paradox & Page Curve",
-      "scout_hypothesis": "Quantum‑corrected black‑hole shadow test using a real EHT catalog: Load the published EHT mass and distance for M87*, compute the classical and quantum‑corrected shadow radii with the effective Einstein–Gauss–Bonnet–scalar metric, and compare the fractional deviation to the current EHT uncertainty (≈10 %). A script that does this and reports PASS/FAIL based on a 10⁻⁶ threshold would directly falsify or support the proposed quantum‑gravity correction.",
+      "scout_hypothesis": "Quantum‑corrected black‑hole shadow radius test for Sgr A* using a realistic 4.3×10⁶ M⊙ black hole and the leading‑order effective metric (Δθ/θ_cl ≈ α²). With α = 10⁻² the fractional deviation is ≈10⁻⁴—far below current EHT resolution (≈10⁻⁸), so the hypothesis is not falsified at present. A more stringent bound would require a larger α or higher‑order corrections.",
       "worker_titles": [
         "W1: Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric"
-      ],
-      "experiment_passed": false,
-      "experiment_output": "Classical shadow radius (rad): 1.307e-10\nQuantum‑corrected radius (rad): 1.307e-10\nFractional deviation Δθ/θ_cl: 1.000e-04\nRESULT: FAIL – quantum correction not detectable",
-      "experiment_code": "#!/usr/bin/env python3\nimport math\n\n# ---------------------------------------------------------------------\n# Physical constants (SI)\n# ---------------------------------------------------------------------\nG = 6.67430e-11          # m³·kg⁻¹·s⁻²\nc = 2.99792458e8        # m·s⁻¹\nM_sun = 1.98847e30      # kg\nalpha = 1e-2            # Gauss‑Bonnet coupling (dimensionless)\n\n# ---------------------------------------------------------------------\n# Black‑hole parameters (Sgr A*)\n# ---------------------------------------------------------------------\nM_bh = 4.31e6 * M_sun   # mass of Sgr A* from the EHT (kg)\nD    = 8.2e3 * 3.085677581e16  # distance to Sgr A* in metres (8.2 kpc)\n\n# Classical Schwarzschild shadow radius (radians)\ntheta_cl = (3 * math.sqrt(3) * G * M_bh) / (c**2 * D)\n\n# Quantum‑corrected factor (1 + α²)\ncorrection = 1.0 + alpha**2\n\n# Corrected shadow radius (radians)\ntheta_q = theta_cl * correction\n\n# Fractional deviation\nfrac_dev = abs(theta_q - theta_cl) / theta_cl\n\n# Output results\nprint(f\"Classical shadow radius (rad): {theta_cl:.3e}\")\nprint(f\"Quantum‑corrected radius (rad): {theta_q:.3e}\")\nprint(f\"Fractional deviation Δθ/θ_cl: {frac_dev:.3e}\")\n\n# Decision based on the 10⁻⁶ threshold\nthreshold = 1e-6\nif frac_dev <= threshold:\n    print(\"RESULT: PASS – detectable quantum correction\")\nelse:\n    print(\"RESULT: FAIL – quantum correction not detectable\")",
-      "critic_notes": "VERDICT: VALID\nThe script correctly implements the leading‑order quantum correction factor and computes a fractional deviation of exactly 10⁻⁴, yielding a FAIL outcome that aligns with the hypothesis. However, the test is mathematically trivial—the correction factor is set to 1 + α², so the deviation is hardcoded rather than derived from a dynamic metric calculation. Real Gauss‑Bonnet‑scalar solutions produce a more complex, α‑dependent correction, and the experiment ignores the host galaxy’s mass, distance, and Kerr spin, which would be crucial for a genuine Sgr A* observation. Consequently, while the code is sound, the scientific scope is limited to a toy demonstration rather than a comprehensive validation of the theory.",
-      "elapsed_s": 225.7,
-      "judge_verdict": "High (Rejected)"
+      ]
     }
   },
   "index": {
@@ -50857,13 +50848,13 @@
     "lesson": "Lesson 3 (v5)",
     "v4_live": {
       "pod": "dual-4090-v7-4x",
-      "cycles": 644,
+      "cycles": 645,
       "verified": 419,
       "errors": 0,
-      "elapsed_sec": 18543.6,
+      "elapsed_sec": 18583.2,
       "duration_sec": 0,
       "rate_per_hr": 125.0,
-      "updated_at": "2026-11-28T09:10:36.169582+00:00"
+      "updated_at": "2026-11-28T09:11:15.806423+00:00"
     },
     "lesson3_targets": {
       "verified_sft": {
@@ -50875,7 +50866,7 @@
         "target": 1000
       },
       "self_repair_sft": {
-        "current": 3296,
+        "current": 3297,
         "target": 3000
       },
       "unique_leads": {
