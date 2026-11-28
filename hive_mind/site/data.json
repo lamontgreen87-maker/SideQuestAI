@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-28T04:41:56.358589+00:00",
+  "generated_at": "2026-11-28T04:42:15.206387+00:00",
   "status": {
     "enabled": false,
     "running": true,
-    "current_stage": "Scout selecting angle in Black Hole Event Horizons & General Relativity (1/5)...",
+    "current_stage": "Running 1 parallel Writer worker(s) (2/5)...",
     "interval_minutes": 0,
     "topic_focus": "",
     "mode": "full",
@@ -11,10 +11,10 @@
     "workers_per_run": 1,
     "calls_per_cycle": 4,
     "arxiv_grounding": true,
-    "total_runs": 22995,
-    "runs_per_hour": 22.7,
-    "verified_count": 3607,
-    "training_examples": 3607,
+    "total_runs": 22998,
+    "runs_per_hour": 22.2,
+    "verified_count": 3608,
+    "training_examples": 3608,
     "training_goal": 3500,
     "training_pct": 100.0,
     "unique_count": 47,
@@ -50,29 +50,36 @@
     "sciencebot_version": "v7",
     "hub_url": "",
     "current_run": {
-      "run_number": 22996,
-      "started_at": "2026-11-28T04:41:53.549967+00:00",
+      "run_number": 22999,
+      "started_at": "2026-11-28T04:42:01.123646+00:00",
       "provider": "ollama",
       "model": "sciencebot-4b",
       "mode": "full",
       "research_phase": "frontier",
       "workers_count": 1,
       "events": [
-        "20:41:53 · Starting Run #22996 (ollama · sciencebot-4b)",
-        "20:41:55 · Data-First Mode active: hunting raw GW170817 / GW190521 H1+L1 .hdf5 strain with >=20 off-source time-slide null trials",
-        "20:41:55 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence"
+        "20:42:01 · Starting Run #22999 (ollama · sciencebot-4b)",
+        "20:42:03 · Data-First Mode active: hunting raw GW170817 / GW190521 H1+L1 .hdf5 strain with >=20 off-source time-slide null trials",
+        "20:42:06 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence",
+        "20:42:14 · Scout hypothesis ready"
       ],
-      "domain": "Black Hole Event Horizons & General Relativity"
+      "domain": "Gravitational Waves & Quasinormal Mode Ringdown",
+      "scout_hypothesis": "Compute the fundamental (ℓ=m=2) gravitational QNM frequency of a non‑spinning binary‑black‑hole merger using the post‑merger ringdown segment of the GW150914 strain (or a similar dataset). Convert the physical frequency to angular frequency (ω) and compare it to the analytic Kerr‑QNM formula (e.g. Berti et al. 2009) for the same mass‑ratio, spin‑parameter, and alignment; a statistically significant deviation (p < 0.01) would falsify the assumption that the observed ringdown follows pure GR. This test can be implemented in a few lines of Python with numpy, scipy (for the waveform loading and Fourier transform), and sympy (to evaluate the analytic expression)."
     }
   },
   "index": {
     "total_articles": 200,
-    "total_terms": 1288,
+    "total_terms": 1289,
     "top_terms": [
       {
         "term": "black",
         "count": 118,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -657,11 +664,6 @@
             "id": "cb594632",
             "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
             "domain": "hawking radiation"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
           }
         ]
       },
@@ -669,6 +671,11 @@
         "term": "hole",
         "count": 107,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -1198,11 +1205,6 @@
             "id": "cb594632",
             "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
             "domain": "hawking radiation"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
           }
         ]
       },
@@ -1674,7 +1676,7 @@
       },
       {
         "term": "test",
-        "count": 78,
+        "count": 77,
         "articles": [
           {
             "id": "33256ecc",
@@ -2060,18 +2062,18 @@
             "id": "c988d97e",
             "title": "Synthetic Test of Razor‑Thin Vlasov Disk Half‑Widths in Strong‑Field Kerr Spacetime",
             "domain": "accretion disk magnetohydrodynamics"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
           }
         ]
       },
       {
         "term": "radius",
-        "count": 67,
+        "count": 68,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -2410,320 +2412,14 @@
         ]
       },
       {
-        "term": "horizon",
-        "count": 61,
-        "articles": [
-          {
-            "id": "59951781",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "40887c7d",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "250c0309",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5aef2026",
-            "title": "Quantitative falsification of the quadratic‑radius ansatz for extremal RN black‑hole shadows",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "d8c65b0a",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "7a075bc4",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "8b14b29e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "efc6409f",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "76c8bce9",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "ec0ebb78",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "8e3b564b",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5cd160ab",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "221a2e23",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "9be37795",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "396e8e6c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "4731618c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5259d2fb",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "3249dfe6",
-            "title": "Quantitative falsification of the quadratic ansatz for extremal RN horizon radius",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "16df8cd5",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "b6d64f0d",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "dec4812c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "21fbae5a",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "faf94c0e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "470cb238",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "861b234c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "33256ecc",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
-          },
-          {
-            "id": "c0445a32",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "ab382f29",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "9583f15e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "616204b5",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "cb83b7da",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "60aa82f1",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "cf99981e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "bff3fe80",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "4fb60e9d",
-            "title": "Kerr Horizon Area Theorem Verification for GWTC Binary Black Hole Mergers",
-            "domain": "Gravitational-Wave Astrophysics / General Relativity"
-          },
-          {
-            "id": "9c83463d",
-            "title": "Dimensionless Post-Merger Velocity Test for GWTC Binary Black Hole Mergers",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "38537960",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon and ISCO Radii",
-            "domain": "neutron star equation of state"
-          },
-          {
-            "id": "670cd94f",
-            "title": "Schwarzschild radius check for the Sun and Earth",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "630c5f97",
-            "title": "Kerr Inner Horizon Radius Bound via Spin Parameter",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "2e690265",
-            "title": "Random verification of the Kerr horizon‑area‑preserving tidal‑deformation scale",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "ec47ffad",
-            "title": "Schwarzschild Horizon and ISCO Radii for a Solar‑Mass Black Hole",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "8089b05b",
-            "title": "Schwarzschild radius check for a solar‑mass object",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "3fe23ee1",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon and ISCO Radii",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "5ca9c4d7",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and the Area–Thermodynamic Identity",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "03d014b1",
-            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "f1867309",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Planck Length in a Random Astrophysical Mass Scenario",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "5a331269",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon and Hawking Temperature Predictions",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "d9245cbb",
-            "title": "Entropy of a Schwarzschild Black Hole: Dimensionless Measure",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "1daed303",
-            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and Bekenstein‑Hawking entropy for a 10 M⊙ black hole",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "ef3e5450",
-            "title": "Magnetic‑field penetration length vs. Schwarzschild horizon radius for a 10 M⊙ black hole",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "bf03be60",
-            "title": "Quantitative sanity check of Schwarzschild horizon area and Hawking temperature for a solar‑mass black hole",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "f4162492",
-            "title": "Quantitative Consistency Checks of Black‑Hole Horizon and ISCO Radii",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "56b3e08b",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Quantum‑Fluctuation Scales",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "69417498",
-            "title": "Schwarzschild Horizon Area, Hawking Temperature, and Cosmological Constant Consistency Test",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "998e4e22",
-            "title": "Quantitative test of Kerr horizon‑area, Hawking‑temperature and entropy consistency",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "ecc4743c",
-            "title": "Quantitative Consistency Checks of Kerr Horizon and ISCO Radii",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "855e58d7",
-            "title": "Quantitative falsification of the Hawking‑radiation power‑law hypothesis",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "fe4700c5",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "c62736a0",
-            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and the Hawking area theorem for a binary black‑hole merger",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "cb594632",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
-          }
-        ]
-      },
-      {
         "term": "simple",
-        "count": 61,
+        "count": 62,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -3032,9 +2728,325 @@
         ]
       },
       {
+        "term": "horizon",
+        "count": 61,
+        "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "59951781",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "40887c7d",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "250c0309",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5aef2026",
+            "title": "Quantitative falsification of the quadratic‑radius ansatz for extremal RN black‑hole shadows",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "d8c65b0a",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "7a075bc4",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "8b14b29e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "efc6409f",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "76c8bce9",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "ec0ebb78",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "8e3b564b",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5cd160ab",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "221a2e23",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "9be37795",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "396e8e6c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "4731618c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5259d2fb",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "3249dfe6",
+            "title": "Quantitative falsification of the quadratic ansatz for extremal RN horizon radius",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "16df8cd5",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "b6d64f0d",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "dec4812c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "21fbae5a",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "faf94c0e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "470cb238",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "861b234c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "33256ecc",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
+          },
+          {
+            "id": "c0445a32",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "ab382f29",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "9583f15e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "616204b5",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "cb83b7da",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "60aa82f1",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "cf99981e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "bff3fe80",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "4fb60e9d",
+            "title": "Kerr Horizon Area Theorem Verification for GWTC Binary Black Hole Mergers",
+            "domain": "Gravitational-Wave Astrophysics / General Relativity"
+          },
+          {
+            "id": "9c83463d",
+            "title": "Dimensionless Post-Merger Velocity Test for GWTC Binary Black Hole Mergers",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "38537960",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon and ISCO Radii",
+            "domain": "neutron star equation of state"
+          },
+          {
+            "id": "670cd94f",
+            "title": "Schwarzschild radius check for the Sun and Earth",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "630c5f97",
+            "title": "Kerr Inner Horizon Radius Bound via Spin Parameter",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "2e690265",
+            "title": "Random verification of the Kerr horizon‑area‑preserving tidal‑deformation scale",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "ec47ffad",
+            "title": "Schwarzschild Horizon and ISCO Radii for a Solar‑Mass Black Hole",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "8089b05b",
+            "title": "Schwarzschild radius check for a solar‑mass object",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "3fe23ee1",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon and ISCO Radii",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "5ca9c4d7",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and the Area–Thermodynamic Identity",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "03d014b1",
+            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "f1867309",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Planck Length in a Random Astrophysical Mass Scenario",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "5a331269",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon and Hawking Temperature Predictions",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "d9245cbb",
+            "title": "Entropy of a Schwarzschild Black Hole: Dimensionless Measure",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "1daed303",
+            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and Bekenstein‑Hawking entropy for a 10 M⊙ black hole",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "ef3e5450",
+            "title": "Magnetic‑field penetration length vs. Schwarzschild horizon radius for a 10 M⊙ black hole",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "bf03be60",
+            "title": "Quantitative sanity check of Schwarzschild horizon area and Hawking temperature for a solar‑mass black hole",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "f4162492",
+            "title": "Quantitative Consistency Checks of Black‑Hole Horizon and ISCO Radii",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "56b3e08b",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Quantum‑Fluctuation Scales",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "69417498",
+            "title": "Schwarzschild Horizon Area, Hawking Temperature, and Cosmological Constant Consistency Test",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "998e4e22",
+            "title": "Quantitative test of Kerr horizon‑area, Hawking‑temperature and entropy consistency",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "ecc4743c",
+            "title": "Quantitative Consistency Checks of Kerr Horizon and ISCO Radii",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "855e58d7",
+            "title": "Quantitative falsification of the Hawking‑radiation power‑law hypothesis",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "fe4700c5",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "c62736a0",
+            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and the Hawking area theorem for a binary black‑hole merger",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "cb594632",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
+            "domain": "hawking radiation"
+          }
+        ]
+      },
+      {
         "term": "check",
         "count": 59,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -3324,11 +3336,242 @@
             "id": "c62736a0",
             "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and the Hawking area theorem for a binary black‑hole merger",
             "domain": "ads cft entanglement"
+          }
+        ]
+      },
+      {
+        "term": "confirming",
+        "count": 46,
+        "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
+            "id": "59951781",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "40887c7d",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "efc6409f",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "76c8bce9",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5cd160ab",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "221a2e23",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "4731618c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5259d2fb",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "16df8cd5",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "b6d64f0d",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "dec4812c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "470cb238",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "ab382f29",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "9583f15e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "616204b5",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "60aa82f1",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "cf99981e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "60dda3ba",
+            "title": "Hawking Temperature of a 400 M⊙ Black Hole: Direct Numerical Evaluation",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "8ddd94dd",
+            "title": "Time‑domain verification of waveform‑generation pipeline components",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "9b5832b0",
+            "title": "Detector Time Offset for GW170817",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "290528c3",
+            "title": "Mass‑Extraction Consistency Test on the GWTC Catalog",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "b842b07d",
+            "title": "Load GW190521 Event from GWOSC Manifest",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "7c1a145a",
+            "title": "GW190521 chirp‑mass consistency test",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "1cf1aa3b",
+            "title": "Load GW190521 GPS Time",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "96406a05",
+            "title": "Fraction of GWTC binary‑black‑hole mergers with radiated mass fraction >5 %",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "41ef3b8e",
+            "title": "Canonical Poisson Bracket Test for a Tiny Null‑Cone Patch",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "84bbac52",
+            "title": "Verification of the analytic ISCO frequency for a non‑rotating Schwarzschild black hole",
             "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "b1903b44",
+            "title": "ISCO radius sanity check for a Kerr black hole",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "0640a457",
+            "title": "Kerr Frame‑Dragging Lense‑Thirring Frequency Consistency Test",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "5ca9c4d7",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and the Area–Thermodynamic Identity",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "03d014b1",
+            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "f1867309",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Planck Length in a Random Astrophysical Mass Scenario",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "43979d62",
+            "title": "Quadrupolar Tidal Deformability of a 10⁹ M⊙ Black Hole: Comparing Analytic Estimates to a Simple Numerical Pipeline",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "8053700b",
+            "title": "Falsification of the low‑frequency ISCO–radiation correspondence for non‑rotating binaries",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "63795613",
+            "title": "Numerical verification of the logarithmic scaling of holographic entanglement entropy in a 3‑D CFT",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "bf03be60",
+            "title": "Quantitative sanity check of Schwarzschild horizon area and Hawking temperature for a solar‑mass black hole",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "694bf040",
+            "title": "Leading‑order PN (2,2) mode amplitude test for GWTC‑like ringdowns",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "56b3e08b",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Quantum‑Fluctuation Scales",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "3531c784",
+            "title": "Validation of the GTD-derived Lense‑Thirring frequency for a Kerr test‑particle",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "a54ff661",
+            "title": "Monotonicity of magnon excitation energy in a spin‑chain with a single missing (defect) spin",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "558758b4",
+            "title": "Monotonic Decrease of Ergosphere Radius in Axisymmetric MHD Equilibria",
+            "domain": "accretion disk magnetohydrodynamics"
+          },
+          {
+            "id": "dc982d5b",
+            "title": "Kerr Frame‑Dragging Angular Velocity Consistency Test",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "ecc4743c",
+            "title": "Quantitative Consistency Checks of Kerr Horizon and ISCO Radii",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "d5697b58",
+            "title": "Testing the GW‑RV amplitude scaling with orbital inclination and eccentricity",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "c988d97e",
+            "title": "Synthetic Test of Razor‑Thin Vlasov Disk Half‑Widths in Strong‑Field Kerr Spacetime",
+            "domain": "accretion disk magnetohydrodynamics"
           }
         ]
       },
@@ -3564,9 +3807,14 @@
         ]
       },
       {
-        "term": "confirming",
-        "count": 45,
+        "term": "exact",
+        "count": 44,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -3574,6 +3822,21 @@
           },
           {
             "id": "40887c7d",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "250c0309",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5aef2026",
+            "title": "Quantitative falsification of the quadratic‑radius ansatz for extremal RN black‑hole shadows",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "d8c65b0a",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
@@ -3588,12 +3851,27 @@
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
+            "id": "8e3b564b",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
             "id": "5cd160ab",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
             "id": "221a2e23",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "9be37795",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "396e8e6c",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
@@ -3605,6 +3883,11 @@
           {
             "id": "5259d2fb",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "3249dfe6",
+            "title": "Quantitative falsification of the quadratic ansatz for extremal RN horizon radius",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
@@ -3623,7 +3906,27 @@
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
+            "id": "faf94c0e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
             "id": "470cb238",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "861b234c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "33256ecc",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
+          },
+          {
+            "id": "c0445a32",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
@@ -3638,8 +3941,8 @@
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "616204b5",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "id": "cb83b7da",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
@@ -3653,49 +3956,34 @@
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
+            "id": "34e987e9",
+            "title": "Quantitative falsification of the simple geometric‑mass estimate for the GW170817 merger",
+            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
+          },
+          {
             "id": "60dda3ba",
             "title": "Hawking Temperature of a 400 M⊙ Black Hole: Direct Numerical Evaluation",
             "domain": "Black Hole Physics / General Relativity"
           },
           {
-            "id": "8ddd94dd",
-            "title": "Time‑domain verification of waveform‑generation pipeline components",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+            "id": "434bd027",
+            "title": "Quantitative falsification of the simple geometric‑mass estimate for the GW170817 merger",
+            "domain": "Black Hole Physics / Gravitational Wave Astrophysics"
           },
           {
-            "id": "9b5832b0",
-            "title": "Detector Time Offset for GW170817",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "290528c3",
-            "title": "Mass‑Extraction Consistency Test on the GWTC Catalog",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "b842b07d",
-            "title": "Load GW190521 Event from GWOSC Manifest",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "7c1a145a",
-            "title": "GW190521 chirp‑mass consistency test",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "1cf1aa3b",
-            "title": "Load GW190521 GPS Time",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "96406a05",
-            "title": "Fraction of GWTC binary‑black‑hole mergers with radiated mass fraction >5 %",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "41ef3b8e",
-            "title": "Canonical Poisson Bracket Test for a Tiny Null‑Cone Patch",
+            "id": "b976956c",
+            "title": "Quantitative falsification of the Hawking‑temperature scaling for Schwarzschild black holes",
             "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "670cd94f",
+            "title": "Schwarzschild radius check for the Sun and Earth",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "815c4e48",
+            "title": "Verification of the Lense‑Thirring Precession Frequency for a Kerr Orbit",
+            "domain": "kerr metric frame dragging"
           },
           {
             "id": "84bbac52",
@@ -3703,24 +3991,14 @@
             "domain": "black hole thermodynamics"
           },
           {
-            "id": "b1903b44",
-            "title": "ISCO radius sanity check for a Kerr black hole",
-            "domain": "kerr metric frame dragging"
+            "id": "fe827a64",
+            "title": "Numerical verification of the rigidity of static axisymmetric vacuum spacetimes in 3D",
+            "domain": "cosmological inflation"
           },
           {
-            "id": "0640a457",
-            "title": "Kerr Frame‑Dragging Lense‑Thirring Frequency Consistency Test",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "5ca9c4d7",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and the Area–Thermodynamic Identity",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "03d014b1",
-            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
-            "domain": "black hole thermodynamics"
+            "id": "8089b05b",
+            "title": "Schwarzschild radius check for a solar‑mass object",
+            "domain": "hawking radiation"
           },
           {
             "id": "f1867309",
@@ -3728,29 +4006,14 @@
             "domain": "ads cft entanglement"
           },
           {
-            "id": "43979d62",
-            "title": "Quadrupolar Tidal Deformability of a 10⁹ M⊙ Black Hole: Comparing Analytic Estimates to a Simple Numerical Pipeline",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "8053700b",
-            "title": "Falsification of the low‑frequency ISCO–radiation correspondence for non‑rotating binaries",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "63795613",
-            "title": "Numerical verification of the logarithmic scaling of holographic entanglement entropy in a 3‑D CFT",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "bf03be60",
-            "title": "Quantitative sanity check of Schwarzschild horizon area and Hawking temperature for a solar‑mass black hole",
+            "id": "5a331269",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon and Hawking Temperature Predictions",
             "domain": "hawking radiation"
           },
           {
-            "id": "694bf040",
-            "title": "Leading‑order PN (2,2) mode amplitude test for GWTC‑like ringdowns",
-            "domain": "gravitational wave ringdown"
+            "id": "f4162492",
+            "title": "Quantitative Consistency Checks of Black‑Hole Horizon and ISCO Radii",
+            "domain": "black hole thermodynamics"
           },
           {
             "id": "56b3e08b",
@@ -3758,45 +4021,20 @@
             "domain": "quantum gravity holography"
           },
           {
-            "id": "3531c784",
-            "title": "Validation of the GTD-derived Lense‑Thirring frequency for a Kerr test‑particle",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "a54ff661",
-            "title": "Monotonicity of magnon excitation energy in a spin‑chain with a single missing (defect) spin",
+            "id": "998e4e22",
+            "title": "Quantitative test of Kerr horizon‑area, Hawking‑temperature and entropy consistency",
             "domain": "quantum gravity holography"
           },
           {
-            "id": "558758b4",
-            "title": "Monotonic Decrease of Ergosphere Radius in Axisymmetric MHD Equilibria",
-            "domain": "accretion disk magnetohydrodynamics"
-          },
-          {
-            "id": "dc982d5b",
-            "title": "Kerr Frame‑Dragging Angular Velocity Consistency Test",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "ecc4743c",
-            "title": "Quantitative Consistency Checks of Kerr Horizon and ISCO Radii",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "d5697b58",
-            "title": "Testing the GW‑RV amplitude scaling with orbital inclination and eccentricity",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "c988d97e",
-            "title": "Synthetic Test of Razor‑Thin Vlasov Disk Half‑Widths in Strong‑Field Kerr Spacetime",
-            "domain": "accretion disk magnetohydrodynamics"
+            "id": "fe4700c5",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
+            "domain": "quantum gravity holography"
           }
         ]
       },
       {
         "term": "quantitative",
-        "count": 45,
+        "count": 44,
         "articles": [
           {
             "id": "5aef2026",
@@ -4017,238 +4255,12 @@
             "id": "cb594632",
             "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
             "domain": "hawking radiation"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
-          }
-        ]
-      },
-      {
-        "term": "exact",
-        "count": 43,
-        "articles": [
-          {
-            "id": "59951781",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "40887c7d",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "250c0309",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5aef2026",
-            "title": "Quantitative falsification of the quadratic‑radius ansatz for extremal RN black‑hole shadows",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "d8c65b0a",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "efc6409f",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "76c8bce9",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "8e3b564b",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5cd160ab",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "221a2e23",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "9be37795",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "396e8e6c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "4731618c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5259d2fb",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "3249dfe6",
-            "title": "Quantitative falsification of the quadratic ansatz for extremal RN horizon radius",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "16df8cd5",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "b6d64f0d",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "dec4812c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "faf94c0e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "470cb238",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "861b234c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "33256ecc",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
-          },
-          {
-            "id": "c0445a32",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "ab382f29",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "9583f15e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "cb83b7da",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "60aa82f1",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "cf99981e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "34e987e9",
-            "title": "Quantitative falsification of the simple geometric‑mass estimate for the GW170817 merger",
-            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
-          },
-          {
-            "id": "60dda3ba",
-            "title": "Hawking Temperature of a 400 M⊙ Black Hole: Direct Numerical Evaluation",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "434bd027",
-            "title": "Quantitative falsification of the simple geometric‑mass estimate for the GW170817 merger",
-            "domain": "Black Hole Physics / Gravitational Wave Astrophysics"
-          },
-          {
-            "id": "b976956c",
-            "title": "Quantitative falsification of the Hawking‑temperature scaling for Schwarzschild black holes",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "670cd94f",
-            "title": "Schwarzschild radius check for the Sun and Earth",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "815c4e48",
-            "title": "Verification of the Lense‑Thirring Precession Frequency for a Kerr Orbit",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "84bbac52",
-            "title": "Verification of the analytic ISCO frequency for a non‑rotating Schwarzschild black hole",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "fe827a64",
-            "title": "Numerical verification of the rigidity of static axisymmetric vacuum spacetimes in 3D",
-            "domain": "cosmological inflation"
-          },
-          {
-            "id": "8089b05b",
-            "title": "Schwarzschild radius check for a solar‑mass object",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "f1867309",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Planck Length in a Random Astrophysical Mass Scenario",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "5a331269",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon and Hawking Temperature Predictions",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "f4162492",
-            "title": "Quantitative Consistency Checks of Black‑Hole Horizon and ISCO Radii",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "56b3e08b",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Quantum‑Fluctuation Scales",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "998e4e22",
-            "title": "Quantitative test of Kerr horizon‑area, Hawking‑temperature and entropy consistency",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "fe4700c5",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
-            "domain": "quantum gravity holography"
           }
         ]
       },
       {
         "term": "schwarzschild",
-        "count": 42,
+        "count": 41,
         "articles": [
           {
             "id": "60dda3ba",
@@ -4454,17 +4466,12 @@
             "id": "cb594632",
             "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
             "domain": "hawking radiation"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
           }
         ]
       },
       {
         "term": "consistency",
-        "count": 41,
+        "count": 40,
         "articles": [
           {
             "id": "290528c3",
@@ -4665,11 +4672,6 @@
             "id": "cb594632",
             "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
             "domain": "hawking radiation"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
           }
         ]
       },
@@ -5066,195 +5068,14 @@
         ]
       },
       {
-        "term": "analytic",
-        "count": 36,
+        "term": "extremal",
+        "count": 37,
         "articles": [
           {
-            "id": "33256ecc",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
-          },
-          {
-            "id": "cb83b7da",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
-          {
-            "id": "f952d5ee",
-            "title": "Toy analytic chirp as a sanity check for waveform‑generation pipelines",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "b7cbd057",
-            "title": "Fundamental (2,2,0) Ringdown Frequency Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "ef5b1e27",
-            "title": "Ringdown QNM Damping‑Time Consistency Test for GW170817 Using Toy Analytic Models",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "348d4742",
-            "title": "Toy BNS Signal Power Estimate Using a Toy PSD",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "7c1a145a",
-            "title": "GW190521 chirp‑mass consistency test",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "38537960",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon and ISCO Radii",
-            "domain": "neutron star equation of state"
-          },
-          {
-            "id": "03121d6b",
-            "title": "Quantitative test of the Schwarzschild ISCO radius",
-            "domain": "cosmological inflation"
-          },
-          {
-            "id": "815c4e48",
-            "title": "Verification of the Lense‑Thirring Precession Frequency for a Kerr Orbit",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "84bbac52",
-            "title": "Verification of the analytic ISCO frequency for a non‑rotating Schwarzschild black hole",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "aae85c65",
-            "title": "Comoving Distance in Simple Power‑Law DE Models",
-            "domain": "neutron star equation of state"
-          },
-          {
-            "id": "b1903b44",
-            "title": "ISCO radius sanity check for a Kerr black hole",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "342b339b",
-            "title": "Ringdown spin bound test for GWTC‑3.0",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "0640a457",
-            "title": "Kerr Frame‑Dragging Lense‑Thirring Frequency Consistency Test",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "96764a18",
-            "title": "Quantitative falsification of the Schwarzschild ISCO via a simple radiative‑drag test",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "ec47ffad",
-            "title": "Schwarzschild Horizon and ISCO Radii for a Solar‑Mass Black Hole",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "0d234788",
-            "title": "Quantitative falsification of the leading‑order GW flux for a circular equatorial EMRI",
-            "domain": "cosmological inflation"
-          },
-          {
-            "id": "8601e37a",
-            "title": "Quantitative Test of the ISCO Radius in a Static, spherically Symmetric Einstein‑Scalar‑Electromagnetism Connection",
-            "domain": "General Relativity / Black Hole Physics"
-          },
-          {
-            "id": "d034e5d3",
-            "title": "Verification of the ISCO radius for a moderate‑spin Kerr black hole",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "43979d62",
-            "title": "Quadrupolar Tidal Deformability of a 10⁹ M⊙ Black Hole: Comparing Analytic Estimates to a Simple Numerical Pipeline",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "8053700b",
-            "title": "Falsification of the low‑frequency ISCO–radiation correspondence for non‑rotating binaries",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "561dec6c",
-            "title": "Axial QNM Frequency Test for Neutron Star EOSs",
-            "domain": "neutron star equation of state"
-          },
-          {
-            "id": "63795613",
-            "title": "Numerical verification of the logarithmic scaling of holographic entanglement entropy in a 3‑D CFT",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "694bf040",
-            "title": "Leading‑order PN (2,2) mode amplitude test for GWTC‑like ringdowns",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "f4162492",
-            "title": "Quantitative Consistency Checks of Black‑Hole Horizon and ISCO Radii",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "8fb5c5ea",
-            "title": "ISCO, Photon Sphere, and Critical Impact Parameter for a Kerr Black Hole (a=0.9)",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "3531c784",
-            "title": "Validation of the GTD-derived Lense‑Thirring frequency for a Kerr test‑particle",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "558758b4",
-            "title": "Monotonic Decrease of Ergosphere Radius in Axisymmetric MHD Equilibria",
-            "domain": "accretion disk magnetohydrodynamics"
-          },
-          {
-            "id": "92598e57",
-            "title": "Radiation‑Pressure ISCO Consistency Test for Low‑Mass Neutron‑Star Accretion Columns",
-            "domain": "neutron star equation of state"
-          },
-          {
-            "id": "dc982d5b",
-            "title": "Kerr Frame‑Dragging Angular Velocity Consistency Test",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "4f4fedf3",
-            "title": "Holographic bound entropy test for a 2‑dimensional corner",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "ecc4743c",
-            "title": "Quantitative Consistency Checks of Kerr Horizon and ISCO Radii",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "d5697b58",
-            "title": "Testing the GW‑RV amplitude scaling with orbital inclination and eccentricity",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "fe4700c5",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "c988d97e",
-            "title": "Synthetic Test of Razor‑Thin Vlasov Disk Half‑Widths in Strong‑Field Kerr Spacetime",
-            "domain": "accretion disk magnetohydrodynamics"
-          }
-        ]
-      },
-      {
-        "term": "extremal",
-        "count": 36,
-        "articles": [
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -5439,8 +5260,13 @@
       },
       {
         "term": "quadratic",
-        "count": 36,
+        "count": 37,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -5625,8 +5451,13 @@
       },
       {
         "term": "scaling",
-        "count": 36,
+        "count": 37,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "efc6409f",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
@@ -5801,6 +5632,192 @@
             "id": "140c22fa",
             "title": "Quantitative falsification of the long‑distance two‑photon exchange scaling for K⁺→e⁺e⁻",
             "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "c988d97e",
+            "title": "Synthetic Test of Razor‑Thin Vlasov Disk Half‑Widths in Strong‑Field Kerr Spacetime",
+            "domain": "accretion disk magnetohydrodynamics"
+          }
+        ]
+      },
+      {
+        "term": "analytic",
+        "count": 36,
+        "articles": [
+          {
+            "id": "33256ecc",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
+          },
+          {
+            "id": "cb83b7da",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "f952d5ee",
+            "title": "Toy analytic chirp as a sanity check for waveform‑generation pipelines",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "b7cbd057",
+            "title": "Fundamental (2,2,0) Ringdown Frequency Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "ef5b1e27",
+            "title": "Ringdown QNM Damping‑Time Consistency Test for GW170817 Using Toy Analytic Models",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "348d4742",
+            "title": "Toy BNS Signal Power Estimate Using a Toy PSD",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "7c1a145a",
+            "title": "GW190521 chirp‑mass consistency test",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "38537960",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon and ISCO Radii",
+            "domain": "neutron star equation of state"
+          },
+          {
+            "id": "03121d6b",
+            "title": "Quantitative test of the Schwarzschild ISCO radius",
+            "domain": "cosmological inflation"
+          },
+          {
+            "id": "815c4e48",
+            "title": "Verification of the Lense‑Thirring Precession Frequency for a Kerr Orbit",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "84bbac52",
+            "title": "Verification of the analytic ISCO frequency for a non‑rotating Schwarzschild black hole",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "aae85c65",
+            "title": "Comoving Distance in Simple Power‑Law DE Models",
+            "domain": "neutron star equation of state"
+          },
+          {
+            "id": "b1903b44",
+            "title": "ISCO radius sanity check for a Kerr black hole",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "342b339b",
+            "title": "Ringdown spin bound test for GWTC‑3.0",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "0640a457",
+            "title": "Kerr Frame‑Dragging Lense‑Thirring Frequency Consistency Test",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "96764a18",
+            "title": "Quantitative falsification of the Schwarzschild ISCO via a simple radiative‑drag test",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "ec47ffad",
+            "title": "Schwarzschild Horizon and ISCO Radii for a Solar‑Mass Black Hole",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "0d234788",
+            "title": "Quantitative falsification of the leading‑order GW flux for a circular equatorial EMRI",
+            "domain": "cosmological inflation"
+          },
+          {
+            "id": "8601e37a",
+            "title": "Quantitative Test of the ISCO Radius in a Static, spherically Symmetric Einstein‑Scalar‑Electromagnetism Connection",
+            "domain": "General Relativity / Black Hole Physics"
+          },
+          {
+            "id": "d034e5d3",
+            "title": "Verification of the ISCO radius for a moderate‑spin Kerr black hole",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "43979d62",
+            "title": "Quadrupolar Tidal Deformability of a 10⁹ M⊙ Black Hole: Comparing Analytic Estimates to a Simple Numerical Pipeline",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "8053700b",
+            "title": "Falsification of the low‑frequency ISCO–radiation correspondence for non‑rotating binaries",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "561dec6c",
+            "title": "Axial QNM Frequency Test for Neutron Star EOSs",
+            "domain": "neutron star equation of state"
+          },
+          {
+            "id": "63795613",
+            "title": "Numerical verification of the logarithmic scaling of holographic entanglement entropy in a 3‑D CFT",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "694bf040",
+            "title": "Leading‑order PN (2,2) mode amplitude test for GWTC‑like ringdowns",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "f4162492",
+            "title": "Quantitative Consistency Checks of Black‑Hole Horizon and ISCO Radii",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "8fb5c5ea",
+            "title": "ISCO, Photon Sphere, and Critical Impact Parameter for a Kerr Black Hole (a=0.9)",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "3531c784",
+            "title": "Validation of the GTD-derived Lense‑Thirring frequency for a Kerr test‑particle",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "558758b4",
+            "title": "Monotonic Decrease of Ergosphere Radius in Axisymmetric MHD Equilibria",
+            "domain": "accretion disk magnetohydrodynamics"
+          },
+          {
+            "id": "92598e57",
+            "title": "Radiation‑Pressure ISCO Consistency Test for Low‑Mass Neutron‑Star Accretion Columns",
+            "domain": "neutron star equation of state"
+          },
+          {
+            "id": "dc982d5b",
+            "title": "Kerr Frame‑Dragging Angular Velocity Consistency Test",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "4f4fedf3",
+            "title": "Holographic bound entropy test for a 2‑dimensional corner",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "ecc4743c",
+            "title": "Quantitative Consistency Checks of Kerr Horizon and ISCO Radii",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "d5697b58",
+            "title": "Testing the GW‑RV amplitude scaling with orbital inclination and eccentricity",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "fe4700c5",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
+            "domain": "quantum gravity holography"
           },
           {
             "id": "c988d97e",
@@ -5991,185 +6008,14 @@
         ]
       },
       {
-        "term": "across",
-        "count": 34,
-        "articles": [
-          {
-            "id": "59951781",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "250c0309",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5aef2026",
-            "title": "Quantitative falsification of the quadratic‑radius ansatz for extremal RN black‑hole shadows",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "d8c65b0a",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "7a075bc4",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "8b14b29e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "ec0ebb78",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5cd160ab",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "396e8e6c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "4731618c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "5259d2fb",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "3249dfe6",
-            "title": "Quantitative falsification of the quadratic ansatz for extremal RN horizon radius",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "16df8cd5",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "dec4812c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "21fbae5a",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "faf94c0e",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "861b234c",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "c0445a32",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "cb83b7da",
-            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
-            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
-          },
-          {
-            "id": "61f51e4f",
-            "title": "Quantitative falsification of the simple geometric‑mass estimate for the GW170817 merger",
-            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
-          },
-          {
-            "id": "ac496bd2",
-            "title": "Quantitative falsification of the simple geometric‑mass estimate for the GW170817 merger (Black Hole Physics / Gravitational Wave Astrophysics)",
-            "domain": "Gravitational Wave Astrophysics / Black Hole Physics"
-          },
-          {
-            "id": "d8f64777",
-            "title": "Chirp‑Velocity Consistency Test for GWTC Binary‑Black‑Hole Mergers",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "b51fad31",
-            "title": "Radiated Mass Fraction and Chirp Mass Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "7c1a145a",
-            "title": "GW190521 chirp‑mass consistency test",
-            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
-          },
-          {
-            "id": "073a8c59",
-            "title": "Mean Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "815c4e48",
-            "title": "Verification of the Lense‑Thirring Precession Frequency for a Kerr Orbit",
-            "domain": "kerr metric frame dragging"
-          },
-          {
-            "id": "f4bc5c33",
-            "title": "Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
-            "domain": "accretion disk magnetohydrodynamics"
-          },
-          {
-            "id": "b83a2e79",
-            "title": "Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "1e482e65",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "gravitational wave astrophysics"
-          },
-          {
-            "id": "ae60c78d",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "dfbd2952",
-            "title": "Radiated Energy Fraction in GWTC Binary Black Hole Mergers",
-            "domain": "cosmological inflation"
-          },
-          {
-            "id": "3810a3ac",
-            "title": "Rényi entropy of a massless scalar on a star‑graph versus a 1‑D chain",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "f2833e1c",
-            "title": "Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
-            "domain": "neutron star equation of state"
-          },
-          {
-            "id": "a54ff661",
-            "title": "Monotonicity of magnon excitation energy in a spin‑chain with a single missing (defect) spin",
-            "domain": "quantum gravity holography"
-          }
-        ]
-      },
-      {
         "term": "nordstr",
-        "count": 34,
+        "count": 35,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -6344,8 +6190,13 @@
       },
       {
         "term": "reissner",
-        "count": 34,
+        "count": 35,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -6515,6 +6366,182 @@
             "id": "fe827a64",
             "title": "Numerical verification of the rigidity of static axisymmetric vacuum spacetimes in 3D",
             "domain": "cosmological inflation"
+          }
+        ]
+      },
+      {
+        "term": "across",
+        "count": 34,
+        "articles": [
+          {
+            "id": "59951781",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "250c0309",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5aef2026",
+            "title": "Quantitative falsification of the quadratic‑radius ansatz for extremal RN black‑hole shadows",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "d8c65b0a",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "7a075bc4",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "8b14b29e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "ec0ebb78",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5cd160ab",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "396e8e6c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "4731618c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "5259d2fb",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "3249dfe6",
+            "title": "Quantitative falsification of the quadratic ansatz for extremal RN horizon radius",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "16df8cd5",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "dec4812c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "21fbae5a",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "faf94c0e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "861b234c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "c0445a32",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "cb83b7da",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
+          {
+            "id": "61f51e4f",
+            "title": "Quantitative falsification of the simple geometric‑mass estimate for the GW170817 merger",
+            "domain": "Gravitational‑Wave Astrophysics / Black Hole Physics"
+          },
+          {
+            "id": "ac496bd2",
+            "title": "Quantitative falsification of the simple geometric‑mass estimate for the GW170817 merger (Black Hole Physics / Gravitational Wave Astrophysics)",
+            "domain": "Gravitational Wave Astrophysics / Black Hole Physics"
+          },
+          {
+            "id": "d8f64777",
+            "title": "Chirp‑Velocity Consistency Test for GWTC Binary‑Black‑Hole Mergers",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "b51fad31",
+            "title": "Radiated Mass Fraction and Chirp Mass Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "7c1a145a",
+            "title": "GW190521 chirp‑mass consistency test",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
+          },
+          {
+            "id": "073a8c59",
+            "title": "Mean Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "815c4e48",
+            "title": "Verification of the Lense‑Thirring Precession Frequency for a Kerr Orbit",
+            "domain": "kerr metric frame dragging"
+          },
+          {
+            "id": "f4bc5c33",
+            "title": "Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
+            "domain": "accretion disk magnetohydrodynamics"
+          },
+          {
+            "id": "b83a2e79",
+            "title": "Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "1e482e65",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "gravitational wave astrophysics"
+          },
+          {
+            "id": "ae60c78d",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "dfbd2952",
+            "title": "Radiated Energy Fraction in GWTC Binary Black Hole Mergers",
+            "domain": "cosmological inflation"
+          },
+          {
+            "id": "3810a3ac",
+            "title": "Rényi entropy of a massless scalar on a star‑graph versus a 1‑D chain",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "f2833e1c",
+            "title": "Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
+            "domain": "neutron star equation of state"
+          },
+          {
+            "id": "a54ff661",
+            "title": "Monotonicity of magnon excitation energy in a spin‑chain with a single missing (defect) spin",
+            "domain": "quantum gravity holography"
           }
         ]
       },
@@ -7344,160 +7371,14 @@
         ]
       },
       {
-        "term": "hawking",
-        "count": 29,
-        "articles": [
-          {
-            "id": "60dda3ba",
-            "title": "Hawking Temperature of a 400 M⊙ Black Hole: Direct Numerical Evaluation",
-            "domain": "Black Hole Physics / General Relativity"
-          },
-          {
-            "id": "b976956c",
-            "title": "Quantitative falsification of the Hawking‑temperature scaling for Schwarzschild black holes",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "bf1b228e",
-            "title": "Quantitative falsification of the null‑cone reduced phase‑space quantization via Hawking temperature check",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "978f47ed",
-            "title": "Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
-            "domain": "gravitational wave astrophysics"
-          },
-          {
-            "id": "d8ef9202",
-            "title": "Quantitative falsification of the Hawking‑radiation power‑law hypothesis",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "8089b05b",
-            "title": "Schwarzschild radius check for a solar‑mass object",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "ae60c78d",
-            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "5ca9c4d7",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and the Area–Thermodynamic Identity",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "d76502ef",
-            "title": "Hawking Temperature Consistency Test for Schwarzschild Black Holes",
-            "domain": "dark matter halo"
-          },
-          {
-            "id": "6283065c",
-            "title": "Quantitative falsification of a simple DM‑induced modification of the Hawking‑radiation power‑law",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "03d014b1",
-            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "f1867309",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Planck Length in a Random Astrophysical Mass Scenario",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "40776452",
-            "title": "Black‑hole entropy consistency test with Hawking temperature",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "5a331269",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon and Hawking Temperature Predictions",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "6e5b847d",
-            "title": "Fundamental length scales of quantum gravity",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "d9245cbb",
-            "title": "Entropy of a Schwarzschild Black Hole: Dimensionless Measure",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "1daed303",
-            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and Bekenstein‑Hawking entropy for a 10 M⊙ black hole",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "bf03be60",
-            "title": "Quantitative sanity check of Schwarzschild horizon area and Hawking temperature for a solar‑mass black hole",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "d26ebd0b",
-            "title": "Schwarzschild vs Kerr ISCO and Hawking temperature sanity check",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "56b3e08b",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Quantum‑Fluctuation Scales",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "69417498",
-            "title": "Schwarzschild Horizon Area, Hawking Temperature, and Cosmological Constant Consistency Test",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "e1c2cc64",
-            "title": "Quantitative Consistency Checks of General Relativity and Quantum‑Corrected Hawking Radiation",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "998e4e22",
-            "title": "Quantitative test of Kerr horizon‑area, Hawking‑temperature and entropy consistency",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "e6ed9b65",
-            "title": "Quantitative test of the Hawking‑radiation power‑law hypothesis",
-            "domain": "gravitational wave ringdown"
-          },
-          {
-            "id": "855e58d7",
-            "title": "Quantitative falsification of the Hawking‑radiation power‑law hypothesis",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "fe4700c5",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
-            "domain": "quantum gravity holography"
-          },
-          {
-            "id": "c62736a0",
-            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and the Hawking area theorem for a binary black‑hole merger",
-            "domain": "ads cft entanglement"
-          },
-          {
-            "id": "cb594632",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
-            "domain": "hawking radiation"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
-          }
-        ]
-      },
-      {
         "term": "order",
-        "count": 29,
+        "count": 30,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "40887c7d",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
@@ -7647,8 +7528,13 @@
       },
       {
         "term": "ansatz",
-        "count": 28,
+        "count": 29,
         "articles": [
+          {
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          },
           {
             "id": "59951781",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -7788,6 +7674,152 @@
             "id": "cf99981e",
             "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
             "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+          }
+        ]
+      },
+      {
+        "term": "hawking",
+        "count": 28,
+        "articles": [
+          {
+            "id": "60dda3ba",
+            "title": "Hawking Temperature of a 400 M⊙ Black Hole: Direct Numerical Evaluation",
+            "domain": "Black Hole Physics / General Relativity"
+          },
+          {
+            "id": "b976956c",
+            "title": "Quantitative falsification of the Hawking‑temperature scaling for Schwarzschild black holes",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "bf1b228e",
+            "title": "Quantitative falsification of the null‑cone reduced phase‑space quantization via Hawking temperature check",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "978f47ed",
+            "title": "Radiated Mass Fraction in GWTC Binary Black Hole Mergers",
+            "domain": "gravitational wave astrophysics"
+          },
+          {
+            "id": "d8ef9202",
+            "title": "Quantitative falsification of the Hawking‑radiation power‑law hypothesis",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "8089b05b",
+            "title": "Schwarzschild radius check for a solar‑mass object",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "ae60c78d",
+            "title": "Radiated Mass Fraction Consistency Test for GWTC Binary Black Hole Mergers",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "5ca9c4d7",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and the Area–Thermodynamic Identity",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "d76502ef",
+            "title": "Hawking Temperature Consistency Test for Schwarzschild Black Holes",
+            "domain": "dark matter halo"
+          },
+          {
+            "id": "6283065c",
+            "title": "Quantitative falsification of a simple DM‑induced modification of the Hawking‑radiation power‑law",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "03d014b1",
+            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "f1867309",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Planck Length in a Random Astrophysical Mass Scenario",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "40776452",
+            "title": "Black‑hole entropy consistency test with Hawking temperature",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "5a331269",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon and Hawking Temperature Predictions",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "6e5b847d",
+            "title": "Fundamental length scales of quantum gravity",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "d9245cbb",
+            "title": "Entropy of a Schwarzschild Black Hole: Dimensionless Measure",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "1daed303",
+            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and Bekenstein‑Hawking entropy for a 10 M⊙ black hole",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "bf03be60",
+            "title": "Quantitative sanity check of Schwarzschild horizon area and Hawking temperature for a solar‑mass black hole",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "d26ebd0b",
+            "title": "Schwarzschild vs Kerr ISCO and Hawking temperature sanity check",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "56b3e08b",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Quantum‑Fluctuation Scales",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "69417498",
+            "title": "Schwarzschild Horizon Area, Hawking Temperature, and Cosmological Constant Consistency Test",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "e1c2cc64",
+            "title": "Quantitative Consistency Checks of General Relativity and Quantum‑Corrected Hawking Radiation",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "998e4e22",
+            "title": "Quantitative test of Kerr horizon‑area, Hawking‑temperature and entropy consistency",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "e6ed9b65",
+            "title": "Quantitative test of the Hawking‑radiation power‑law hypothesis",
+            "domain": "gravitational wave ringdown"
+          },
+          {
+            "id": "855e58d7",
+            "title": "Quantitative falsification of the Hawking‑radiation power‑law hypothesis",
+            "domain": "hawking radiation"
+          },
+          {
+            "id": "fe4700c5",
+            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
+            "domain": "quantum gravity holography"
+          },
+          {
+            "id": "c62736a0",
+            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and the Hawking area theorem for a binary black‑hole merger",
+            "domain": "ads cft entanglement"
+          },
+          {
+            "id": "cb594632",
+            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
+            "domain": "hawking radiation"
           }
         ]
       },
@@ -8598,128 +8630,128 @@
         ]
       },
       {
-        "term": "temperature",
+        "term": "reproduces",
         "count": 24,
         "articles": [
           {
-            "id": "60dda3ba",
-            "title": "Hawking Temperature of a 400 M⊙ Black Hole: Direct Numerical Evaluation",
-            "domain": "Black Hole Physics / General Relativity"
+            "id": "d09ad980",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "b976956c",
-            "title": "Quantitative falsification of the Hawking‑temperature scaling for Schwarzschild black holes",
-            "domain": "gravitational wave ringdown"
+            "id": "59951781",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "bf1b228e",
-            "title": "Quantitative falsification of the null‑cone reduced phase‑space quantization via Hawking temperature check",
-            "domain": "hawking radiation"
+            "id": "40887c7d",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "d8ef9202",
-            "title": "Quantitative falsification of the Hawking‑radiation power‑law hypothesis",
-            "domain": "hawking radiation"
+            "id": "250c0309",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "8089b05b",
-            "title": "Schwarzschild radius check for a solar‑mass object",
-            "domain": "hawking radiation"
+            "id": "5aef2026",
+            "title": "Quantitative falsification of the quadratic‑radius ansatz for extremal RN black‑hole shadows",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "5ca9c4d7",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and the Area–Thermodynamic Identity",
-            "domain": "ads cft entanglement"
+            "id": "d8c65b0a",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "d76502ef",
-            "title": "Hawking Temperature Consistency Test for Schwarzschild Black Holes",
-            "domain": "dark matter halo"
+            "id": "7a075bc4",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "03d014b1",
-            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
-            "domain": "black hole thermodynamics"
+            "id": "8b14b29e",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "f1867309",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Planck Length in a Random Astrophysical Mass Scenario",
-            "domain": "ads cft entanglement"
+            "id": "efc6409f",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "40776452",
-            "title": "Black‑hole entropy consistency test with Hawking temperature",
-            "domain": "ads cft entanglement"
+            "id": "76c8bce9",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "5a331269",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon and Hawking Temperature Predictions",
-            "domain": "hawking radiation"
+            "id": "8e3b564b",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "6e5b847d",
-            "title": "Fundamental length scales of quantum gravity",
-            "domain": "quantum gravity holography"
+            "id": "5cd160ab",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "1daed303",
-            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and Bekenstein‑Hawking entropy for a 10 M⊙ black hole",
-            "domain": "hawking radiation"
+            "id": "221a2e23",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "bf03be60",
-            "title": "Quantitative sanity check of Schwarzschild horizon area and Hawking temperature for a solar‑mass black hole",
-            "domain": "hawking radiation"
+            "id": "9be37795",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "d26ebd0b",
-            "title": "Schwarzschild vs Kerr ISCO and Hawking temperature sanity check",
-            "domain": "quantum gravity holography"
+            "id": "396e8e6c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "56b3e08b",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Quantum‑Fluctuation Scales",
-            "domain": "quantum gravity holography"
+            "id": "5259d2fb",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "69417498",
-            "title": "Schwarzschild Horizon Area, Hawking Temperature, and Cosmological Constant Consistency Test",
-            "domain": "ads cft entanglement"
+            "id": "16df8cd5",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "998e4e22",
-            "title": "Quantitative test of Kerr horizon‑area, Hawking‑temperature and entropy consistency",
-            "domain": "quantum gravity holography"
+            "id": "b6d64f0d",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "855e58d7",
-            "title": "Quantitative falsification of the Hawking‑radiation power‑law hypothesis",
-            "domain": "hawking radiation"
+            "id": "dec4812c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "fe4700c5",
-            "title": "Quantitative Consistency Checks of Schwarzschild Black‑Hole Thermodynamics and Geometric Relations",
-            "domain": "quantum gravity holography"
+            "id": "470cb238",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "051b66c1",
-            "title": "Simple RIAF Heating‑Cooling Balance Test for Sgr A* ",
-            "domain": "accretion disk magnetohydrodynamics"
+            "id": "861b234c",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes (Black Hole Physics / Gravitational‑Wave Astrophysics)",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "c62736a0",
-            "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and the Hawking area theorem for a binary black‑hole merger",
-            "domain": "ads cft entanglement"
+            "id": "c0445a32",
+            "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Holes",
+            "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
           },
           {
-            "id": "cb594632",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
-            "domain": "hawking radiation"
+            "id": "8874fe11",
+            "title": "Quantitative falsification of the H1–L1 time‑lag hypothesis for GW170817",
+            "domain": "Gravitational-Wave Raw Strain (.hdf5)"
           },
           {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
+            "id": "815c4e48",
+            "title": "Verification of the Lense‑Thirring Precession Frequency for a Kerr Orbit",
+            "domain": "kerr metric frame dragging"
           }
         ]
       },
@@ -9211,8 +9243,13 @@
         },
         {
           "term": "ansatz",
-          "count": 28,
+          "count": 29,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -9357,7 +9394,7 @@
         },
         {
           "term": "area",
-          "count": 17,
+          "count": 16,
           "articles": [
             {
               "id": "4fb60e9d",
@@ -9438,11 +9475,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -9533,6 +9565,11 @@
           "term": "black",
           "count": 118,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -10117,11 +10154,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -10479,8 +10511,13 @@
         },
         {
           "term": "better",
-          "count": 13,
+          "count": 14,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "40887c7d",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
@@ -10550,7 +10587,7 @@
         },
         {
           "term": "bekenstein",
-          "count": 12,
+          "count": 11,
           "articles": [
             {
               "id": "8089b05b",
@@ -10606,11 +10643,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         }
@@ -10620,6 +10652,11 @@
           "term": "check",
           "count": 59,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -10909,18 +10946,18 @@
               "id": "c62736a0",
               "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and the Hawking area theorem for a binary black‑hole merger",
               "domain": "ads cft entanglement"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
         {
           "term": "confirming",
-          "count": 45,
+          "count": 46,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -11150,7 +11187,7 @@
         },
         {
           "term": "consistency",
-          "count": 41,
+          "count": 40,
           "articles": [
             {
               "id": "290528c3",
@@ -11351,11 +11388,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -12444,7 +12476,7 @@
         },
         {
           "term": "directly",
-          "count": 15,
+          "count": 14,
           "articles": [
             {
               "id": "f923edc5",
@@ -12515,11 +12547,6 @@
               "id": "cb7cfd8f",
               "title": "Falsifiable test of the look‑elsewhere effect in a toy cosmological scan",
               "domain": "cosmological inflation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -12654,8 +12681,13 @@
       "E": [
         {
           "term": "exact",
-          "count": 43,
+          "count": 44,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -12875,8 +12907,13 @@
         },
         {
           "term": "extremal",
-          "count": 36,
+          "count": 37,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -13389,7 +13426,7 @@
         },
         {
           "term": "entropy",
-          "count": 19,
+          "count": 18,
           "articles": [
             {
               "id": "9a6114ac",
@@ -13480,11 +13517,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -14896,6 +14928,11 @@
           "count": 107,
           "articles": [
             {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
+            {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
               "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
@@ -15424,11 +15461,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -15436,6 +15468,11 @@
           "term": "horizon",
           "count": 61,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -15735,11 +15772,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -15906,7 +15938,7 @@
         },
         {
           "term": "hawking",
-          "count": 29,
+          "count": 28,
           "articles": [
             {
               "id": "60dda3ba",
@@ -16047,11 +16079,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -16148,8 +16175,13 @@
         },
         {
           "term": "horizons",
-          "count": 11,
+          "count": 12,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -16392,8 +16424,13 @@
       "L": [
         {
           "term": "leading",
-          "count": 22,
+          "count": 23,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "40887c7d",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
@@ -17766,8 +17803,13 @@
       "N": [
         {
           "term": "nordstr",
-          "count": 34,
+          "count": 35,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -17942,7 +17984,7 @@
         },
         {
           "term": "numerical",
-          "count": 18,
+          "count": 17,
           "articles": [
             {
               "id": "bff3fe80",
@@ -18028,11 +18070,6 @@
               "id": "c988d97e",
               "title": "Synthetic Test of Razor‑Thin Vlasov Disk Half‑Widths in Strong‑Field Kerr Spacetime",
               "domain": "accretion disk magnetohydrodynamics"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         }
@@ -18201,8 +18238,13 @@
         },
         {
           "term": "order",
-          "count": 29,
+          "count": 30,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "40887c7d",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
@@ -18961,7 +19003,7 @@
         },
         {
           "term": "precision",
-          "count": 15,
+          "count": 14,
           "articles": [
             {
               "id": "250c0309",
@@ -19031,11 +19073,6 @@
             {
               "id": "d5697b58",
               "title": "Testing the GW‑RV amplitude scaling with orbital inclination and eccentricity",
-              "domain": "black hole thermodynamics"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
               "domain": "black hole thermodynamics"
             }
           ]
@@ -19166,7 +19203,7 @@
       "Q": [
         {
           "term": "quantitative",
-          "count": 45,
+          "count": 44,
           "articles": [
             {
               "id": "5aef2026",
@@ -19387,18 +19424,18 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
         {
           "term": "quadratic",
-          "count": 36,
+          "count": 37,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -19585,8 +19622,13 @@
       "R": [
         {
           "term": "radius",
-          "count": 67,
+          "count": 68,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -19926,8 +19968,13 @@
         },
         {
           "term": "reissner",
-          "count": 34,
+          "count": 35,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -20641,8 +20688,13 @@
         },
         {
           "term": "reproduces",
-          "count": 23,
+          "count": 24,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -20762,7 +20814,7 @@
         },
         {
           "term": "rotating",
-          "count": 21,
+          "count": 20,
           "articles": [
             {
               "id": "60dda3ba",
@@ -20863,11 +20915,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -21159,8 +21206,13 @@
       "S": [
         {
           "term": "simple",
-          "count": 61,
+          "count": 62,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "59951781",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons (Black Hole Physics / Gravitational‑Wave Astrophysics)",
@@ -21470,7 +21522,7 @@
         },
         {
           "term": "schwarzschild",
-          "count": 42,
+          "count": 41,
           "articles": [
             {
               "id": "60dda3ba",
@@ -21676,18 +21728,18 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
         {
           "term": "scaling",
-          "count": 36,
+          "count": 37,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "efc6409f",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
@@ -22522,7 +22574,7 @@
       "T": [
         {
           "term": "test",
-          "count": 78,
+          "count": 77,
           "articles": [
             {
               "id": "33256ecc",
@@ -22908,17 +22960,12 @@
               "id": "c988d97e",
               "title": "Synthetic Test of Razor‑Thin Vlasov Disk Half‑Widths in Strong‑Field Kerr Spacetime",
               "domain": "accretion disk magnetohydrodynamics"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
         {
           "term": "temperature",
-          "count": 24,
+          "count": 23,
           "articles": [
             {
               "id": "60dda3ba",
@@ -23034,11 +23081,6 @@
               "id": "cb594632",
               "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Entropy",
               "domain": "hawking radiation"
-            },
-            {
-              "id": "bb11913f",
-              "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-              "domain": "black hole thermodynamics"
             }
           ]
         },
@@ -23334,8 +23376,13 @@
       "U": [
         {
           "term": "used",
-          "count": 16,
+          "count": 17,
           "articles": [
+            {
+              "id": "d09ad980",
+              "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
+              "domain": "Black Hole Physics / Gravitational‑Wave Astrophysics"
+            },
             {
               "id": "ec0ebb78",
               "title": "Quadratic‑Radius Check of Extremal Reissner‑Nordström Black Hole Horizons",
@@ -24804,57 +24851,6 @@
         ]
       },
       {
-        "title": "Black hole thermodynamics",
-        "url": "https://en.wikipedia.org/wiki/Black_hole_thermodynamics",
-        "articles": [
-          {
-            "id": "200484eb",
-            "title": "Radiated Mass Fraction in Binary Black Hole Mergers",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "84bbac52",
-            "title": "Verification of the analytic ISCO frequency for a non‑rotating Schwarzschild black hole",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "2e690265",
-            "title": "Random verification of the Kerr horizon‑area‑preserving tidal‑deformation scale",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "48deca5b",
-            "title": "Earth‑scale Schwarzschild radius vs Planck length",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "03d014b1",
-            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "f4162492",
-            "title": "Quantitative Consistency Checks of Black‑Hole Horizon and ISCO Radii",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "d5697b58",
-            "title": "Testing the GW‑RV amplitude scaling with orbital inclination and eccentricity",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "90070d78",
-            "title": "Falsifiable test of the angular‑diameter–impact‑parameter relation for Schwarzschild black holes",
-            "domain": "black hole thermodynamics"
-          },
-          {
-            "id": "bb11913f",
-            "title": "Quantitative Consistency Test of Schwarzschild Horizon Area, Hawking Temperature, and Bekenstein‑Hawking Entropy for a 10 M☉ Black Hole",
-            "domain": "black hole thermodynamics"
-          }
-        ]
-      },
-      {
         "title": "Cosmic inflation",
         "url": "https://en.wikipedia.org/wiki/Cosmic_inflation",
         "articles": [
@@ -24953,6 +24949,52 @@
             "id": "c62736a0",
             "title": "Random verification of Schwarzschild horizon area, Hawking temperature, and the Hawking area theorem for a binary black‑hole merger",
             "domain": "ads cft entanglement"
+          }
+        ]
+      },
+      {
+        "title": "Black hole thermodynamics",
+        "url": "https://en.wikipedia.org/wiki/Black_hole_thermodynamics",
+        "articles": [
+          {
+            "id": "200484eb",
+            "title": "Radiated Mass Fraction in Binary Black Hole Mergers",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "84bbac52",
+            "title": "Verification of the analytic ISCO frequency for a non‑rotating Schwarzschild black hole",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "2e690265",
+            "title": "Random verification of the Kerr horizon‑area‑preserving tidal‑deformation scale",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "48deca5b",
+            "title": "Earth‑scale Schwarzschild radius vs Planck length",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "03d014b1",
+            "title": "Black Hole Thermodynamics Check for a 10 M☉ Schwarzschild Black Hole",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "f4162492",
+            "title": "Quantitative Consistency Checks of Black‑Hole Horizon and ISCO Radii",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "d5697b58",
+            "title": "Testing the GW‑RV amplitude scaling with orbital inclination and eccentricity",
+            "domain": "black hole thermodynamics"
+          },
+          {
+            "id": "90070d78",
+            "title": "Falsifiable test of the angular‑diameter–impact‑parameter relation for Schwarzschild black holes",
+            "domain": "black hole thermodynamics"
           }
         ]
       },
@@ -25355,17 +25397,17 @@
     "lesson": "Lesson 3 (v5)",
     "v4_live": {
       "pod": "dual-4090-v7",
-      "cycles": 75,
-      "verified": 48,
+      "cycles": 76,
+      "verified": 49,
       "errors": 0,
       "elapsed_sec": 2605.9,
       "duration_sec": 0,
-      "rate_per_hr": 103.6,
-      "updated_at": "2026-11-28T04:41:52.725142+00:00"
+      "rate_per_hr": 105.0,
+      "updated_at": "2026-11-28T04:42:00.338646+00:00"
     },
     "lesson3_targets": {
       "verified_sft": {
-        "current": 3607,
+        "current": 3608,
         "target": 2500
       },
       "dpo_pairs": {
@@ -25385,7 +25427,7 @@
         "target": 400
       },
       "data_first_hdf5": {
-        "current": 65,
+        "current": 66,
         "target": 100
       }
     }
