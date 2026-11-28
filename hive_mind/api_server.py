@@ -640,6 +640,24 @@ async def get_science_dual_progress():
             v7_exam = json.loads(exam_file.read_text(encoding="utf-8", errors="ignore"))
         except Exception:
             v7_exam = {}
+    compete_pods = []
+    for cf in sorted((mem_dir / "training").glob("compete_*.json")):
+        try:
+            cd = json.loads(cf.read_text(encoding="utf-8", errors="ignore"))
+            cy = int(cd.get("cycles", 0))
+            vr = int(cd.get("verified", 0))
+            pct = round((100.0 * vr / cy), 1) if cy > 0 else 0.0
+            compete_pods.append({
+                "tag": cd.get("tag") or cf.stem.replace("compete_", ""),
+                "cycles": cy,
+                "verified": vr,
+                "errors": int(cd.get("errors", 0)),
+                "pass_pct": pct,
+                "elapsed_sec": float(cd.get("elapsed_sec", 0.0)),
+            })
+        except Exception:
+            pass
+    leader = max(compete_pods, key=lambda x: (x["pass_pct"], x["verified"]))["tag"] if compete_pods else None
     return {
         "lesson": "v8 Prep (v7 Live)",
         "lesson4_targets": l4_targets,
@@ -653,6 +671,7 @@ async def get_science_dual_progress():
         },
         "pod2_4090": live,
         "v7_phd_exam": v7_exam,
+        "compete": {"pods": compete_pods, "leader": leader},
         "active_train": _fetch_active_train_progress(mem_dir),
     }
 
