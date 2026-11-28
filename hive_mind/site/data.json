@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-28T09:56:41.888488+00:00",
+  "generated_at": "2026-11-28T09:56:48.771297+00:00",
   "status": {
     "enabled": false,
     "running": true,
-    "current_stage": "Scout selecting angle in Hawking Radiation & Black Hole Thermodynamics (1/5)...",
+    "current_stage": "Executing 1 computational Python experiment(s) in parallel (3/5)...",
     "interval_minutes": 0,
     "topic_focus": "",
     "mode": "full",
@@ -11,8 +11,8 @@
     "workers_per_run": 1,
     "calls_per_cycle": 4,
     "arxiv_grounding": true,
-    "total_runs": 64,
-    "runs_per_hour": 138.8,
+    "total_runs": 61,
+    "runs_per_hour": 138.6,
     "verified_count": 4057,
     "training_examples": 4057,
     "training_goal": 3500,
@@ -48,23 +48,27 @@
     "sciencebot_version": "v7",
     "hub_url": "",
     "current_run": {
-      "run_number": 65,
-      "started_at": "2026-11-28T09:55:37.595431+00:00",
+      "run_number": 62,
+      "started_at": "2026-11-28T09:54:35.812023+00:00",
       "provider": "ollama",
       "model": "sciencebot-4b",
       "mode": "full",
       "research_phase": "frontier",
       "workers_count": 1,
       "events": [
-        "01:55:37 · Starting Run #65 (ollama · sciencebot-4b)",
-        "01:55:51 · arXiv paper selected: Black hole entropy from angular holonomies of Sine-Gordon soliton lattices in AdS$_3$",
-        "01:56:02 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence",
-        "01:56:41 · Scout hypothesis ready"
+        "01:54:35 · Starting Run #62 (ollama · sciencebot-4b)",
+        "01:54:53 · arXiv paper selected: Super-Eddington Neutron Star Accretion Columns: Comparing GRRMHD Simulations with Spectral Models",
+        "01:55:09 · Loaded 5 falsified/rejected run(s) + passing baselines as prior evidence",
+        "01:55:30 · Scout hypothesis ready",
+        "01:56:44 · 1 parallel Writer(s) completed"
       ],
-      "domain": "Hawking Radiation & Black Hole Thermodynamics",
-      "arxiv_title": "Black hole entropy from angular holonomies of Sine-Gordon soliton lattices in AdS$_3$",
-      "arxiv_url": "http://arxiv.org/abs/2611.34444v1",
-      "scout_hypothesis": "**Hypothesis:** The leading‑order quantum correction to the Schwarzschild shadow radius is  \n\\[\n\\frac{r_{\\rm sh}^{\\rm q}}{r_{\\rm sh}^{\\rm GR}} = 1 + \\alpha^2,\\qquad \\alpha\\equiv\\frac{\\ell_{\\rm P}}{\\sqrt{GM/c^2}},\n\\]  \nwhere \\(\\ell_{\\rm P}=\\sqrt{\\hbar G/c^3}\\) is the Planck length and \\(M\\) is the black‑hole mass.  \n\n**Test:** Compute the classical shadow radius for Sgr A* (\\(M_{\\rm SgrA}=4.3\\times10^6\\,M_\\odot\\)), apply the correction, and compare the fractional shift \\(\\Delta\\theta/\\theta\\) to the classical value. If the correction is purely a leading‑order scaling, \\(\\Delta\\theta/\\theta\\) should be ≲10⁻¹² (the approximate double‑precision limit for visible‑light observations).  \n\n```python\nimport math\n\n# Physical constants (SI)\nG   = 6.67430e-11          # m³·kg⁻¹·s⁻²\nc   = 2.99792458e8         # m·s⁻¹\nhbar= 1.054571817e-34      # J·s\nM_sun = 1.98847e30         # kg\n\n# Black‑hole parameters for Sgr A*\nM_bh = 4.3e6 * M_sun       # kg\nD    = 8.2e3 * 3.085677581e16  # 8.2 kpc in metres\n\n# Classical shadow radius (Schwarzschild: r_sh = 3√3 GM/c²)\nr_sh_gr = 3 * math.sqrt(3) * G * M_bh / c**2\n\n# Planck length and quantum‑correction factor\nalpha = math.sqrt(hbar * G / c**3) / math.sqrt(G * M_bh / c**2)   # = ℓ_P / r_s\nr_sh_q = r_sh_gr * (1 + alpha**2)\n\n#"
+      "domain": "Relativistic Jets & Accretion Disks",
+      "arxiv_title": "Super-Eddington Neutron Star Accretion Columns: Comparing GRRMHD Simulations with Spectral Models",
+      "arxiv_url": "http://arxiv.org/abs/2611.32865v1",
+      "scout_hypothesis": "**Test:** Compute the quantum‑corrected shadow radius for Sgr A* using the effective metric derived in the paper and compare it to the classical Schwarzschild result.  \n\n**Implementation (Python):**  \n\n```python\nimport os, json, math\n\n# Physical constants (SI)\nG = 6.67430e-11          # m³ kg⁻¹ s⁻²\nc = 2.99792458e8         # m s⁻¹\nhbar = 1.054571817e-34   # J s\nM_sun = 1.98847e30       # kg\n\n# Black‑hole parameters for Sgr A*\nM_bh = 4.3e6 * M_sun      # kg\nD = 8.2e3 * 3.085677581e16  # 8.2 kpc in metres\n\n# Classical Schwarzschild shadow radius (radians)\nr_sh_classic = 3 * math.sqrt(3) * G * M_bh / c**2\ntheta_GR = r_sh_classic / D  # rad\n\n# Quantum correction from the effective metric\nlP = math.sqrt(hbar * G / c**3)          # Planck length\nalpha = lP / math.sqrt(G * M_bh / c**2)  # dimensionless scaling\ntheta_q = theta_GR * (1 + alpha**2)\n\n# Relative deviation\ndelta_frac = abs(theta_q - theta_GR) / theta_GR\nprint(f\"Classical angle (rad)   : {theta_GR:.3e}\")\nprint(f\"Quantum‑corrected angle : {theta_q:.3e}\")\nprint(f\"Fractional deviation      : {delta_frac:.3e}\")\n```\n\n**Expectation:** If the correction scales as ℓ_P²/r_s², the fractional deviation should be ≲10⁻⁸⁴ for Sgr A*, i.e. completely undetectable with present EHT precision. The script prints a deviation of ≈0 (or the printed value matches the classical result to machine precision), confirming the scaling.",
+      "worker_titles": [
+        "W1: Quantum‑Corrected Black‑Hole Shadow Radius Test for Sgr A* using the Effective Einstein–Gauss–Bonnet–Scalar Metric"
+      ]
     }
   },
   "index": {
