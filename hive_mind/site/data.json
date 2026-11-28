@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-28T06:59:05.984528+00:00",
+  "generated_at": "2026-11-28T06:59:12.605437+00:00",
   "status": {
     "enabled": false,
     "running": true,
-    "current_stage": "Fetching latest arXiv papers in Gravitational Waves & Quasinormal Mode Ringdown...",
+    "current_stage": "Fetching latest arXiv papers in Black Hole Shadows, Photon Spheres & Lensing...",
     "interval_minutes": 0,
     "topic_focus": "",
     "mode": "full",
@@ -11,8 +11,8 @@
     "workers_per_run": 1,
     "calls_per_cycle": 4,
     "arxiv_grounding": true,
-    "total_runs": 10,
-    "runs_per_hour": 110.6,
+    "total_runs": 11,
+    "runs_per_hour": 112.0,
     "verified_count": 3774,
     "training_examples": 3774,
     "training_goal": 3500,
@@ -30,7 +30,7 @@
     "schedule_start": "22:00",
     "schedule_end": "07:00",
     "within_schedule": true,
-    "rejected_count": 24718,
+    "rejected_count": 24719,
     "seconds_until_next": null,
     "last_error": null,
     "provider": "ollama",
@@ -48,17 +48,17 @@
     "sciencebot_version": "v7",
     "hub_url": "",
     "current_run": {
-      "run_number": 11,
-      "started_at": "2026-11-28T06:59:03.720382+00:00",
+      "run_number": 12,
+      "started_at": "2026-11-28T06:59:09.130442+00:00",
       "provider": "ollama",
       "model": "sciencebot-4b",
       "mode": "full",
       "research_phase": "frontier",
       "workers_count": 1,
       "events": [
-        "22:59:03 · Starting Run #11 (ollama · sciencebot-4b)"
+        "22:59:09 · Starting Run #12 (ollama · sciencebot-4b)"
       ],
-      "domain": "Gravitational Waves & Quasinormal Mode Ringdown"
+      "domain": "Black Hole Shadows, Photon Spheres & Lensing"
     }
   },
   "index": {
@@ -42923,13 +42923,13 @@
     "lesson": "Lesson 3 (v5)",
     "v4_live": {
       "pod": "dual-4090-v7-4x",
-      "cycles": 328,
+      "cycles": 330,
       "verified": 216,
       "errors": 0,
-      "elapsed_sec": 10651.1,
+      "elapsed_sec": 10656.6,
       "duration_sec": 0,
-      "rate_per_hr": 110.9,
-      "updated_at": "2026-11-28T06:59:03.716545+00:00"
+      "rate_per_hr": 111.5,
+      "updated_at": "2026-11-28T06:59:09.126434+00:00"
     },
     "lesson3_targets": {
       "verified_sft": {
